@@ -20,7 +20,7 @@ export default function Home() {
    
     return (
       <div>
-        {data.map((item) => <div>{item.fields.workshop_title}</div>)}
+        {data.map((item) => <div key={item.fields.workshop_title}>{item.fields.workshop_title}</div>)}
       </div>
     )
   }
