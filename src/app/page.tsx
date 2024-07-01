@@ -1,6 +1,7 @@
 import BackgroundImage from "@/components/BackgroundImage";
 import CountdownTimer from "@/components/CountdownTimer";
-import Navbar from "@/components/Navbar"
+import Button from "@/components/Button";
+import Navbar from "@/components/Navbar";
 
 const BACKGROUND_URL = "/welcome-ceremony.jpg";
 const BACKGROUND_ALT = "FACT 2023 Welcome Ceremony";
@@ -18,9 +19,13 @@ export default function Home() {
             <div className="italic font-light my-1 mt-3">Philippine Student Association</div>
             <div className="italic font-light my-1">University of Illinois at Urbana-Champaign</div>
           </div>
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-center text-center">
             <CountdownTimer 
-            date={new Date('October 31, 2024 19:00:00')}
+              date={new Date('October 31, 2024 19:00:00')}
+            />
+            <Button 
+              text="REGISTER NOW"
+              url="/"
             />
           </div>
         </div>
