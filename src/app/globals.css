@@ -5,9 +5,13 @@
 :root {
   --foreground-rgb: 250, 250, 250;
   --background-rgb: 50, 50, 50;
+  --background-primary: #72161D;
+  --text-primary: #FFFFFF;
+  --highlight-primary: #FAD215;
+  --highlight-secondary: #F8F7DA;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-rgb));
+  color: var(--text-primary);
+  background: var(--background-primary);
 }
