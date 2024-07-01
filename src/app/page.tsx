@@ -10,10 +10,19 @@ export default function Home() {
     <>
       <BackgroundImage imageURL={BACKGROUND_URL}>
         <Navbar/>
-        <div className="flex flex-col justify-center text-center">
-          <div className="italic text-4xl">MAGBUBUNGA</div>
-          <div className="font-bold text-9xl my-6">FACT 2024</div>
-          <div className="text-4xl">Planting Prosperity</div>
+        <div className="flex sm: flex-col-reverse md:flex-row">
+          <div className="flex flex-col justify-start">
+            <div className="font-bold text-4xl my-1">MAGBUBUNGA</div>
+            <div className="font-bold text-4xl my-1">Planting Prosperity</div>
+            <div className="font-bold text-4xl my-1">FACT 2024</div>
+            <div className="italic font-light my-1 mt-3">Philippine Student Association</div>
+            <div className="italic font-light my-1">University of Illinois at Urbana-Champaign</div>
+          </div>
+          <div className="flex flex-col justify-center">
+            <CountdownTimer 
+            date={new Date('October 31, 2024 19:00:00')}
+            />
+          </div>
         </div>
       </BackgroundImage>
     </>

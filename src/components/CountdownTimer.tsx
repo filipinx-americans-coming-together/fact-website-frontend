@@ -1,5 +1,6 @@
 "use client"
 
+import { time } from "console";
 import { useEffect, useState } from "react";
 
 interface CountdownTimeLeft {
@@ -16,9 +17,12 @@ const INIT_TIME = {
     seconds: 0
 }
 
-const FACT_2024_DATE = new Date('November 20, 2024 19:00:00')
+interface CountdownTimerProps {
+    date: Date;
+}
 
-export default function CountdownTimer() {
+
+export default function CountdownTimer({ date }: CountdownTimerProps) {
     const [timeLeft, setTimeLeft] = useState<CountdownTimeLeft>(INIT_TIME);
 
     useEffect(() => {
@@ -29,10 +33,10 @@ export default function CountdownTimer() {
         }, 1000)
     }, []);
 
-    function calculateTimeLeft(): CountdownTimeLeft {
+    const calculateTimeLeft = (): CountdownTimeLeft => {
         let timeLeft: CountdownTimeLeft = {};
         let currentDate = new Date();
-        let difference = FACT_2024_DATE.getTime() - currentDate.getTime();
+        let difference = date.getTime() - currentDate.getTime();
 
         if (difference > 0) {
             timeLeft = {
@@ -48,17 +52,19 @@ export default function CountdownTimer() {
 
     return (
         <>
-            <div>
-                {timeLeft.days}
-            </div>
-            <div>
-                {timeLeft.hours}
-            </div>
-            <div>
-                {timeLeft.minutes}
-            </div>
-            <div>
-                {timeLeft.seconds}
+            <div className="flex flex-row text-center">
+                <div className="mx-2">
+                    <div className="font-bold text-7xl">{timeLeft.days}</div>
+                    <div>DAYS</div>
+                </div>
+                <div className="mx-2">
+                    <div className="font-bold text-7xl">{timeLeft.hours}</div>
+                    <div>HOURS</div>
+                </div>
+                <div className="mx-2">
+                    <div className="font-bold text-7xl">{timeLeft.minutes}</div>
+                    <div>MINUTES</div>
+                </div>
             </div>
         </>
     )
