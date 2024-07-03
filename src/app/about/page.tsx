@@ -1,6 +1,9 @@
 import Navbar from "@/components/Navbar";
 import Button from "@/components/Button";
 
+const IMG1_URL = "/variety-show.JPG";
+const IMG2_URL = "/workshop.JPG";
+
 export default function About() {
     return (
         <>
@@ -33,10 +36,10 @@ export default function About() {
                         professional world ready to give back to their
                         community.
                     </div>
-                    <img src="/variety-show.JPG" className="w-5/6 h-auto mt-10"/>
+                    <img src={IMG1_URL} className="w-5/6 h-auto mt-10"/>
                 </div>
                 <div className="flex flex-col w-2/6 items-center justify-between">
-                    <img src="/workshop.JPG"/>
+                    <img src={IMG2_URL}/>
                     <Button text="REGISTER NOW" url="/" />
                     <div className="text-right">
                         The theme for the 32nd annual Filipino Americans Coming
