@@ -8,7 +8,7 @@ export default function BackgroundImage({
   children,
 }: BackgroundImageProps) {
   return (
-    <div className="relative w-screen h-screen">
+    <div className="relative h-screen w-screen">
       <div
         className="absolute inset-0 bg-cover bg-center opacity-50"
         style={{ backgroundImage: `url(${imageURL})` }}

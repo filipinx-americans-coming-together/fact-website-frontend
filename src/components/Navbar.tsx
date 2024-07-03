@@ -1,8 +1,23 @@
+import Link from "next/link";
+import MobileNav from "./MobileNav";
+
 export default function Navbar() {
+    const NAV_LINKS = [
+        { text: "Home", path: "/" },
+        { text: "About", path: "/about" },
+
+    ];
+
     return (
-        <div className="w-full flex flex-row justify-start fixed top-0 left-0 m-8">
-            <a href="/" className="px-4 text-white hover:text-slate-400">Home</a>
-            <a href="/about" className="px-4 text-white hover:text-slate-400">About</a>
+        <div className="flex flex-row w-full p-6 bg-background-primary items-center">
+            <div className="flex flex-row w-full sm:hidden md:block">
+                {NAV_LINKS.map(({ text, path }) => (
+                    <Link key={text} href={path} prefetch={true} className=" mx-8 text-text-primary hover:text-highlight-primary">
+                        {text}
+                    </Link>
+                ))}
+            </div>
+            <MobileNav navList={NAV_LINKS}/>
         </div>
-    )
+    );
 }
