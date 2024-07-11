@@ -1,5 +1,6 @@
 "use client";
 
+import Navbar from "@/components/Navbar";
 import { useState } from "react";
 
 export default function Register() {
@@ -123,6 +124,7 @@ export default function Register() {
 
     return (
         <>
+            <Navbar />
             <div className="h-screen flex flex-col items-center justify-center">
                 {formPage}
 

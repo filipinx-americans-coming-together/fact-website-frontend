@@ -5,6 +5,7 @@ import WorkshopCard from "@/components/WorkshopCard";
 export default function Dashboard() {
     return (
         <>
+            <Navbar />
             <div className="flex justify-evenly sm: flex-col sm:text-center md:flex-row md:text-left">
                 <div>
                     <div>
