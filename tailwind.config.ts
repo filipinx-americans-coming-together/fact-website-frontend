@@ -18,8 +18,8 @@ const config: Config = {
         "text-primary": "#F7F7F7",
         "highlight-primary": "#95AA8C",
         "highlight-secondary": "#2B4C4B",
-        "highlight-2-primary": "DAB3EE",
-        "highlight-2-secondary": "9580A0",
+        "highlight-2-primary": "#DAB3EE",
+        "highlight-2-secondary": "#9580A0",
       }
     },
   },

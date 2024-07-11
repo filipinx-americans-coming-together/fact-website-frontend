@@ -2,6 +2,7 @@
 
 import Navbar from "@/components/Navbar";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Register() {
     const [pageNumber, setPageNumber] = useState(0);
@@ -114,9 +115,10 @@ export default function Register() {
             formPage = (
                 <div
                     id="page2"
-                    className="h-4/6 w-4/12 px-20 py-12 bg-text-primary text-black items-center rounded-lg"
+                    className="h-4/6 w-4/12 px-20 py-12 bg-text-primary text-black items-center rounded-lg flex flex-col justify-between"
                 >
                     <div className="text-center mb-6">Payment</div>
+                    <Link href="/dashboard" className="px-5 py-2.5 me-2 mb-2 rounded-md bg-blue-600 text-text-primary hover:bg-blue-700">Submit</Link>
                 </div>
             );
             break;
