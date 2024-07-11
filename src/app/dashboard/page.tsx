@@ -17,7 +17,7 @@ export default function Dashboard() {
                     </div>
                     <div className="text-center my-6">
 
-                    <Button text="EDIT PROFILE" url="/" />
+                    <Button text="EDIT PROFILE" url="/profile" />
                     </div>
                     <div className="flex flex-col justify-center items-center bg-text-primary px-2 py-4 my-4">
                         <WorkshopCard
@@ -43,7 +43,7 @@ export default function Dashboard() {
                         />
                     </div>
                     <div className="text-center my-6">
-                        <Button text="UPDATE WORKSHOPS" url="/" />
+                        <Button text="UPDATE WORKSHOPS" url="/workshops" />
                     </div>
                 </div>
                 <div>
