@@ -1,21 +1,29 @@
 "use client";
 
-import { MutableRefObject, useEffect, useRef } from "react";
+import { useState } from "react";
 
 export default function Register() {
-    const page1Ref = useRef(null);
-    const page2Ref = useRef(null);
-    const page3Ref = useRef(null);
+    const [pageNumber, setPageNumber] = useState(0);
 
-    return (
-        <>
-            <div className="h-screen flex flex-column items-center justify-center">
+    const pageBack = () => {
+        setPageNumber(pageNumber - 1);
+    };
+
+    const pageForward = () => {
+        setPageNumber(pageNumber + 1);
+    };
+
+    let formPage = <div></div>;
+
+    // set page
+    switch (pageNumber) {
+        case 0:
+            formPage = (
                 <div
-                    ref={page1Ref}
-                    id="page1"
-                    className="hidden px-20 py-12 bg-text-primary text-black rounded-lg"
+                    id="page0"
+                    className="h-4/5 w-4/12 px-20 py-12 bg-text-primary text-black items-center rounded-lg"
                 >
-                    <div>Create Your FACT Account</div>
+                    <div className="text-center mb-6">Create Your FACT Account</div>
                     <form autoComplete="off">
                         <label className="block mt-2">Email</label>
                         <input
@@ -60,12 +68,15 @@ export default function Register() {
                         </select>
                     </form>
                 </div>
+            );
+            break;
+        case 1:
+            formPage = (
                 <div
-                    ref={page2Ref}
-                    id="page2"
-                    className="hidden px-20 py-12 bg-text-primary text-black rounded-lg"
+                    id="page1"
+                    className="h-4/5 w-4/12 px-20 py-12 bg-text-primary text-black items-center rounded-lg"
                 >
-                    <div>Register For Workshops</div>
+                    <div className="text-center mb-6">Register For Workshops</div>
                     <form autoComplete="off">
                         <label className="block mt-2">Session 1</label>
                         <select
@@ -89,14 +100,75 @@ export default function Register() {
                             <option value="select">Select</option>
                         </select>
                     </form>
-                    <div>View workshop information <a href="/" className="underline">here</a></div>
+                    <div>
+                        View workshop information{" "}
+                        <a href="/" className="underline">
+                            here
+                        </a>
+                    </div>
                 </div>
+            );
+            break;
+        case 2:
+            formPage = (
                 <div
-                    ref={page3Ref}
-                    id="page3"
-                    className="px-20 py-12 bg-text-primary text-black rounded-lg"
+                    id="page2"
+                    className="h-4/5 w-4/12 px-20 py-12 bg-text-primary text-black items-center rounded-lg"
                 >
-                    <div>Payment</div>
+                    <div className="text-center mb-6">Payment</div>
+                </div>
+            );
+            break;
+    }
+
+    return (
+        <>
+            <div className="h-screen flex flex-col items-center justify-center">
+                {formPage}
+
+                <div className="flex flex-row">
+                    <button
+                        disabled={pageNumber == 0 ? true : false}
+                        onClick={pageBack}
+                        className="text-text-primary disabled:highlight-secondary"
+                    >
+                        <svg
+                            width="6em"
+                            height="6em"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M15 7L10 12L15 17"
+                                stroke="currentColor"
+                                strokeWidth="1.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
+                        </svg>
+                    </button>
+                    <button
+                        disabled={pageNumber == 2 ? true : false}
+                        onClick={pageForward}
+                        className="text-text-primary disabled:highlight-secondary"
+                    >
+                        <svg
+                            width="6em"
+                            height="6em"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M10 7L15 12L10 17"
+                                stroke="currentColor"
+                                strokeWidth="1.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
+                        </svg>
+                    </button>
                 </div>
             </div>
         </>
