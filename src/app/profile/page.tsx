@@ -55,8 +55,13 @@ export default function Profile() {
                         <option value="placeholder">School</option>
                         <option value="select">Select</option>
                     </select>
-                    <br/>
-                    <Link href="/dashboard" className="px-4 py-2 me-2 mb-2 mt-8 text-sm rounded-md bg-blue-600 text-text-primary hover:bg-blue-700">Save Changes</Link>
+                    <br />
+                    <Link
+                        href="/dashboard"
+                        className="px-4 py-2 me-2 mb-2 mt-8 text-sm rounded-md bg-blue-600 text-text-primary hover:bg-blue-700"
+                    >
+                        Save Changes
+                    </Link>
                 </form>
             </div>
         </>
