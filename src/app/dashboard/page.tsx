@@ -49,7 +49,7 @@ export default function Dashboard() {
                 <div>
                     <div className="text-center">
                         <div className="text-3xl font-bold">My Agenda</div>
-                        <button className="underline font-light hover:text-highlight-primary">Download</button>
+                        <button className="underline font-light hover:text-highlight-2-primary my-3">Download</button>
                     </div>
                     <div>
                         <div className="font-bold text-xl my-2">Friday, Month Day</div>
