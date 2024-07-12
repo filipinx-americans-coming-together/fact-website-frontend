@@ -26,7 +26,7 @@ export default function Navbar() {
     return (
         <>
             {/* desktop navigation */}
-            <nav className="hidden md:block">
+            <nav className="hidden mb-4 md:block">
                 <div className="flex justify-between mx-auto items-center py-4 px-24">
                     <img className="rounded-lg w-10 h-10" src={FACT_LOGO_SRC} />
 
@@ -72,7 +72,7 @@ export default function Navbar() {
             </nav>
 
             {/* mobile navigation */}
-            <nav className="py-4 px-4 block bg-background-primary md:hidden ">
+            <nav className="mb-4 py-4 px-4 block bg-background-primary md:hidden ">
                 <div className="mx-auto flex justify-between items-center ">
                     <img className="rounded-lg w-10 h-10" src={FACT_LOGO_SRC} />
                     <ul className="flex text-text-primary gap-6 items-center ">
