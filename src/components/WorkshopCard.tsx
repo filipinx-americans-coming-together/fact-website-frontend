@@ -14,7 +14,7 @@ export default function WorkshopCard({
     location,
 }: WorkshopProps) {
     return (
-        <div className="bg-highlight-secondary text-black text-xs px-8 py-4 m-4 rounded-md w-80 shadow-lg">
+        <div className="bg-highlight-primary text-black text-xs px-8 py-4 m-4 rounded-md w-80 shadow-lg">
             <div>Session {session}</div>
             <div className="text-center">
                 <div>{title}</div>

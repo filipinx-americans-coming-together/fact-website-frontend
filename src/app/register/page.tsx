@@ -1,6 +1,8 @@
 "use client";
 
+import Navbar from "@/components/Navbar";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Register() {
     const [pageNumber, setPageNumber] = useState(0);
@@ -21,7 +23,7 @@ export default function Register() {
             formPage = (
                 <div
                     id="page0"
-                    className="h-4/5 w-4/12 px-20 py-12 bg-text-primary text-black items-center rounded-lg"
+                    className="h-4/6 w-4/12 px-20 py-12 bg-text-primary text-black items-center rounded-lg"
                 >
                     <div className="text-center mb-6">Create Your FACT Account</div>
                     <form autoComplete="off">
@@ -74,7 +76,7 @@ export default function Register() {
             formPage = (
                 <div
                     id="page1"
-                    className="h-4/5 w-4/12 px-20 py-12 bg-text-primary text-black items-center rounded-lg"
+                    className="h-4/6 w-4/12 px-20 py-12 bg-text-primary text-black items-center rounded-lg"
                 >
                     <div className="text-center mb-6">Register For Workshops</div>
                     <form autoComplete="off">
@@ -100,9 +102,9 @@ export default function Register() {
                             <option value="select">Select</option>
                         </select>
                     </form>
-                    <div>
+                    <div className="text-center">
                         View workshop information{" "}
-                        <a href="/" className="underline">
+                        <a href="/" className="underline hover:text-highlight-primary">
                             here
                         </a>
                     </div>
@@ -113,9 +115,10 @@ export default function Register() {
             formPage = (
                 <div
                     id="page2"
-                    className="h-4/5 w-4/12 px-20 py-12 bg-text-primary text-black items-center rounded-lg"
+                    className="h-4/6 w-4/12 px-20 py-12 bg-text-primary text-black items-center rounded-lg flex flex-col justify-between"
                 >
                     <div className="text-center mb-6">Payment</div>
+                    <Link href="/dashboard" className="px-5 py-2.5 me-2 mb-2 rounded-md bg-blue-600 text-text-primary hover:bg-blue-700">Submit</Link>
                 </div>
             );
             break;
@@ -123,14 +126,15 @@ export default function Register() {
 
     return (
         <>
-            <div className="h-screen flex flex-col items-center justify-center">
+            <Navbar />
+            <div className="h-screen flex flex-col items-center justify-start">
                 {formPage}
 
                 <div className="flex flex-row">
                     <button
                         disabled={pageNumber == 0 ? true : false}
                         onClick={pageBack}
-                        className="text-text-primary disabled:highlight-secondary"
+                        className="text-text-primary disabled:text-highlight-secondary hover:text-highlight-primary"
                     >
                         <svg
                             width="6em"
@@ -151,7 +155,7 @@ export default function Register() {
                     <button
                         disabled={pageNumber == 2 ? true : false}
                         onClick={pageForward}
-                        className="text-text-primary disabled:highlight-secondary"
+                        className="text-text-primary disabled:text-highlight-secondary hover:text-highlight-primary"
                     >
                         <svg
                             width="6em"

@@ -5,6 +5,7 @@ import WorkshopCard from "@/components/WorkshopCard";
 export default function Dashboard() {
     return (
         <>
+            <Navbar />
             <div className="flex justify-evenly sm: flex-col sm:text-center md:flex-row md:text-left">
                 <div>
                     <div>
@@ -16,7 +17,7 @@ export default function Dashboard() {
                     </div>
                     <div className="text-center my-6">
 
-                    <Button text="EDIT PROFILE" url="/" />
+                    <Button text="EDIT PROFILE" url="/profile" />
                     </div>
                     <div className="flex flex-col justify-center items-center bg-text-primary px-2 py-4 my-4">
                         <WorkshopCard
@@ -42,13 +43,13 @@ export default function Dashboard() {
                         />
                     </div>
                     <div className="text-center my-6">
-                        <Button text="UPDATE WORKSHOPS" url="/" />
+                        <Button text="UPDATE WORKSHOPS" url="/workshops" />
                     </div>
                 </div>
                 <div>
                     <div className="text-center">
                         <div className="text-3xl font-bold">My Agenda</div>
-                        <button className="underline font-light hover:text-highlight-primary">Download</button>
+                        <button className="underline font-light hover:text-highlight-2-primary my-3">Download</button>
                     </div>
                     <div>
                         <div className="font-bold text-xl my-2">Friday, Month Day</div>
