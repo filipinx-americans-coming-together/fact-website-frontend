@@ -9,7 +9,7 @@ export default function About() {
         <>
             <Navbar />
             <div className="text-center p-10 border-b-2 m-10">
-                <div className="font-bold text-4xl">ABOUT</div>
+                <div className="font-bold sm:text-4xl lg:text-6xl">ABOUT</div>
             </div>
             <div className="flex flex-row justify-evenly my-10">
                 <div className="flex flex-col w-2/6 items-center justify-between">
@@ -40,7 +40,7 @@ export default function About() {
                 </div>
                 <div className="flex flex-col w-2/6 items-center justify-between">
                     <img src={IMG2_URL}/>
-                    <Button text="REGISTER NOW" url="/" />
+                    <Button text="REGISTER NOW" url="/register" />
                     <div className="text-right">
                         The theme for the 32nd annual Filipino Americans Coming
                         Together Conference is “Magbubunga: Planting
