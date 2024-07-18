@@ -40,7 +40,7 @@ export default function About() {
                 </div>
                 <div className="flex flex-col w-2/6 items-center justify-between">
                     <img src={IMG2_URL}/>
-                    <Button text="REGISTER NOW" url="/" />
+                    <Button text="REGISTER NOW" url="/register" />
                     <div className="text-right">
                         The theme for the 32nd annual Filipino Americans Coming
                         Together Conference is “Magbubunga: Planting

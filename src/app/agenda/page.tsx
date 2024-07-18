@@ -91,7 +91,7 @@ export default function Agenda() {
                 </div>
             </div>
             <div className="w-fit m-auto">
-                <Button text="REGISTER NOW" url="/" />
+                <Button text="REGISTER NOW" url="/register" />
             </div>
         </>
     );
