@@ -57,6 +57,7 @@ export default function Agenda() {
 
     return (
         <>
+            <Navbar />
             <div className="text-center p-10 border-b-2 m-10">
                 <div className="font-bold sm:text-4xl lg:text-6xl">AGENDA</div>
             </div>
