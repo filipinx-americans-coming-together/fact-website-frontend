@@ -8,11 +8,13 @@ const agendaData = [
         day: "Friday mm/dd",
         info: [
             {
+                id: "0",
                 event: "Event Name",
                 time: "00:00AM - 00:00 AM",
                 location: "Building Name #",
             },
             {
+                id: "1",
                 event: "Event Name",
                 time: "00:00AM - 00:00 AM",
                 location: "Building Name #",
@@ -23,21 +25,25 @@ const agendaData = [
         day: "Saturday mm/dd",
         info: [
             {
+                id: "0",
                 event: "Event Name",
                 time: "00:00AM - 00:00 AM",
                 location: "Building Name #",
             },
             {
+                id: "1",
                 event: "Event Name",
                 time: "00:00AM - 00:00 AM",
                 location: "Building Name #",
             },
             {
+                id: "2",
                 event: "Event Name",
                 time: "00:00AM - 00:00 AM",
                 location: "Building Name #",
             },
             {
+                id: "3",
                 event: "Event Name",
                 time: "00:00AM - 00:00 AM",
                 location: "Building Name #",
@@ -75,7 +81,7 @@ export default function Agenda() {
                 </div>
                 <div className="border-t-2 p-2">
                     {agendaData[activeTab].info.map((item) => (
-                        <div className="mb-4 text-xl">
+                        <div className="mb-4 text-xl" key={item.id}>
                             <div className="font-bold">{item.event}</div>
                             <div>{item.time}</div>
                             <div>{item.location}</div>
