@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import Button from "@/components/Button";
+import LinkButton from "@/components/ui/LinkButton";
 
 const IMG1_URL = "/variety-show.JPG";
 const IMG2_URL = "/workshop.JPG";
@@ -40,7 +40,7 @@ export default function About() {
                 </div>
                 <div className="flex flex-col w-2/6 items-center justify-between">
                     <img src={IMG2_URL}/>
-                    <Button text="REGISTER NOW" url="/register" />
+                    <LinkButton text="REGISTER NOW" url="/register" />
                     <div className="text-right">
                         The theme for the 32nd annual Filipino Americans Coming
                         Together Conference is “Magbubunga: Planting

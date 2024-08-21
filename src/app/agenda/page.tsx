@@ -1,6 +1,6 @@
 "use client";
 import Navbar from "@/components/Navbar";
-import Button from "@/components/Button";
+import LinkButton from "@/components/ui/LinkButton";
 import { useState } from "react";
 
 const agendaData = [
@@ -91,7 +91,7 @@ export default function Agenda() {
                 </div>
             </div>
             <div className="w-fit m-auto">
-                <Button text="REGISTER NOW" url="/register" />
+                <LinkButton text="REGISTER NOW" url="/register" />
             </div>
         </>
     );
