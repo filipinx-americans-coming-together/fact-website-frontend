@@ -34,7 +34,7 @@ function WorkshopSelect(props: WorkshopSelectProps) {
           )
         );
       });
-  }, []);
+  }, [props.session]);
 
   return workshops ? (
     <Select id={props.id} label={`Session ${props.session} Workshop`} >
