@@ -7,6 +7,11 @@ interface SchoolSelectProps {
   id: string;
 }
 
+/**
+ * School selection menu
+ * @param id for select for component
+ * @returns SchoolSelect component
+ */
 function SchoolSelect(props: SchoolSelectProps) {
   const [schools, setSchools] = useState<SchoolData[]>();
 

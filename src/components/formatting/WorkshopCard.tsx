@@ -12,6 +12,11 @@ interface WorkshopProps {
   id: number;
 }
 
+/**
+ * Card for individual workshop
+ * @param id workshop
+ * @returns WorkshopCard component
+ */
 export default function WorkshopCard(props: WorkshopProps) {
   const [workshop, setWorkshop] = useState<WorkshopData>();
   const [location, setLocation] = useState<LocationData>();

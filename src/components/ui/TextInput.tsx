@@ -10,6 +10,17 @@ interface TextInputProps {
   autoComplete?: string
 }
 
+/**
+ * 
+ * @param label label
+ * @param id html id
+ * @param maxLength max length
+ * @param placeholder placeholder text, default ""
+ * @param showCharacters display characters, input type=text if true, type=password if false, default true
+ * @param showMaxLength show number of typed characters out of max, default false
+ * @param autoComplete autocomplete setting, default "off"
+ * @returns 
+ */
 function TextInput({
   label,
   id,

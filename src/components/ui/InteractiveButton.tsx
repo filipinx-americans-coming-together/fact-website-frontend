@@ -3,6 +3,12 @@ interface InteractiveButtonProps {
   onClick: Function;
 }
 
+/**
+ * Interactive button
+ * @param text text to display
+ * @param onClick function to call on click 
+ * @returns InteractiveButton component
+ */
 export default function InteractiveButton({
   text,
   onClick,

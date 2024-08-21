@@ -1,3 +1,8 @@
+/**
+ * Loading circle icon
+ * @param size size, "2em" by default 
+ * @returns LoadingCircle component
+ */
 function LoadingCircle({ size = "2em" }: { size?: string }) {
   return (
     <svg

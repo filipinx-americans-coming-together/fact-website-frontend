@@ -8,6 +8,11 @@ interface UserAgendaProps {
   id: number;
 }
 
+/**
+ * Agenda for individual user
+ * @param id id of user
+ * @returns UserAgenda component
+ */
 function UserAgenda(props: UserAgendaProps) {
   const [registration, setRegistration] = useState<RegistrationData[]>();
 

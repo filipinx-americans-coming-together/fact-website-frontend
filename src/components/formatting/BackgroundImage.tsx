@@ -3,6 +3,12 @@ interface BackgroundImageProps {
   children: any;
 }
 
+/**
+ * Background image, takes up width/height of the screen
+ * @param imageURL url for image
+ * @param children
+ * @returns BackgroundImage component
+ */
 export default function BackgroundImage({
   imageURL,
   children,

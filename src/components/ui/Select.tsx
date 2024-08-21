@@ -7,6 +7,14 @@ interface SelectProps {
   defaultValue?: number;
 }
 
+/**
+ * Select menu
+ * @param id html id
+ * @param label label text
+ * @param defaultValue default value id
+ * @param children options 
+ * @returns 
+ */
 function Select<T>(props: SelectProps) {
   return (
     <div className="flex flex-col w-full">

@@ -8,11 +8,16 @@ import {
 import { useEffect, useState } from "react";
 import LoadingCircle from "../icons/LoadingCircle";
 
-interface WorkshopProps {
+interface AgendaWorkshop {
   id: number;
 }
 
-export default function WorkshopCard(props: WorkshopProps) {
+/**
+ * Workshop information for dashboard agenda
+ * @param id id of workshop
+ * @returns AgendaWorkshop component
+ */
+export default function AgendaWorkshop(props: AgendaWorkshop) {
   const [workshop, setWorkshop] = useState<WorkshopData>();
   const [location, setLocation] = useState<LocationData>();
 

@@ -8,6 +8,12 @@ interface WorkshopSelectProps {
   session: number;
 }
 
+/**
+ * Workshop selection menu
+ * @param id html id for select
+ * @param session session number 
+ * @returns WorkshopSelect component
+ */
 function WorkshopSelect(props: WorkshopSelectProps) {
   const [workshops, setWorkshops] = useState<WorkshopData[]>();
 
