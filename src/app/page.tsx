@@ -1,7 +1,7 @@
-import BackgroundImage from "@/components/BackgroundImage";
+import BackgroundImage from "@/components/formatting/BackgroundImage";
 import CountdownTimer from "@/components/CountdownTimer";
-import Button from "@/components/Button";
 import Navbar from "@/components/Navbar";
+import LinkButton from "@/components/ui/LinkButton";
 
 const BACKGROUND_URL = "/welcome-ceremony.jpg";
 const BACKGROUND_ALT = "FACT 2023 Welcome Ceremony";
@@ -10,7 +10,7 @@ export default function Home() {
     return (
         <>
             <Navbar />
-            <div className="bg-gradient-to-r from-black to-background-primary">
+            <div className="bg-gradient-to-r from-black to-background-primary overflow-hidden">
                 <BackgroundImage imageURL={BACKGROUND_URL}>
                     <div className="max-w-lg flex justify-center text-center sm:flex-col-reverse md:flex-row md:text-left">
                         <div className="flex flex-col justify-start">
@@ -35,7 +35,7 @@ export default function Home() {
                             <CountdownTimer
                                 date={new Date("October 31, 2024 19:00:00")}
                             />
-                            <Button text="REGISTER NOW" url="/" />
+                            <LinkButton text="REGISTER NOW" url="/my-fact/register" />
                         </div>
                     </div>
                 </BackgroundImage>
