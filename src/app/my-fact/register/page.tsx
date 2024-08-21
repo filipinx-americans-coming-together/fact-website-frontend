@@ -3,7 +3,6 @@
 import FormContainer from "@/components/formatting/FormContainer";
 import Navbar from "@/components/Navbar";
 import APIForm from "@/components/registration/APIForm";
-import ImageInput from "@/components/ui/ImageInput";
 import SchoolSelect from "@/components/ui/SchoolSelect";
 import Select from "@/components/ui/Select";
 import TextInput from "@/components/ui/TextInput";
