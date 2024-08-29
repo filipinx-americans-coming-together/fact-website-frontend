@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import PageHeader from "@/components/formatting/PageHeader";
 import LinkButton from "@/components/ui/LinkButton";
 
 const IMG1_URL = "/variety-show.JPG";
@@ -8,9 +9,7 @@ export default function About() {
     return (
         <>
             <Navbar />
-            <div className="text-center p-10 border-b-2 m-10">
-                <div className="font-bold sm:text-4xl lg:text-6xl">ABOUT</div>
-            </div>
+            <PageHeader text="About" />
             <div className="flex flex-row justify-evenly my-10">
                 <div className="flex flex-col w-2/6 items-center justify-between">
                     <div>
