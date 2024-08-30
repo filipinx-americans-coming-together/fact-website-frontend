@@ -15,6 +15,7 @@ const iconList = [
 const NAV_LINKS = [
   { text: "Home", path: "/" },
   { text: "About", path: "/about" },
+  { text: "Team", path: "/team" },
 ];
 
 const FACT_LOGO_SRC = "/fact-2024-logo.png";
