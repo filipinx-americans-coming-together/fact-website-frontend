@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar";
+import PageContainer from "@/components/formatting/PageContainer";
 import LinkButton from "@/components/ui/LinkButton";
 
 const IMG1_URL = "/variety-show.JPG";
@@ -6,12 +6,8 @@ const IMG2_URL = "/workshop.JPG";
 
 export default function About() {
     return (
-        <>
-            <Navbar />
-            <div className="text-center p-10 border-b-2 m-10">
-                <div className="font-bold sm:text-4xl lg:text-6xl">ABOUT</div>
-            </div>
-            <div className="flex flex-row justify-evenly my-10">
+        <PageContainer title="About">
+            <div className="flex flex-row justify-evenly">
                 <div className="flex flex-col w-2/6 items-center justify-between">
                     <div>
                         FACT stands for Filipino Americans Coming Together and
@@ -55,6 +51,6 @@ export default function About() {
                     </div>
                 </div>
             </div>
-        </>
+        </PageContainer>
     );
 }
