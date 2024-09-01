@@ -1,5 +1,7 @@
 "use client";
 import Navbar from "@/components/Navbar";
+import PageContainer from "@/components/formatting/PageContainer";
+import PageHeader from "@/components/formatting/PageHeader";
 import LinkButton from "@/components/ui/LinkButton";
 import { useState } from "react";
 
@@ -56,11 +58,7 @@ export default function Agenda() {
     const [activeTab, setActiveTab] = useState(0);
 
     return (
-        <>
-            <Navbar />
-            <div className="text-center p-10 border-b-2 m-10">
-                <div className="font-bold sm:text-4xl lg:text-6xl">AGENDA</div>
-            </div>
+        <PageContainer title="Agenda">
             <div className="w-2/4 mx-auto mb-4">
                 <div className="flex flex-row justify-start">
                     {agendaData.map((item, index) => (
@@ -93,6 +91,6 @@ export default function Agenda() {
             <div className="w-fit m-auto">
                 <LinkButton text="REGISTER NOW" url="/register" />
             </div>
-        </>
+        </PageContainer>
     );
 }

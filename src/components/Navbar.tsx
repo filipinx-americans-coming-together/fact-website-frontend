@@ -16,6 +16,8 @@ const NAV_LINKS = [
   { text: "Home", path: "/" },
   { text: "About", path: "/about" },
   { text: "Team", path: "/team" },
+  { text: "Agenda", path: "/agenda"},
+  { text: "Gallery", path: "/gallery"}
 ];
 
 const FACT_LOGO_SRC = "/fact-2024-logo.png";
