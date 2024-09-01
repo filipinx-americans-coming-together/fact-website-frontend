@@ -15,6 +15,7 @@ const iconList = [
 const NAV_LINKS = [
   { text: "Home", path: "/" },
   { text: "About", path: "/about" },
+  { text: "Team", path: "/team" },
   { text: "Agenda", path: "/agenda"},
   { text: "Gallery", path: "/gallery"}
 ];
