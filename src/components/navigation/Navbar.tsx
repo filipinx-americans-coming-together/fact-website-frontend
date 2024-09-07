@@ -41,11 +41,10 @@ export default function Navbar() {
 
             <ul className="flex text-text-primary gap-6 items-center">
                 {iconList.map((item, index) => (
-                    <li>
+                    <li key={index}>
                         <Link
                             href={item.link}
                             target="_blank"
-                            key={index}
                             className="hover:text-highlight-primary"
                         >
                             {item.icon}
