@@ -33,7 +33,9 @@ export default function Navbar() {
 
     return (
         <nav className="flex justify-between mx-auto items-center py-4 px-10 md:px-20">
-            <img className="rounded-lg w-10 h-10" src={FACT_LOGO_SRC} />
+            <Link href={"/"}>
+                <img className="rounded-lg w-12 h-12" src={FACT_LOGO_SRC} />
+            </Link>
 
             <DesktopNav links={NAV_LINKS} />
 
