@@ -75,20 +75,6 @@ export default function Navbar() {
                                 {item.icon}
                             </a>
                         ))}
-                        <Link
-                            href="/my-fact/login"
-                            prefetch={true}
-                            className="text-sm hover:text-highlight-primary"
-                        >
-                            Login
-                        </Link>
-                        <Link
-                            href="/my-fact/register"
-                            prefetch={true}
-                            className="text-sm bg-highlight-primary px-4 py-1 rounded-sm hover:bg-highlight-secondary"
-                        >
-                            Register
-                        </Link>
                     </ul>
                     <div className="flex justify-end items-center gap-6 text-text-primary ">
                         <FaBars
