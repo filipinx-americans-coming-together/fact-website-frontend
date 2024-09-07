@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
-import Navbar from "../navigation/Navbar";
 import PageHeader from "./PageHeader";
+import Navbar from "../navigation/Navbar";
 
 interface PageContainerProps {
     children: ReactNode;
@@ -12,12 +12,15 @@ interface PageContainerProps {
  * @param children page content
  * @returns PageContainer
  */
-export default function PageContainer({children, title}: PageContainerProps) {
-    return(
-        <div className="m-10">
-            <Navbar/>
-            <PageHeader text={title} />
-            {children}
+export default function PageContainer({ children, title }: PageContainerProps) {
+    return (
+        <div>
+            <Navbar />
+
+            <div className="mx-14 md:mx-32">
+                <PageHeader text={title} />
+                {children}
+            </div>
         </div>
     );
 }

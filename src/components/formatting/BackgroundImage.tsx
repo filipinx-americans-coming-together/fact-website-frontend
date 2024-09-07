@@ -1,6 +1,6 @@
 interface BackgroundImageProps {
-  imageURL: string;
-  children: any;
+    imageURL: string;
+    children: any;
 }
 
 /**
@@ -10,18 +10,18 @@ interface BackgroundImageProps {
  * @returns BackgroundImage component
  */
 export default function BackgroundImage({
-  imageURL,
-  children,
+    imageURL,
+    children,
 }: BackgroundImageProps) {
-  return (
-    <div className="relative h-screen w-screen">
-      <div
-        className="absolute inset-0 bg-cover bg-center opacity-50"
-        style={{ backgroundImage: `url(${imageURL})` }}
-      ></div>
-      <div className="absolute inset-0 flex items-center justify-center">
-        {children}
-      </div>
-    </div>
-  );
+    return (
+        <div className="relative h-screen w-full">
+            <div
+                className="absolute inset-0 bg-cover bg-center opacity-50 overflow-x-hidden"
+                style={{ backgroundImage: `url(${imageURL})` }}
+            ></div>
+            <div className="absolute inset-0 flex items-center justify-center">
+                {children}
+            </div>
+        </div>
+    );
 }
