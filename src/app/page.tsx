@@ -1,7 +1,7 @@
 import BackgroundImage from "@/components/formatting/BackgroundImage";
 import CountdownTimer from "@/components/CountdownTimer";
-import Navbar from "@/components/Navbar";
 import LinkButton from "@/components/ui/LinkButton";
+import Navbar from "@/components/navigation/Navbar";
 
 const BACKGROUND_URL = "/welcome-ceremony.jpg";
 const BACKGROUND_ALT = "FACT 2023 Welcome Ceremony";
