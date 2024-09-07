@@ -20,9 +20,9 @@ export default function PageContainer({ children, title }: PageContainerProps) {
             <PageHeader text={title} />
             {children}
 
-            <div className="mx-auto text-center w-full my-10">
+            {/* <div className="mx-auto text-center w-full my-10">
                 <LinkButton text="REGISTER NOW" url="/register" />
-            </div>
+            </div> */}
         </div>
     );
 }
