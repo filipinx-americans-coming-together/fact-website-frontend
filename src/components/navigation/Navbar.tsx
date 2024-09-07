@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaFacebook, FaInstagram, FaBars, FaTimes } from "react-icons/fa";
-import InteractiveButton from "./ui/InteractiveButton";
+import InteractiveButton from "../ui/InteractiveButton";
+import NavLinks from "./NavLinks";
 
 const iconList = [
     { icon: <FaFacebook />, link: "#" },
@@ -34,16 +35,7 @@ export default function Navbar() {
                     <img className="rounded-lg w-10 h-10" src={FACT_LOGO_SRC} />
 
                     <ul className="flex gap-8 md:gap-16 items-center justify-center text-center ">
-                        {NAV_LINKS.map((link, index) => (
-                            <li
-                                key={index}
-                                className="text-text-primary text-sm hover:text-highlight-primary"
-                            >
-                                <Link href={link.path} prefetch={true}>
-                                    {link.text}
-                                </Link>
-                            </li>
-                        ))}
+                        <NavLinks links={NAV_LINKS} />
                     </ul>
                     <ul className="flex text-text-primary gap-6 items-center ">
                         {iconList.map((item, index) => (
@@ -97,16 +89,7 @@ export default function Navbar() {
                         />
                         <div className="relative w-full">
                             <ul className="flex flex-col gap-8 items-center justify-center h-full">
-                                {NAV_LINKS.map((link, index) => (
-                                    <li
-                                        key={index}
-                                        className="text-text-primary hover:text-highlight-primary"
-                                    >
-                                        <Link href={link.path} prefetch={true}>
-                                            {link.text}
-                                        </Link>
-                                    </li>
-                                ))}
+                                <NavLinks links={NAV_LINKS} />
                             </ul>
                         </div>
                     </div>
