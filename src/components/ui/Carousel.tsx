@@ -28,7 +28,7 @@ export default function Carousel({ title, src, length }: CarouselProps) {
             <div className="text-2xl lg:text-4xl">{title}</div>
             <div className="flex flex-row justify-between my-8 h-fit">
                 <div
-                    className="w-fit cursor-pointer self-center text-4xl"
+                    className="w-fit cursor-pointer self-center text-2xl lg:text-4xl"
                     onClick={() =>
                         setCurrentIndex(() =>
                             currentIndex - 3 < 1
@@ -70,7 +70,7 @@ export default function Carousel({ title, src, length }: CarouselProps) {
                     />
                 </div>
                 <div
-                    className="w-fit cursor-pointer self-center text-4xl"
+                    className="w-fit cursor-pointer self-center text-2xl lg:text-4xl"
                     onClick={() =>
                         setCurrentIndex(() =>
                             currentIndex + 3 > length
