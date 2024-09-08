@@ -3,6 +3,7 @@ import Image from 'next/image';
 
 const IMG1_URL = "/variety-show.JPG";
 const IMG2_URL = "/workshop.JPG";
+const PLACEHOLDER_URL = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPU9vG2BwACbwEDalojHwAAAABJRU5ErkJggg==";
 
 const IMG_WIDTH = 5184;
 const IMG_HEIGHT = 3456;
@@ -35,10 +36,10 @@ export default function About() {
                         professional world ready to give back to their
                         community.
                     </div>
-                        <Image src={IMG1_URL} width={IMG_WIDTH} height={IMG_HEIGHT} alt=""/>
+                        <Image src={IMG1_URL} width={IMG_WIDTH} height={IMG_HEIGHT} alt="" placeholder={PLACEHOLDER_URL}/>
                 </div>
                 <div className="flex flex-row lg:flex-col flex-wrap-reverse lg:w-2/5 xl:w-2/6 items-center justify-evenly">
-                    <Image src={IMG2_URL} width={IMG_WIDTH} height={IMG_HEIGHT} alt=""/>
+                    <Image src={IMG2_URL} width={IMG_WIDTH} height={IMG_HEIGHT} alt="" placeholder={PLACEHOLDER_URL}/>
                     <div className="text-center lg:text-right my-6">
                         The theme for the 32nd annual Filipino Americans Coming
                         Together Conference is “Magbubunga: Planting
