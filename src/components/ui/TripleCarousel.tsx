@@ -7,6 +7,7 @@ const IMG_HEIGHT = 3456;
 const IMG_WIDTH = 5184;
 const PLACEHOLDER_URL = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPU9vG2BwACbwEDalojHwAAAABJRU5ErkJggg==";
 const TRANSPARENT_URL = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
+
 interface CarouselProps {
     title: string;
     src: string;
@@ -20,12 +21,12 @@ interface CarouselProps {
  * @param length number of images in the folder (labeled 1.JPG, 2.JPG, ..., [length].JPG)
  * @returns LinkButton
  */
-export default function Carousel({ title, src, length }: CarouselProps) {
+export default function TripleCarousel({ title, src, length }: CarouselProps) {
     const [currentIndex, setCurrentIndex] = useState(1);
 
     return (
         <>
-            <div className="text-2xl lg:text-4xl">{title}</div>
+            <div className="text-4xl">{title}</div>
             <div className="flex flex-row justify-between my-8 h-fit">
                 <div
                     className="w-fit cursor-pointer self-center text-4xl"
