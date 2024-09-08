@@ -1,5 +1,5 @@
 import PageContainer from "@/components/formatting/PageContainer";
-import LinkButton from "@/components/ui/LinkButton";
+import Image from 'next/image';
 
 const IMG1_URL = "/variety-show.JPG";
 const IMG2_URL = "/workshop.JPG";
@@ -7,9 +7,9 @@ const IMG2_URL = "/workshop.JPG";
 export default function About() {
     return (
         <PageContainer title="About">
-            <div className="flex flex-row justify-evenly">
-                <div className="flex flex-col w-2/6 items-center justify-between">
-                    <div>
+            <div className="flex flex-col lg:flex-row justify-center lg:justify-evenly">
+                <div className="flex flex-col lg:w-2/6 items-center justify-between">
+                    <div className="text-center lg:text-left mb-6">
                         FACT stands for Filipino Americans Coming Together and
                         is a conference hosted annually by the Philippine
                         Student Association at the University of Illinois at
@@ -32,11 +32,11 @@ export default function About() {
                         professional world ready to give back to their
                         community.
                     </div>
-                    <img src={IMG1_URL} className="w-5/6 h-auto mt-10"/>
+                        <Image src={IMG1_URL} width={5184} height={3456} alt=""/>
                 </div>
-                <div className="flex flex-col w-2/6 items-center justify-between">
-                    <img src={IMG2_URL}/>
-                    <div className="text-right">
+                <div className="flex flex-row lg:flex-col flex-wrap-reverse lg:w-2/6 items-center justify-evenly">
+                    <Image src={IMG2_URL} width={5184} height={3456} alt=""/>
+                    <div className="text-center lg:text-right my-6">
                         The theme for the 32nd annual Filipino Americans Coming
                         Together Conference is “Magbubunga: Planting
                         Prosperity”. As our organizations reconnect with their

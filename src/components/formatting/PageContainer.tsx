@@ -17,7 +17,7 @@ export default function PageContainer({ children, title }: PageContainerProps) {
         <div>
             <Navbar />
 
-            <div className="mx-14 md:mx-32">
+            <div className="mx-14 mb-6 md:mx-32 md:mb-10">
                 <PageHeader text={title} />
                 {children}
             </div>

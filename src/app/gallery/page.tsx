@@ -1,6 +1,5 @@
 import PageContainer from "@/components/formatting/PageContainer";
 import Carousel from "@/components/ui/Carousel";
-import LinkButton from "@/components/ui/LinkButton";
 
 export default function Gallery() {
     return (
