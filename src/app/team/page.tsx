@@ -1,10 +1,6 @@
 "use client";
-import Navbar from "@/components/Navbar";
-import { useState } from "react";
-import { off } from "process"
-import Head from "next/head";
+import PageContainer from "@/components/formatting/PageContainer";
 import Image from "next/image";
-import NextLink from "next/link";
 
 const teamData = [
     {
@@ -226,11 +222,12 @@ const OfficerCard = ({ name, image }) => {
 
 export default function Team() {
     return (
-        <div style={{ textAlign: 'center' }}>
-            <h1 style={{ fontSize: '4vw' }}>Team FACT 2024</h1>
-            {teamData.map((roleData, index) => (
-            <OfficerRow key={index} role={roleData.role} officers={roleData.officers} />
-            ))}
-        </div>
+        <PageContainer title="Team FACT 2024">
+            <div style={{ textAlign: 'center' }}>
+                {teamData.map((roleData, index) => (
+                <OfficerRow key={index} role={roleData.role} officers={roleData.officers} />
+                ))}
+            </div>
+        </PageContainer>    
     );
 }
