@@ -1,6 +1,6 @@
 "use client";
 
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/navigation/Navbar";
 import { useEffect } from "react";
 
 export default function Donate() {

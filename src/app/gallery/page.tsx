@@ -12,9 +12,6 @@ export default function Gallery() {
             <Carousel title="Palengke" src="palengke" length={10}/>
             <div className="border-b-2 h-4 w-full mb-4"></div>
             <Carousel title="Variety Show" src="variety-show" length={28}/>
-            <div className="mt-10 text-center">
-                <LinkButton text="REGISTER NOW" url="/register" />
-            </div>
         </PageContainer>
     );
 }

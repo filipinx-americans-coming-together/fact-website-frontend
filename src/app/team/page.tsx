@@ -1,4 +1,3 @@
-"use client";
 import PageContainer from "@/components/formatting/PageContainer";
 import Image from "next/image";
 
@@ -207,18 +206,18 @@ const OfficerCard = ({ name, image }) => {
     );
   };
   
-  const OfficerRow = ({ role, officers }) => {
-    return (
-      <div>
-        <h2 style={{ fontSize: '1.5vw' }}>{role}</h2>
-        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
-          {officers.map((officer, index) => (
-            <OfficerCard key={index} name={officer.name} image={officer.image} />
-          ))}
-        </div>
+const OfficerRow = ({ role, officers }) => {
+  return (
+    <div>
+      <h2 style={{ fontSize: '1.5vw' }}>{role}</h2>
+      <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
+        {officers.map((officer, index) => (
+          <OfficerCard key={index} name={officer.name} image={officer.image} />
+        ))}
       </div>
-    );
-  };
+    </div>
+  );
+};
 
 export default function Team() {
     return (
