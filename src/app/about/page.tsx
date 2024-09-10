@@ -8,7 +8,7 @@ export default function About() {
     return (
         <PageContainer title="About">
             <div className="flex flex-col lg:flex-row justify-center lg:justify-evenly">
-                <div className="flex flex-col lg:w-2/6 items-center justify-between">
+                <div className="flex flex-col lg:w-2/5 xl:w-2/6 items-center justify-between">
                     <div className="text-center lg:text-left mb-6">
                         FACT stands for Filipino Americans Coming Together and
                         is a conference hosted annually by the Philippine
@@ -34,7 +34,7 @@ export default function About() {
                     </div>
                         <Image src={IMG1_URL} width={5184} height={3456} alt=""/>
                 </div>
-                <div className="flex flex-row lg:flex-col flex-wrap-reverse lg:w-2/6 items-center justify-evenly">
+                <div className="flex flex-row lg:flex-col flex-wrap-reverse lg:w-2/5 xl:w-2/6 items-center justify-evenly">
                     <Image src={IMG2_URL} width={5184} height={3456} alt=""/>
                     <div className="text-center lg:text-right my-6">
                         The theme for the 32nd annual Filipino Americans Coming

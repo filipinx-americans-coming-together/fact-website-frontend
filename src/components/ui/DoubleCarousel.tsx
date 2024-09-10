@@ -12,7 +12,6 @@ interface CarouselProps {
     title: string;
     src: string;
     length: number;
-    numImages: number;
 }
 
 /**
@@ -22,26 +21,26 @@ interface CarouselProps {
  * @param length number of images in the folder (labeled 1.JPG, 2.JPG, ..., [length].JPG)
  * @returns LinkButton
  */
-export default function Carousel({ title, src, length, numImages }: CarouselProps) {
+export default function DoubleCarousel({ title, src, length }: CarouselProps) {
     const [currentIndex, setCurrentIndex] = useState(1);
 
     return (
         <>
-            <div className="text-4xl">{title}</div>
+            <div className="text-2xl">{title}</div>
             <div className="flex flex-row justify-between my-8 h-fit">
                 <div
                     className="w-fit cursor-pointer self-center text-4xl"
                     onClick={() =>
                         setCurrentIndex(() =>
-                            currentIndex - numImages < 1
-                                ? ~~((length - 1) / numImages) * numImages + 1
-                                : currentIndex - numImages
+                            currentIndex - 2 < 1
+                                ? ~~((length - 1) / 2) * 2 + 1
+                                : currentIndex - 2
                         )
                     }
                 >
                     <IoIosArrowBack />
                 </div>
-                <div className={`w-${numImages == 1 ? "5/6" : (numImages == 2 ? "2/5" : "1/4")}`}>
+                <div className="w-2/5">
                     <Image
                         key={currentIndex}
                         src={`/${src}/${currentIndex}.JPG`}
@@ -51,7 +50,7 @@ export default function Carousel({ title, src, length, numImages }: CarouselProp
                         placeholder={PLACEHOLDER_URL}
                     />
                 </div>
-                <div className={numImages == 1 ? "hidden" : `w-${numImages == 1 ? "full" : (numImages == 2 ? "2/5" : "1/4")}`}>
+                <div className="w-2/5">
                     <Image
                         key={currentIndex + 1}
                         src={currentIndex + 1 > length ? TRANSPARENT_URL : `/${src}/${currentIndex + 1}.JPG`}
@@ -61,23 +60,13 @@ export default function Carousel({ title, src, length, numImages }: CarouselProp
                         placeholder={currentIndex + 1 > length ? TRANSPARENT_URL : PLACEHOLDER_URL}
                     />
                 </div>
-                <div className={numImages == 3 ? "w-1/4" : "hidden"}>
-                    <Image
-                        key={currentIndex + 2}
-                        src={currentIndex + 2 > length ? TRANSPARENT_URL : `/${src}/${currentIndex + 2}.JPG`}
-                        height={currentIndex + 2 > length ? 1 : IMG_HEIGHT}
-                        width={currentIndex + 2 > length ? 1 : IMG_WIDTH}
-                        alt=""
-                        placeholder={currentIndex + 1 > length ? TRANSPARENT_URL : PLACEHOLDER_URL}
-                    />
-                </div>
                 <div
                     className="w-fit cursor-pointer self-center text-4xl"
                     onClick={() =>
                         setCurrentIndex(() =>
-                            currentIndex + numImages > length
+                            currentIndex + 2 > length
                                 ? 1
-                                : currentIndex + numImages
+                                : currentIndex + 2
                         )
                     }
                 >
