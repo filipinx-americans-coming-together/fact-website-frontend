@@ -1,6 +1,5 @@
-"use client";
-import { useState } from "react";
-import { off } from "process";
+import PageContainer from "@/components/formatting/PageContainer";
+import Image from "next/image";
 
 const teamData = [
     {
@@ -11,13 +10,13 @@ const teamData = [
                 name: "Kristel Ong",
                 bio: "insert bio",
                 pronouns: "insert pronouns",
-                image: "kristel-ong.jpg",
+                image: "kristel-ong.JPG",
             },
             {
                 name: "Eillen Nigos",
                 bio: "insert bio",
                 pronouns: "insert pronouns",
-                image: "eillen-nigos.jpg",
+                image: "eillen-nigos.jpeg",
             },
             {
                 name: "Hahnbit Lee",
@@ -35,7 +34,7 @@ const teamData = [
                 name: "Maya Moloney",
                 bio: "insert bio",
                 pronouns: "insert pronouns",
-                image: "maya-moloney.jpg",
+                image: "maya-moloney.jpeg",
             }
         ]
     },
@@ -53,7 +52,7 @@ const teamData = [
                 name: "Charlynne Ligo",
                 bio: "insert bio",
                 pronouns: "insert pronouns",
-                image: "charlynne-ligo.jpg",
+                image: "charlynne-ligo.jpeg",
             }
         ]
     },
@@ -65,7 +64,7 @@ const teamData = [
                 name: "Catalina Sophia Murga",
                 bio: "insert bio",
                 pronouns: "insert pronouns",
-                image: "catalina-sophia-murga.jpg",
+                image: "catalina-sophia-murga.jpeg",
             },
             {
                 name: "Grace Requeno",
@@ -101,7 +100,7 @@ const teamData = [
                 name: "Kaila Babyar",
                 bio: "insert bio",
                 pronouns: "insert pronouns",
-                image: "kaila-babyar.jpg",
+                image: "kaila-babyar.jpeg",
             },
             {
                 name: "Lee Keating",
@@ -113,7 +112,7 @@ const teamData = [
                 name: "Miranda Espinoza",
                 bio: "insert bio",
                 pronouns: "insert pronouns",
-                image: "miranda-espinoza.jpg",
+                image: "miranda-espinoza.jpeg",
             }
         ]
     },
@@ -131,7 +130,7 @@ const teamData = [
                 name: "Sofia Kanda",
                 bio: "insert bio",
                 pronouns: "insert pronouns",
-                image: "sofia-kanda.jpg",
+                image: "sofia-kanda.jpeg",
             }
         ]
     },
@@ -143,7 +142,7 @@ const teamData = [
                 name: "Michael Echavez",
                 bio: "insert bio",
                 pronouns: "insert pronouns",
-                image: "michael-echavez.jpg",
+                image: "michael-echavez.jpeg",
             },
             {
                 name: "Ysabelle Pinpin",
@@ -161,13 +160,13 @@ const teamData = [
                 name: "Erien Lucero",
                 bio: "insert bio",
                 pronouns: "insert pronouns",
-                image: "erien-lucero.jpg",
+                image: "erien-lucero.jpeg",
             },
             {
                 name: "Joshua Fajardo",
                 bio: "insert bio",
                 pronouns: "insert pronouns",
-                image: "joshua-fajardo.jpg",
+                image: "joshua-fajardo.jpeg",
             }
         ]
     },
@@ -185,25 +184,49 @@ const teamData = [
                 name: "Stephanie Mago",
                 bio: "insert bio",
                 pronouns: "insert pronouns",
-                image: "stephanie-mago.jpg",
+                image: "stephanie-mago.jpeg",
             }
         ]
     }
 ];
 
-export default function Team() {
+const OfficerCard = ({ name, image }) => {
+    const IMG_WIDTH = 300;
+    const IMG_HEIGHT = 450;
     return (
-      <div>
-        {teamData.map((role, index) => (
-            <div key={index}>
-                <img src={role.image} alt={``} />
-                <h2>{role.role}</h2>
-                <p>{role.officers.map(officer => (
-                    officer.name + " "
-                ))}
-                </p>
-            </div>
+      <div style={{ display: 'block', margin: '2rem 4rem', padding: '0.5rem' }}>
+        <Image
+        src={`/public/team-fact/${image}`} alt={name}
+        width={IMG_WIDTH} 
+        height={IMG_HEIGHT}
+        style={{ display: 'block', margin: '0 auto' }}
+        />
+        <p>{name}</p>
+      </div>
+    );
+  };
+  
+const OfficerRow = ({ role, officers }) => {
+  return (
+    <div>
+      <h2 style={{ fontSize: '1.5vw' }}>{role}</h2>
+      <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
+        {officers.map((officer, index) => (
+          <OfficerCard key={index} name={officer.name} image={officer.image} />
         ))}
       </div>
+    </div>
+  );
+};
+
+export default function Team() {
+    return (
+        <PageContainer title="Team FACT 2024">
+            <div style={{ textAlign: 'center' }}>
+                {teamData.map((roleData, index) => (
+                <OfficerRow key={index} role={roleData.role} officers={roleData.officers} />
+                ))}
+            </div>
+        </PageContainer>    
     );
 }
