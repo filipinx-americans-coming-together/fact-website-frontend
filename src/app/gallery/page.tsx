@@ -12,11 +12,11 @@ export default function Gallery() {
     useEffect(() => {
         const handleResize = async () => {
             const newNum = window.innerWidth < 640 ? 1 : (window.innerWidth < 1024 ? 2 : 3);
-            console.log(window.innerWidth);
+            console.log(window.innerWidth, newNum);
             if (newNum !== numImages) {
                 setNumImages(newNum);
-                // console.log("rerender");
-                console.log(numImages);
+                // console.log(window.innerWidth);
+                // console.log(numImages);
             }
         };
     
@@ -25,10 +25,11 @@ export default function Gallery() {
         return () => {window.removeEventListener('resize', handleResize);};
       }, []);
 
-    useEffect(() => {console.log("rerender");}, [numImages]);
+    // useEffect(() => {console.log("rerender");}, [numImages]);
 
     return (
         <PageContainer title="Gallery">
+            <p>{numImages}</p>
             {numImages == 1 ? <SingleCarousel title="Welcome Ceremony" src="welcome-ceremony" length={25}/> : (numImages == 2 ? <DoubleCarousel title="Welcome Ceremony" src="welcome-ceremony" length={25}/> : <TripleCarousel title="Welcome Ceremony" src="welcome-ceremony" length={25}/>)}
             <div className="border-b-2 h-4 w-full mb-4"></div>
             {numImages == 1 ? <SingleCarousel title="Workshops" src="workshops" length={11}/> : (numImages == 2 ? <DoubleCarousel title="Workshops" src="workshops" length={11}/> : <TripleCarousel title="Workshops" src="workshops" length={11}/>)}
