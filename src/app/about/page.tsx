@@ -1,19 +1,23 @@
 import PageContainer from "@/components/formatting/PageContainer";
-import Image from 'next/image';
+import LinkButton from "@/components/ui/LinkButton";
+import Image from "next/image";
 
 const IMG1_URL = "/variety-show.JPG";
 const IMG2_URL = "/workshop.JPG";
-const PLACEHOLDER_URL = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPU9vG2BwACbwEDalojHwAAAABJRU5ErkJggg==";
 
-const IMG_WIDTH = 5184;
-const IMG_HEIGHT = 3456;
+const IMG_HEIGHT = 5184;
+const IMG_WIDTH = 3456;
+
+const PLACEHOLDER_URL = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPU9vG2BwACbwEDalojHwAAAABJRU5ErkJggg==";
+const PDF_URL =
+    "https://drive.google.com/file/d/1DYkEqr0mfdsLnzYbCdy_xSr2JNiPvgcZ/view";
 
 export default function About() {
     return (
         <PageContainer title="About">
             <div className="flex flex-col lg:flex-row justify-center lg:justify-evenly">
                 <div className="flex flex-col lg:w-2/5 xl:w-2/6 items-center justify-between">
-                    <div className="text-center lg:text-left mb-6">
+                    <div className="text-center lg:text-left">
                         FACT stands for Filipinx Americans Coming Together and
                         is a conference hosted annually by the Philippine
                         Student Association at the University of Illinois at
@@ -36,21 +40,38 @@ export default function About() {
                         professional world ready to give back to their
                         community.
                     </div>
-                        <Image src={IMG1_URL} width={IMG_WIDTH} height={IMG_HEIGHT} alt="" placeholder={PLACEHOLDER_URL}/>
+                    <div className="h-6"></div>
+                    <Image
+                        src={IMG1_URL}
+                        width={IMG_WIDTH}
+                        height={IMG_HEIGHT}
+                        alt=""
+                        placeholder={PLACEHOLDER_URL}
+                    />
                 </div>
-                <div className="flex flex-row lg:flex-col flex-wrap-reverse lg:w-2/5 xl:w-2/6 items-center justify-evenly">
-                    <Image src={IMG2_URL} width={IMG_WIDTH} height={IMG_HEIGHT} alt="" placeholder={PLACEHOLDER_URL}/>
-                    <div className="text-center lg:text-right my-6">
-                        The theme for the 32nd annual Filipino Americans Coming
-                        Together Conference is “Magbubunga: Planting
-                        Prosperity”. As our organizations reconnect with their
-                        cultural identities and grasp an understanding of their
-                        future aspirations, we strive to help delegates set a
-                        strong foundation for a lifetime of growth and fruitful
-                        results. We hope to maximize connection between all
-                        conference attendees and seek to enrich each delegate’s
-                        personal and professional growth in order to nurture a
-                        culture of productivity within our community.
+                <div className="flex flex-row lg:flex-col flex-wrap-reverse lg:w-2/5 xl:w-2/6 items-center justify-center lg:justify-between">
+                    <div className="justify-self-center">
+                        <Image
+                            src={IMG2_URL}
+                            width={IMG_WIDTH}
+                            height={IMG_HEIGHT}
+                            alt=""
+                            placeholder={PLACEHOLDER_URL}
+                        />
+                    </div>
+                    <div className="my-6">
+                        <LinkButton text="Official Statement Regarding FACT’s Name Change" url={PDF_URL} />
+                    </div>
+                    <div className="text-center lg:text-right mt-6 lg:mt-0">
+                        This year’s Filipinx Americans Coming Together (FACT)
+                        Conference proudly presents the theme for its 32nd year:
+                        “Magbubunga: Planting Prosperity”! FACT strives to
+                        encourage conference attendees to leverage their
+                        strengths to achieve fruitful outcomes and nurture a
+                        culture of productivity within our community. We hope to
+                        maximize connections between all conference attendees
+                        and enrich each delegate’s personal and professional
+                        growth.
                     </div>
                 </div>
             </div>
