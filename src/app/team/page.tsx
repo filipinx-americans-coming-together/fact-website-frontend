@@ -190,27 +190,38 @@ const teamData = [
     }
 ];
 
-const OfficerCard = ({ name, image }) => {
+type OfficerCardProps = {
+    name: string;
+    image: string;
+};
+
+const OfficerCard = ({ name, image} : OfficerCardProps) => {
     const IMG_WIDTH = 300;
     const IMG_HEIGHT = 450;
     return (
-      <div style={{ display: 'block', margin: '2rem 4rem', padding: '0.5rem' }}>
+      <div className="block m-8 p-2">
         <Image
-        src={`/public/team-fact/${image}`} alt={name}
+        src={`/public/team-fact/${image}`}
+        alt={name}
         width={IMG_WIDTH} 
         height={IMG_HEIGHT}
-        style={{ display: 'block', margin: '0 auto' }}
+        className="block mx-auto"
         />
-        <p>{name}</p>
+        <p className="text-center mt-2">{name}</p>
       </div>
     );
-  };
+};
+
+type OfficerRowProps = {
+    role: string;
+    officers: { name: string; bio: string; pronouns: string; image: string }[];
+};
   
-const OfficerRow = ({ role, officers }) => {
+const OfficerRow = ({ role, officers } : OfficerRowProps) => {
   return (
     <div>
-      <h2 style={{ fontSize: '1.5vw' }}>{role}</h2>
-      <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
+      <h2 className="text-xl mb-4">{role}</h2>
+      <div className="flex flex-row justify-center">
         {officers.map((officer, index) => (
           <OfficerCard key={index} name={officer.name} image={officer.image} />
         ))}
@@ -222,7 +233,7 @@ const OfficerRow = ({ role, officers }) => {
 export default function Team() {
     return (
         <PageContainer title="Team FACT 2024">
-            <div style={{ textAlign: 'center' }}>
+            <div className="text-center">
                 {teamData.map((roleData, index) => (
                 <OfficerRow key={index} role={roleData.role} officers={roleData.officers} />
                 ))}
