@@ -60,7 +60,7 @@ export default function About() {
                         />
                     </div>
                     <div className="my-6">
-                        <LinkButton text="Official Statement Regarding FACT’s Name Change" url={PDF_URL} />
+                        <LinkButton text="Official Statement Regarding FACT’s Name Change" url={PDF_URL} new_tab={true} />
                     </div>
                     <div className="text-center lg:text-right mt-6 lg:mt-0">
                         This year’s Filipinx Americans Coming Together (FACT)

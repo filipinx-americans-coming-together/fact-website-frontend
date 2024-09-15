@@ -8,7 +8,7 @@ import DesktopNav from "./DesktopNav";
 import MobileNav from "./MobileNav";
 
 const iconList = [
-    { icon: <FaFacebook style={{ fontSize: "22px" }} />, link: "#" },
+    // { icon: <FaFacebook style={{ fontSize: "22px" }} />, link: "#" },
     {
         icon: <FaInstagram style={{ fontSize: "22px" }} />,
         link: "https://www.instagram.com/psa_fact/",
