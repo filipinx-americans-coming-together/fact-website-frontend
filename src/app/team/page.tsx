@@ -201,7 +201,7 @@ const OfficerCard = ({ name, image} : OfficerCardProps) => {
     return (
       <div className="block m-8 p-2">
         <Image
-        src={`/public/team-fact/${image}`}
+        src={`/team-fact/${image}`}
         alt={name}
         width={IMG_WIDTH} 
         height={IMG_HEIGHT}
