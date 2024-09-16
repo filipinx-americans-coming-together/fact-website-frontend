@@ -1,5 +1,10 @@
+"use client";
+
 import PageContainer from "@/components/formatting/PageContainer";
 import Image from "next/image";
+import { useState } from "react";
+
+const FACT_LOGO_SOURCE = "/fact-2024-logo-transparent.png";
 
 const teamData = [
     {
@@ -196,17 +201,22 @@ type OfficerCardProps = {
 };
 
 const OfficerCard = ({ name, image }: OfficerCardProps) => {
-    const IMG_WIDTH = 300;
-    const IMG_HEIGHT = 450;
+    const [src, setSrc] = useState(`/team-fact/${image}`);
+
     return (
-        <div className="block m-8 p-2">
-            <Image
-                src={`/team-fact/${image}`}
-                alt={name}
-                width={IMG_WIDTH}
-                height={IMG_HEIGHT}
-                className="block mx-auto"
-            />
+        <div className="m-8 p-2">
+            <div className="relative w-80 h-96">
+                <Image
+                    src={src}
+                    alt={name}
+                    fill={true}
+                    className="mx-auto object-cover"
+                    onError={() => {
+                        setSrc(FACT_LOGO_SOURCE);
+                    }}
+                />
+            </div>
+
             <p className="text-center mt-2">{name}</p>
         </div>
     );
