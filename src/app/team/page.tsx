@@ -204,13 +204,13 @@ const OfficerCard = ({ name, image }: OfficerCardProps) => {
     const [src, setSrc] = useState(`/team-fact/${image}`);
 
     return (
-        <div className="m-8 p-2">
-            <div className="relative w-80 h-96">
+        <div className="m-4 p-2 md:m-8 mx-auto">
+            <div className="relative w-48 h-56 lg:w-80 lg:h-96">
                 <Image
                     src={src}
                     alt={name}
                     fill={true}
-                    className="mx-auto object-cover"
+                    className="object-cover"
                     onError={() => {
                         setSrc(FACT_LOGO_SOURCE);
                     }}
@@ -231,7 +231,7 @@ const OfficerRow = ({ role, officers }: OfficerRowProps) => {
     return (
         <div>
             <h2 className="text-xl mb-4">{role}</h2>
-            <div className="flex flex-row justify-center">
+            <div className="flex flex-col md:flex-row justify-center">
                 {officers.map((officer, index) => (
                     <OfficerCard
                         key={index}
