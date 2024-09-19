@@ -1,6 +1,10 @@
 "use client";
+
+import PageContainer from "@/components/formatting/PageContainer";
+import Image from "next/image";
 import { useState } from "react";
-import { off } from "process";
+
+const FACT_LOGO_SOURCE = "/fact-2024-logo-transparent.png";
 
 const teamData = [
     {
@@ -11,20 +15,20 @@ const teamData = [
                 name: "Kristel Ong",
                 bio: "insert bio",
                 pronouns: "insert pronouns",
-                image: "kristel-ong.jpg",
+                image: "kristel-ong.JPG",
             },
             {
                 name: "Eillen Nigos",
                 bio: "insert bio",
                 pronouns: "insert pronouns",
-                image: "eillen-nigos.jpg",
+                image: "eillen-nigos.jpeg",
             },
             {
                 name: "Hahnbit Lee",
                 bio: "insert bio",
                 pronouns: "insert pronouns",
                 image: "hahnbit-lee.jpg",
-            }
+            },
         ],
     },
     {
@@ -35,9 +39,9 @@ const teamData = [
                 name: "Maya Moloney",
                 bio: "insert bio",
                 pronouns: "insert pronouns",
-                image: "maya-moloney.jpg",
-            }
-        ]
+                image: "maya-moloney.jpeg",
+            },
+        ],
     },
     {
         role: "Delegate",
@@ -53,9 +57,9 @@ const teamData = [
                 name: "Charlynne Ligo",
                 bio: "insert bio",
                 pronouns: "insert pronouns",
-                image: "charlynne-ligo.jpg",
-            }
-        ]
+                image: "charlynne-ligo.jpeg",
+            },
+        ],
     },
     {
         role: "Hospitality",
@@ -65,15 +69,15 @@ const teamData = [
                 name: "Catalina Sophia Murga",
                 bio: "insert bio",
                 pronouns: "insert pronouns",
-                image: "catalina-sophia-murga.jpg",
+                image: "catalina-sophia-murga.jpeg",
             },
             {
                 name: "Grace Requeno",
                 bio: "insert bio",
                 pronouns: "insert pronouns",
                 image: "grace-requeno.jpg",
-            }
-        ]
+            },
+        ],
     },
     {
         role: "Information Technology (IT)",
@@ -90,8 +94,8 @@ const teamData = [
                 bio: "insert bio",
                 pronouns: "insert pronouns",
                 image: "kian-de-guzman.jpg",
-            }
-        ]
+            },
+        ],
     },
     {
         role: "Marketing",
@@ -101,7 +105,7 @@ const teamData = [
                 name: "Kaila Babyar",
                 bio: "insert bio",
                 pronouns: "insert pronouns",
-                image: "kaila-babyar.jpg",
+                image: "kaila-babyar.jpeg",
             },
             {
                 name: "Lee Keating",
@@ -113,9 +117,9 @@ const teamData = [
                 name: "Miranda Espinoza",
                 bio: "insert bio",
                 pronouns: "insert pronouns",
-                image: "miranda-espinoza.jpg",
-            }
-        ]
+                image: "miranda-espinoza.jpeg",
+            },
+        ],
     },
     {
         role: "Media",
@@ -131,9 +135,9 @@ const teamData = [
                 name: "Sofia Kanda",
                 bio: "insert bio",
                 pronouns: "insert pronouns",
-                image: "sofia-kanda.jpg",
-            }
-        ]
+                image: "sofia-kanda.jpeg",
+            },
+        ],
     },
     {
         role: "Palengke",
@@ -143,15 +147,15 @@ const teamData = [
                 name: "Michael Echavez",
                 bio: "insert bio",
                 pronouns: "insert pronouns",
-                image: "michael-echavez.jpg",
+                image: "michael-echavez.jpeg",
             },
             {
                 name: "Ysabelle Pinpin",
                 bio: "insert bio",
                 pronouns: "insert pronouns",
                 image: "ysabelle-pinpin.jpg",
-            }
-        ]
+            },
+        ],
     },
     {
         role: "Team FACT Managers",
@@ -161,15 +165,15 @@ const teamData = [
                 name: "Erien Lucero",
                 bio: "insert bio",
                 pronouns: "insert pronouns",
-                image: "erien-lucero.jpg",
+                image: "erien-lucero.jpeg",
             },
             {
                 name: "Joshua Fajardo",
                 bio: "insert bio",
                 pronouns: "insert pronouns",
-                image: "joshua-fajardo.jpg",
-            }
-        ]
+                image: "joshua-fajardo.jpeg",
+            },
+        ],
     },
     {
         role: "Variety Show",
@@ -185,25 +189,73 @@ const teamData = [
                 name: "Stephanie Mago",
                 bio: "insert bio",
                 pronouns: "insert pronouns",
-                image: "stephanie-mago.jpg",
-            }
-        ]
-    }
+                image: "stephanie-mago.jpeg",
+            },
+        ],
+    },
 ];
+
+type OfficerCardProps = {
+    name: string;
+    image: string;
+};
+
+const OfficerCard = ({ name, image }: OfficerCardProps) => {
+    const [src, setSrc] = useState(`/team-fact/${image}`);
+
+    return (
+        <div className="m-4 p-2 md:m-8 mx-auto">
+            <div className="relative w-48 h-56 lg:w-80 lg:h-96">
+                <Image
+                    src={src}
+                    alt={name}
+                    fill={true}
+                    className="object-cover"
+                    onError={() => {
+                        setSrc(FACT_LOGO_SOURCE);
+                    }}
+                />
+            </div>
+
+            <p className="text-center mt-2">{name}</p>
+        </div>
+    );
+};
+
+type OfficerRowProps = {
+    role: string;
+    officers: { name: string; bio: string; pronouns: string; image: string }[];
+};
+
+const OfficerRow = ({ role, officers }: OfficerRowProps) => {
+    return (
+        <div>
+            <h2 className="text-xl mb-4">{role}</h2>
+            <div className="flex flex-col md:flex-row justify-center">
+                {officers.map((officer, index) => (
+                    <OfficerCard
+                        key={index}
+                        name={officer.name}
+                        image={officer.image}
+                    />
+                ))}
+            </div>
+        </div>
+    );
+};
 
 export default function Team() {
     return (
-      <div>
-        {teamData.map((role, index) => (
-            <div key={index}>
-                <img src={role.image} alt={``} />
-                <h2>{role.role}</h2>
-                <p>{role.officers.map(officer => (
-                    officer.name + " "
+        <PageContainer title="Team FACT 2024">
+            <div className="text-center">
+                {teamData.map((roleData, index) => (
+                    <OfficerRow
+                        key={index}
+                        role={roleData.role}
+                        officers={roleData.officers}
+                    />
                 ))}
-                </p>
             </div>
-        ))}
-      </div>
+        </PageContainer>
     );
 }
