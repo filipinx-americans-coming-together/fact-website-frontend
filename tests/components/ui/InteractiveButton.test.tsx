@@ -1,11 +1,10 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, afterEach } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom/vitest";
 import jest from "jest-mock";
 
 import InteractiveButton from "../../../src/components/ui/InteractiveButton";
-import { afterEach, beforeEach } from "node:test";
 
 describe("InteractiveButton", () => {
     // clear dom after each test
