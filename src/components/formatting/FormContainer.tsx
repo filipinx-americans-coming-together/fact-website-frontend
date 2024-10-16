@@ -13,7 +13,7 @@ interface FormProps {
 
 function FormContainer(props: FormProps) {
     return (
-        <div className="w-7/12 px-20 py-12 bg-text-primary text-black m-auto flex flex-col items-center gap-3 rounded-lg">
+        <div className="w-7/12 min-w-[460px] px-20 py-12 bg-text-primary text-black m-auto flex flex-col items-center gap-3 rounded-lg">
             <form
                 name={props.formName}
                 className="flex flex-col gap-6 items-center text-left"
