@@ -1,5 +1,5 @@
 import { API_URL } from "@/util/constants";
-import { ResponseData, SchoolData, WorkshopData } from "@/util/types";
+import { ResponseData, SchoolData } from "@/util/types";
 import { useQuery } from "@tanstack/react-query";
 
 async function fetchSchools(): Promise<SchoolData[]> {
