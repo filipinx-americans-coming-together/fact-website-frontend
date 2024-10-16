@@ -1,7 +1,6 @@
-import { API_URL } from "@/util/constants";
-import { ResponseData, WorkshopData } from "@/util/types";
-import { useEffect, useState } from "react";
+import { WorkshopData } from "@/util/types";
 import Select from "./Select";
+import { useWorkshops } from "@/hooks/api/useWorkshops";
 
 interface WorkshopSelectProps {
     id: string;
@@ -15,46 +14,25 @@ interface WorkshopSelectProps {
  * @returns WorkshopSelect component
  */
 function WorkshopSelect(props: WorkshopSelectProps) {
-    const [workshops, setWorkshops] = useState<WorkshopData[]>();
-
-    useEffect(() => {
-        fetch(`${API_URL}/workshop/`)
-            .then((response) => response.json())
-            .then((data) => {
-                const formatted_data = data.map(
-                    (workshop: ResponseData<WorkshopData>) => {
-                        const formatted = {
-                            id: workshop.pk,
-                            title: workshop.fields.title,
-                            session: workshop.fields.session,
-                            facilitators: workshop.fields.facilitators,
-                            location: workshop.fields.location,
-                        };
-                        return formatted;
-                    }
-                );
-
-                setWorkshops(
-                    formatted_data.filter(
-                        (workshop: WorkshopData) =>
-                            workshop.session == props.session
-                    )
-                );
-            });
-    }, [props.session]);
+    const { workshops } = useWorkshops();
 
     return (
         workshops && (
             <Select id={props.id} label={`Session ${props.session} Workshop`}>
-                {workshops.map((workshop) => (
-                    <option
-                        className="py-1 px-2"
-                        key={workshop.id}
-                        value={workshop.id}
-                    >
-                        {workshop.title}
-                    </option>
-                ))}
+                {workshops
+                    .filter(
+                        (workshop: WorkshopData) =>
+                            workshop.session == props.session
+                    )
+                    .map((workshop) => (
+                        <option
+                            className="py-1 px-2"
+                            key={workshop.id}
+                            value={workshop.id}
+                        >
+                            {workshop.title}
+                        </option>
+                    ))}
             </Select>
         )
     );

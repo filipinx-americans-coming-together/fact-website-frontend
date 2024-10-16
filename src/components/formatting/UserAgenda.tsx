@@ -1,52 +1,17 @@
-import { API_URL } from "@/util/constants";
-import { RegistrationData, UserData, UserResponse } from "@/util/types";
-import { useEffect, useState } from "react";
 import LoadingCircle from "../icons/LoadingCircle";
 import AgendaWorkshop from "./AgendaWorkshop";
-
-interface UserAgendaProps {
-    id: number;
-}
-
+import { useUser } from "@/hooks/api/useUser";
 /**
  * Agenda for individual user
  * @param id id of user
  * @returns UserAgenda component
  */
-function UserAgenda(props: UserAgendaProps) {
-    const [registration, setRegistration] = useState<RegistrationData[]>();
-
-    useEffect(() => {
-        fetch(`${API_URL}/user/`, { credentials: "include" })
-            .then((response) => {
-                if (response.status === 200) {
-                    return response.json();
-                } else {
-                    response.text().then((text) => console.log(text));
-                    //   window.location.href = "/my-fact/login";
-                }
-            })
-            .then((data: UserResponse) => {
-                // registration data
-                const registrationData = data.registration;
-                const formattedRegistration: RegistrationData[] = [];
-
-                for (let i = 0; i < registrationData.length; i++) {
-                    const formatted: RegistrationData = {
-                        delegate: registrationData[i].fields.delegate,
-                        workshop: registrationData[i].fields.workshop,
-                    };
-
-                    formattedRegistration.push(formatted);
-                }
-
-                setRegistration(formattedRegistration);
-            });
-    }, []);
+function UserAgenda() {
+    const { user } = useUser();
 
     return (
         <>
-            {registration ? (
+            {user ? (
                 <>
                     <div className="text-center">
                         <div className="text-3xl font-bold">My Agenda</div>
@@ -71,7 +36,7 @@ function UserAgenda(props: UserAgendaProps) {
                         <div className="font-bold text-xl my-2">
                             Saturday, Month Day
                         </div>
-                        {registration.map((pair) => (
+                        {user.registration.map((pair) => (
                             <AgendaWorkshop
                                 key={pair.workshop}
                                 id={pair.workshop}

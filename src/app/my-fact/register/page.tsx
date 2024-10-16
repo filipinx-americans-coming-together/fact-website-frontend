@@ -6,9 +6,14 @@ import SchoolSelect from "@/components/ui/SchoolSelect";
 import Select from "@/components/ui/Select";
 import TextInput from "@/components/ui/TextInput";
 import WorkshopSelect from "@/components/ui/WorkshopSelect";
+import { registrationProps, useRegister } from "@/hooks/api/useRegister";
 
 export default function Register() {
-    //   const [workshops, setWorkshops] = useState<WorkshopData[]>();
+    const { register, isSuccess, isPending, error } = useRegister();
+
+    if (isSuccess) {
+        window.location.href = "/my-fact/dashboard";
+    }
 
     return (
         <>
@@ -16,9 +21,25 @@ export default function Register() {
             <FormContainer
                 submitText="Register"
                 formName="registerForm"
-                onSubmit={() => {}}
-                isLoading={false}
-                errorMessage={undefined}
+                onSubmit={(event) => {
+                    // format data
+                    const data: registrationProps = {
+                        f_name: event.currentTarget.f_name.value,
+                        l_name: event.currentTarget.l_name.value,
+                        email: event.currentTarget.email.value,
+                        password: event.currentTarget.password.value,
+                        pronouns: event.currentTarget.pronouns.value,
+                        year: event.currentTarget.year.value,
+                        school_id: event.currentTarget.school_id.value,
+                        workshop_1_id: event.currentTarget.workshop_1_id.value,
+                        workshop_2_id: event.currentTarget.workshop_2_id.value,
+                        workshop_3_id: event.currentTarget.workshop_3_id.value,
+                    };
+
+                    register(data);
+                }}
+                isLoading={isPending}
+                errorMessage={error?.message}
             >
                 <div className="text-center">Register for FACT</div>
 
