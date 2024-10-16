@@ -38,6 +38,7 @@ function FormContainer(props: FormProps) {
                     <InteractiveButton
                         text={props.submitText}
                         onClick={() => {}}
+                        isSubmit={true}
                     />
                 )}
             </form>

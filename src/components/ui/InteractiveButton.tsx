@@ -1,6 +1,7 @@
 interface InteractiveButtonProps {
     text: string;
     onClick: Function;
+    isSubmit?: boolean;
 }
 
 /**
@@ -12,12 +13,14 @@ interface InteractiveButtonProps {
 export default function InteractiveButton({
     text,
     onClick,
+    isSubmit = false,
 }: InteractiveButtonProps) {
     return (
         <button
             className="bg-highlight-primary px-8 py-2 rounded-sm hover:bg-highlight-secondary"
+            type={isSubmit ? "submit" : "button"}
             onClick={(event) => {
-                event.preventDefault();
+                if (!isSubmit) event.preventDefault();
                 onClick();
             }}
         >
