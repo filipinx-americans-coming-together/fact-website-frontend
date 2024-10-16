@@ -1,7 +1,5 @@
-import { API_URL } from "@/util/constants";
-import { ResponseData, SchoolData } from "@/util/types";
-import { useEffect, useState } from "react";
 import Select from "./Select";
+import { useSchools } from "@/hooks/api/useSchools";
 
 interface SchoolSelectProps {
     id: string;
@@ -13,21 +11,7 @@ interface SchoolSelectProps {
  * @returns SchoolSelect component
  */
 function SchoolSelect(props: SchoolSelectProps) {
-    const [schools, setSchools] = useState<SchoolData[]>();
-
-    useEffect(() => {
-        fetch(`${API_URL}/schools/`)
-            .then((response) => response.json())
-            .then((data) => {
-                const formatted_data = data.map(
-                    (school: ResponseData<SchoolData>) => {
-                        return { id: school.pk, name: school.fields.name };
-                    }
-                );
-
-                setSchools(formatted_data);
-            });
-    }, []);
+    const { schools } = useSchools();
 
     return (
         schools && (
