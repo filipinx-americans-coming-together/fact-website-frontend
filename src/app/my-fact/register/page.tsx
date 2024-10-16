@@ -213,6 +213,55 @@ export default function Register() {
                         upload proof of payment.
                     </div>
                     <input type="file" />
+
+                    <br />
+                    <div className="static flex items-start gap-1">
+                        <input
+                            className="relative top-1"
+                            required
+                            type="checkbox"
+                            id="terms-conditions"
+                        />
+                        <span>
+                            <p>
+                                By checking this box, I affirm that I agree to
+                                the following terms and conditions:
+                            </p>
+                            <div className="text-xs">
+                                <p>
+                                    I. I am responsible for loss of items or
+                                    damage to FACT Conference facilities. I will
+                                    be liable for any costs incurred to repair
+                                    any inflicted damage
+                                </p>
+                                <p>
+                                    II. I am responsible for any personal
+                                    valuables, as FACT Conference coordinators
+                                    and PSA will not be held responsible for any
+                                    missing belongings.
+                                </p>
+                                <p>
+                                    III. PSA is committed to providing a safe,
+                                    productive, and welcoming environment to all
+                                    participants, including staff, vendors,
+                                    guests, and delegates. PSA has no tolerance
+                                    for discrimination, harassment, or bullying
+                                    in any form at FACT-related events.
+                                    Participants are expected to adhere to these
+                                    principles and respect the rights of others.
+                                </p>
+                                <br />
+                                <p>
+                                    If you are a witness or are subject to
+                                    unacceptable behavior, please report to any
+                                    PSA, FACT, or trusted organization leader,
+                                    who will assist in resolving the issue and
+                                    escorting out any individuals disrupting the
+                                    safe environment FACT aims to foster.
+                                </p>
+                            </div>
+                        </span>
+                    </div>
                 </div>
             </FormContainer>
             <br />
