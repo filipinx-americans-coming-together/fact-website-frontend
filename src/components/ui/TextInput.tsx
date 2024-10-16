@@ -3,6 +3,7 @@ import { useState } from "react";
 interface TextInputProps {
     label: string;
     id: string;
+    setState: (state: Object) => void;
     maxLength?: number;
     placeholder?: string;
     showCharacters?: boolean;
@@ -14,6 +15,7 @@ interface TextInputProps {
  *
  * @param label label
  * @param id html id
+ * @param setState function to call on input change
  * @param maxLength max length
  * @param placeholder placeholder text, default ""
  * @param showCharacters display characters, input type=text if true, type=password if false, default true
@@ -29,6 +31,7 @@ function TextInput({
     showCharacters = true,
     showMaxLength = false,
     autoComplete = "off",
+    setState,
 }: TextInputProps) {
     const [inputLength, setInputLength] = useState(0);
 
@@ -53,7 +56,13 @@ function TextInput({
                 autoComplete={autoComplete}
                 className="py-1 px-2 rounded border w-full min-w-64"
                 onChange={(event) => {
+                    const value = event.currentTarget.value;
+
                     setInputLength(event.currentTarget.value.length);
+                    setState((prevState: Object) => ({
+                        ...prevState,
+                        [id]: value,
+                    }));
                 }}
             />
         </div>
