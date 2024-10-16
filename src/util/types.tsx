@@ -10,10 +10,10 @@ export interface UserResponse {
     user: ResponseData<UserData>[];
 }
 
-// export interface WorkshopResponse {
-//     workshop: ResponseData<WorkshopData>[];
-//     location: ResponseData<LocationData>[];
-// }
+export interface WorkshopResponse {
+    workshop: ResponseData<WorkshopData>[];
+    location: ResponseData<LocationData>[];
+}
 
 export interface SchoolData {
     id: number;
