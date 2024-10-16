@@ -37,7 +37,6 @@ function WorkshopSelect(props: WorkshopSelectProps) {
                             workshop.session == props.session
                     )
                     .map((workshop) => {
-                        console.log("setting workshop value", workshop.id);
                         return (
                             <option
                                 className="py-1 px-2"

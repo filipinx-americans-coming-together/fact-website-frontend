@@ -36,7 +36,6 @@ function Select<T>(props: SelectProps) {
                 defaultValue={props.defaultValue ? props.defaultValue : 1}
                 onChange={(event) => {
                     const value = event.currentTarget.value;
-                    console.log("selecting: ", value);
                     props.setState((prevState: Object) => ({
                         ...prevState,
                         [props.id]: value,

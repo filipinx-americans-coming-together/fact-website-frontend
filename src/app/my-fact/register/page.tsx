@@ -6,12 +6,16 @@ import SchoolSelect from "@/components/ui/SchoolSelect";
 import Select from "@/components/ui/Select";
 import TextInput from "@/components/ui/TextInput";
 import WorkshopSelect from "@/components/ui/WorkshopSelect";
+
 import { registrationProps, useRegister } from "@/hooks/api/useRegister";
 import { useState } from "react";
 
+import ticketTypes from "./ticketTypes.json";
+import InteractiveButton from "@/components/ui/InteractiveButton";
+
 export default function Register() {
     const { register, isSuccess, isPending, error } = useRegister();
-    const [formData, setFormData] = useState<Object>({
+    const [formData, setFormData] = useState<{ [key: string]: any }>({
         f_name: "",
         l_name: "",
         email: "",
@@ -22,7 +26,39 @@ export default function Register() {
         workshop_1_id: -1,
         workshop_2_id: -1,
         workshop_3_id: -1,
+        discount: "",
     });
+
+    const [ticketSelection, setTicketSelection] = useState<{
+        id: number;
+        label: string;
+        value: number;
+    }>({
+        id: 0,
+        label: ticketTypes.ticketTypes[0].label,
+        value: parseInt(ticketTypes.ticketTypes[0].price),
+    });
+
+    const [validDiscount, setValidDiscount] = useState<{
+        code: string;
+        value: number;
+    }>();
+
+    // TODO replace with server call to verify code
+    const discounts: { [key: string]: number } = {
+        FACILITATOR: 20,
+        DISCOUNT10: 10,
+    };
+
+    function validateDiscount(code: string): void {
+        const capitalCode = code.toUpperCase();
+
+        if (discounts[capitalCode]) {
+            setValidDiscount({ code: code, value: discounts[capitalCode] });
+        } else {
+            setValidDiscount(undefined);
+        }
+    }
 
     if (isSuccess) {
         window.location.href = "/my-fact/dashboard";
@@ -34,8 +70,7 @@ export default function Register() {
             <FormContainer
                 submitText="Register"
                 formName="registerForm"
-                onSubmit={(event) => {
-                    console.log(formData);
+                onSubmit={() => {
                     register(formData as registrationProps);
                 }}
                 isLoading={isPending}
@@ -99,24 +134,80 @@ export default function Register() {
 
                 <div className="text-left flex flex-col gap-2 w-full">
                     <div>Ticket Type</div>
-                    <div>
-                        <input type="radio" name="ticket" />
-                        <label>Workshops Only - $##</label>
-                        <br />
-                        <input type="radio" name="ticket" />
-                        <label>Workshops + Variety Show - $##</label>
+                    <div className="flex flex-col gap-2 items-start">
+                        {ticketTypes.ticketTypes.map(
+                            (type: { label: string; price: string }, idx) => (
+                                <button
+                                    className="hover:cursor-pointer"
+                                    key={idx}
+                                    onClick={(event) => {
+                                        event.preventDefault();
+
+                                        setTicketSelection({
+                                            id: idx,
+                                            label: type.label,
+                                            value: parseInt(type.price),
+                                        });
+                                    }}
+                                >
+                                    <input
+                                        type="radio"
+                                        name="ticket"
+                                        checked={idx == ticketSelection.id}
+                                        readOnly
+                                    />
+                                    <label>
+                                        {type.label} - ${type.price}
+                                    </label>
+                                </button>
+                            )
+                        )}
                     </div>
+
+                    <br />
 
                     <TextInput
                         label="Discount Code"
                         id="discount"
                         setState={setFormData}
                     />
+                    <div className="flex justify-end">
+                        <InteractiveButton
+                            text="Apply Code"
+                            onClick={() => {
+                                console.log(validDiscount);
+                                validateDiscount(formData["discount"]);
+                            }}
+                        />
+                    </div>
+
                     <br />
                     <br />
-                    <p>
-                        Your total is <span className="font-bold">$##</span>
-                    </p>
+                    <div className="border-2 p-4">
+                        {" "}
+                        <p className="flex justify-between font-bold">
+                            Order total:
+                            <span>
+                                $
+                                {Math.max(
+                                    0,
+                                    ticketSelection.value -
+                                        (validDiscount?.value ?? 0)
+                                )}
+                            </span>
+                        </p>
+                        <p className="text-highlight-2-secondary">
+                            {ticketSelection.label} - ${ticketSelection.value}
+                        </p>
+                        {validDiscount && (
+                            <p className="text-highlight-2-secondary">
+                                Discount code {validDiscount.code.toUpperCase()}{" "}
+                                applied
+                            </p>
+                        )}
+                    </div>
+
+                    <br />
                     <div>
                         Payment can be made via Venmo @PSA_Treasurer. Please
                         upload proof of payment.
