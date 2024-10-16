@@ -8,7 +8,6 @@ import TextInput from "@/components/ui/TextInput";
 import WorkshopSelect from "@/components/ui/WorkshopSelect";
 
 export default function Register() {
-    //   const [workshops, setWorkshops] = useState<WorkshopData[]>();
 
     return (
         <>

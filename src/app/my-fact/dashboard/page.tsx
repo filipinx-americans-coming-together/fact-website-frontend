@@ -59,13 +59,7 @@ export default function Dashboard() {
                         />
                     </div>
                 </div>
-                <div>
-                    {user ? (
-                        <UserAgenda id={user.user.id} />
-                    ) : (
-                        <LoadingCircle />
-                    )}
-                </div>
+                <div>{user ? <UserAgenda /> : <LoadingCircle />}</div>
             </div>
         </>
     );

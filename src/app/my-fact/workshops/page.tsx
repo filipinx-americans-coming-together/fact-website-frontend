@@ -3,16 +3,28 @@
 import FormContainer from "@/components/formatting/FormContainer";
 import Navbar from "@/components/navigation/Navbar";
 import WorkshopSelect from "@/components/ui/WorkshopSelect";
+import { updateUserProps, useUpdateUser } from "@/hooks/api/useUpdateUser";
 import Link from "next/link";
 
 export default function Workshops() {
+    const { updateUser, isSuccess } = useUpdateUser();
+
     return (
         <>
             <Navbar />
             <FormContainer
                 submitText="Save Changes"
                 formName="updateWorkshops"
-                onSubmit={() => {}}
+                onSubmit={(event) => {
+                    // format data
+                    const data: updateUserProps = {
+                        workshop_1_id: event.currentTarget.get("workshop_1_id"),
+                        workshop_2_id: event.currentTarget.get("workshop_2_id"),
+                        workshop_3_id: event.currentTarget.get("workshop_3_id"),
+                    };
+
+                    updateUser(data);
+                }}
                 isLoading={false}
                 errorMessage={undefined}
             >
