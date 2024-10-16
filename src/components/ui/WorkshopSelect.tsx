@@ -6,6 +6,7 @@ interface WorkshopSelectProps {
     id: string;
     session: number;
     setState: (state: Object) => void;
+    required?: boolean;
 }
 
 /**
@@ -15,26 +16,30 @@ interface WorkshopSelectProps {
  * @param setState function to call on input change
  * @returns WorkshopSelect component
  */
-function WorkshopSelect(props: WorkshopSelectProps) {
+function WorkshopSelect({
+    id,
+    session,
+    setState,
+    required = true,
+}: WorkshopSelectProps) {
     const { workshops } = useWorkshops();
 
     return (
         workshops && (
             <Select
-                id={props.id}
-                label={`Session ${props.session} Workshop`}
-                setState={props.setState}
+                id={id}
+                label={`Session ${session} Workshop`}
+                setState={setState}
                 defaultValue={
                     workshops.filter(
-                        (workshop: WorkshopData) =>
-                            workshop.session == props.session
+                        (workshop: WorkshopData) => workshop.session == session
                     )[0].id
                 }
+                required={required}
             >
                 {workshops
                     .filter(
-                        (workshop: WorkshopData) =>
-                            workshop.session == props.session
+                        (workshop: WorkshopData) => workshop.session == session
                     )
                     .map((workshop) => {
                         return (

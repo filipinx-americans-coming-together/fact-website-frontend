@@ -6,6 +6,7 @@ interface SelectProps {
     label: string;
     setState: (state: Object) => void;
     defaultValue?: number;
+    required?: boolean;
 }
 
 /**
@@ -14,35 +15,45 @@ interface SelectProps {
  * @param label label text
  * @param setState function to call on input change
  * @param defaultValue default value id
+ * @param required is required
  * @param children options
  * @returns
  */
-function Select<T>(props: SelectProps) {
+function Select<T>({
+    id,
+    label,
+    setState,
+    defaultValue,
+    required = true,
+    children,
+}: SelectProps) {
     useEffect(() => {
-        props.setState((prevState: Object) => ({
+        setState((prevState: Object) => ({
             ...prevState,
-            [props.id]: props.defaultValue,
+            [id]: defaultValue,
         }));
-    }, [props.defaultValue]);
+    }, [defaultValue]);
 
     return (
         <div className="flex flex-col w-full">
             {/* label */}
-            <label htmlFor={props.id}>{props.label}</label>
+            <label htmlFor={id}>
+                {label} {required && <span className="text-red-600">*</span>}
+            </label>
 
             <select
                 className="py-1 px-2 rounded border"
-                id={props.id}
-                defaultValue={props.defaultValue ? props.defaultValue : 1}
+                id={id}
+                defaultValue={defaultValue ? defaultValue : 1}
                 onChange={(event) => {
                     const value = event.currentTarget.value;
-                    props.setState((prevState: Object) => ({
+                    setState((prevState: Object) => ({
                         ...prevState,
-                        [props.id]: value,
+                        [id]: value,
                     }));
                 }}
             >
-                {props.children}
+                {children}
             </select>
         </div>
     );

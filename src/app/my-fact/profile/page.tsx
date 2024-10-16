@@ -46,27 +46,36 @@ export default function Profile() {
                     id="f_name"
                     placeholder={user?.user.first_name}
                     setState={setFormData}
+                    required={false}
                 />
                 <TextInput
                     label="Last Name"
                     id="l_name"
                     placeholder={user?.user.last_name}
                     setState={setFormData}
+                    required={false}
                 />
                 <TextInput
                     label="Email"
                     id="email"
                     placeholder={user?.user.email}
                     setState={setFormData}
+                    required={false}
                 />
                 <TextInput
-                    label="Pronouns (optional)"
+                    label="Pronouns"
                     id="pronouns"
                     placeholder={user?.delegate.pronouns}
                     setState={setFormData}
+                    required={false}
                 />
 
-                <Select id="year" label="Year" setState={setFormData}>
+                <Select
+                    id="year"
+                    label="Year"
+                    setState={setFormData}
+                    required={false}
+                >
                     <option value="Freshman">Freshman</option>
                     <option value="Sophomore">Sophomore</option>
                     <option value="Junior">Junior</option>
@@ -75,7 +84,11 @@ export default function Profile() {
                     <option value="Other">Other</option>
                 </Select>
 
-                <SchoolSelect id="school_id" setState={setFormData} />
+                <SchoolSelect
+                    id="school_id"
+                    setState={setFormData}
+                    required={false}
+                />
 
                 <Link
                     className="text-center text-sm text-highlight-primary hover:underline"

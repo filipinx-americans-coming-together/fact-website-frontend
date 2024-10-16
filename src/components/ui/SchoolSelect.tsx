@@ -4,6 +4,7 @@ import { useSchools } from "@/hooks/api/useSchools";
 interface SchoolSelectProps {
     id: string;
     setState: (state: Object) => void;
+    required?: boolean;
 }
 
 /**
@@ -12,16 +13,17 @@ interface SchoolSelectProps {
  * @param setState function to call on input change
  * @returns SchoolSelect component
  */
-function SchoolSelect(props: SchoolSelectProps) {
+function SchoolSelect({ id, setState, required = true }: SchoolSelectProps) {
     const { schools } = useSchools();
 
     return (
         schools && (
             <Select
-                id={props.id}
+                id={id}
                 label="School"
-                setState={props.setState}
+                setState={setState}
                 defaultValue={schools[0].id}
+                required={required}
             >
                 {schools.map((school) => (
                     <option

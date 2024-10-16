@@ -38,16 +38,19 @@ export default function Workshops() {
                     session={1}
                     id="workshop_1_id"
                     setState={setFormData}
+                    required={false}
                 />
                 <WorkshopSelect
                     session={2}
                     id="workshop_2_id"
                     setState={setFormData}
+                    required={false}
                 />
                 <WorkshopSelect
                     session={3}
                     id="workshop_3_id"
                     setState={setFormData}
+                    required={false}
                 />
 
                 <Link

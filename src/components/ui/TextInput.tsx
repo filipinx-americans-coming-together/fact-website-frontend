@@ -9,6 +9,7 @@ interface TextInputProps {
     showCharacters?: boolean;
     showMaxLength?: boolean;
     autoComplete?: string;
+    required?: boolean;
 }
 
 /**
@@ -21,17 +22,20 @@ interface TextInputProps {
  * @param showCharacters display characters, input type=text if true, type=password if false, default true
  * @param showMaxLength show number of typed characters out of max, default false
  * @param autoComplete autocomplete setting, default "off"
+ * @param required is input required
  * @returns
  */
 function TextInput({
     label,
     id,
+    setState,
+
     maxLength = 1000,
     placeholder = "",
     showCharacters = true,
     showMaxLength = false,
     autoComplete = "off",
-    setState,
+    required = true,
 }: TextInputProps) {
     const [inputLength, setInputLength] = useState(0);
 
@@ -39,7 +43,10 @@ function TextInput({
         <div className="flex flex-col w-full">
             <div className="flex items-end justify-between gap-4">
                 {/* label */}
-                <label htmlFor={id}>{label}</label>
+                <label htmlFor={id}>
+                    {label}{" "}
+                    {required && <span className="text-red-600">*</span>}
+                </label>
 
                 {/* display number of typed characters */}
                 {showMaxLength && (
@@ -64,6 +71,7 @@ function TextInput({
                         [id]: value,
                     }));
                 }}
+                required={required}
             />
         </div>
     );

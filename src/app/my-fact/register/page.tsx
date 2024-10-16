@@ -96,9 +96,10 @@ export default function Register() {
                     setState={setFormData}
                 />
                 <TextInput
-                    label="Pronouns (optional)"
+                    label="Pronouns"
                     id="pronouns"
                     setState={setFormData}
+                    required={false}
                 />
 
                 <Select id="year" label="Year" setState={setFormData}>
@@ -133,7 +134,9 @@ export default function Register() {
                 <br />
 
                 <div className="text-left flex flex-col gap-2 w-full">
-                    <div>Ticket Type</div>
+                    <label>
+                        Ticket Type <span className="text-red-600">*</span>
+                    </label>
                     <div className="flex flex-col gap-2 items-start">
                         {ticketTypes.ticketTypes.map(
                             (type: { label: string; price: string }, idx) => (
@@ -170,6 +173,7 @@ export default function Register() {
                         label="Discount Code"
                         id="discount"
                         setState={setFormData}
+                        required={false}
                     />
                     <div className="flex justify-end">
                         <InteractiveButton
@@ -210,9 +214,10 @@ export default function Register() {
                     <br />
                     <div>
                         Payment can be made via Venmo @PSA_Treasurer. Please
-                        upload proof of payment.
+                        upload proof of payment.{" "}
+                        <span className="text-red-600">*</span>
                     </div>
-                    <input type="file" />
+                    <input type="file" required />
 
                     <br />
                     <div className="static flex items-start gap-1">
@@ -225,7 +230,8 @@ export default function Register() {
                         <span>
                             <p>
                                 By checking this box, I affirm that I agree to
-                                the following terms and conditions:
+                                the following terms and conditions:{" "}
+                                <span className="text-red-600">*</span>
                             </p>
                             <div className="text-xs">
                                 <p>
