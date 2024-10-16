@@ -7,7 +7,11 @@ import { updateUserProps, useUpdateUser } from "@/hooks/api/useUpdateUser";
 import Link from "next/link";
 
 export default function Workshops() {
-    const { updateUser, isSuccess } = useUpdateUser();
+    const { updateUser, isSuccess, isPending, error } = useUpdateUser();
+
+    if (isSuccess) {
+        window.location.href = "/my-fact/dashboard";
+    }
 
     return (
         <>
@@ -18,15 +22,15 @@ export default function Workshops() {
                 onSubmit={(event) => {
                     // format data
                     const data: updateUserProps = {
-                        workshop_1_id: event.currentTarget.get("workshop_1_id"),
-                        workshop_2_id: event.currentTarget.get("workshop_2_id"),
-                        workshop_3_id: event.currentTarget.get("workshop_3_id"),
+                        workshop_1_id: event.currentTarget.workshop_1_id.value,
+                        workshop_2_id: event.currentTarget.workshop_2_id.value,
+                        workshop_3_id: event.currentTarget.workshop_3_id.value,
                     };
 
                     updateUser(data);
                 }}
-                isLoading={false}
-                errorMessage={undefined}
+                isLoading={isPending}
+                errorMessage={error?.message}
             >
                 <div className="text-center">Edit Workshops</div>
 

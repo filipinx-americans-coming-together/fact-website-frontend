@@ -11,7 +11,7 @@ import Link from "next/link";
 
 export default function Profile() {
     const { user } = useUser();
-    const { updateUser, isSuccess } = useUpdateUser();
+    const { updateUser, isSuccess, isPending, error } = useUpdateUser();
 
     if (isSuccess) {
         window.location.href = "/my-fact/dashboard";
@@ -26,18 +26,18 @@ export default function Profile() {
                 onSubmit={(event) => {
                     // format data
                     const data: updateUserProps = {
-                        f_name: event.currentTarget.get("f_name"),
-                        l_name: event.currentTarget.get("f_name"),
-                        email: event.currentTarget.get("email"),
-                        pronouns: event.currentTarget.get("pronouns"),
-                        year: event.currentTarget.get("year"),
-                        school_id: event.currentTarget.get("school_id"),
+                        f_name: event.currentTarget.f_name.value,
+                        l_name: event.currentTarget.l_name.value,
+                        email: event.currentTarget.email.value,
+                        pronouns: event.currentTarget.pronouns.value,
+                        year: event.currentTarget.year.value,
+                        school_id: event.currentTarget.school_id.value,
                     };
 
                     updateUser(data);
                 }}
-                isLoading={false}
-                errorMessage={undefined}
+                isLoading={isPending}
+                errorMessage={error?.message}
             >
                 <div className="text-center">Edit Profile</div>
 
