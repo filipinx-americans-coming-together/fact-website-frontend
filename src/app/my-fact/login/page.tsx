@@ -4,9 +4,15 @@ import FormContainer from "@/components/formatting/FormContainer";
 import Navbar from "@/components/navigation/Navbar";
 import TextInput from "@/components/ui/TextInput";
 import { useLogin } from "@/hooks/api/useLogin";
+import { useState } from "react";
 
 export default function Login() {
     const { login, isPending, error, isSuccess } = useLogin();
+
+    const [formData, setFormData] = useState<Object>({
+        email: "",
+        password: "",
+    });
 
     if (isSuccess) {
         window.location.href = "/my-fact/dashboard";
@@ -19,23 +25,19 @@ export default function Login() {
             <FormContainer
                 submitText="Log in"
                 formName="loginForm"
-                onSubmit={(event) => {
-                    event.preventDefault();
-
-                    const email = event.currentTarget.email.value;
-                    const password = event.currentTarget.password.value;
-
-                    login({ email: email, password: password });
+                onSubmit={() => {
+                    login(formData as { email: string; password: string });
                 }}
                 isLoading={isPending}
                 errorMessage={error?.message}
             >
                 <div className="text-center">Login</div>
-                <TextInput label="Email" id="email" />
+                <TextInput label="Email" id="email" setState={setFormData} />
                 <TextInput
                     label="Password"
                     id="password"
                     showCharacters={false}
+                    setState={setFormData}
                 />
 
                 <br />
