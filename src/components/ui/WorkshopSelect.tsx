@@ -23,7 +23,7 @@ function WorkshopSelect({
     required = true,
 }: WorkshopSelectProps) {
     const { workshops } = useWorkshops();
-
+    
     return (
         workshops && (
             <Select
