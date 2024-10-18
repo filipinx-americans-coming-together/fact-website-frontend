@@ -237,7 +237,11 @@ export default function Register() {
                         upload proof of payment.{" "}
                         <span className="text-red-600">*</span>
                     </div>
-                    <input type="file" required />
+                    <input
+                        type="file"
+                        accept="image/png, image/jpeg"
+                        required
+                    />
 
                     <br />
                     <div className="static flex items-start gap-1">
