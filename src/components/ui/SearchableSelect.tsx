@@ -1,0 +1,132 @@
+import { ReactNode, useEffect, useState } from "react";
+import { FaAngleDown } from "react-icons/fa";
+
+interface SearchableSelectProps {
+    options: { label: string; value: number }[];
+    id: string;
+    label: string;
+    setState: (state: Object) => void;
+    placeholder: string;
+    defaultValue?: number;
+    required?: boolean;
+}
+
+/**
+ * Searchable select menu
+ * @param id html id
+ * @param label label text
+ * @param setState function to call on input change
+ * @param defaultValue default value id
+ * @param required is required
+ * @param children options
+ * @returns
+ */
+function SearchableSelect<T>({
+    id,
+    label,
+    setState,
+    defaultValue,
+    required = true,
+    options,
+    placeholder,
+}: SearchableSelectProps) {
+    const [query, setQuery] = useState("");
+    const [showOptions, setShowOptions] = useState(false);
+    const [selected, setSelected] = useState<String>();
+
+    useEffect(() => {
+        setState((prevState: Object) => ({
+            ...prevState,
+            [id]: defaultValue,
+        }));
+    }, [defaultValue]);
+
+    return (
+        <div className="relative flex flex-col w-full">
+            {/* label */}
+            <div>
+                {label} {required && <span className="text-red-600">*</span>}
+            </div>
+
+            {selected ? (
+                <div
+                    className="px-2 py-1 bg-white rounded text-background-primary divide-y border flex justify-between items-center hover:cursor-pointer"
+                    onClick={() => {
+                        setShowOptions(true);
+                        setSelected(undefined);
+                        setState((prevState: Object) => ({
+                            ...prevState,
+                            [id]: undefined,
+                        }));
+                    }}
+                >
+                    {selected}
+                    <FaAngleDown />
+                </div>
+            ) : (
+                <input
+                    placeholder={placeholder}
+                    autoComplete="off"
+                    className="py-1 px-2 rounded border w-full min-w-64 text-background-primary"
+                    onChange={(event) => {
+                        const value = event.currentTarget.value;
+                        setQuery(value);
+                    }}
+                    required={false}
+                    onClick={() => {
+                        setShowOptions(true);
+                        setSelected(undefined);
+                        setState((prevState: Object) => ({
+                            ...prevState,
+                            [id]: undefined,
+                        }));
+                    }}
+                />
+            )}
+
+            {showOptions && (
+                <div
+                    className="absolute w-full top-14 z-20 max-h-[20vh] overflow-y-scroll bg-white text-background-primary divide-y border flex flex-col"
+                    id={id}
+                >
+                    {options
+                        .filter((option) => {
+                            const toTest = new RegExp(query, "i");
+
+                            return toTest.test(option.label);
+                        })
+                        .map((option) => (
+                            <div
+                                className="px-2 py-1 hover:bg-slate-100 hover:cursor-pointer"
+                                key={option.value}
+                                onClick={() => {
+                                    setShowOptions(false);
+                                    setState((prevState: Object) => ({
+                                        ...prevState,
+                                        [id]: option.value,
+                                    }));
+                                    setSelected(option.label);
+                                }}
+                            >
+                                <input
+                                    type="radio"
+                                    name={label}
+                                    value={option.value}
+                                    id={label + option.value.toString()}
+                                    hidden
+                                />
+                                <label
+                                    htmlFor={label + option.value.toString()}
+                                    className="pointer-events-none"
+                                >
+                                    {option.label}
+                                </label>
+                            </div>
+                        ))}
+                </div>
+            )}
+        </div>
+    );
+}
+
+export default SearchableSelect;

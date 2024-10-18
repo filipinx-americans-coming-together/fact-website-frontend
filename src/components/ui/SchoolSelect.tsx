@@ -1,3 +1,4 @@
+import SearchableSelect from "./SearchableSelect";
 import Select from "./Select";
 import { useSchools } from "@/hooks/api/useSchools";
 
@@ -17,24 +18,19 @@ function SchoolSelect({ id, setState, required = true }: SchoolSelectProps) {
     const { schools } = useSchools();
 
     return (
-        schools && (
-            <Select
+        schools &&
+        schools.length > 0 && (
+            <SearchableSelect
                 id={id}
                 label="School"
                 setState={setState}
                 defaultValue={schools[0].id}
                 required={required}
-            >
-                {schools.map((school) => (
-                    <option
-                        className="py-1 px-2"
-                        key={school.id}
-                        value={school.id}
-                    >
-                        {school.name}
-                    </option>
-                ))}
-            </Select>
+                options={schools.map((school) => {
+                    return { label: school.name, value: school.id };
+                })}
+                placeholder="Search for schools..."
+            />
         )
     );
 }

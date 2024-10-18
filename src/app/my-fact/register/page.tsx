@@ -71,6 +71,7 @@ export default function Register() {
                 submitText="Register"
                 formName="registerForm"
                 onSubmit={() => {
+                    console.log(formData);
                     register(formData as registrationProps);
                 }}
                 isLoading={isPending}

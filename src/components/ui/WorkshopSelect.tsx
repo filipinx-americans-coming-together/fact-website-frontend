@@ -1,6 +1,7 @@
 import { WorkshopData } from "@/util/types";
 import Select from "./Select";
 import { useWorkshops } from "@/hooks/api/useWorkshops";
+import SearchableSelect from "./SearchableSelect";
 
 interface WorkshopSelectProps {
     id: string;
@@ -23,12 +24,14 @@ function WorkshopSelect({
     required = true,
 }: WorkshopSelectProps) {
     const { workshops } = useWorkshops();
-    
+
     return (
-        workshops && (
-            <Select
+        workshops &&
+        workshops.length > 0 && (
+            <SearchableSelect
                 id={id}
                 label={`Session ${session} Workshop`}
+                placeholder="Search for workshops..."
                 setState={setState}
                 defaultValue={
                     workshops.filter(
@@ -36,23 +39,17 @@ function WorkshopSelect({
                     )[0].id
                 }
                 required={required}
-            >
-                {workshops
+                options={workshops
                     .filter(
                         (workshop: WorkshopData) => workshop.session == session
                     )
                     .map((workshop) => {
-                        return (
-                            <option
-                                className="py-1 px-2"
-                                key={workshop.id}
-                                value={workshop.id}
-                            >
-                                {workshop.title}
-                            </option>
-                        );
+                        return {
+                            label: workshop.title,
+                            value: workshop.id,
+                        };
                     })}
-            </Select>
+            />
         )
     );
 }
