@@ -1,9 +1,5 @@
 import { API_URL } from "@/util/constants";
-import {
-    LocationData,
-    WorkshopData,
-    WorkshopResponse,
-} from "@/util/types";
+import { LocationData, WorkshopData, WorkshopResponse } from "@/util/types";
 import { useEffect, useState } from "react";
 import LoadingCircle from "../icons/LoadingCircle";
 
@@ -48,6 +44,7 @@ export default function WorkshopCard(props: WorkshopProps) {
                             room_num: locationData.fields.room_num,
                             building: locationData.fields.building,
                             capacity: locationData.fields.capacity,
+                            session: locationData.fields.session,
                         };
 
                         setLocation(formattedLocation);
