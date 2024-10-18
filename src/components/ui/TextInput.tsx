@@ -72,6 +72,7 @@ function TextInput({
                     }));
                 }}
                 required={required}
+                maxLength={maxLength}
             />
         </div>
     );
