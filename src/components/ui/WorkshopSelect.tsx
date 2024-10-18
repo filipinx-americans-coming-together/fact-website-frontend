@@ -33,11 +33,11 @@ function WorkshopSelect({
                 label={`Session ${session} Workshop`}
                 placeholder="Search for workshops..."
                 setState={setState}
-                defaultValue={
-                    workshops.filter(
+                defaultValue={workshops
+                    .filter(
                         (workshop: WorkshopData) => workshop.session == session
-                    )[0].id
-                }
+                    )[0]
+                    .id.toString()}
                 required={required}
                 options={workshops
                     .filter(
@@ -46,7 +46,7 @@ function WorkshopSelect({
                     .map((workshop) => {
                         return {
                             label: workshop.title,
-                            value: workshop.id,
+                            value: workshop.id.toString(),
                         };
                     })}
             />

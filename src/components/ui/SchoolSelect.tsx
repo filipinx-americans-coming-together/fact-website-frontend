@@ -24,10 +24,10 @@ function SchoolSelect({ id, setState, required = true }: SchoolSelectProps) {
                 id={id}
                 label="School"
                 setState={setState}
-                defaultValue={schools[0].id}
+                defaultValue={"N/A"}
                 required={required}
                 options={schools.map((school) => {
-                    return { label: school.name, value: school.id };
+                    return { label: school.name, value: school.name };
                 })}
                 placeholder="Search for schools..."
             />

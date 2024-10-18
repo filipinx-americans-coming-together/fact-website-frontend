@@ -2,12 +2,12 @@ import { ReactNode, useEffect, useState } from "react";
 import { FaAngleDown } from "react-icons/fa";
 
 interface SearchableSelectProps {
-    options: { label: string; value: number }[];
+    options: { label: string; value: string }[];
     id: string;
     label: string;
     setState: (state: Object) => void;
     placeholder: string;
-    defaultValue?: number;
+    defaultValue?: string;
     required?: boolean;
 }
 
