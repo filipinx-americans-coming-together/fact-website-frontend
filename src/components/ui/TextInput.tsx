@@ -3,32 +3,39 @@ import { useState } from "react";
 interface TextInputProps {
     label: string;
     id: string;
+    setState: (state: Object) => void;
     maxLength?: number;
     placeholder?: string;
     showCharacters?: boolean;
     showMaxLength?: boolean;
     autoComplete?: string;
+    required?: boolean;
 }
 
 /**
  *
  * @param label label
  * @param id html id
+ * @param setState function to call on input change
  * @param maxLength max length
  * @param placeholder placeholder text, default ""
  * @param showCharacters display characters, input type=text if true, type=password if false, default true
  * @param showMaxLength show number of typed characters out of max, default false
  * @param autoComplete autocomplete setting, default "off"
+ * @param required is input required
  * @returns
  */
 function TextInput({
     label,
     id,
+    setState,
+
     maxLength = 1000,
     placeholder = "",
     showCharacters = true,
     showMaxLength = false,
     autoComplete = "off",
+    required = true,
 }: TextInputProps) {
     const [inputLength, setInputLength] = useState(0);
 
@@ -36,7 +43,10 @@ function TextInput({
         <div className="flex flex-col w-full">
             <div className="flex items-end justify-between gap-4">
                 {/* label */}
-                <label htmlFor={id}>{label}</label>
+                <label htmlFor={id}>
+                    {label}{" "}
+                    {required && <span className="text-red-600">*</span>}
+                </label>
 
                 {/* display number of typed characters */}
                 {showMaxLength && (
@@ -51,10 +61,17 @@ function TextInput({
                 id={id}
                 placeholder={placeholder}
                 autoComplete={autoComplete}
-                className="py-1 px-2 rounded border w-full min-w-64"
+                className="py-1 px-2 rounded border w-full min-w-48"
                 onChange={(event) => {
+                    const value = event.currentTarget.value;
+
                     setInputLength(event.currentTarget.value.length);
+                    setState((prevState: Object) => ({
+                        ...prevState,
+                        [id]: value,
+                    }));
                 }}
+                required={required}
             />
         </div>
     );

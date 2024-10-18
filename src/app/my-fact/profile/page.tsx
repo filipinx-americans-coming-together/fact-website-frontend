@@ -8,10 +8,20 @@ import TextInput from "@/components/ui/TextInput";
 import { updateUserProps, useUpdateUser } from "@/hooks/api/useUpdateUser";
 import { useUser } from "@/hooks/api/useUser";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Profile() {
     const { user } = useUser();
     const { updateUser, isSuccess, isPending, error } = useUpdateUser();
+
+    const [formData, setFormData] = useState<Object>({
+        f_name: "",
+        l_name: "",
+        email: "",
+        pronouns: "",
+        year: "",
+        school_id: "",
+    });
 
     if (isSuccess) {
         window.location.href = "/my-fact/dashboard";
@@ -23,18 +33,8 @@ export default function Profile() {
             <FormContainer
                 submitText="Save Changes"
                 formName="updateProfile"
-                onSubmit={(event) => {
-                    // format data
-                    const data: updateUserProps = {
-                        f_name: event.currentTarget.f_name.value,
-                        l_name: event.currentTarget.l_name.value,
-                        email: event.currentTarget.email.value,
-                        pronouns: event.currentTarget.pronouns.value,
-                        year: event.currentTarget.year.value,
-                        school_id: event.currentTarget.school_id.value,
-                    };
-
-                    updateUser(data);
+                onSubmit={() => {
+                    updateUser(formData as updateUserProps);
                 }}
                 isLoading={isPending}
                 errorMessage={error?.message}
@@ -45,24 +45,37 @@ export default function Profile() {
                     label="First Name"
                     id="f_name"
                     placeholder={user?.user.first_name}
+                    setState={setFormData}
+                    required={false}
                 />
                 <TextInput
                     label="Last Name"
                     id="l_name"
                     placeholder={user?.user.last_name}
+                    setState={setFormData}
+                    required={false}
                 />
                 <TextInput
                     label="Email"
                     id="email"
                     placeholder={user?.user.email}
+                    setState={setFormData}
+                    required={false}
                 />
                 <TextInput
-                    label="Pronouns (optional)"
+                    label="Pronouns"
                     id="pronouns"
                     placeholder={user?.delegate.pronouns}
+                    setState={setFormData}
+                    required={false}
                 />
 
-                <Select id="year" label="Year">
+                <Select
+                    id="year"
+                    label="Year"
+                    setState={setFormData}
+                    required={false}
+                >
                     <option value="Freshman">Freshman</option>
                     <option value="Sophomore">Sophomore</option>
                     <option value="Junior">Junior</option>
@@ -71,7 +84,11 @@ export default function Profile() {
                     <option value="Other">Other</option>
                 </Select>
 
-                <SchoolSelect id="school_id" />
+                <SchoolSelect
+                    id="school_id"
+                    setState={setFormData}
+                    required={false}
+                />
 
                 <Link
                     className="text-center text-sm text-highlight-primary hover:underline"

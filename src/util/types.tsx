@@ -53,4 +53,5 @@ export interface LocationData {
     room_num: string;
     building: string;
     capacity: number;
+    session: number;
 }

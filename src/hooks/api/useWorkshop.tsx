@@ -36,6 +36,7 @@ async function fetchWorkshop({ id }: { id: number }): Promise<{
         room_num: locationData.fields.room_num,
         building: locationData.fields.building,
         capacity: locationData.fields.capacity,
+        session: locationData.fields.session,
     };
 
     return {
