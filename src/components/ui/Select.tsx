@@ -32,7 +32,7 @@ function Select<T>({
             ...prevState,
             [id]: defaultValue,
         }));
-    }, [defaultValue]);
+    }, [defaultValue, id, setState]);
 
     return (
         <div className="flex flex-col w-full">

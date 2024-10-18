@@ -49,7 +49,7 @@ function SearchableSelect<T>({
             ...prevState,
             [id]: defaultValue,
         }));
-    }, [defaultValue]);
+    }, [defaultValue, id, setState]);
 
     return (
         <div className="relative flex flex-col w-full">
