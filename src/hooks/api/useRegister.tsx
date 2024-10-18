@@ -9,10 +9,10 @@ export interface registrationProps {
     password: string;
     pronouns?: string;
     year: string;
-    school_id: number;
-    workshop_1_id: number;
-    workshop_2_id: number;
-    workshop_3_id: number;
+    school_name: string;
+    workshop_1_id: string;
+    workshop_2_id: string;
+    workshop_3_id: string;
 }
 
 async function fetchRegister(props: registrationProps): Promise<{

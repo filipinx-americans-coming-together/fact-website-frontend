@@ -16,6 +16,10 @@ interface SchoolSelectProps {
  */
 function SchoolSelect({ id, setState, required = true }: SchoolSelectProps) {
     const { schools } = useSchools();
+    const extraOptions: { label: string; value: string }[] = [
+        { label: "N/A", value: "N/A" },
+        { label: "School not listed", value: "School not listed" },
+    ];
 
     return (
         schools &&
@@ -26,9 +30,11 @@ function SchoolSelect({ id, setState, required = true }: SchoolSelectProps) {
                 setState={setState}
                 defaultValue={"N/A"}
                 required={required}
-                options={schools.map((school) => {
-                    return { label: school.name, value: school.name };
-                })}
+                options={extraOptions.concat(
+                    schools.map((school) => {
+                        return { label: school.name, value: school.name };
+                    })
+                )}
                 placeholder="Search for schools..."
             />
         )

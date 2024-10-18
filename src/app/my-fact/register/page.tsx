@@ -22,7 +22,7 @@ export default function Register() {
         password: "",
         pronouns: "",
         year: "",
-        school_id: -1,
+        school_name: -1,
         workshop_1_id: -1,
         workshop_2_id: -1,
         workshop_3_id: -1,
@@ -110,9 +110,28 @@ export default function Register() {
                     <option value="Senior">Senior</option>
                     <option value="Super Senior">Super Senior</option>
                     <option value="Other">Other</option>
+                    <option value="N/A">N/A</option>
                 </Select>
 
-                <SchoolSelect id="school_id" setState={setFormData} />
+                {formData.year == "Other" && (
+                    <TextInput
+                        label="Specify Other Year"
+                        id="other_year"
+                        setState={setFormData}
+                        required={true}
+                    />
+                )}
+
+                <SchoolSelect id="school_name" setState={setFormData} />
+
+                {formData.school_name == "School not listed" && (
+                    <TextInput
+                        label="School Name (no abbreviations please)"
+                        id="other_school_name"
+                        setState={setFormData}
+                        required={true}
+                    />
+                )}
 
                 <br />
                 <div className="text-center">Workshop Selection</div>

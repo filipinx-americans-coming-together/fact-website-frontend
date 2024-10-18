@@ -34,6 +34,16 @@ function SearchableSelect<T>({
     const [showOptions, setShowOptions] = useState(false);
     const [selected, setSelected] = useState<String>();
 
+    function handleInputFocused() {
+        setShowOptions(true);
+        setSelected(undefined);
+        setQuery("");
+        setState((prevState: Object) => ({
+            ...prevState,
+            [id]: undefined,
+        }));
+    }
+
     useEffect(() => {
         setState((prevState: Object) => ({
             ...prevState,
@@ -49,20 +59,15 @@ function SearchableSelect<T>({
             </div>
 
             {selected ? (
-                <div
+                <button
                     className="px-2 py-1 bg-white rounded text-background-primary divide-y border flex justify-between items-center hover:cursor-pointer"
-                    onClick={() => {
-                        setShowOptions(true);
-                        setSelected(undefined);
-                        setState((prevState: Object) => ({
-                            ...prevState,
-                            [id]: undefined,
-                        }));
-                    }}
+                    onClick={handleInputFocused}
+                    onFocus={handleInputFocused}
+                    type="button"
                 >
                     {selected}
                     <FaAngleDown />
-                </div>
+                </button>
             ) : (
                 <input
                     placeholder={placeholder}
@@ -73,14 +78,8 @@ function SearchableSelect<T>({
                         setQuery(value);
                     }}
                     required={false}
-                    onClick={() => {
-                        setShowOptions(true);
-                        setSelected(undefined);
-                        setState((prevState: Object) => ({
-                            ...prevState,
-                            [id]: undefined,
-                        }));
-                    }}
+                    onClick={handleInputFocused}
+                    onFocus={handleInputFocused}
                 />
             )}
 
@@ -91,13 +90,14 @@ function SearchableSelect<T>({
                 >
                     {options
                         .filter((option) => {
+                            // TODO make query more malleable > split by spaces and check each word
                             const toTest = new RegExp(query, "i");
 
                             return toTest.test(option.label);
                         })
                         .map((option) => (
-                            <div
-                                className="px-2 py-1 hover:bg-slate-100 hover:cursor-pointer"
+                            <button
+                                className="px-2 py-1 text-left hover:bg-slate-100 hover:cursor-pointer"
                                 key={option.value}
                                 onClick={() => {
                                     setShowOptions(false);
@@ -107,13 +107,16 @@ function SearchableSelect<T>({
                                     }));
                                     setSelected(option.label);
                                 }}
+                                type="button"
                             >
                                 <input
                                     type="radio"
                                     name={label}
                                     value={option.value}
                                     id={label + option.value.toString()}
+                                    checked={option.label === selected}
                                     hidden
+                                    readOnly
                                 />
                                 <label
                                     htmlFor={label + option.value.toString()}
@@ -121,7 +124,7 @@ function SearchableSelect<T>({
                                 >
                                     {option.label}
                                 </label>
-                            </div>
+                            </button>
                         ))}
                 </div>
             )}
