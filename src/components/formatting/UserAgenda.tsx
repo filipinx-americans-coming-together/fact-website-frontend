@@ -1,6 +1,7 @@
 import LoadingCircle from "../icons/LoadingCircle";
 import AgendaWorkshop from "./AgendaWorkshop";
 import { useUser } from "@/hooks/api/useUser";
+
 /**
  * Agenda for individual user
  * @param id id of user
@@ -15,9 +16,14 @@ function UserAgenda() {
                 <>
                     <div className="text-center">
                         <div className="text-3xl font-bold">My Agenda</div>
-                        <button className="underline font-light hover:text-highlight-2-primary my-3">
+                        <br />
+                        <a
+                            target="_blank"
+                            href="/my-fact/dashboard/agenda-pdf"
+                            className="underline font-light hover:text-highlight-2-primary my-3"
+                        >
                             Download
-                        </button>
+                        </a>
                     </div>
                     <div className="flex flex-col gap-4">
                         <div className="font-bold text-xl my-2">
