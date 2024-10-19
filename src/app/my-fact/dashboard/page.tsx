@@ -11,7 +11,7 @@ export default function Dashboard() {
     const { user, isLoading, error } = useUser();
 
     if (error) {
-        window.location.href = "/";
+        window.location.href = "/my-fact/login";
     }
 
     return (
