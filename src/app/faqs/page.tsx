@@ -8,7 +8,11 @@ const FAQs_data = [
     },
     {
         question: "How do I register?",
-        answer: "",
+        answer: "Use the \“REGISTER\” tab on our website and fill out your information in the boxes. Continue to the next page and you can view the sessions you signed up for and the details for those workshops!",
+    },
+    {
+        question: "Where can we find information regarding workshop information?",
+        answer: "Workshop and facilitator biographies are available via our Instagram (@psa_fact) or via the “Workshops” tab on our website. After registering, you can find information about those specific workshops via your Dashboard."
     },
     {
         question: "Where can I eat?",
@@ -21,6 +25,10 @@ const FAQs_data = [
     {
         question: "I am a minor, can I go to FACT?",
         answer: "Due to university policies and safety reasons, minors who are unattended by their guardians are not permitted to attend FACT affiliated events.",
+    },
+    {
+        question: "How can I change my workshop choice that I have made?",
+        answer: "If other workshops have not reached capacity, you may go into your portal, click on \“____,\” then click on confirm and you will see that your choice has changed."
     },
     {
         question: "How can I get around campus?",
@@ -54,6 +62,18 @@ const FAQs_data = [
     {
         question: "Will any part of the conference be on Zoom/virtual?",
         answer: "This year, FACT will be a purely in-person conference. However, we will be providing informational materials on our Instagram, newsletter, and website after the conference for anyone hoping to stay connected to the speakers, guests, and performers post-FACT.",
+    },
+    {
+        question: "Are there refunds?",
+        answer: "Refunds can be requested via this form up until the end of the Early Registration dates. Please secure your availability and ensure that you will attend the events paid for prior to providing payment during registration."
+    },
+    {
+        question: "I wasn’t able to register early, can I still attend the conference? ",
+        answer: "Yes! If you were unable to register early, you can still register for FACT online with the Late Registration price until the week prior to the conference. You may additionally register in-person at the conference with the Late Registration price at the Asian American Cultural Center (1210 W Nevada St, Urbana, IL 61801) from 4:00-10:00 PM on Friday, December 6th, or from 8:30-9:30 AM on Saturday, December 7th."
+    },
+    {
+        question: "Can I upgrade to the bundle?",
+        answer: "After completing your purchases, upgrading to the bundle is not allowed. You may purchase an additional session or Variety Show ticket separately.",
     },
     {
         question: "What are COVID/illness restrictions?",
