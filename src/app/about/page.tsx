@@ -83,6 +83,20 @@ export default function About() {
                             placeholder={PLACEHOLDER_URL}
                         />
                     </div>
+                    <div className="my-6">
+                        <LinkButton text="Official Statement Regarding FACT’s Name Change" url={PDF_URL} newTab={true} />
+                    </div>
+                    <div className="text-center lg:text-right mt-6 lg:mt-0">
+                        This year’s Filipinx Americans Coming Together (FACT)
+                        Conference proudly presents the theme for its 32nd year:
+                        “Magbubunga: Planting Prosperity”! FACT strives to
+                        encourage conference attendees to leverage their
+                        strengths to achieve fruitful outcomes and nurture a
+                        culture of productivity within our community. We hope to
+                        maximize connections between all conference attendees
+                        and enrich each delegate’s personal and professional
+                        growth.
+                    </div>
                     
                     <div className="flex flex-col">
                         <div className="self-center lg:self-end text-2xl font-bold">FACT 2024</div>
