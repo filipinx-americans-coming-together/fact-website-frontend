@@ -5,7 +5,7 @@ interface SelectProps {
     id: string;
     label: string;
     setState: (state: Object) => void;
-    defaultValue?: number;
+    defaultValue?: string;
     required?: boolean;
 }
 
@@ -44,7 +44,7 @@ function Select<T>({
             <select
                 className="py-1 px-2 rounded border"
                 id={id}
-                defaultValue={defaultValue ? defaultValue : 1}
+                defaultValue={defaultValue ? defaultValue : undefined}
                 onChange={(event) => {
                     const value = event.currentTarget.value;
                     setState((prevState: Object) => ({
