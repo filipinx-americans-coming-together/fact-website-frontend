@@ -8,7 +8,7 @@ const FAQs_data = [
     },
     {
         question: "How do I register?",
-        answer: "Use the \“REGISTER\” tab on our website and fill out your information in the boxes. Continue to the next page and you can view the sessions you signed up for and the details for those workshops!",
+        answer: "Use the \"Register\” tab on our website and fill out your information in the boxes. Continue to the next page and you can view the sessions you signed up for and the details for those workshops!",
     },
     {
         question: "Where can we find information regarding workshop information?",
@@ -28,7 +28,7 @@ const FAQs_data = [
     },
     {
         question: "How can I change my workshop choice that I have made?",
-        answer: "If other workshops have not reached capacity, you may go into your portal, click on \“____,\” then click on confirm and you will see that your choice has changed."
+        answer: "If other workshops have not reached capacity, you may go into your portal, click on \“Update Workshops\”, then click on confirm and you will see that your choice has changed."
     },
     {
         question: "How can I get around campus?",
@@ -86,15 +86,28 @@ const FAQs_data = [
 ];
 
 export default function Faqs() {
+    const FAQs_col1 = [...FAQs_data].slice(0, FAQs_data.length / 2);
+    const FAQs_col2 = [...FAQs_data].slice(FAQs_data.length / 2);
+    
     return (
-        <PageContainer title="Faqs">
-            <div>
-                {FAQs_data.map((qna, index) => (
-                    <div key={index} className="mb-10">
-                        <FAQSection question={qna.question} answer={qna.answer} />
-                    </div>
-                ))}
+        <PageContainer title="FACT Faqs">
+            <div className="flex flex-row flex-wrap justify-between">
+                <div className="flex flex-col justify-start lg:w-2/5 gap-3">
+                    {FAQs_col1.map((qna, index) => (
+                        <div key={index} className="mb-10 text-center lg:text-left">
+                            <FAQSection question={qna.question} answer={qna.answer} />   
+                        </div>
+                    ))}
+                </div>
+                <div className="flex flex-col justify-start lg:w-2/5 gap-6">
+                    {FAQs_col2.map((qna, index) => (
+                        <div key={index} className="mb-10 text-center lg:text-left">
+                            <FAQSection question={qna.question} answer={qna.answer} />
+                        </div>
+                    ))}
+                </div>
             </div>
+            
         </PageContainer>
     );
 }
