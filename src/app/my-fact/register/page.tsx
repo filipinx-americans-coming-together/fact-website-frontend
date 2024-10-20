@@ -192,7 +192,11 @@ export default function Register() {
                         />
                     )}
 
-                    <SchoolSelect id="school_name" setState={setFormData} />
+                    <SchoolSelect
+                        id="school_name"
+                        setState={setFormData}
+                        defaultValue="N/A"
+                    />
 
                     {formData.school_name == "School not listed" && (
                         <TextInput

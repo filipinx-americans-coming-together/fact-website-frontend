@@ -98,6 +98,7 @@ export default function Profile() {
                             id="school_id"
                             setState={setFormData}
                             required={false}
+                            defaultValue={user.delegate.school.toString()}
                         />
                     </>
                 )}

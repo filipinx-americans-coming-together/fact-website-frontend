@@ -49,6 +49,10 @@ function SearchableSelect<T>({
             ...prevState,
             [id]: defaultValue,
         }));
+
+        setSelected(
+            options.find((option) => option.value === defaultValue)?.label
+        );
     }, [defaultValue, id, setState]);
 
     return (

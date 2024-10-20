@@ -5,6 +5,7 @@ import { useSchools } from "@/hooks/api/useSchools";
 interface SchoolSelectProps {
     id: string;
     setState: (state: Object) => void;
+    defaultValue?: string;
     required?: boolean;
 }
 
@@ -14,7 +15,12 @@ interface SchoolSelectProps {
  * @param setState function to call on input change
  * @returns SchoolSelect component
  */
-function SchoolSelect({ id, setState, required = true }: SchoolSelectProps) {
+function SchoolSelect({
+    id,
+    setState,
+    defaultValue,
+    required = true,
+}: SchoolSelectProps) {
     const { schools } = useSchools();
     const extraOptions: { label: string; value: string }[] = [
         { label: "N/A", value: "N/A" },
@@ -28,11 +34,14 @@ function SchoolSelect({ id, setState, required = true }: SchoolSelectProps) {
                 id={id}
                 label="School"
                 setState={setState}
-                defaultValue={"N/A"}
+                defaultValue={defaultValue ? defaultValue : undefined}
                 required={required}
                 options={extraOptions.concat(
                     schools.map((school) => {
-                        return { label: school.name, value: school.name };
+                        return {
+                            label: school.name,
+                            value: school.id.toString(),
+                        };
                     })
                 )}
                 placeholder="Search for schools..."
