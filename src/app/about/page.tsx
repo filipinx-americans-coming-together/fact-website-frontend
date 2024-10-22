@@ -19,8 +19,8 @@ export default function About() {
             <div className="flex flex-col lg:flex-row justify-center lg:justify-evenly gap-6">
                 <div className="flex flex-col lg:w-2/5 xl:w-2/6 items-center justify-between gap-6">
                     <div className="flex flex-col">
-                        <div className="self-center lg:self-start text-2xl font-bold"> What is FACT?</div>
-                        <div className="text-center lg:text-left">
+                        <div className="self-start text-2xl font-bold"> What is FACT?</div>
+                        <div className="text-left">
                             FACT stands for Filipinx Americans Coming Together and
                             is a conference hosted annually by the Philippine
                             Student Association at the University of Illinois at
@@ -62,8 +62,8 @@ export default function About() {
                 </div>
                 <div className="flex flex-row lg:flex-col flex-wrap lg:w-2/5 xl:w-2/6 items-center justify-between gap-6">
                     <div className="flex flex-col">
-                        <div className="self-center lg:self-end text-2xl font-bold">Mission Statement</div>
-                        <div className="text-center lg:text-right">
+                        <div className="self-start lg:self-end text-2xl font-bold">Mission Statement</div>
+                        <div className="text-left lg:text-right">
                             The Filipinx Americans Coming Together (FACT) Conference
                             at the University of Illinois at Urbana-Champaign is
                             committed to honoring, educating, and celebrating
@@ -83,13 +83,10 @@ export default function About() {
                             placeholder={PLACEHOLDER_URL}
                         />
                     </div>
-                    <div className="my-6">
-                        <LinkButton text="Official Statement Regarding FACT’s Name Change" url={PDF_URL} newTab={true} />
-                    </div>
                     
                     <div className="flex flex-col">
-                        <div className="self-center lg:self-end text-2xl font-bold">FACT 2024</div>
-                        <div className="text-center lg:text-right">
+                        <div className="self-start lg:self-end text-2xl font-bold">FACT 2024</div>
+                        <div className="text-left lg:text-right">
                             This year’s Filipinx Americans Coming Together (FACT)
                             Conference proudly presents the theme for its 32nd year:
                             “Magbubunga: Planting Prosperity”! FACT strives to

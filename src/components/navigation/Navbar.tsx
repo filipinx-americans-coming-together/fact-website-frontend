@@ -20,7 +20,7 @@ const NAV_LINKS = [
     { text: "About", path: "/about" },
     { text: "Team", path: "/team" },
     { text: "Gallery", path: "/gallery" },
-    { text: "FAQs", path: "/faqs"}
+    { text: "FAQ", path: "/faq"}
 ];
 
 const FACT_LOGO_SRC = "/fact-2024-logo.png";
