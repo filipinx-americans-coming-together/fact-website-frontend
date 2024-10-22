@@ -2,7 +2,9 @@
 import TextInput from "@/components/ui/TextInput";
 import FormContainer from "./components/FormContainer";
 import NotificationCard from "./components/NotificationCard";
-import { FaTrashCan } from "react-icons/fa6";
+import { FaTicket, FaTrashCan } from "react-icons/fa6";
+import { FaDownload, FaSchool } from "react-icons/fa";
+import { BsPeopleFill } from "react-icons/bs";
 
 const NOTIFICATION_PLACEHOLDER = [
     {
@@ -19,6 +21,12 @@ const NOTIFICATION_PLACEHOLDER = [
     },
 ];
 
+const TICKET_DATA_PLACEHOLDER = [
+    { type: "Bundle", amount: 112 },
+    { type: "Variety Show", amount: 39 },
+    { type: "Sessions", amount: 16 },
+];
+
 export default function Admin() {
     // TODO placeholder
     const isLoggedIn = true;
@@ -31,11 +39,60 @@ export default function Admin() {
             <div className="min-h-screen bg-slate-50 text-black">
                 <div className="w-9/12 mx-auto">
                     {/* stats */}
-                    <h1 className="text-xl font-bold">FACT at a glance</h1>
+                    <h1 className="text-xl font-bold">At a Glance</h1>
+                    <br />
+                    <div className="flex flex-col md:flex-row gap-4">
+                        <div className="bg-gradient-to-r from-lime-100 to-green-100 rounded shadow aspect-[4/3] md:w-[240px] flex items-center justify-center">
+                            <div className="flex flex-col gap-2">
+                                <div className="text-4xl text-green-400">
+                                    <BsPeopleFill />
+                                </div>
+                                <p className="text-4xl font-bold">234</p>
+                                <p>Registered Delegates</p>
+                            </div>
+                        </div>
+                        <div className="bg-gradient-to-r from-pink-100 to-rose-100 rounded shadow aspect-[4/3] md:w-[240px] flex items-center justify-center">
+                            <div className="flex flex-col gap-2">
+                                <div className="text-4xl text-rose-400">
+                                    <FaTicket />
+                                </div>
+                                <p className="text-4xl font-bold">93</p>
+                                <p>Variety Show Tickets</p>
+                            </div>
+                        </div>
+                        <div className="bg-gradient-to-r from-cyan-100 to-blue-100 rounded shadow aspect-[4/3] md:w-[240px] flex items-center justify-center">
+                            <div className="flex flex-col gap-2">
+                                <div className="text-4xl text-blue-400">
+                                    <FaSchool />
+                                </div>
+                                <p className="text-4xl font-bold">17</p>
+                                <p>Unique Schools</p>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div>Recent Registrations</div>
+                    <div>By Ticket</div>
+                    <div>Top Workshops</div>
+                    <div>Top Schools</div>
+
+                    <br />
+                    {/* downloads */}
+                    <div>
+                        <button className="flex items-center gap-2 hover:underline">
+                            Download Delegate Data <FaDownload />
+                        </button>
+
+                        <button className="flex items-center gap-2 hover:underline">
+                            Download Workshop Locations <FaDownload />
+                        </button>
+                    </div>
+
+                    <br />
                     {/* notifications */}
                     <h1 className="text-xl font-bold">Notifications</h1>
-                    <div className="rounded bg-gray-300 py-4 px-6 w-fit">
+                    <br />
+                    <div className="rounded bg-gray-300 p-6 w-fit">
                         <FormContainer
                             formName="notifications"
                             onSubmit={() => {}}
