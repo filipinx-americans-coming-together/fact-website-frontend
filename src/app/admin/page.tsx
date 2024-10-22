@@ -183,9 +183,10 @@ export default function Admin() {
                     </h1>
                     <br />
                     <div className="border-2 rounded divide-y-2 flex flex-col">
-                        {TOGGLEABLE_PERMISSIONS.map((permission) => {
+                        {TOGGLEABLE_PERMISSIONS.map((permission, idx) => {
                             return (
                                 <DangerZoneAction
+                                    key={idx}
                                     title={permission.title}
                                     description={permission.description}
                                     permissionState={
