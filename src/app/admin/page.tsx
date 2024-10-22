@@ -6,6 +6,8 @@ import { FaTicket, FaTrashCan } from "react-icons/fa6";
 import { FaDownload, FaSchool } from "react-icons/fa";
 import { BsPeopleFill } from "react-icons/bs";
 import DangerZoneAction from "./components/DangerZoneAction";
+import TicketsChart from "./charts/TicketsChart";
+import RegistrationChart from "./charts/RegistrationChart";
 
 const NOTIFICATION_PLACEHOLDER = [
     {
@@ -90,10 +92,10 @@ export default function Admin() {
                         </div>
                     </div>
 
-                    <div>Recent Registrations</div>
-                    <div>By Ticket</div>
-                    <div>Top Workshops</div>
-                    <div>Top Schools</div>
+                    <br />
+                    <RegistrationChart />
+                    <br />
+                    <TicketsChart />
 
                     <br />
                     {/* downloads */}
