@@ -22,6 +22,7 @@ export default function FacilitatorRegistration({
                 {facilitators.map((facilitator) => {
                     return (
                         <FacilitatorRow
+                            key={facilitator}
                             name={facilitator}
                             facilitatedSessions={facilitatedSessions}
                         />
