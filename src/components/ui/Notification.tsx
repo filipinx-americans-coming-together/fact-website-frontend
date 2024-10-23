@@ -11,7 +11,7 @@ export default function Notification({
     setClose(): void;
 }) {
     return (
-        <div className="absolute z-50 w-full top-2">
+        <div className="animate-dropDown absolute z-50 w-full top-2">
             <div className="w-11/12 md:w-9/12 py-4 px-8 flex justify-between items-center gap-4 bg-blue-200 rounded text-background-primary shadow mx-auto">
                 <div className="w-fit text-xl text-blue-600">
                     <MdInfoOutline />
