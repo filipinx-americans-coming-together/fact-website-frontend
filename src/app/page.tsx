@@ -1,7 +1,8 @@
 import BackgroundImage from "@/components/formatting/BackgroundImage";
 import CountdownTimer from "@/components/CountdownTimer";
-import LinkButton from "@/components/ui/LinkButton";
 import Navbar from "@/components/navigation/Navbar";
+import Notification from "@/components/ui/Notification";
+import NotificationsManager from "@/components/ui/NotificationManager";
 
 const BACKGROUND_URL = "/welcome-ceremony.jpg";
 const BACKGROUND_ALT = "FACT 2023 Welcome Ceremony";
@@ -9,7 +10,14 @@ const BACKGROUND_ALT = "FACT 2023 Welcome Ceremony";
 export default function Home() {
     return (
         <>
+            <NotificationsManager
+                notifications={[
+                    "first notification example text example text example text blah blah blah blah",
+                    "another notification something text something text something text yes more there is more than one yes notification",
+                ]}
+            />
             <Navbar />
+
             <BackgroundImage imageURL={BACKGROUND_URL}>
                 <div className="max-w-lg flex justify-center text-center flex-col-reverse md:flex-row md:text-left">
                     <div className="flex flex-col justify-start">
