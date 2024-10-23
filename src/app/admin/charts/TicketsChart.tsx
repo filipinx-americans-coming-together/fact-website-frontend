@@ -12,9 +12,10 @@ export default function TicketsChart() {
             dataset={PLACEHOLDER_DATA}
             yAxis={[{ scaleType: "band", dataKey: "type" }]}
             series={[{ dataKey: "amount", label: "Sales by Ticket Type" }]}
-            width={500}
+            width={600}
             height={300}
             layout="horizontal"
+            margin={{left: 100}}
         />
     );
 }
