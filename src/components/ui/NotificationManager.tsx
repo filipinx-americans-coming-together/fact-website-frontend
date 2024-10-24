@@ -1,5 +1,6 @@
 "use client";
 
+import { useNotifications } from "@/hooks/api/useNotifications";
 import Notification from "./Notification";
 import { useEffect, useState } from "react";
 
@@ -32,7 +33,7 @@ export default function NotificationsManager({
         return () => {
             if (timeoutId) clearTimeout(timeoutId);
         };
-    }, [currNotif]);
+    }, [currNotif, notifications]);
 
     if (currNotif >= notifications.length) {
         return <></>;

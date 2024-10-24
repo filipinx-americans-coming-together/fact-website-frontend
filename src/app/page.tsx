@@ -1,21 +1,26 @@
+"use client";
+
 import BackgroundImage from "@/components/formatting/BackgroundImage";
 import CountdownTimer from "@/components/CountdownTimer";
 import Navbar from "@/components/navigation/Navbar";
-import Notification from "@/components/ui/Notification";
 import NotificationsManager from "@/components/ui/NotificationManager";
+import { useNotifications } from "@/hooks/api/useNotifications";
 
 const BACKGROUND_URL = "/welcome-ceremony.jpg";
 const BACKGROUND_ALT = "FACT 2023 Welcome Ceremony";
 
 export default function Home() {
+    const { notifications } = useNotifications();
     return (
         <>
-            <NotificationsManager
-                notifications={[
-                    "first notification example text example text example text blah blah blah blah",
-                    "another notification something text something text something text yes more there is more than one yes notification",
-                ]}
-            />
+            {notifications && (
+                <NotificationsManager
+                    notifications={notifications.map(
+                        (notification) => notification.message
+                    )}
+                />
+            )}
+            
             <Navbar />
 
             <BackgroundImage imageURL={BACKGROUND_URL}>
