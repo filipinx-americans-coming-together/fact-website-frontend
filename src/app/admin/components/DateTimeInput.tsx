@@ -13,7 +13,7 @@ export default function DateTimeInput({
 
     return (
         <div className="flex flex-col">
-            <label htmlFor="id">
+            <label htmlFor={id}>
                 {label} <span className="text-red-600">*</span>
             </label>
             <input
