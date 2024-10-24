@@ -4,6 +4,11 @@ export interface ResponseData<T> {
     pk: number;
 }
 
+export interface NotificationData {
+    message: string;
+    expiration: Date;
+}
+
 export interface UserResponse {
     delegate: ResponseData<DelegateData>[];
     registration: ResponseData<RegistrationData>[];

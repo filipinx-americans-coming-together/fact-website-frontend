@@ -8,6 +8,7 @@ import { BsPeopleFill } from "react-icons/bs";
 import DangerZoneAction from "./components/DangerZoneAction";
 import TicketsChart from "./charts/TicketsChart";
 import RegistrationChart from "./charts/RegistrationChart";
+import DateTimeInput from "./components/DateTimeInput";
 
 const NOTIFICATION_PLACEHOLDER = [
     {
@@ -51,8 +52,6 @@ const TOGGLEABLE_PERMISSIONS = [
 export default function Admin() {
     // TODO placeholder
     const isLoggedIn = true;
-
-    const { timeZone } = Intl.DateTimeFormat().resolvedOptions();
 
     // dashboard
     if (isLoggedIn) {
@@ -131,20 +130,11 @@ export default function Admin() {
                                         showCharacters
                                     />
                                 </div>
-                                <div className="flex flex-col">
-                                    <label>
-                                        Expiration{" "}
-                                        <span className="text-red-600">*</span>
-                                    </label>
-                                    <input
-                                        className="py-1 px-2 rounded border w-full min-w-48"
-                                        type="datetime-local"
-                                        required
-                                    />
-                                    <p className="text-xs text-right text-gray-500">
-                                        {timeZone} Time
-                                    </p>
-                                </div>
+                                <DateTimeInput
+                                    label="Expiration"
+                                    id="expiration"
+                                    setState={() => {}}
+                                />
                             </div>
                         </FormContainer>
                         <br />

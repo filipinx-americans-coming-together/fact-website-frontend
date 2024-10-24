@@ -22,6 +22,16 @@ const config: Config = {
                 "highlight-2-primary": "#DAB3EE",
                 "highlight-2-secondary": "#9580A0",
             },
+            animation: {
+                dropDown: "dropDown 0.4s ease-in-out forwards",
+            },
+            keyframes: {
+                dropDown: {
+                    "0%": { opacity: "0", transform: "translateY(-10px)" },
+                    "20%": { opacity: "0", transform: "translateY(-10px)" },
+                    "100%": { opacity: "1", transform: "translateY(0)" },
+                },
+            },
         },
     },
     plugins: [],
