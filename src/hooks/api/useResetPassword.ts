@@ -26,7 +26,7 @@ async function fetchResetPassword(
     }
 }
 
-export function userResetPassword() {
+export function useResetPassword() {
     const {
         data,
         error,

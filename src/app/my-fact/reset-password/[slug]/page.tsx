@@ -3,7 +3,7 @@
 import FormContainer from "@/components/formatting/FormContainer";
 import Navbar from "@/components/navigation/Navbar";
 import TextInput from "@/components/ui/TextInput";
-import { useRouter } from "next/router";
+import { useResetPassword } from "@/hooks/api/useResetPassword";
 import { useState } from "react";
 
 interface PasswordData {
@@ -18,12 +18,18 @@ export default function ResetPassword({
 }) {
     const token = params.slug;
 
+    const { resetPassword, isPending, error, isSuccess } = useResetPassword();
+
     const [passwords, setPasswords] = useState<Object>({
         password: "",
         confirm_password: "",
     });
 
     const [clientError, setClientError] = useState<string | undefined>();
+
+    if (isSuccess) {
+        window.location.href = "/my-fact/login";
+    }
 
     return (
         <>
@@ -38,13 +44,17 @@ export default function ResetPassword({
                         (passwords as PasswordData).confirm_password
                     ) {
                         setClientError("Passwords do not match");
-                        return;
                     } else {
+                        // send request to reset
                         setClientError(undefined);
+                        resetPassword({
+                            password: (passwords as PasswordData).password,
+                            token: token,
+                        });
                     }
                 }}
-                isLoading={false}
-                errorMessage={clientError ? clientError : undefined}
+                isLoading={isPending}
+                errorMessage={clientError ? clientError : error?.message}
             >
                 <h1>Reset Password</h1>
                 <TextInput
