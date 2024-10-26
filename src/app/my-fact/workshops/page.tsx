@@ -4,20 +4,24 @@ import FormContainer from "@/components/formatting/FormContainer";
 import LoadingCircle from "@/components/icons/LoadingCircle";
 import Navbar from "@/components/navigation/Navbar";
 import WorkshopSelect from "@/components/ui/WorkshopSelect";
-import { updateUserProps, useUpdateUser } from "@/hooks/api/useUpdateUser";
+import { UpdateUserProps, useUpdateUser } from "@/hooks/api/useUpdateUser";
 import { useUser } from "@/hooks/api/useUser";
 import Link from "next/link";
 import { useState } from "react";
 
 export default function Workshops() {
     const { updateUser, isSuccess, isPending, error } = useUpdateUser();
-    const { user } = useUser();
+    const { user, error: noUser } = useUser();
 
     const [formData, setFormData] = useState<Object>({
         workshop_1_id: "",
         workshop_2_id: "",
         workshop_3_id: "",
     });
+
+    if (noUser) {
+        window.location.href = "/my-fact/login";
+    }
 
     if (isSuccess) {
         window.location.href = "/my-fact/dashboard";
@@ -30,7 +34,7 @@ export default function Workshops() {
                 submitText="Save Changes"
                 formName="updateWorkshops"
                 onSubmit={() => {
-                    updateUser(formData as updateUserProps);
+                    updateUser(formData as UpdateUserProps);
                 }}
                 isLoading={isPending}
                 errorMessage={error?.message}

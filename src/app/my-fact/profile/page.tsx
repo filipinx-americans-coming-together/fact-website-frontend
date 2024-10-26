@@ -17,7 +17,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Profile() {
-    const { user } = useUser();
+    const { user, isLoading, error: noUser } = useUser();
+
     const { updateUser, isSuccess, isPending, error } = useUpdateUser();
 
     const {
@@ -49,6 +50,10 @@ export default function Profile() {
         email: "",
         verification_code: "",
     });
+
+    if (noUser) {
+        window.location.href = "/my-fact/login";
+    }
 
     if (isSuccess) {
         window.location.href = "/my-fact/dashboard";
