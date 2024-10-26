@@ -7,6 +7,7 @@ interface WorkshopSelectProps {
     id: string;
     session: number;
     setState: (state: Object) => void;
+    defaultValue?: string;
     required?: boolean;
 }
 
@@ -15,12 +16,14 @@ interface WorkshopSelectProps {
  * @param id html id for select
  * @param session session number
  * @param setState function to call on input change
+ * @param defaultValue id of workshop to select by default
  * @returns WorkshopSelect component
  */
 function WorkshopSelect({
     id,
     session,
     setState,
+    defaultValue,
     required = true,
 }: WorkshopSelectProps) {
     const { workshops } = useWorkshops();
@@ -33,11 +36,16 @@ function WorkshopSelect({
                 label={`Session ${session} Workshop`}
                 placeholder="Search for workshops..."
                 setState={setState}
-                defaultValue={workshops
-                    .filter(
-                        (workshop: WorkshopData) => workshop.session == session
-                    )[0]
-                    .id.toString()}
+                defaultValue={
+                    defaultValue
+                        ? defaultValue
+                        : workshops
+                              .filter(
+                                  (workshop: WorkshopData) =>
+                                      workshop.session == session
+                              )[0]
+                              .id.toString()
+                }
                 required={required}
                 options={workshops
                     .filter(

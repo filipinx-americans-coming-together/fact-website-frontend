@@ -2,7 +2,7 @@ import { API_URL } from "@/util/constants";
 import { DelegateData, RegistrationData, UserData } from "@/util/types";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
-export interface updateUserProps {
+export interface UpdateUserProps {
     f_name?: string;
     l_name?: string;
     email?: string;
@@ -12,9 +12,11 @@ export interface updateUserProps {
     workshop_1_id?: number;
     workshop_2_id?: number;
     workshop_3_id?: number;
+    password?: string;
+    new_password?: string;
 }
 
-async function fetchUpdateUser(props: updateUserProps): Promise<{
+async function fetchUpdateUser(props: UpdateUserProps): Promise<{
     user: UserData;
     delegate: DelegateData;
     registration: RegistrationData[];
@@ -84,7 +86,7 @@ export function useUpdateUser() {
         mutate: updateUser,
         isSuccess,
     } = useMutation({
-        mutationFn: (props: updateUserProps) => {
+        mutationFn: (props: UpdateUserProps) => {
             return fetchUpdateUser(props);
         },
 
