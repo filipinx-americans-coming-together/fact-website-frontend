@@ -1,13 +1,13 @@
 import { API_URL } from "@/util/constants";
-import { ResponseData, WorkshopData } from "@/util/types";
+import { ResponseData, SchoolData, WorkshopData } from "@/util/types";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
-async function fetchUploadWorkshops(file: File): Promise<WorkshopData[]> {
+async function fetchUploadSchools(file: File): Promise<SchoolData[]> {
     const formData = new FormData();
-    formData.append("workshops", file);
+    formData.append("schools", file);
 
     // request
-    const response = await fetch(`${API_URL}/registration/workshops/bulk/`, {
+    const response = await fetch(`${API_URL}/registration/schools/bulk/`, {
         credentials: "include",
         method: "POST",
         body: formData,
@@ -25,14 +25,9 @@ async function fetchUploadWorkshops(file: File): Promise<WorkshopData[]> {
         throw new Error(message);
     }
 
-    const formatted_data = json.map((workshop: ResponseData<WorkshopData>) => {
+    const formatted_data = json.map((school: ResponseData<SchoolData>) => {
         const formatted = {
-            id: workshop.pk,
-            title: workshop.fields.title,
-            description: workshop.fields.description,
-            session: workshop.fields.session,
-            facilitators: workshop.fields.facilitators,
-            location: workshop.fields.location,
+            name: school.fields.name,
         };
 
         return formatted;
@@ -41,18 +36,18 @@ async function fetchUploadWorkshops(file: File): Promise<WorkshopData[]> {
     return formatted_data;
 }
 
-export function useUploadWorkshops() {
+export function useUploadSchools() {
     const queryClient = useQueryClient();
 
     const {
         data,
         error,
         isPending,
-        mutate: uploadWorkshops,
+        mutate: uploadSchools,
         isSuccess,
     } = useMutation({
         mutationFn: ({ file }: { file: File }) => {
-            return fetchUploadWorkshops(file);
+            return fetchUploadSchools(file);
         },
 
         onSuccess: (data) => queryClient.setQueryData(["workshops"], data),
@@ -60,5 +55,5 @@ export function useUploadWorkshops() {
 
     console.log("isSuccess", isSuccess);
 
-    return { data, error, isPending, uploadWorkshops, isSuccess };
+    return { data, error, isPending, uploadSchools, isSuccess };
 }

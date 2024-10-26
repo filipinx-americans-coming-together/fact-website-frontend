@@ -1,13 +1,13 @@
 import { API_URL } from "@/util/constants";
-import { ResponseData, WorkshopData } from "@/util/types";
+import { ResponseData, LocationData } from "@/util/types";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
-async function fetchUploadWorkshops(file: File): Promise<WorkshopData[]> {
+async function fetchUploadLocations(file: File): Promise<LocationData[]> {
     const formData = new FormData();
-    formData.append("workshops", file);
+    formData.append("locations", file);
 
     // request
-    const response = await fetch(`${API_URL}/registration/workshops/bulk/`, {
+    const response = await fetch(`${API_URL}/registration/locations/bulk/`, {
         credentials: "include",
         method: "POST",
         body: formData,
@@ -25,14 +25,12 @@ async function fetchUploadWorkshops(file: File): Promise<WorkshopData[]> {
         throw new Error(message);
     }
 
-    const formatted_data = json.map((workshop: ResponseData<WorkshopData>) => {
+    const formatted_data = json.map((location: ResponseData<LocationData>) => {
         const formatted = {
-            id: workshop.pk,
-            title: workshop.fields.title,
-            description: workshop.fields.description,
-            session: workshop.fields.session,
-            facilitators: workshop.fields.facilitators,
-            location: workshop.fields.location,
+            building: location.fields.building,
+            room_num: location.fields.room_num,
+            capacity: location.fields.capacity,
+            session: location.fields.session,
         };
 
         return formatted;
@@ -41,18 +39,18 @@ async function fetchUploadWorkshops(file: File): Promise<WorkshopData[]> {
     return formatted_data;
 }
 
-export function useUploadWorkshops() {
+export function useUploadLocations() {
     const queryClient = useQueryClient();
 
     const {
         data,
         error,
         isPending,
-        mutate: uploadWorkshops,
+        mutate: uploadLocations,
         isSuccess,
     } = useMutation({
         mutationFn: ({ file }: { file: File }) => {
-            return fetchUploadWorkshops(file);
+            return fetchUploadLocations(file);
         },
 
         onSuccess: (data) => queryClient.setQueryData(["workshops"], data),
@@ -60,5 +58,5 @@ export function useUploadWorkshops() {
 
     console.log("isSuccess", isSuccess);
 
-    return { data, error, isPending, uploadWorkshops, isSuccess };
+    return { data, error, isPending, uploadLocations, isSuccess };
 }
