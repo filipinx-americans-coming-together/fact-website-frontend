@@ -12,9 +12,8 @@ import NotificationCard from "../components/NotificationCard";
 import DangerZoneAction from "../components/DangerZoneAction";
 import { useAdminUser } from "@/hooks/api/useAdminUser";
 import ForbiddenPage from "@/components/formatting/ForbiddenPage";
-import Button from "../components/Button";
-import { useLogin } from "@/hooks/api/useLogin";
-import { useLogout } from "@/hooks/api/useLogout";
+import Navbar from "../components/Navbar";
+import LoadingCircle from "@/components/icons/LoadingCircle";
 
 const NOTIFICATION_PLACEHOLDER = [
     {
@@ -56,11 +55,14 @@ const TOGGLEABLE_PERMISSIONS = [
 ];
 
 export default function AdminDashboard() {
-    const { user } = useAdminUser();
-    const { logout, isSuccess } = useLogout();
+    const { user, isLoading } = useAdminUser();
 
-    if (isSuccess) {
-        window.location.href = "/";
+    if (isLoading) {
+        return (
+            <div className="mx-auto w-fit p-4">
+                <LoadingCircle />
+            </div>
+        );
     }
 
     if (!user) {
@@ -70,10 +72,8 @@ export default function AdminDashboard() {
     // dashboard
     return (
         <div className="min-h-screen bg-slate-50 text-black">
+            <Navbar />
             <div className="w-9/12 mx-auto">
-                <div className="w-fit absolute right-4 top-4">
-                    <Button text="Log out" onClick={logout} isSubmit={false} />
-                </div>
                 <br />
                 <br />
                 {/* stats */}
