@@ -1,6 +1,6 @@
 import { API_URL } from "@/util/constants";
 import { ResponseData, WorkshopData } from "@/util/types";
-import { useQuery } from "@tanstack/react-query";
+import { useQueries, useQuery } from "@tanstack/react-query";
 
 async function fetchWorkshops(): Promise<WorkshopData[]> {
     const response = await fetch(`${API_URL}/registration/workshop/`);
@@ -29,6 +29,10 @@ async function fetchWorkshops(): Promise<WorkshopData[]> {
     return formatted_data;
 }
 
+// async function fetchRegistrationCount(): Promise<{ registrations: number }> {
+//     // json format num_registrations: number
+// }
+
 export function useWorkshops(): {
     workshops: WorkshopData[] | undefined;
     isLoading: boolean;
@@ -43,6 +47,32 @@ export function useWorkshops(): {
         queryFn: () => fetchWorkshops(),
         retry: 0,
     });
+
+    // const counts = useQueries({
+    //     queries:
+    //         workshops && workshops.length > 0
+    //             ? workshops.map((workshop) => {
+    //                   return {
+    //                       queryKey: ["registration-counts", workshop.id],
+    //                       queryFn: () => fetchRegistrationCount(workshop.id),
+    //                   };
+    //               })
+    //             : [],
+    //     combine: (results: any[]) => {
+    //         return {
+    //             data: results.map((result) => result.data),
+    //             isLoading: results.some((result) => result.isLoading),
+    //             isError: results.some((result) => result.isError),
+    //         };
+    //     },
+    // });
+
+    // combine results
+    // if (workshops && counts) {
+    //     for (let i = 0; i < workshops.length; i++) {
+    //         workshops[i].registrationCount = counts.data[i];
+    //     }
+    // }
 
     return { workshops, isLoading, error };
 }
