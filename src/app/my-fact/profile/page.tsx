@@ -6,14 +6,33 @@ import Navbar from "@/components/navigation/Navbar";
 import SchoolSelect from "@/components/ui/SchoolSelect";
 import Select from "@/components/ui/Select";
 import TextInput from "@/components/ui/TextInput";
-import { updateUserProps, useUpdateUser } from "@/hooks/api/useUpdateUser";
+import {
+    RequestEmailVerificationProps,
+    useRequestEmailVerification,
+} from "@/hooks/api/useRequestEmailVerification";
+import { UpdateUserProps, useUpdateUser } from "@/hooks/api/useUpdateUser";
 import { useUser } from "@/hooks/api/useUser";
+import { useVerifyEmail, VerifyEmailProps } from "@/hooks/api/useVerifyEmail";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Profile() {
     const { user } = useUser();
     const { updateUser, isSuccess, isPending, error } = useUpdateUser();
+
+    const {
+        requestVerification,
+        isPending: requestPending,
+        error: requestError,
+        isSuccess: verificationRequested,
+    } = useRequestEmailVerification();
+
+    const {
+        verifyEmail,
+        isPending: verificationPending,
+        error: verificationError,
+        isSuccess: emailVerified,
+    } = useVerifyEmail();
 
     const [formData, setFormData] = useState<Object>({
         f_name: "",
@@ -22,6 +41,13 @@ export default function Profile() {
         pronouns: "",
         year: "",
         school_id: "",
+        password: "",
+        new_password: "",
+    });
+
+    const [emailData, setEmailData] = useState<Object>({
+        email: "",
+        verification_code: "",
     });
 
     if (isSuccess) {
@@ -39,7 +65,7 @@ export default function Profile() {
                 submitText="Save Changes"
                 formName="updateProfile"
                 onSubmit={() => {
-                    updateUser(formData as updateUserProps);
+                    updateUser(formData as UpdateUserProps);
                 }}
                 isLoading={isPending}
                 errorMessage={error?.message}
@@ -61,13 +87,6 @@ export default function Profile() {
                             label="Last Name"
                             id="l_name"
                             placeholder={user?.user.last_name}
-                            setState={setFormData}
-                            required={false}
-                        />
-                        <TextInput
-                            label="Email"
-                            id="email"
-                            placeholder={user?.user.email}
                             setState={setFormData}
                             required={false}
                         />
@@ -109,6 +128,87 @@ export default function Profile() {
                 >
                     Back to Dashboard
                 </Link>
+            </FormContainer>
+            <br />
+            <br />
+
+            <FormContainer
+                formName="updateEmail"
+                submitText={
+                    verificationRequested && !emailVerified
+                        ? "Update Email"
+                        : "Verify"
+                }
+                onSubmit={() => {
+                    if (verificationRequested) {
+                        verifyEmail(emailData as VerifyEmailProps);
+                    } else if (emailVerified) {
+                        updateUser(emailData as UpdateUserProps);
+                    } else {
+                        requestVerification(
+                            emailData as RequestEmailVerificationProps
+                        );
+                    }
+                }}
+                isLoading={verificationPending || requestPending}
+                errorMessage={verificationError?.message}
+            >
+                <div className="text-center">Update Email</div>
+
+                <TextInput
+                    label="Email"
+                    id="email"
+                    placeholder={user?.user.email}
+                    setState={setEmailData}
+                    required={true}
+                />
+                {verificationRequested && (
+                    <>
+                        <TextInput
+                            label="Verification Code"
+                            id="verification_code"
+                            maxLength={6}
+                            setState={setFormData}
+                            required={true}
+                        />
+                        <p className="text-xs">
+                            {
+                                "A temporary 6-digit code has been sent to your email. Can't find the code? Check your spam folder or search for emails from 'no-reply@psauiuc.org'"
+                            }
+                        </p>
+                    </>
+                )}
+            </FormContainer>
+            <br />
+            <br />
+
+            <FormContainer
+                formName="changePassword"
+                submitText="Change Password"
+                onSubmit={() => {
+                    updateUser(formData as UpdateUserProps);
+                }}
+                isLoading={isPending}
+                errorMessage={error?.message}
+            >
+                <div className="text-center">Update Password</div>
+                <p className="text-center text-xs">
+                    After updating your password you will be asked to log in
+                    again.
+                </p>
+
+                <TextInput
+                    label="Old Password"
+                    id="password"
+                    setState={setFormData}
+                    required={true}
+                />
+                <TextInput
+                    label="New Password"
+                    id="new_password"
+                    setState={setFormData}
+                    required={true}
+                />
             </FormContainer>
         </>
     );
