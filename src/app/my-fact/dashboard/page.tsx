@@ -11,6 +11,7 @@ import { useUser } from "@/hooks/api/useUser";
 
 export default function Dashboard() {
     const { user, isLoading, error } = useUser();
+
     const { notifications } = useNotifications();
 
     if (error) {

@@ -6,6 +6,7 @@ interface TextInputProps {
     setState: (state: Object) => void;
     maxLength?: number;
     placeholder?: string;
+    value?: string;
     showCharacters?: boolean;
     showMaxLength?: boolean;
     autoComplete?: string;
@@ -32,6 +33,7 @@ function TextInput({
 
     maxLength = 1000,
     placeholder = "",
+    value = "",
     showCharacters = true,
     showMaxLength = false,
     autoComplete = "off",
@@ -60,6 +62,7 @@ function TextInput({
                 type={showCharacters ? "text" : "password"}
                 id={id}
                 placeholder={placeholder}
+                defaultValue={value}
                 autoComplete={autoComplete}
                 className="py-1 px-2 rounded border w-full min-w-48"
                 onChange={(event) => {

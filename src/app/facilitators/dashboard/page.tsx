@@ -4,9 +4,11 @@ import InteractiveButton from "@/components/ui/InteractiveButton";
 import WorkshopSelect from "@/components/ui/WorkshopSelect";
 import FacilitatorRow from "../components/FacilitatorRow";
 import FacilitatorRegistration from "../components/FacilitatorRegistration";
+import FacilitatorAssistant from "../components/FacilitatorAssistant";
 
 export default function FacilitatorDashboard() {
     // PLACEHOLDERs FOR REQUESTS
+    const facilitatorAssistant = {name: "Facilitator Assistant Name", contact: "Facilitator Assistant Contact"};
     const facilitatorData = {
         facilitatorName: "Facilitator",
         individualFacilitators: [
@@ -44,6 +46,8 @@ export default function FacilitatorDashboard() {
             <>
                 <Navbar />
                 <div className="w-9/12 mx-auto">
+                    <FacilitatorAssistant name={facilitatorAssistant.name} contact={facilitatorAssistant.contact}/>
+                    <div className="my-8"></div>
                     <FacilitatorRegistration
                         facilitators={facilitatorData.individualFacilitators}
                         facilitatedSessions={facilitatedSessions}
