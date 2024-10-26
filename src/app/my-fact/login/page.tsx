@@ -4,6 +4,7 @@ import FormContainer from "@/components/formatting/FormContainer";
 import Navbar from "@/components/navigation/Navbar";
 import TextInput from "@/components/ui/TextInput";
 import { useLogin } from "@/hooks/api/useLogin";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Login() {
@@ -80,6 +81,12 @@ export default function Login() {
                     showCharacters={false}
                     setState={setFormData}
                 />
+                <Link
+                    href="/my-fact/forgot-password"
+                    className="underline text-highlight-secondary text-xs hover:text-highlight-primary"
+                >
+                    Forgot Password
+                </Link>
 
                 <br />
 
