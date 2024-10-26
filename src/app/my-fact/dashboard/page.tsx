@@ -4,11 +4,18 @@ import UserAgenda from "@/components/formatting/UserAgenda";
 import WorkshopCard from "@/components/formatting/WorkshopCard";
 import LoadingCircle from "@/components/icons/LoadingCircle";
 import Navbar from "@/components/navigation/Navbar";
+import InteractiveButton from "@/components/ui/InteractiveButton";
 import LinkButton from "@/components/ui/LinkButton";
+import { useLogout } from "@/hooks/api/useLogout";
 import { useUser } from "@/hooks/api/useUser";
 
 export default function Dashboard() {
     const { user, isLoading, error } = useUser();
+    const { logout, isSuccess, isPending: logoutLoading } = useLogout();
+
+    if (isSuccess) {
+        window.location.href = "/";
+    }
 
     if (error) {
         window.location.href = "/my-fact/login";
@@ -60,6 +67,15 @@ export default function Dashboard() {
                     </div>
                 </div>
                 <div>{user ? <UserAgenda /> : <LoadingCircle />}</div>
+            </div>
+            <br />
+            <br />
+            <div className="mx-auto w-fit text-background-primary">
+                {logoutLoading ? (
+                    <LoadingCircle />
+                ) : (
+                    <InteractiveButton text="Log out" onClick={logout} />
+                )}
             </div>
         </>
     );
