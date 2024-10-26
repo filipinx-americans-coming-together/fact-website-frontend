@@ -1,8 +1,9 @@
+import { API_URL } from "@/util/constants";
 import { NotificationData, ResponseData } from "@/util/types";
 import { useQuery } from '@tanstack/react-query';
 
 async function fetchNotifications(): Promise<NotificationData[]> {
-    const response = await fetch("http://localhost:8000/fact-admin/notifications");
+    const response = await fetch(`${API_URL}/fact-admin/notifications`);
 
     const json: ResponseData<{ message: string; expiration: string }>[] =
         await response.json();

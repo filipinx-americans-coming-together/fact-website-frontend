@@ -11,7 +11,7 @@ async function fetchLogin(
     registration: RegistrationData[];
 }> {
     // request
-    const response = await fetch(`${API_URL}/login/`, {
+    const response = await fetch(`${API_URL}/registration/login/`, {
         credentials: "include",
         method: "POST",
         body: JSON.stringify({ email: email, password: password }),
