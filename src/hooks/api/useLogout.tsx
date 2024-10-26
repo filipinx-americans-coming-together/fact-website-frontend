@@ -33,7 +33,7 @@ export function useLogout() {
             queryClient.removeQueries({ queryKey: ["active-profile"] }),
     });
 
-    console.log("isSuccess", isSuccess);
+    console.log("isSuccess from logout", isSuccess);
 
     return { data, error, isPending, logout, isSuccess };
 }
