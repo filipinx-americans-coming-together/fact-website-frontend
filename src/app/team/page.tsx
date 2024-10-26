@@ -1,6 +1,7 @@
 "use client";
 
 import PageContainer from "@/components/formatting/PageContainer";
+import Footer from "@/components/formatting/PageFooter";
 import Image from "next/image";
 import { useState } from "react";
 import teamData from "./teamData.json";
@@ -145,6 +146,7 @@ export default function Team() {
             </div>
         </Modal>
         )}
+        <Footer />
     </PageContainer>
     );
 }

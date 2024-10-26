@@ -1,4 +1,5 @@
 import PageContainer from "@/components/formatting/PageContainer";
+import Footer from "@/components/formatting/PageFooter";
 import LinkButton from "@/components/ui/LinkButton";
 import Image from "next/image";
 
@@ -75,6 +76,7 @@ export default function About() {
                     </div>
                 </div>
             </div>
+        <Footer />
         </PageContainer>
     );
 }

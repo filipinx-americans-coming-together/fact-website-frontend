@@ -1,5 +1,6 @@
 "use client";
 import PageContainer from "@/components/formatting/PageContainer";
+import Footer from "@/components/formatting/PageFooter";
 import Carousel from "@/components/ui/Carousel";
 import { useMediaQuery } from "@uidotdev/usehooks";
 import dynamic from "next/dynamic";
@@ -20,6 +21,7 @@ const Gallery = () => {
             <Carousel title="Palengke" src="palengke" length={10} numImages={isSmallDevice ? 1 : (isMediumDevice ? 2 : 3)} />
             <div className="border-b-2 h-4 w-full mb-4"></div>
             <Carousel title="Variety Show" src="variety-show" length={28} numImages={isSmallDevice ? 1 : (isMediumDevice ? 2 : 3)} />
+            <Footer />
         </PageContainer>
     );
 };

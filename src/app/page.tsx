@@ -2,6 +2,7 @@ import BackgroundImage from "@/components/formatting/BackgroundImage";
 import CountdownTimer from "@/components/CountdownTimer";
 import LinkButton from "@/components/ui/LinkButton";
 import Navbar from "@/components/navigation/Navbar";
+import Footer from "@/components/formatting/PageFooter";
 
 const BACKGROUND_URL = "/welcome-ceremony.jpg";
 const BACKGROUND_ALT = "FACT 2023 Welcome Ceremony";
@@ -41,6 +42,7 @@ export default function Home() {
                     </div>
                 </div>
             </BackgroundImage>
+            <Footer />
         </>
     );
 }
