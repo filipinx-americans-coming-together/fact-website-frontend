@@ -44,6 +44,7 @@ export default function FacilitatorDashboard() {
             <>
                 <Navbar />
                 <div className="w-9/12 mx-auto">
+                    <div className="my-8"></div>
                     <FacilitatorRegistration
                         facilitators={facilitatorData.individualFacilitators}
                         facilitatedSessions={facilitatedSessions}
