@@ -3,7 +3,7 @@ import { ResponseData, SchoolData } from "@/util/types";
 import { useQuery } from "@tanstack/react-query";
 
 async function fetchSchools(): Promise<SchoolData[]> {
-    const response = await fetch(`${API_URL}/schools/`);
+    const response = await fetch(`${API_URL}/registration/schools/`);
 
     const json: ResponseData<SchoolData>[] = await response.json();
 

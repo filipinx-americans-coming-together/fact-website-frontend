@@ -3,7 +3,7 @@ import { ResponseData, WorkshopData } from "@/util/types";
 import { useQuery } from "@tanstack/react-query";
 
 async function fetchWorkshops(): Promise<WorkshopData[]> {
-    const response = await fetch(`${API_URL}/workshop/`);
+    const response = await fetch(`${API_URL}/registration/workshop/`);
 
     const json: ResponseData<WorkshopData>[] = await response.json();
 

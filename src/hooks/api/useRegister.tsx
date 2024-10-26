@@ -21,7 +21,7 @@ async function fetchRegister(props: registrationProps): Promise<{
     registration: RegistrationData[];
 }> {
     // request
-    const response = await fetch(`${API_URL}/user/`, {
+    const response = await fetch(`${API_URL}/registration/user/`, {
         credentials: "include",
         method: "POST",
         body: JSON.stringify(props),

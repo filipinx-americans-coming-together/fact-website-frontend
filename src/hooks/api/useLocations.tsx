@@ -3,7 +3,7 @@ import { ResponseData, LocationData } from "@/util/types";
 import { useQuery } from "@tanstack/react-query";
 
 async function fetchLocations(): Promise<LocationData[]> {
-    const response = await fetch(`${API_URL}/location/`);
+    const response = await fetch(`${API_URL}/registration/location/`);
 
     const json: ResponseData<LocationData>[] = await response.json();
 
