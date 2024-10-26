@@ -7,11 +7,14 @@ import Navbar from "@/components/navigation/Navbar";
 import InteractiveButton from "@/components/ui/InteractiveButton";
 import LinkButton from "@/components/ui/LinkButton";
 import { useLogout } from "@/hooks/api/useLogout";
+import NotificationsManager from "@/components/ui/NotificationManager";
+import { useNotifications } from "@/hooks/api/useNotifications";
 import { useUser } from "@/hooks/api/useUser";
 
 export default function Dashboard() {
     const { user, isLoading, error } = useUser();
     const { logout, isSuccess, isPending: logoutLoading } = useLogout();
+  const { notifications } = useNotifications();
 
     if (isSuccess) {
         window.location.href = "/";
@@ -20,9 +23,17 @@ export default function Dashboard() {
     if (error) {
         window.location.href = "/my-fact/login";
     }
-
+  
     return (
         <>
+            {notifications && (
+                <NotificationsManager
+                    notifications={notifications.map(
+                        (notification) => notification.message
+                    )}
+                />
+            )}
+            
             <Navbar />
             <div className="flex justify-evenly sm: flex-col sm:text-center md:flex-row md:text-left">
                 <div>

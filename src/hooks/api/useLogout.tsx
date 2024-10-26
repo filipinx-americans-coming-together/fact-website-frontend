@@ -2,7 +2,7 @@ import { API_URL } from "@/util/constants";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 async function fetchLogout() {
-    const response = await fetch(`${API_URL}/logout/`, {
+    const response = await fetch(`${API_URL}/registration/logout/`, {
         credentials: "include",
         method: "POST",
     });
@@ -33,7 +33,7 @@ export function useLogout() {
             queryClient.removeQueries({ queryKey: ["active-profile"] }),
     });
 
-    console.log("isSuccess", isSuccess);
+    console.log("isSuccess from logout", isSuccess);
 
     return { data, error, isPending, logout, isSuccess };
 }

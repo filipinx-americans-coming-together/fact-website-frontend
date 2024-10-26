@@ -12,7 +12,7 @@ async function fetchUser(): Promise<{
     delegate: DelegateData;
     registration: RegistrationData[];
 }> {
-    const response = await fetch(`${API_URL}/user/`, {
+    const response = await fetch(`${API_URL}/registration/user/`, {
         credentials: "include",
     });
     const json: UserResponse = await response.json();

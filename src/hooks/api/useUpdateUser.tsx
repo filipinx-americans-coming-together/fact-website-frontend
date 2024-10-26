@@ -22,7 +22,7 @@ async function fetchUpdateUser(props: UpdateUserProps): Promise<{
     registration: RegistrationData[];
 }> {
     // request
-    const response = await fetch(`${API_URL}/user/`, {
+    const response = await fetch(`${API_URL}/registration/user/`, {
         credentials: "include",
         method: "PUT",
         body: JSON.stringify(props),

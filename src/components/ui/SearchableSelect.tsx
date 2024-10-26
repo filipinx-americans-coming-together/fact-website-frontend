@@ -76,7 +76,7 @@ function SearchableSelect<T>({
                 <input
                     placeholder={placeholder}
                     autoComplete="off"
-                    className="py-1 px-2 rounded border w-full min-w-64 text-background-primary"
+                    className="py-1 px-2 rounded border w-full min-w-40 text-background-primary"
                     onChange={(event) => {
                         const value = event.currentTarget.value;
                         setQuery(value);

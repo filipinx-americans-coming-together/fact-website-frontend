@@ -1,15 +1,28 @@
+"use client";
+
 import BackgroundImage from "@/components/formatting/BackgroundImage";
 import CountdownTimer from "@/components/CountdownTimer";
-import LinkButton from "@/components/ui/LinkButton";
 import Navbar from "@/components/navigation/Navbar";
+import NotificationsManager from "@/components/ui/NotificationManager";
+import { useNotifications } from "@/hooks/api/useNotifications";
 
 const BACKGROUND_URL = "/welcome-ceremony.jpg";
 const BACKGROUND_ALT = "FACT 2023 Welcome Ceremony";
 
 export default function Home() {
+    const { notifications } = useNotifications();
     return (
         <>
+            {notifications && (
+                <NotificationsManager
+                    notifications={notifications.map(
+                        (notification) => notification.message
+                    )}
+                />
+            )}
+            
             <Navbar />
+
             <BackgroundImage imageURL={BACKGROUND_URL}>
                 <div className="max-w-lg flex justify-center text-center flex-col-reverse md:flex-row md:text-left">
                     <div className="flex flex-col justify-start">

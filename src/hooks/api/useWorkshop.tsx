@@ -6,7 +6,7 @@ async function fetchWorkshop({ id }: { id: number }): Promise<{
     workshop: WorkshopData;
     location: LocationData;
 }> {
-    const response = await fetch(`${API_URL}/workshop/${id}`);
+    const response = await fetch(`${API_URL}/registration/workshop/${id}`);
 
     const json: WorkshopResponse = await response.json();
 
