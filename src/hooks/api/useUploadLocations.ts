@@ -16,7 +16,7 @@ async function fetchUploadLocations(file: File): Promise<LocationData[]> {
     const json = await response.json();
 
     if (!response.ok) {
-        let message = "Server Error";
+        let message = "Server error, please try again later";
 
         if (json.message) {
             message = json.message;

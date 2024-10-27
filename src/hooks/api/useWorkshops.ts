@@ -5,10 +5,14 @@ import { useQueries, useQuery } from "@tanstack/react-query";
 async function fetchWorkshops(): Promise<WorkshopData[]> {
     const response = await fetch(`${API_URL}/registration/workshop/`);
 
-    const json: ResponseData<WorkshopData>[] = await response.json();
+    const json = await response.json();
 
     if (!response.ok) {
-        let message = "Server Error";
+        let message = "Server error, please try again later";
+
+        if (json.message) {
+            message = json.message;
+        }
 
         throw new Error(message);
     }

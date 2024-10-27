@@ -15,7 +15,7 @@ async function fetchRequestEmailVerification(email: string): Promise<void> {
     const json = await response.json();
 
     if (!response.ok) {
-        let message = "Server Error";
+        let message = "Server error, please try again later";
 
         if (json.message) {
             message = json.message;

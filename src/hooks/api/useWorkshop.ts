@@ -8,10 +8,14 @@ async function fetchWorkshop({ id }: { id: number }): Promise<{
 }> {
     const response = await fetch(`${API_URL}/registration/workshop/${id}`);
 
-    const json: WorkshopResponse = await response.json();
+    const json = await response.json();
 
     if (!response.ok) {
-        let message = "Server Error";
+        let message = "Server error, please try again later";
+
+        if (json.message) {
+            message = json.message;
+        }
 
         throw new Error(message);
     }

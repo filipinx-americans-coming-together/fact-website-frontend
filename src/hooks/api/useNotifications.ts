@@ -1,15 +1,18 @@
 import { API_URL } from "@/util/constants";
 import { NotificationData, ResponseData } from "@/util/types";
-import { useQuery } from '@tanstack/react-query';
+import { useQuery } from "@tanstack/react-query";
 
 async function fetchNotifications(): Promise<NotificationData[]> {
     const response = await fetch(`${API_URL}/fact-admin/notifications`);
 
-    const json: ResponseData<{ message: string; expiration: string }>[] =
-        await response.json();
+    const json = await response.json();
 
     if (!response.ok) {
-        let message = "Server Error";
+        let message = "Server error, please try again later";
+
+        if (json.message) {
+            message = json.message;
+        }
 
         throw new Error(message);
     }

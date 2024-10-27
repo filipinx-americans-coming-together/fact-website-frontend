@@ -5,11 +5,15 @@ import { useQuery } from "@tanstack/react-query";
 async function fetchLocations(): Promise<LocationData[]> {
     const response = await fetch(`${API_URL}/registration/location/`);
 
-    const json: ResponseData<LocationData>[] = await response.json();
+    const json = await response.json();
 
     if (!response.ok) {
-        let message = "Server Error";
+        let message = "Server error, please try again later";
 
+        if (json.message) {
+            message = json.message;
+        }
+        
         throw new Error(message);
     }
 

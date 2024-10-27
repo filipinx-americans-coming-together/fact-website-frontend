@@ -1,5 +1,4 @@
 import { API_URL } from "@/util/constants";
-import { ResponseData } from "@/util/types";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 async function fetchAdminLogin(
@@ -13,10 +12,14 @@ async function fetchAdminLogin(
         body: JSON.stringify({ username: username, password: password }),
     });
 
-    const json: ResponseData<{ username: string }>[] = await response.json();
+    const json = await response.json();
 
     if (!response.ok) {
-        let message = "Server Error";
+        let message = "Server error, please try again later";
+
+        if (json.message) {
+            message = json.message;
+        }
 
         throw new Error(message);
     }

@@ -2,25 +2,40 @@ import { API_URL } from "@/util/constants";
 import { DelegateData, RegistrationData, UserData } from "@/util/types";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
-async function fetchLogin(
-    email: string,
-    password: string
-): Promise<{
+export interface UpdateUserProps {
+    f_name?: string;
+    l_name?: string;
+    email?: string;
+    pronouns?: string;
+    year?: string;
+    school_id?: number;
+    workshop_1_id?: number;
+    workshop_2_id?: number;
+    workshop_3_id?: number;
+    password?: string;
+    new_password?: string;
+}
+
+async function fetchUpdateUser(props: UpdateUserProps): Promise<{
     user: UserData;
     delegate: DelegateData;
     registration: RegistrationData[];
 }> {
     // request
-    const response = await fetch(`${API_URL}/registration/login/`, {
+    const response = await fetch(`${API_URL}/registration/user/`, {
         credentials: "include",
-        method: "POST",
-        body: JSON.stringify({ email: email, password: password }),
+        method: "PUT",
+        body: JSON.stringify(props),
     });
 
     const json = await response.json();
 
     if (!response.ok) {
-        let message = "Server Error";
+        let message = "Server error, please try again later";
+
+        if (json.message) {
+            message = json.message;
+        }
 
         throw new Error(message);
     }
@@ -65,24 +80,18 @@ async function fetchLogin(
     };
 }
 
-export function useLogin() {
+export function useUpdateUser() {
     const queryClient = useQueryClient();
 
     const {
         data,
         error,
         isPending,
-        mutate: login,
+        mutate: updateUser,
         isSuccess,
     } = useMutation({
-        mutationFn: ({
-            email,
-            password,
-        }: {
-            email: string;
-            password: string;
-        }) => {
-            return fetchLogin(email, password);
+        mutationFn: (props: UpdateUserProps) => {
+            return fetchUpdateUser(props);
         },
 
         onSuccess: (data) => queryClient.setQueryData(["active-profile"], data),
@@ -90,5 +99,5 @@ export function useLogin() {
 
     console.log("isSuccess", isSuccess);
 
-    return { data, error, isPending, login, isSuccess };
+    return { data, error, isPending, updateUser, isSuccess };
 }
