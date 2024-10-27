@@ -204,12 +204,14 @@ export default function Profile() {
                     id="password"
                     setState={setFormData}
                     required={true}
+                    showCharacters={false}
                 />
                 <TextInput
                     label="New Password"
                     id="new_password"
                     setState={setFormData}
                     required={true}
+                    showCharacters={false}
                 />
             </FormContainer>
         </>
