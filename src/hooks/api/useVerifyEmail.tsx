@@ -1,19 +1,13 @@
 import { API_URL } from "@/util/constants";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 
-export interface VerifyEmailProps {
-    email: string;
-    verification_code: string;
-}
-
-async function fetchVerifyEmail(props: VerifyEmailProps): Promise<void> {
+async function fetchVerifyEmail(email: string, code: string): Promise<void> {
+    console.log(email, code);
     // request
-    // TODO placeholder so that it will always succeed
-    // replace with actual endpoint/args when backend is done
-    const response = await fetch(`${API_URL}/workshop/`, {
-        // credentials: "include",
-        method: "GET",
-        // body: JSON.stringify(props),
+    const response = await fetch(`${API_URL}/verification/verify/`, {
+        credentials: "include",
+        method: "POST",
+        body: JSON.stringify({ email: email, code: code }),
     });
 
     const json = await response.json();
@@ -21,13 +15,15 @@ async function fetchVerifyEmail(props: VerifyEmailProps): Promise<void> {
     if (!response.ok) {
         let message = "Server Error";
 
+        if (json.message) {
+            message = json.message;
+        }
+
         throw new Error(message);
     }
 }
 
 export function useVerifyEmail() {
-    const queryClient = useQueryClient();
-
     const {
         data,
         error,
@@ -35,8 +31,8 @@ export function useVerifyEmail() {
         mutate: verifyEmail,
         isSuccess,
     } = useMutation({
-        mutationFn: (props: VerifyEmailProps) => {
-            return fetchVerifyEmail(props);
+        mutationFn: ({ email, code }: { email: string; code: string }) => {
+            return fetchVerifyEmail(email, code);
         },
     });
 

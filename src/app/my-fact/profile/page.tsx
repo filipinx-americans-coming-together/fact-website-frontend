@@ -6,13 +6,10 @@ import Navbar from "@/components/navigation/Navbar";
 import SchoolSelect from "@/components/ui/SchoolSelect";
 import Select from "@/components/ui/Select";
 import TextInput from "@/components/ui/TextInput";
-import {
-    RequestEmailVerificationProps,
-    useRequestEmailVerification,
-} from "@/hooks/api/useRequestEmailVerification";
+import { useRequestEmailVerification } from "@/hooks/api/useRequestEmailVerification";
 import { UpdateUserProps, useUpdateUser } from "@/hooks/api/useUpdateUser";
 import { useUser } from "@/hooks/api/useUser";
-import { useVerifyEmail, VerifyEmailProps } from "@/hooks/api/useVerifyEmail";
+import { useVerifyEmail } from "@/hooks/api/useVerifyEmail";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -48,7 +45,7 @@ export default function Profile() {
 
     const [emailData, setEmailData] = useState<Object>({
         email: "",
-        verification_code: "",
+        code: "",
     });
 
     if (noUser) {
@@ -122,7 +119,7 @@ export default function Profile() {
                             id="school_id"
                             setState={setFormData}
                             required={false}
-                            defaultValue={user.delegate.school.toString()}
+                            // defaultValue={user.delegate.school.toString()}
                         />
                     </>
                 )}
@@ -146,13 +143,13 @@ export default function Profile() {
                 }
                 onSubmit={() => {
                     if (verificationRequested) {
-                        verifyEmail(emailData as VerifyEmailProps);
+                        verifyEmail(
+                            emailData as { email: string; code: string }
+                        );
                     } else if (emailVerified) {
                         updateUser(emailData as UpdateUserProps);
                     } else {
-                        requestVerification(
-                            emailData as RequestEmailVerificationProps
-                        );
+                        requestVerification(emailData as { email: string });
                     }
                 }}
                 isLoading={verificationPending || requestPending}
@@ -171,7 +168,7 @@ export default function Profile() {
                     <>
                         <TextInput
                             label="Verification Code"
-                            id="verification_code"
+                            id="code"
                             maxLength={6}
                             setState={setFormData}
                             required={true}

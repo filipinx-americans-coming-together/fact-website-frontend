@@ -44,6 +44,7 @@ export default function Register() {
         workshop_2_id: -1,
         workshop_3_id: -1,
         discount: "",
+        code: "",
     });
 
     const [ticketSelection, setTicketSelection] = useState<{
@@ -91,9 +92,13 @@ export default function Register() {
                     formName="emailVerification"
                     onSubmit={() => {
                         if (verificationRequested) {
-                            verifyEmail(formData.email);
+                            console.log(formData);
+                            verifyEmail({
+                                email: formData.email,
+                                code: formData.code,
+                            });
                         } else {
-                            requestVerification(formData.email);
+                            requestVerification({ email: formData.email });
                         }
                     }}
                     isLoading={verificationPending || requestPending}
@@ -113,7 +118,7 @@ export default function Register() {
                         <>
                             <TextInput
                                 label="Verification Code"
-                                id="verification_code"
+                                id="code"
                                 maxLength={6}
                                 setState={setFormData}
                             />
