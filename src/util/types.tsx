@@ -5,8 +5,19 @@ export interface ResponseData<T> {
 }
 
 export interface NotificationData {
+    id: number;
     message: string;
     expiration: Date;
+}
+
+export interface AgendaItemData {
+    id: number;
+    title: string;
+    start_time: Date;
+    end_time: Date;
+    building: string | undefined;
+    room_num: string | undefined;
+    session_num: number | undefined;
 }
 
 export interface UserResponse {
