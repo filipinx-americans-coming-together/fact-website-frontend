@@ -10,10 +10,12 @@ import ForbiddenPage from "@/components/formatting/ForbiddenPage";
 import { useAgendaItems } from "../hooks/useAgendaItems";
 import { useState } from "react";
 import Select from "@/components/ui/Select";
+import { useCreateAgendaItem } from "../hooks/useCreateAgendaItem";
 
 export default function Agenda() {
     const { user, isLoading } = useAdminUser();
     const { agendaItems } = useAgendaItems();
+    const { createAgendaItem, isPending, error } = useCreateAgendaItem();
 
     const [formData, setFormData] = useState<Object>({
         title: "",
@@ -47,9 +49,27 @@ export default function Agenda() {
                     <FormContainer
                         formName="newAgendaItem"
                         submitText="Add"
-                        onSubmit={() => {}}
-                        errorMessage={undefined}
-                        isLoading={false}
+                        onSubmit={() => {
+                            const data = formData as {
+                                title: string;
+                                start_time: string;
+                                end_time: string;
+                                building: string | undefined;
+                                room_num: string | undefined;
+                                session_num: number | undefined;
+                            };
+
+                            createAgendaItem({
+                                title: data.title,
+                                start_time: new Date(data.start_time),
+                                end_time: new Date(data.end_time),
+                                building: data.building,
+                                room_num: data.room_num,
+                                session_num: data.session_num,
+                            });
+                        }}
+                        errorMessage={error?.message}
+                        isLoading={isPending}
                     >
                         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
                             <TextInput
