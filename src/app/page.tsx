@@ -3,6 +3,7 @@
 import BackgroundImage from "@/components/formatting/BackgroundImage";
 import CountdownTimer from "@/components/CountdownTimer";
 import Navbar from "@/components/navigation/Navbar";
+import Footer from "@/components/formatting/PageFooter";
 import NotificationsManager from "@/components/ui/NotificationManager";
 import { useNotifications } from "@/hooks/api/useNotifications";
 
@@ -54,6 +55,7 @@ export default function Home() {
                     </div>
                 </div>
             </BackgroundImage>
+            <Footer />
         </>
     );
 }
