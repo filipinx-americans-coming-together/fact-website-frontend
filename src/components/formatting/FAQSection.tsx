@@ -1,13 +1,15 @@
+import { ReactNode } from "react";
+
 interface FAQProps {
     question: string;
-    answer: string;
+    children: ReactNode
 }
 
-export default function FAQSection({question, answer}: FAQProps) {
+export default function FAQSection({question, children}: FAQProps) {
     return (
         <>
             <div className="text-3xl lg:text-4xl font-bold mb-6">{question}</div>
-            <div className="">{answer}</div>
+            <>{children}</>
         </>
     )
 }
