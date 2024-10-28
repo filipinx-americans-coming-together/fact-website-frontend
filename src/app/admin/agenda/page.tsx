@@ -2,32 +2,27 @@
 
 import TextInput from "@/components/ui/TextInput";
 import FormContainer from "../components/FormContainer";
-import { useEffect, useState } from "react";
 import DateTimeInput from "../components/DateTimeInput";
-import Button from "../components/Button";
 import AgendaList from "../components/AgendaList";
 import LoadingCircle from "@/components/icons/LoadingCircle";
 import { useAdminUser } from "@/hooks/api/useAdminUser";
 import ForbiddenPage from "@/components/formatting/ForbiddenPage";
 import { useAgendaItems } from "../hooks/useAgendaItems";
-import { AgendaItemData } from "@/util/types";
+import { useState } from "react";
+import Select from "@/components/ui/Select";
 
 export default function Agenda() {
-    const [agendaData, setAgendaData] = useState<Object>({
+    const { user, isLoading } = useAdminUser();
+    const { agendaItems } = useAgendaItems();
+
+    const [formData, setFormData] = useState<Object>({
         title: "",
-        location: "",
+        building: "",
+        room_num: "",
         start_time: "",
         end_time: "",
+        session_num: "",
     });
-
-    const { user, isLoading } = useAdminUser();
-
-    const { agendaItems } = useAgendaItems();
-    const [allAgendaItems, setAllAgendaItems] = useState<AgendaItemData[]>([]);
-
-    useEffect(() => {
-        if (agendaItems) setAllAgendaItems(agendaItems);
-    }, [agendaItems]);
 
     if (isLoading) {
         return (
@@ -52,12 +47,7 @@ export default function Agenda() {
                     <FormContainer
                         formName="newAgendaItem"
                         submitText="Add"
-                        onSubmit={() => {
-                            setAllAgendaItems([
-                                ...allAgendaItems,
-                                agendaData as AgendaItemData,
-                            ]);
-                        }}
+                        onSubmit={() => {}}
                         errorMessage={undefined}
                         isLoading={false}
                     >
@@ -65,22 +55,37 @@ export default function Agenda() {
                             <TextInput
                                 label="Title"
                                 id="title"
-                                setState={setAgendaData}
+                                setState={setFormData}
+                            />
+                            <Select
+                                label="Session"
+                                id="session"
+                                setState={setFormData}
+                            >
+                                <option value="">N/A</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </Select>
+                            <TextInput
+                                label="Building"
+                                id="building"
+                                setState={setFormData}
                             />
                             <TextInput
-                                label="Location"
-                                id="location"
-                                setState={setAgendaData}
+                                label="Room Number"
+                                id="room_num"
+                                setState={setFormData}
                             />
                             <DateTimeInput
                                 label="Start Time"
-                                id="start"
-                                setState={setAgendaData}
+                                id="start_time"
+                                setState={setFormData}
                             />
                             <DateTimeInput
                                 label="End Time"
-                                id="end"
-                                setState={setAgendaData}
+                                id="end_time"
+                                setState={setFormData}
                             />
                         </div>
                     </FormContainer>
@@ -89,12 +94,14 @@ export default function Agenda() {
                     <h1 className="text-left">Friday, December 6</h1>
                     <br />
                     <AgendaList
-                        displayItems={allAgendaItems.filter((item) => {
-                            const asDate = item.start_time;
-                            return asDate.getDay() === 5;
-                        })}
-                        allItems={allAgendaItems}
-                        setState={setAllAgendaItems}
+                        displayItems={
+                            agendaItems
+                                ? agendaItems.filter((item) => {
+                                      const asDate = item.start_time;
+                                      return asDate.getDay() === 5;
+                                  })
+                                : []
+                        }
                     />
 
                     <br />
@@ -102,22 +109,16 @@ export default function Agenda() {
                     <h1 className="text-left">Saturday, December 7</h1>
                     <br />
                     <AgendaList
-                        displayItems={allAgendaItems.filter((item) => {
-                            const asDate = item.start_time;
-                            return asDate.getDay() === 6;
-                        })}
-                        allItems={allAgendaItems}
-                        setState={setAllAgendaItems}
+                        displayItems={
+                            agendaItems
+                                ? agendaItems.filter((item) => {
+                                      const asDate = item.start_time;
+                                      return asDate.getDay() === 6;
+                                  })
+                                : []
+                        }
                     />
                 </div>
-
-                <br />
-                {/* send to database */}
-                <Button
-                    text="Approve Changes"
-                    onClick={() => {}}
-                    isSubmit={false}
-                />
             </div>
         </div>
     );

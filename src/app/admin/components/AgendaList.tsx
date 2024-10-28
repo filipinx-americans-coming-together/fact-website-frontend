@@ -1,16 +1,15 @@
 import { FaTrashCan } from "react-icons/fa6";
 import AgendaItemCard from "./AgendaItemCard";
 import { AgendaItemData } from "@/util/types";
+import { useDeleteAgendaItem } from "../hooks/useDeleteAgendaItem";
 
 export default function AgendaList({
     displayItems,
-    allItems,
-    setState,
 }: {
     displayItems: AgendaItemData[];
-    allItems: AgendaItemData[];
-    setState(state: AgendaItemData[]): void;
 }) {
+    const { deleteAgendaItem } = useDeleteAgendaItem();
+
     return (
         <div className="flex flex-col gap-4">
             {displayItems.map((item, idx) => {
@@ -35,11 +34,7 @@ export default function AgendaList({
                                 );
 
                                 if (confirmation) {
-                                    setState(
-                                        allItems.filter((other, idx) => {
-                                            return other.id !== item.id;
-                                        })
-                                    );
+                                    deleteAgendaItem({ id: item.id });
                                 }
                             }}
                         >
