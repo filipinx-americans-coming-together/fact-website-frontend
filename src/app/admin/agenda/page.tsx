@@ -2,41 +2,51 @@
 
 import TextInput from "@/components/ui/TextInput";
 import FormContainer from "../components/FormContainer";
-import { useState } from "react";
 import DateTimeInput from "../components/DateTimeInput";
-import Button from "../components/Button";
 import AgendaList from "../components/AgendaList";
-
-export interface AgendaItem {
-    title: string;
-    location: string;
-    start: string;
-    end: string;
-}
+import LoadingCircle from "@/components/icons/LoadingCircle";
+import { useAdminUser } from "@/hooks/api/useAdminUser";
+import ForbiddenPage from "@/components/formatting/ForbiddenPage";
+import { useAgendaItems } from "../hooks/useAgendaItems";
+import { useState } from "react";
+import Select from "@/components/ui/Select";
+import { useCreateAgendaItem } from "../hooks/useCreateAgendaItem";
+import UploadFile from "../components/UploadFile";
+import { useUploadAgendaItems } from "../hooks/useUploadAgendaItems";
 
 export default function Agenda() {
-    const [agendaData, setAgendaData] = useState<Object>({
+    const { user, isLoading } = useAdminUser();
+    const { agendaItems } = useAgendaItems();
+    const {
+        createAgendaItem,
+        isPending: createPending,
+        error: createError,
+    } = useCreateAgendaItem();
+    const {
+        uploadAgendaItems,
+        isPending: uploadPending,
+        error: uploadError,
+    } = useUploadAgendaItems();
+
+    const [formData, setFormData] = useState<Object>({
         title: "",
-        location: "",
-        start: "",
-        end: "",
+        building: "",
+        room_num: "",
+        start_time: "",
+        end_time: "",
+        session_num: "",
     });
 
-    // TODO default to agenda items from DB
-    const [allAgendaItems, setAllAgendaItems] = useState<AgendaItem[]>([]);
-
-    // PLACEHOLDER
-    const isLoggedIn = true;
-
-    if (!isLoggedIn) {
+    if (isLoading) {
         return (
-            <>
-                <p>You are not permitted to view this page.</p>
-                <a className="underline hover:text-highlight-primary" href="/">
-                    Return home
-                </a>
-            </>
+            <div className="mx-auto w-fit p-4">
+                <LoadingCircle />
+            </div>
         );
+    }
+
+    if (!user) {
+        return <ForbiddenPage />;
     }
 
     return (
@@ -45,40 +55,80 @@ export default function Agenda() {
                 <h1>Agenda</h1>
 
                 <br />
+                {(!agendaItems || agendaItems.length === 0) && (
+                    <>
+                        <UploadFile
+                            title="Agenda"
+                            onUpload={uploadAgendaItems}
+                            errorMessage={uploadError?.message}
+                            isLoading={uploadPending}
+                        />
+                        <br />
+                        <br />
+                    </>
+                )}
 
                 <div className="mx-auto rounded bg-gray-300 p-6 w-fit">
                     <FormContainer
                         formName="newAgendaItem"
                         submitText="Add"
                         onSubmit={() => {
-                            setAllAgendaItems([
-                                ...allAgendaItems,
-                                agendaData as AgendaItem,
-                            ]);
+                            const data = formData as {
+                                title: string;
+                                start_time: string;
+                                end_time: string;
+                                building: string | undefined;
+                                room_num: string | undefined;
+                                session_num: number | undefined;
+                            };
+
+                            createAgendaItem({
+                                title: data.title,
+                                start_time: new Date(data.start_time),
+                                end_time: new Date(data.end_time),
+                                building: data.building,
+                                room_num: data.room_num,
+                                session_num: data.session_num,
+                            });
                         }}
-                        errorMessage={undefined}
-                        isLoading={false}
+                        errorMessage={createError?.message}
+                        isLoading={createPending}
                     >
                         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
                             <TextInput
                                 label="Title"
                                 id="title"
-                                setState={setAgendaData}
+                                setState={setFormData}
+                            />
+                            <Select
+                                label="Session"
+                                id="session"
+                                setState={setFormData}
+                            >
+                                <option value="">N/A</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </Select>
+                            <TextInput
+                                label="Building"
+                                id="building"
+                                setState={setFormData}
                             />
                             <TextInput
-                                label="Location"
-                                id="location"
-                                setState={setAgendaData}
+                                label="Room Number"
+                                id="room_num"
+                                setState={setFormData}
                             />
                             <DateTimeInput
                                 label="Start Time"
-                                id="start"
-                                setState={setAgendaData}
+                                id="start_time"
+                                setState={setFormData}
                             />
                             <DateTimeInput
                                 label="End Time"
-                                id="end"
-                                setState={setAgendaData}
+                                id="end_time"
+                                setState={setFormData}
                             />
                         </div>
                     </FormContainer>
@@ -87,18 +137,14 @@ export default function Agenda() {
                     <h1 className="text-left">Friday, December 6</h1>
                     <br />
                     <AgendaList
-                        displayItems={allAgendaItems
-                            .filter((item) => {
-                                const asDate = new Date(item.start);
-                                return asDate.getDay() === 5;
-                            })
-                            .sort((a, b) => {
-                                const startA = new Date(a.start);
-                                const startB = new Date(b.start);
-                                return startA.getTime() - startB.getTime();
-                            })}
-                        allItems={allAgendaItems}
-                        setState={setAllAgendaItems}
+                        displayItems={
+                            agendaItems
+                                ? agendaItems.filter((item) => {
+                                      const asDate = item.start_time;
+                                      return asDate.getDay() === 5;
+                                  })
+                                : []
+                        }
                     />
 
                     <br />
@@ -106,28 +152,16 @@ export default function Agenda() {
                     <h1 className="text-left">Saturday, December 7</h1>
                     <br />
                     <AgendaList
-                        displayItems={allAgendaItems
-                            .filter((item) => {
-                                const asDate = new Date(item.start);
-                                return asDate.getDay() === 6;
-                            })
-                            .sort((a, b) => {
-                                const startA = new Date(a.start);
-                                const startB = new Date(b.start);
-                                return startA.getTime() - startB.getTime();
-                            })}
-                        allItems={allAgendaItems}
-                        setState={setAllAgendaItems}
+                        displayItems={
+                            agendaItems
+                                ? agendaItems.filter((item) => {
+                                      const asDate = item.start_time;
+                                      return asDate.getDay() === 6;
+                                  })
+                                : []
+                        }
                     />
                 </div>
-
-                <br />
-                {/* send to database */}
-                <Button
-                    text="Approve Changes"
-                    onClick={() => {}}
-                    isSubmit={false}
-                />
             </div>
         </div>
     );

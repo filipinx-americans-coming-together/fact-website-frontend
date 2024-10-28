@@ -1,36 +1,28 @@
 import { API_URL } from "@/util/constants";
-import { DelegateData, RegistrationData, UserData } from "@/util/types";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import {
+    DelegateData,
+    RegistrationData,
+    UserData,
+    UserResponse,
+} from "@/util/types";
+import { useQuery } from "@tanstack/react-query";
 
-export interface registrationProps {
-    f_name: string;
-    l_name: string;
-    email: string;
-    password: string;
-    pronouns?: string;
-    year: string;
-    school_name: string;
-    workshop_1_id: string;
-    workshop_2_id: string;
-    workshop_3_id: string;
-}
-
-async function fetchRegister(props: registrationProps): Promise<{
+async function fetchUser(): Promise<{
     user: UserData;
     delegate: DelegateData;
     registration: RegistrationData[];
 }> {
-    // request
     const response = await fetch(`${API_URL}/registration/user/`, {
         credentials: "include",
-        method: "POST",
-        body: JSON.stringify(props),
     });
-
     const json = await response.json();
 
     if (!response.ok) {
-        let message = "Server Error";
+        let message = "Server error, please try again later";
+
+        if (json.message) {
+            message = json.message;
+        }
 
         throw new Error(message);
     }
@@ -75,24 +67,26 @@ async function fetchRegister(props: registrationProps): Promise<{
     };
 }
 
-export function useRegister() {
-    const queryClient = useQueryClient();
-
+export function useUser(): {
+    user:
+        | {
+              user: UserData;
+              delegate: DelegateData;
+              registration: RegistrationData[];
+          }
+        | undefined;
+    isLoading: boolean;
+    error: Error | null;
+} {
     const {
-        data,
+        data: user,
         error,
-        isPending,
-        mutate: register,
-        isSuccess,
-    } = useMutation({
-        mutationFn: (props: registrationProps) => {
-            return fetchRegister(props);
-        },
-
-        onSuccess: (data) => queryClient.setQueryData(["active-profile"], data),
+        isLoading,
+    } = useQuery({
+        queryKey: ["active-user"],
+        queryFn: () => fetchUser(),
+        retry: 0,
     });
 
-    console.log("isSuccess", isSuccess);
-
-    return { data, error, isPending, register, isSuccess };
+    return { user, isLoading, error };
 }

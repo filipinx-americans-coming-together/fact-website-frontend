@@ -10,8 +10,12 @@ async function fetchLogout() {
     const json = await response.json();
 
     if (!response.ok) {
-        let message = "Server Error";
+        let message = "Server error, please try again later";
 
+        if (json.message) {
+            message = json.message;
+        }
+        
         throw new Error(message);
     }
 
@@ -33,7 +37,7 @@ export function useLogout() {
             queryClient.removeQueries({ queryKey: ["active-profile"] }),
     });
 
-    console.log("isSuccess", isSuccess);
+    console.log("isSuccess from logout", isSuccess);
 
     return { data, error, isPending, logout, isSuccess };
 }
