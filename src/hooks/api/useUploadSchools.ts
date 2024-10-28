@@ -50,7 +50,7 @@ export function useUploadSchools() {
             return fetchUploadSchools(file);
         },
 
-        onSuccess: (data) => queryClient.setQueryData(["workshops"], data),
+        onSuccess: (data) => queryClient.setQueryData(["schools"], data),
     });
 
     console.log("isSuccess", isSuccess);
