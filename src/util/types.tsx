@@ -5,6 +5,7 @@ export interface ResponseData<T> {
 }
 
 export interface NotificationData {
+    id: number;
     message: string;
     expiration: Date;
 }

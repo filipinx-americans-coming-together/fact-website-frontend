@@ -1,4 +1,5 @@
 import { API_URL } from "@/util/constants";
+import { NotificationData } from "@/util/types";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 async function fetchCreateNotification({
@@ -7,10 +8,7 @@ async function fetchCreateNotification({
 }: {
     message: string;
     expiration: Date;
-}): Promise<{
-    message: string;
-    expiration: Date;
-}> {
+}): Promise<NotificationData> {
     // request
     const response = await fetch(`${API_URL}/fact-admin/notification/`, {
         credentials: "include",
@@ -35,6 +33,7 @@ async function fetchCreateNotification({
 
     // format date
     const formatted = {
+        id: json[0].pk,
         message: json[0].fields.message,
         expiration: new Date(Date.parse(json[0].fields.expiration)),
     };

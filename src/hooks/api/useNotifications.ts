@@ -22,6 +22,7 @@ async function fetchNotifications(): Promise<NotificationData[]> {
             notification: ResponseData<{ message: string; expiration: string }>
         ) => {
             const formatted = {
+                id: notification.pk,
                 message: notification.fields.message,
                 expiration: new Date(
                     Date.parse(notification.fields.expiration)

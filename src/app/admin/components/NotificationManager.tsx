@@ -8,12 +8,18 @@ import NotificationCard from "./NotificationCard";
 import { useNotifications } from "@/hooks/api/useNotifications";
 import { useState } from "react";
 import { useCreateNotification } from "../hooks/useCreateNotifications";
+import { useDeleteNotification } from "../hooks/useDeleteNotification";
 
 export default function NotificationManager() {
     const { notifications } = useNotifications();
-    const { createNotification, isPending, error, isSuccess } =
-        useCreateNotification();
-    // const { deleteNotification } = useDeleteNotification();
+    const {
+        createNotification,
+        isPending: createPending,
+        error,
+        isSuccess,
+    } = useCreateNotification();
+    const { deleteNotification, isPending: deletePending } =
+        useDeleteNotification();
 
     const [formData, setFormData] = useState<Object>({
         message: "",
@@ -40,7 +46,7 @@ export default function NotificationManager() {
                     });
                 }}
                 submitText="Save"
-                isLoading={isPending}
+                isLoading={createPending}
                 errorMessage={error?.message}
             >
                 <div className="flex flex-col gap-2 justify-between md:flex-row">
@@ -64,25 +70,32 @@ export default function NotificationManager() {
             <br />
             <div className="flex flex-col gap-4">
                 {notifications &&
-                    notifications.map((notification, idx) => (
-                        <div key={idx} className="flex gap-4">
-                            <NotificationCard
-                                text={notification.message}
-                                expiration={notification.expiration.toDateString()}
-                            />
-                            <button
-                                className="w-fit hover:text-slate-700"
-                                type="button"
-                                onClick={() => {
-                                    confirm(
-                                        "Are you sure you want to delete this notification? This action can not be undone."
-                                    );
-                                }}
-                            >
-                                <FaTrashCan />
-                            </button>
-                        </div>
-                    ))}
+                    notifications.map((notification, idx) => {
+                        return (
+                            <div key={idx} className="flex gap-4">
+                                <NotificationCard
+                                    text={notification.message}
+                                    expiration={notification.expiration.toLocaleString()}
+                                />
+                                <button
+                                    className="w-fit hover:text-slate-700"
+                                    type="button"
+                                    onClick={() => {
+                                        const confirmation = confirm(
+                                            "Are you sure you want to delete this notification? This action can not be undone."
+                                        );
+
+                                        if (confirmation)
+                                            deleteNotification({
+                                                id: notification.id,
+                                            });
+                                    }}
+                                >
+                                    <FaTrashCan />
+                                </button>
+                            </div>
+                        );
+                    })}
             </div>
         </div>
     );
