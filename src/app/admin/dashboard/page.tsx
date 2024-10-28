@@ -14,6 +14,7 @@ import { useAdminUser } from "@/hooks/api/useAdminUser";
 import ForbiddenPage from "@/components/formatting/ForbiddenPage";
 import Navbar from "../components/Navbar";
 import LoadingCircle from "@/components/icons/LoadingCircle";
+import NotificationManager from "../components/NotificationManager";
 
 const NOTIFICATION_PLACEHOLDER = [
     {
@@ -130,57 +131,7 @@ export default function AdminDashboard() {
                 {/* notifications */}
                 <h1 className="text-xl font-bold">Notifications</h1>
                 <br />
-                <div className="rounded bg-gray-300 p-6 w-fit">
-                    <FormContainer
-                        formName="notifications"
-                        onSubmit={() => {}}
-                        submitText="Save"
-                        isLoading={false}
-                        errorMessage={undefined}
-                    >
-                        <div className="flex flex-col gap-2 md:flex-row">
-                            <div className="flex flex-col">
-                                <TextInput
-                                    label="Message"
-                                    id="message"
-                                    setState={() => {}}
-                                    maxLength={180}
-                                    showCharacters
-                                />
-                            </div>
-                            <DateTimeInput
-                                label="Expiration"
-                                id="expiration"
-                                setState={() => {}}
-                            />
-                        </div>
-                    </FormContainer>
-                    <br />
-
-                    <h2>Active Notifications</h2>
-                    <br />
-                    <div className="flex flex-col gap-4">
-                        {NOTIFICATION_PLACEHOLDER.map((notification, idx) => (
-                            <div key={idx} className="flex gap-4">
-                                <NotificationCard
-                                    text={notification.text}
-                                    expiration={notification.expiration}
-                                />
-                                <button
-                                    className="w-fit hover:text-slate-700"
-                                    type="button"
-                                    onClick={() => {
-                                        confirm(
-                                            "Are you sure you want to delete this notification? This action can not be undone."
-                                        );
-                                    }}
-                                >
-                                    <FaTrashCan />
-                                </button>
-                            </div>
-                        ))}
-                    </div>
-                </div>
+                <NotificationManager />
 
                 <br />
                 {/* danger zone */}
