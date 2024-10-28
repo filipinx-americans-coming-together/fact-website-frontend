@@ -1,29 +1,30 @@
 import { FaTrashCan } from "react-icons/fa6";
-import { AgendaItem } from "../agenda/page";
 import AgendaItemCard from "./AgendaItemCard";
+import { AgendaItemData } from "@/util/types";
 
 export default function AgendaList({
     displayItems,
     allItems,
     setState,
 }: {
-    displayItems: AgendaItem[];
-    allItems: AgendaItem[];
-    setState(state: AgendaItem[]): void;
+    displayItems: AgendaItemData[];
+    allItems: AgendaItemData[];
+    setState(state: AgendaItemData[]): void;
 }) {
     return (
         <div className="flex flex-col gap-4">
             {displayItems.map((item, idx) => {
                 return (
                     <div
-                        key={item.title + item.start + idx}
+                        key={item.title + item.start_time + idx}
                         className="flex gap-4 justify-between"
                     >
                         <AgendaItemCard
                             title={item.title}
-                            location={item.location}
-                            start={item.start}
-                            end={item.end}
+                            building={item.building ? item.building : ""}
+                            roomNum={item.room_num ? item.room_num : ""}
+                            start={item.start_time.toLocaleString()}
+                            end={item.end_time.toLocaleString()}
                         />
                         <button
                             className="w-fit hover:text-slate-700"
@@ -36,13 +37,7 @@ export default function AgendaList({
                                 if (confirmation) {
                                     setState(
                                         allItems.filter((other, idx) => {
-                                            return (
-                                                other.title !== item.title ||
-                                                other.location !==
-                                                    item.location ||
-                                                other.start !== item.start ||
-                                                other.end !== item.end
-                                            );
+                                            return other.id !== item.id;
                                         })
                                     );
                                 }

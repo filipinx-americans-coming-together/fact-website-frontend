@@ -2,41 +2,43 @@
 
 import TextInput from "@/components/ui/TextInput";
 import FormContainer from "../components/FormContainer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DateTimeInput from "../components/DateTimeInput";
 import Button from "../components/Button";
 import AgendaList from "../components/AgendaList";
-
-export interface AgendaItem {
-    title: string;
-    location: string;
-    start: string;
-    end: string;
-}
+import LoadingCircle from "@/components/icons/LoadingCircle";
+import { useAdminUser } from "@/hooks/api/useAdminUser";
+import ForbiddenPage from "@/components/formatting/ForbiddenPage";
+import { useAgendaItems } from "../hooks/useAgendaItems";
+import { AgendaItemData } from "@/util/types";
 
 export default function Agenda() {
     const [agendaData, setAgendaData] = useState<Object>({
         title: "",
         location: "",
-        start: "",
-        end: "",
+        start_time: "",
+        end_time: "",
     });
 
-    // TODO default to agenda items from DB
-    const [allAgendaItems, setAllAgendaItems] = useState<AgendaItem[]>([]);
+    const { user, isLoading } = useAdminUser();
 
-    // PLACEHOLDER
-    const isLoggedIn = true;
+    const { agendaItems } = useAgendaItems();
+    const [allAgendaItems, setAllAgendaItems] = useState<AgendaItemData[]>([]);
 
-    if (!isLoggedIn) {
+    useEffect(() => {
+        if (agendaItems) setAllAgendaItems(agendaItems);
+    }, [agendaItems]);
+
+    if (isLoading) {
         return (
-            <>
-                <p>You are not permitted to view this page.</p>
-                <a className="underline hover:text-highlight-primary" href="/">
-                    Return home
-                </a>
-            </>
+            <div className="mx-auto w-fit p-4">
+                <LoadingCircle />
+            </div>
         );
+    }
+
+    if (!user) {
+        return <ForbiddenPage />;
     }
 
     return (
@@ -53,7 +55,7 @@ export default function Agenda() {
                         onSubmit={() => {
                             setAllAgendaItems([
                                 ...allAgendaItems,
-                                agendaData as AgendaItem,
+                                agendaData as AgendaItemData,
                             ]);
                         }}
                         errorMessage={undefined}
@@ -87,16 +89,10 @@ export default function Agenda() {
                     <h1 className="text-left">Friday, December 6</h1>
                     <br />
                     <AgendaList
-                        displayItems={allAgendaItems
-                            .filter((item) => {
-                                const asDate = new Date(item.start);
-                                return asDate.getDay() === 5;
-                            })
-                            .sort((a, b) => {
-                                const startA = new Date(a.start);
-                                const startB = new Date(b.start);
-                                return startA.getTime() - startB.getTime();
-                            })}
+                        displayItems={allAgendaItems.filter((item) => {
+                            const asDate = item.start_time;
+                            return asDate.getDay() === 5;
+                        })}
                         allItems={allAgendaItems}
                         setState={setAllAgendaItems}
                     />
@@ -106,16 +102,10 @@ export default function Agenda() {
                     <h1 className="text-left">Saturday, December 7</h1>
                     <br />
                     <AgendaList
-                        displayItems={allAgendaItems
-                            .filter((item) => {
-                                const asDate = new Date(item.start);
-                                return asDate.getDay() === 6;
-                            })
-                            .sort((a, b) => {
-                                const startA = new Date(a.start);
-                                const startB = new Date(b.start);
-                                return startA.getTime() - startB.getTime();
-                            })}
+                        displayItems={allAgendaItems.filter((item) => {
+                            const asDate = item.start_time;
+                            return asDate.getDay() === 6;
+                        })}
                         allItems={allAgendaItems}
                         setState={setAllAgendaItems}
                     />
