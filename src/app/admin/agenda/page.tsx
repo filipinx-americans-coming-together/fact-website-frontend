@@ -11,11 +11,22 @@ import { useAgendaItems } from "../hooks/useAgendaItems";
 import { useState } from "react";
 import Select from "@/components/ui/Select";
 import { useCreateAgendaItem } from "../hooks/useCreateAgendaItem";
+import UploadFile from "../components/UploadFile";
+import { useUploadAgendaItems } from "../hooks/useUploadAgendaItems";
 
 export default function Agenda() {
     const { user, isLoading } = useAdminUser();
     const { agendaItems } = useAgendaItems();
-    const { createAgendaItem, isPending, error } = useCreateAgendaItem();
+    const {
+        createAgendaItem,
+        isPending: createPending,
+        error: createError,
+    } = useCreateAgendaItem();
+    const {
+        uploadAgendaItems,
+        isPending: uploadPending,
+        error: uploadError,
+    } = useUploadAgendaItems();
 
     const [formData, setFormData] = useState<Object>({
         title: "",
@@ -44,6 +55,18 @@ export default function Agenda() {
                 <h1>Agenda</h1>
 
                 <br />
+                {(!agendaItems || agendaItems.length === 0) && (
+                    <>
+                        <UploadFile
+                            title="Agenda"
+                            onUpload={uploadAgendaItems}
+                            errorMessage={uploadError?.message}
+                            isLoading={uploadPending}
+                        />
+                        <br />
+                        <br />
+                    </>
+                )}
 
                 <div className="mx-auto rounded bg-gray-300 p-6 w-fit">
                     <FormContainer
@@ -68,8 +91,8 @@ export default function Agenda() {
                                 session_num: data.session_num,
                             });
                         }}
-                        errorMessage={error?.message}
-                        isLoading={isPending}
+                        errorMessage={createError?.message}
+                        isLoading={createPending}
                     >
                         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
                             <TextInput
