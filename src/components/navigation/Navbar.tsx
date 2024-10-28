@@ -20,6 +20,7 @@ const NAV_LINKS = [
     { text: "About", path: "/about" },
     { text: "Team", path: "/team" },
     { text: "Gallery", path: "/gallery" },
+    { text: "FAQ", path: "/faq"},
     { text: "Workshops", path: "/workshops" },
 ];
 
