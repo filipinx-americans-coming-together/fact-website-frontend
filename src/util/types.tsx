@@ -71,3 +71,7 @@ export interface LocationData {
     capacity: number;
     session: number;
 }
+
+export interface FacilitatorData {
+    id: number;
+}

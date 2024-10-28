@@ -1,20 +1,18 @@
 import { API_URL } from "@/util/constants";
-import { DelegateData, RegistrationData, UserData } from "@/util/types";
+import { UserData } from "@/util/types";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 async function fetchLogin(
-    email: string,
+    username: string,
     password: string
 ): Promise<{
     user: UserData;
-    delegate: DelegateData;
-    registration: RegistrationData[];
 }> {
     // request
-    const response = await fetch(`${API_URL}/registration/login/`, {
+    const response = await fetch(`${API_URL}/registration/facilitator/login/`, {
         credentials: "include",
         method: "POST",
-        body: JSON.stringify({ email: email, password: password }),
+        body: JSON.stringify({ username: username, password: password }),
     });
 
     const json = await response.json();
@@ -39,37 +37,12 @@ async function fetchLogin(
         email: userData.fields.email,
     };
 
-    // delegate data
-    const delegateData = json.delegate[0];
-
-    const formattedDelegate: DelegateData = {
-        id: delegateData.pk,
-        pronouns: delegateData.fields.pronouns,
-        year: delegateData.fields.year,
-        school: delegateData.fields.school,
-    };
-
-    // registration data
-    const registrationData = json.registration;
-    const formattedRegistration: RegistrationData[] = [];
-
-    for (let i = 0; i < registrationData.length; i++) {
-        const formatted: RegistrationData = {
-            delegate: registrationData[i].fields.delegate,
-            workshop: registrationData[i].fields.workshop,
-        };
-
-        formattedRegistration.push(formatted);
-    }
-
     return {
         user: formattedUser,
-        delegate: formattedDelegate,
-        registration: formattedRegistration,
     };
 }
 
-export function useLogin() {
+export function useFacilitatorLogin() {
     const queryClient = useQueryClient();
 
     const {
@@ -80,13 +53,13 @@ export function useLogin() {
         isSuccess,
     } = useMutation({
         mutationFn: ({
-            email,
+            username,
             password,
         }: {
-            email: string;
+            username: string;
             password: string;
         }) => {
-            return fetchLogin(email, password);
+            return fetchLogin(username, password);
         },
 
         onSuccess: (data) => queryClient.setQueryData(["active-profile"], data),

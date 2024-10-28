@@ -1,11 +1,11 @@
 "use client";
 import Navbar from "@/components/navigation/Navbar";
 import InteractiveButton from "@/components/ui/InteractiveButton";
-import WorkshopSelect from "@/components/ui/WorkshopSelect";
-import FacilitatorRow from "../components/FacilitatorRow";
 import FacilitatorRegistration from "../components/FacilitatorRegistration";
+import { useLogout } from "@/hooks/api/useLogout";
 
 export default function FacilitatorDashboard() {
+    const { logout } = useLogout();
     // PLACEHOLDERs FOR REQUESTS
     const facilitatorData = {
         facilitatorName: "Facilitator",
@@ -49,6 +49,11 @@ export default function FacilitatorDashboard() {
                         facilitators={facilitatorData.individualFacilitators}
                         facilitatedSessions={facilitatedSessions}
                     />
+                </div>
+
+                <br />
+                <div className="flex items-center justify-center text-background-primary">
+                    <InteractiveButton text="Log Out" onClick={logout} />
                 </div>
             </>
         );
