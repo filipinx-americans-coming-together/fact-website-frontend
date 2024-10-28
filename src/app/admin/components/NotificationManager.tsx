@@ -1,36 +1,60 @@
+"use client";
+
 import { FaTrashCan } from "react-icons/fa6";
 import FormContainer from "./FormContainer";
 import TextInput from "@/components/ui/TextInput";
 import DateTimeInput from "./DateTimeInput";
 import NotificationCard from "./NotificationCard";
 import { useNotifications } from "@/hooks/api/useNotifications";
+import { useState } from "react";
+import { useCreateNotification } from "../hooks/useCreateNotifications";
 
 export default function NotificationManager() {
     const { notifications } = useNotifications();
-    // const { createNotification } = useCreateNotification();
+    const { createNotification, isPending, error, isSuccess } =
+        useCreateNotification();
     // const { deleteNotification } = useDeleteNotification();
+
+    const [formData, setFormData] = useState<Object>({
+        message: "",
+        expiration: "",
+    });
 
     return (
         <div className="rounded bg-gray-300 p-6 w-fit">
             <FormContainer
                 formName="notifications"
-                onSubmit={() => {}}
+                onSubmit={() => {
+                    createNotification({
+                        message: (
+                            formData as { message: string; expiration: string }
+                        ).message,
+                        expiration: new Date(
+                            (
+                                formData as {
+                                    message: string;
+                                    expiration: string;
+                                }
+                            ).expiration
+                        ),
+                    });
+                }}
                 submitText="Save"
-                isLoading={false}
-                errorMessage={undefined}
+                isLoading={isPending}
+                errorMessage={error?.message}
             >
                 <div className="flex flex-col gap-2 justify-between md:flex-row">
                     <TextInput
                         label="Message"
                         id="message"
-                        setState={() => {}}
+                        setState={setFormData}
                         maxLength={180}
                         showCharacters
                     />
                     <DateTimeInput
                         label="Expiration"
                         id="expiration"
-                        setState={() => {}}
+                        setState={setFormData}
                     />
                 </div>
             </FormContainer>

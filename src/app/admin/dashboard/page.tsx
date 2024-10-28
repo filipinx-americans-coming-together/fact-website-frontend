@@ -16,21 +16,6 @@ import Navbar from "../components/Navbar";
 import LoadingCircle from "@/components/icons/LoadingCircle";
 import NotificationManager from "../components/NotificationManager";
 
-const NOTIFICATION_PLACEHOLDER = [
-    {
-        text: "Notification example text for notification card",
-        expiration: "October 22, 2024 at 12:45PM",
-    },
-    {
-        text: "Notification example text for notification card",
-        expiration: "October 22, 2024 at 12:45PM",
-    },
-    {
-        text: "Notification example text for notification card",
-        expiration: "October 22, 2024 at 12:45PM",
-    },
-];
-
 const TOGGLEABLE_PERMISSIONS = [
     {
         title: "Registration",
