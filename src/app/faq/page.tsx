@@ -95,14 +95,14 @@ export default function Faqs() {
                 <div className="flex flex-col justify-start lg:w-2/5 gap-3">
                     {FAQs_col1.map((qna, index) => (
                         <div key={index} className="mb-10 text-left">
-                            <FAQSection question={qna.question} answer={qna.answer} />   
+                            <FAQSection question={qna.question}>{qna.answer}</FAQSection>   
                         </div>
                     ))}
                 </div>
                 <div className="flex flex-col justify-start lg:w-2/5 gap-6">
                     {FAQs_col2.map((qna, index) => (
                         <div key={index} className="mb-10 text-left">
-                            <FAQSection question={qna.question} answer={qna.answer} />
+                            <FAQSection question={qna.question}>{qna.answer}</FAQSection>
                         </div>
                     ))}
                 </div>
