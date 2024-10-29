@@ -18,8 +18,6 @@ async function fetchUser(): Promise<{
     });
     const json = await response.json();
 
-    console.log(json);
-
     if (!response.ok) {
         let message = "Server error, please try again later";
 
@@ -30,7 +28,6 @@ async function fetchUser(): Promise<{
     }
 
     // user data
-
     const facilitator = {
         id: json.facilitator[0].pk,
         department_name: json.facilitator[0].fields.department_name,

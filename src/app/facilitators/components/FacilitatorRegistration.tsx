@@ -23,7 +23,7 @@ export default function FacilitatorRegistration({
     const { registerFacilitators } = useRegisterFacilitators();
 
     return (
-        <>
+        <div>
             <h1 className="font-bold text-xl">Register for workshops</h1>
             <p className="text-xs">
                 Registration for other workshops is{" "}
@@ -94,6 +94,6 @@ export default function FacilitatorRegistration({
                     />
                 </div>
             </div>
-        </>
+        </div>
     );
 }
