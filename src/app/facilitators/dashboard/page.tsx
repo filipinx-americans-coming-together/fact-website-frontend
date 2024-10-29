@@ -105,6 +105,7 @@ export default function FacilitatorDashboard() {
                     <div className="flex flex-col gap-6">
                         {user.workshops.map((facilitatorWorkshop) => (
                             <WorkshopInfo
+                                key={facilitatorWorkshop.workshop}
                                 workshopID={facilitatorWorkshop.workshop}
                             />
                         ))}
