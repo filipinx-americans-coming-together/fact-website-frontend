@@ -29,7 +29,7 @@ export default function AddLocationForm() {
             isLoading={createPending}
             errorMessage={createError?.message}
         >
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 text-left">
                 <TextInput
                     label="Building"
                     id="building"

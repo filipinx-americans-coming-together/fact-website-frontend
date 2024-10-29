@@ -6,6 +6,7 @@ async function fetchDeleteLocation(
     id: number
 ): Promise<void> {
     // request
+	console.log(id)
     const response = await fetch(`${API_URL}/registration/location/${id}/`, {
         credentials: "include",
         method: "DELETE",

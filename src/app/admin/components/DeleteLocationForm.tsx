@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useDeleteLocation } from "../hooks/useDeleteLocation";
 import FormContainer from "./FormContainer";
-import Select from "@/components/ui/Select";
 import { LocationData } from "@/util/types";
+import SearchableSelect from "@/components/ui/SearchableSelect";
 
-interface IndexObject {
-    idx: number;
+interface NumberObject {
+    id: number;
 }
 
 export default function DeleteLocationForm({
@@ -18,38 +18,47 @@ export default function DeleteLocationForm({
         error: deleteError,
         isPending: deletePending,
     } = useDeleteLocation();
-    const [deleteLocationIdx, setDeleteLocationIdx] = useState<Object>({
-        idx: 0,
+    const [deleteLocationId, setDeleteLocationId] = useState<Object>({
+        id: undefined,
     });
+
+    if (locations === undefined || locations.length === 0) {
+        return <></>;
+    }
+
     return (
         <FormContainer
             formName="deleteLocationItem"
             submitText="Delete"
             onSubmit={() => {
-                deleteLocation({ id: (deleteLocationIdx as IndexObject).idx });
+                console.log(deleteLocationId);
+                deleteLocation({ id: (deleteLocationId as NumberObject).id });
             }}
-            isLoading={false}
-            errorMessage={undefined}
+            isLoading={deletePending}
+            errorMessage={deleteError?.message}
         >
-            <Select
+            <SearchableSelect
                 label=""
-                id="idx"
-                setState={setDeleteLocationIdx}
+                id="id"
+                setState={setDeleteLocationId}
                 required={false}
-            >
-                {locations?.map((locationItem, index) => (
-                    <option key={locationItem.id} value={locationItem.id}>
-                        {locationItem.building +
-                            " " +
-                            locationItem.room_num +
-                            " - Session " +
-                            locationItem.session +
-                            " (Capacity: " +
-                            locationItem.capacity +
-                            ")"}
-                    </option>
-                ))}
-            </Select>
+                placeholder="Select Location..."
+                defaultValue={
+                    locations.length > 0
+                        ? locations[0].id.toString()
+                        : undefined
+                }
+                options={locations.map((locationItem, index) => {
+                    return {
+                        label: `${locationItem.building} ${locationItem.room_num}
+                             - Session 
+                            ${locationItem.session}
+                             (Capacity: 
+                            ${locationItem.capacity})`,
+                        value: locationItem.id.toString(),
+                    };
+                })}
+            />
         </FormContainer>
     );
 }

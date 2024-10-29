@@ -11,21 +11,21 @@ import UpdateLocationForm from "../components/UpdateLocationForm";
 import DeleteLocationForm from "../components/DeleteLocationForm";
 
 export default function Locations() {
-    const { user, isLoading } = useAdminUser();
+    // const { user, isLoading } = useAdminUser();
     const { locations } = useLocations();
     const { uploadLocations, error, isPending } = useUploadLocations();
 
-    if (isLoading) {
-        return (
-            <div className="mx-auto w-fit p-4">
-                <LoadingCircle />
-            </div>
-        );
-    }
+    // if (isLoading) {
+    //     return (
+    //         <div className="mx-auto w-fit p-4">
+    //             <LoadingCircle />
+    //         </div>
+    //     );
+    // }
 
-    if (!user) {
-        return <ForbiddenPage />;
-    }
+    // if (!user) {
+    //     return <ForbiddenPage />;
+    // }
 
     return (
         <div className="min-h-screen bg-slate-50 text-black">
@@ -73,14 +73,20 @@ export default function Locations() {
                 })}
             </div>
             <div className="w-9/12 mx-auto text-center">
-                <h1>Add New Location</h1>
-                <AddLocationForm />
+                <div className="pb-10">
+                    <h1>Add New Location</h1>
+                    <AddLocationForm />
+                </div>
 
-                <h1>Update Location</h1>
-                <UpdateLocationForm locations={locations} />
+                <div className="pb-10">
+                    <h1>Update Location</h1>
+                    <UpdateLocationForm locations={locations} />
+                </div>
 
-                <h1>Delete Location</h1>
-                <DeleteLocationForm locations={locations} />
+                <div className="pb-10">
+                    <h1>Delete Location</h1>
+                    <DeleteLocationForm locations={locations} />
+                </div>
             </div>
         </div>
     );
