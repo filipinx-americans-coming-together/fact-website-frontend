@@ -74,4 +74,24 @@ export interface LocationData {
 
 export interface FacilitatorData {
     id: number;
+    department_name: string;
+    facilitator_names: string[];
+    image_url: string;
+    bio: string;
+}
+
+export interface FacilitatorRegistrationData {
+    facilitator_name: string;
+    workshop: number;
+}
+
+export interface FacilitatorWorkshopData {
+    facilitator: number;
+    workshop: number;
+}
+
+export interface FacilitatorResponse {
+    facilitator: ResponseData<FacilitatorData>[];
+    registrations: ResponseData<FacilitatorRegistrationData>[];
+    workshops: ResponseData<FacilitatorWorkshopData>[];
 }

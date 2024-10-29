@@ -4,9 +4,16 @@ import FacilitatorRow from "./FacilitatorRow";
 export default function FacilitatorRegistration({
     facilitators,
     facilitatedSessions,
+    registrations,
 }: {
     facilitators: string[];
-    facilitatedSessions: number[];
+    facilitatedSessions: { session: number; title: string }[];
+    registrations:
+        | {
+              facilitator_name: string;
+              workshop: number;
+              session: number;
+          }[];
 }) {
     return (
         <>
@@ -25,6 +32,11 @@ export default function FacilitatorRegistration({
                             key={facilitator}
                             name={facilitator}
                             facilitatedSessions={facilitatedSessions}
+                            registrations={registrations?.filter(
+                                (registration) =>
+                                    registration.facilitator_name ===
+                                    facilitator
+                            )}
                         />
                     );
                 })}

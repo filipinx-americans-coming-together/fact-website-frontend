@@ -3,66 +3,92 @@ import Navbar from "@/components/navigation/Navbar";
 import InteractiveButton from "@/components/ui/InteractiveButton";
 import FacilitatorRegistration from "../components/FacilitatorRegistration";
 import { useLogout } from "@/hooks/api/useLogout";
+import { useFacilitatorUser } from "@/hooks/api/useFacilitatorUser";
+import { useWorkshops } from "@/hooks/api/useWorkshops";
+import { useMemo } from "react";
+import ForbiddenPage from "@/components/formatting/ForbiddenPage";
 
 export default function FacilitatorDashboard() {
     const { logout } = useLogout();
-    // PLACEHOLDERs FOR REQUESTS
-    const facilitatorData = {
-        facilitatorName: "Facilitator",
-        individualFacilitators: [
-            "Facilitator 1",
-            "Facilitator 3",
-            "Facilitator 4",
-            "Facilitator 5",
-        ],
-        imgURL: "https://www.psauiuc.org/wp-content/uploads/2023/09/About-Kayak-Trip-1.jpeg",
-        bios: [
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed blandit dui. Nam dolor dolor, vulputate sed justo a, efficitur auctor nisi. Donec neque elit, sagittis vel semper ac, ultrices at neque. Nunc semper neque eu viverra fringilla. Donec pharetra mi lorem. Pellentesque rutrum purus quam, in consequat mi imperdiet ut. Nulla molestie purus tristique tortor convallis hendrerit quis a tellus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut sem massa, fermentum id consectetur a, hendrerit sollicitudin est.",
-        ],
-        workshops: [
-            {
-                title: "Workshop 1 Title",
-                description: "Workshop 1 Description",
-                session: 2,
-            },
-        ],
-    };
+    const { user, isLoading } = useFacilitatorUser();
+    const { workshops } = useWorkshops();
 
-    const facilitatedSessions = facilitatorData.workshops.map(
-        (workshop) => workshop.session
-    );
+    const facilitatedSessions = useMemo(() => {
+        if (!user || !workshops) {
+            return [];
+        }
 
-    const panelists = [
-        "Facilitator 3",
-        "Facilitator 4",
-        "Facilitator 10",
-        "Facilitator 15",
-    ];
+        const result: { title: string; session: number }[] = [];
 
-    if (facilitatorData) {
-        return (
-            <>
-                <Navbar />
-                <div className="w-9/12 mx-auto">
-                    <div className="my-8"></div>
-                    <FacilitatorRegistration
-                        facilitators={facilitatorData.individualFacilitators}
-                        facilitatedSessions={facilitatedSessions}
-                    />
-                </div>
+        user.workshops.forEach((facilitatorWorkshop) => {
+            const workshop = workshops.find(
+                (workshop) => facilitatorWorkshop.workshop === workshop.id
+            );
 
-                <br />
-                <div className="flex items-center justify-center text-background-primary">
-                    <InteractiveButton text="Log Out" onClick={logout} />
-                </div>
-            </>
-        );
+            if (workshop) {
+                result.push({
+                    title: workshop.title,
+                    session: workshop.session,
+                });
+            }
+        });
+
+        return result;
+    }, [user, workshops]);
+
+    const facilitatorRegistrations = useMemo(() => {
+        if (!user || !workshops) {
+            return [];
+        }
+
+        const result: {
+            facilitator_name: string;
+            workshop: number;
+            session: number;
+        }[] = [];
+
+        user.registrations.forEach((registration) => {
+            const workshop = workshops.find(
+                (workshop) => registration.workshop === workshop.id
+            );
+
+            if (workshop) {
+                result.push({
+                    facilitator_name: registration.facilitator_name,
+                    workshop: workshop.id,
+                    session: workshop.session,
+                });
+            }
+        });
+
+        return result;
+    }, [user, workshops]);
+
+    if (isLoading) {
+        console.log("is loading");
+        return <></>;
+    }
+
+    if (!user) {
+        return <ForbiddenPage />;
     }
 
     return (
         <>
             <Navbar />
-            <p>You do not have permission to view this page.</p>
+            <div className="w-9/12 mx-auto">
+                <div className="my-8"></div>
+                <FacilitatorRegistration
+                    facilitators={user.facilitator.facilitator_names}
+                    facilitatedSessions={facilitatedSessions}
+                    registrations={facilitatorRegistrations}
+                />
+            </div>
+
+            <br />
+            <div className="flex items-center justify-center text-background-primary">
+                <InteractiveButton text="Log Out" onClick={logout} />
+            </div>
         </>
     );
 }
