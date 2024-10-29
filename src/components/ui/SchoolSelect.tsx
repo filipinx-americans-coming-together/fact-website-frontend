@@ -34,7 +34,7 @@ function SchoolSelect({
                 id={id}
                 label="School"
                 setState={setState}
-                defaultValue={defaultValue ? defaultValue : undefined}
+                defaultValue={defaultValue}
                 required={required}
                 options={extraOptions.concat(
                     schools.map((school) => {
