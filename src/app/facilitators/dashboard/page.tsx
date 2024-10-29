@@ -5,7 +5,7 @@ import FacilitatorRegistration from "../components/FacilitatorRegistration";
 import { useLogout } from "@/hooks/api/useLogout";
 import { useFacilitatorUser } from "@/hooks/api/useFacilitatorUser";
 import { useWorkshops } from "@/hooks/api/useWorkshops";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import ForbiddenPage from "@/components/formatting/ForbiddenPage";
 
 export default function FacilitatorDashboard() {
@@ -74,6 +74,7 @@ export default function FacilitatorDashboard() {
     }
 
     return (
+        // <div className="bg-gradient-to-tl from-background-primary to-emerald-900">
         <>
             <Navbar />
             <div className="w-9/12 mx-auto">

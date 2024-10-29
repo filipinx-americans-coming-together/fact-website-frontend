@@ -6,6 +6,7 @@ export default function FacilitatorRow({
     name,
     facilitatedSessions,
     registrations,
+    setState,
 }: {
     name: string;
     facilitatedSessions: { title: string; session: number }[];
@@ -14,6 +15,7 @@ export default function FacilitatorRow({
         workshop: number;
         session: number;
     }[];
+    setState(state: Object): void;
 }) {
     return (
         <div className="grid grid-cols-1 gap-2 pb-6 md:pb-2 border-b border-gray-300 md:grid-cols-4 items-center">
@@ -24,7 +26,10 @@ export default function FacilitatorRow({
                 );
                 if (facilitatedSession) {
                     return (
-                        <div className="text-left text-slate-600">
+                        <div
+                            key={sessionNum}
+                            className="text-left text-slate-600"
+                        >
                             <div>Session {sessionNum} Workshop</div>
                             <div key={sessionNum}>
                                 {facilitatedSession.title}
@@ -36,8 +41,8 @@ export default function FacilitatorRow({
                         <div key={sessionNum}>
                             <WorkshopSelect
                                 session={sessionNum}
-                                id={sessionNum.toString()}
-                                setState={() => {}}
+                                id={`${name}|${sessionNum.toString()}`}
+                                setState={setState}
                                 defaultValue={
                                     registrations.filter(
                                         (registration) =>

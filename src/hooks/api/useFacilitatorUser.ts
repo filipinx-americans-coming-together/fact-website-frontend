@@ -18,6 +18,8 @@ async function fetchUser(): Promise<{
     });
     const json = await response.json();
 
+    console.log(json);
+
     if (!response.ok) {
         let message = "Server error, please try again later";
 
@@ -56,8 +58,6 @@ async function fetchUser(): Promise<{
             };
         }
     );
-
-    console.log(facilitator, registrations, workshops);
 
     return {
         facilitator: facilitator,
