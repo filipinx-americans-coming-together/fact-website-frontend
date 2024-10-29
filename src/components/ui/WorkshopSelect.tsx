@@ -32,7 +32,7 @@ function WorkshopSelect({
         workshops.length > 0 && (
             <SearchableSelect
                 id={id}
-                label={`Session ${session} Workshop`}
+                label={`Session ${session}`}
                 placeholder="Search for workshops..."
                 setState={setState}
                 defaultValue={
