@@ -1,33 +1,53 @@
+import { useRegistrationPermission } from "@/hooks/api/useRegistrationPermission";
 import DangerZoneAction from "./DangerZoneAction";
-
-const TOGGLEABLE_PERMISSIONS = [
-    {
-        title: "Registration",
-        isEnabled: false,
-        description:
-            "When registration is enabled, delegates are able to create accounts and register for workshops. When registration is disabled, new delegates can not register for workshops, but already registered delegates can change their workshops.",
-        toggle: () => {},
-    },
-    {
-        title: "Automatic Workshop Locations",
-        isEnabled: true,
-        description:
-            "When matching is enabled, workshops are automatically matched to locations based on popularity at 3:00AM CST every Sunday. When matching is disabled, workshop locations will not be changed",
-        toggle: () => {},
-    },
-    {
-        title: "Workshop Changes",
-        isEnabled: true,
-        description:
-            "When workshop changes are enabled, registered delegates can freely change their workshops. When workshop changes are disabled, registered delegates can not change their workshops",
-        toggle: () => {},
-    },
-];
+import { useUpdatePermission } from "../hooks/useUpdatePermission";
 
 export default function DangerZone() {
+    const { permission: registrationOpen } =
+        useRegistrationPermission("registration");
+
+    const { permission: workshopsChangeable } =
+        useRegistrationPermission("workshop-changes");
+
+    const { updatePermission } = useUpdatePermission();
+
+    const toggleablePermissions = [
+        {
+            title: "Registration",
+            isEnabled: registrationOpen?.value,
+            description:
+                "When registration is enabled, delegates are able to create accounts and register for workshops. When registration is disabled, new delegates can not register for workshops, but already registered delegates can change their workshops.",
+            toggle: () => {
+                updatePermission({
+                    label: "registration",
+                    value: !registrationOpen?.value,
+                });
+            },
+        },
+        // {
+        //     title: "Automatic Workshop Locations",
+        //     isEnabled: true,
+        //     description:
+        //         "When matching is enabled, workshops are automatically matched to locations based on popularity at 3:00AM CST every Sunday. When matching is disabled, workshop locations will not be changed",
+        //     toggle: () => {},
+        // },
+        {
+            title: "Workshop Changes",
+            isEnabled: workshopsChangeable?.value,
+            description:
+                "When workshop changes are enabled, registered delegates can freely change their workshops. When workshop changes are disabled, registered delegates can not change their workshops",
+            toggle: () => {
+                updatePermission({
+                    label: "workshop-changes",
+                    value: !workshopsChangeable?.value,
+                });
+            },
+        },
+    ];
+
     return (
         <div className="border-2 rounded divide-y-2 flex flex-col">
-            {TOGGLEABLE_PERMISSIONS.map((permission, idx) => {
+            {toggleablePermissions.map((permission, idx) => {
                 return (
                     <DangerZoneAction
                         key={idx}

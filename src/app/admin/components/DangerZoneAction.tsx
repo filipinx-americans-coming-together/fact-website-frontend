@@ -38,7 +38,7 @@ export default function DangerZoneAction({
                     type="button"
                     onClick={() => {
                         let confirmation = confirm(
-                            `Are you sure you want to ${confirmText}? This action is permanent and can not be undone.`
+                            `Are you sure you want to ${confirmText}? The result of this action will be applied immediately.`
                         );
 
                         if (confirmation) changePermission();
