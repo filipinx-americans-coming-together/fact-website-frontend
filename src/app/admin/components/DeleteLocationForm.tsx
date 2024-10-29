@@ -31,8 +31,8 @@ export default function DeleteLocationForm({
             formName="deleteLocationItem"
             submitText="Delete"
             onSubmit={() => {
-                console.log(deleteLocationId);
-                deleteLocation({ id: (deleteLocationId as NumberObject).id });
+                let confirmation = confirm("Are you sure you want to delete this location?")
+                if (confirmation) deleteLocation({ id: (deleteLocationId as NumberObject).id })
             }}
             isLoading={deletePending}
             errorMessage={deleteError?.message}

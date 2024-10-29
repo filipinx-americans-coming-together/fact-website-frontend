@@ -37,7 +37,8 @@ export default function UpdateLocationForm({
             formName="updateLocationItem"
             submitText="Update"
             onSubmit={() => {
-                updateLocation(updateLocationData as LocationData);
+				let confirmation = confirm("Are you sure you want to update this location?")
+                if (confirmation) updateLocation(updateLocationData as LocationData);
             }}
             isLoading={updatePending}
             errorMessage={updateError?.message}
