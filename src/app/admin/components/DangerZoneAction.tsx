@@ -14,7 +14,7 @@ export default function DangerZoneAction({
     changePermission: Function;
 }) {
     return (
-        <div className="p-4 grid grid-cols-1 md:grid-cols-6 items-center">
+        <div className="p-4 grid grid-cols-1 md:grid-cols-6 gap-2 items-center">
             <div className="md:col-span-4">
                 <h2 className="font-bold">{actionText}</h2>
                 <p className="text-sm">

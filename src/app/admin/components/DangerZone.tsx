@@ -9,6 +9,9 @@ export default function DangerZone() {
     const { permission: workshopsChangeable } =
         useRegistrationPermission("workshop-changes");
 
+    const { permission: matchLocations } =
+        useRegistrationPermission("location-matching");
+
     const { updatePermission } = useUpdatePermission();
 
     const toggleablePermissions = [
@@ -24,13 +27,6 @@ export default function DangerZone() {
                 });
             },
         },
-        // {
-        //     title: "Automatic Workshop Locations",
-        //     isEnabled: true,
-        //     description:
-        //         "When matching is enabled, workshops are automatically matched to locations based on popularity at 3:00AM CST every Sunday. When matching is disabled, workshop locations will not be changed",
-        //     toggle: () => {},
-        // },
         {
             title: "Workshop Changes",
             isEnabled: workshopsChangeable?.value,
@@ -40,6 +36,18 @@ export default function DangerZone() {
                 updatePermission({
                     label: "workshop-changes",
                     value: !workshopsChangeable?.value,
+                });
+            },
+        },
+        {
+            title: "Automatic Workshop Locations",
+            isEnabled: matchLocations?.value,
+            description:
+                "When matching is enabled, workshops are automatically matched to locations based on popularity at 3:00AM CST every Sunday. When matching is disabled, workshop locations will not be changed",
+            toggle: () => {
+                updatePermission({
+                    label: "location-matching",
+                    value: !matchLocations?.value,
                 });
             },
         },
@@ -70,7 +78,7 @@ export default function DangerZone() {
                     />
                 );
             })}
-            <DangerZoneAction
+            {/* <DangerZoneAction
                 title="Reset Database"
                 description="By resetting the database you will remove all workshop, location, facilitator information. Only do this after FACT is over. Account information will not be removed. Resetting the database will require an access key from FACT IT."
                 actionText={"Reset Database"}
@@ -82,7 +90,7 @@ export default function DangerZone() {
                         "Enter the code provided by another admin"
                     );
                 }}
-            />
+            /> */}
         </div>
     );
 }
