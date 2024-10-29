@@ -1,12 +1,21 @@
 import { API_URL } from "@/util/constants";
-import { LocationData, WorkshopData, WorkshopResponse } from "@/util/types";
+import {
+    LocationData,
+    ResponseData,
+    WorkshopData,
+    WorkshopResponse,
+} from "@/util/types";
 import { useQuery } from "@tanstack/react-query";
 
 async function fetchWorkshop({ id }: { id: number }): Promise<{
     workshop: WorkshopData;
     location: LocationData;
+    registrations: number;
+    facilitator_assistants?: { name: string; contact: string }[];
 }> {
-    const response = await fetch(`${API_URL}/registration/workshop/${id}`);
+    const response = await fetch(`${API_URL}/registration/workshop/${id}`, {
+        credentials: "include",
+    });
 
     const json = await response.json();
 
@@ -43,14 +52,29 @@ async function fetchWorkshop({ id }: { id: number }): Promise<{
         session: locationData.fields.session,
     };
 
+    const formattedAssistants = json.facilitator_assistants?.map(
+        (fa: ResponseData<{ name: string; contact: string }>) => {
+            return { name: fa.fields.name, contact: fa.fields.contact };
+        }
+    );
+
     return {
         workshop: formattedWorkshop,
         location: formattedLocation,
+        registrations: json.registrations,
+        facilitator_assistants: formattedAssistants,
     };
 }
 
 export function useWorkshop({ id }: { id: number }): {
-    workshop: { workshop: WorkshopData; location: LocationData } | undefined;
+    workshop:
+        | {
+              workshop: WorkshopData;
+              location: LocationData;
+              registrations: number;
+              facilitator_assistants?: { name: string; contact: string }[];
+          }
+        | undefined;
     isLoading: boolean;
     error: Error | null;
 } {

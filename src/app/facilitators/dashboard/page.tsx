@@ -9,6 +9,7 @@ import { useMemo, useState } from "react";
 import ForbiddenPage from "@/components/formatting/ForbiddenPage";
 import LoadingCircle from "@/components/icons/LoadingCircle";
 import { useLocations } from "@/hooks/api/useLocations";
+import WorkshopInfo from "../components/WorkshopInfo";
 
 export default function FacilitatorDashboard() {
     const { logout } = useLogout();
@@ -102,43 +103,11 @@ export default function FacilitatorDashboard() {
                     </h1>
                     <br />
                     <div className="flex flex-col gap-6">
-                        {user.workshops.map((facilitatorWorkshop) => {
-                            const workshopData = workshops?.find(
-                                (workshop) =>
-                                    workshop.id === facilitatorWorkshop.workshop
-                            );
-
-                            const locationData = locations?.find(
-                                (location) =>
-                                    location.id === workshopData?.location
-                            );
-
-                            if (workshopData) {
-                                return (
-                                    <div className="">
-                                        <h2 className="text-lg font-bold flex justify-between gap-4">
-                                            Session {workshopData.session}
-                                            <span className="text-highlight-primary">
-                                                00:00AM - 00:00AM
-                                            </span>
-                                        </h2>
-                                        <p>{workshopData.title}</p>
-                                        <p>
-                                            Location (subject to change):{" "}
-                                            {locationData
-                                                ? `${locationData.building} ${locationData.room_num}`
-                                                : "TBD"}
-                                        </p>
-                                        <p>Registered Delegates: NAN</p>
-                                        <br />
-                                        <p>Facilitator Assistant: NAME</p>
-                                        <p className="text-highlight-primary">000-000-0000</p>
-                                    </div>
-                                );
-                            }
-
-                            return <></>;
-                        })}
+                        {user.workshops.map((facilitatorWorkshop) => (
+                            <WorkshopInfo
+                                workshopID={facilitatorWorkshop.workshop}
+                            />
+                        ))}
                     </div>
                 </div>
 
