@@ -14,7 +14,7 @@ export default function DangerZoneAction({
     changePermission: Function;
 }) {
     return (
-        <div className="p-4 grid grid-cols-1 md:grid-cols-6 items-center">
+        <div className="p-4 grid grid-cols-1 md:grid-cols-6 gap-2 items-center">
             <div className="md:col-span-4">
                 <h2 className="font-bold">{actionText}</h2>
                 <p className="text-sm">
@@ -38,7 +38,7 @@ export default function DangerZoneAction({
                     type="button"
                     onClick={() => {
                         let confirmation = confirm(
-                            `Are you sure you want to ${confirmText}? This action is permanent and can not be undone.`
+                            `Are you sure you want to ${confirmText}? The result of this action will be applied immediately.`
                         );
 
                         if (confirmation) changePermission();

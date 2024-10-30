@@ -10,11 +10,13 @@ import { useLogout } from "@/hooks/api/useLogout";
 import NotificationsManager from "@/components/ui/NotificationManager";
 import { useNotifications } from "@/hooks/api/useNotifications";
 import { useUser } from "@/hooks/api/useUser";
+import { useRegistrationFlag } from "@/hooks/api/useRegistrationFlag";
 
 export default function Dashboard() {
     const { user, isLoading, error } = useUser();
     const { logout, isSuccess, isPending: logoutLoading } = useLogout();
-  const { notifications } = useNotifications();
+    const { notifications } = useNotifications();
+    const { flag } = useRegistrationFlag("workshop-changes");
 
     if (isSuccess) {
         window.location.href = "/";
@@ -23,7 +25,7 @@ export default function Dashboard() {
     if (error) {
         window.location.href = "/my-fact/login";
     }
-  
+
     return (
         <>
             {notifications && (
@@ -33,7 +35,7 @@ export default function Dashboard() {
                     )}
                 />
             )}
-            
+
             <Navbar />
             <div className="flex justify-evenly sm: flex-col sm:text-center md:flex-row md:text-left">
                 <div>
@@ -70,12 +72,18 @@ export default function Dashboard() {
                             <LoadingCircle />
                         )}
                     </div>
-                    <div className="text-center my-6">
-                        <LinkButton
-                            text="UPDATE WORKSHOPS"
-                            url="/my-fact/workshops"
-                        />
-                    </div>
+                    {flag?.value ? (
+                        <div className="text-center my-6">
+                            <LinkButton
+                                text="UPDATE WORKSHOPS"
+                                url="/my-fact/workshops"
+                            />
+                        </div>
+                    ) : (
+                        <div className="text-center my-6 text-xs">
+                            Workshop changes are not available at this time.
+                        </div>
+                    )}
                 </div>
                 <div>{user ? <UserAgenda /> : <LoadingCircle />}</div>
             </div>
