@@ -15,7 +15,7 @@ export default function FormContainer(props: FormProps) {
     return (
         <form
             name={props.formName}
-            className="flex flex-col gap-4"
+            className="flex flex-col gap-4 text-left"
             autoComplete="off"
             onSubmit={(event) => {
                 event.preventDefault();

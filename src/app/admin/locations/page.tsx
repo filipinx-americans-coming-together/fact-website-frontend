@@ -3,10 +3,29 @@
 import { useUploadLocations } from "@/hooks/api/useUploadLocations";
 import UploadFile from "../components/UploadFile";
 import { useLocations } from "@/hooks/api/useLocations";
+import { useAdminUser } from "@/hooks/api/useAdminUser";
+import LoadingCircle from "@/components/icons/LoadingCircle";
+import ForbiddenPage from "@/components/formatting/ForbiddenPage";
+import AddLocationForm from "../components/AddLocationForm";
+import UpdateLocationForm from "../components/UpdateLocationForm";
+import DeleteLocationForm from "../components/DeleteLocationForm";
 
-export default function Schools() {
+export default function Locations() {
+    // const { user, isLoading } = useAdminUser();
     const { locations } = useLocations();
     const { uploadLocations, error, isPending } = useUploadLocations();
+
+    // if (isLoading) {
+    //     return (
+    //         <div className="mx-auto w-fit p-4">
+    //             <LoadingCircle />
+    //         </div>
+    //     );
+    // }
+
+    // if (!user) {
+    //     return <ForbiddenPage />;
+    // }
 
     return (
         <div className="min-h-screen bg-slate-50 text-black">
@@ -52,6 +71,22 @@ export default function Schools() {
                         </div>
                     );
                 })}
+            </div>
+            <div className="w-9/12 mx-auto text-center">
+                <div className="pb-10">
+                    <h1>Add New Location</h1>
+                    <AddLocationForm />
+                </div>
+
+                <div className="pb-10">
+                    <h1>Update Location</h1>
+                    <UpdateLocationForm locations={locations} />
+                </div>
+
+                <div className="pb-10">
+                    <h1>Delete Location</h1>
+                    <DeleteLocationForm locations={locations} />
+                </div>
             </div>
         </div>
     );

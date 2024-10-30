@@ -1,5 +1,6 @@
 import FAQSection from "@/components/formatting/FAQSection";
 import PageContainer from "@/components/formatting/PageContainer";
+
 import LinkButton from "@/components/ui/LinkButton";
 import Link from "next/link";
 
