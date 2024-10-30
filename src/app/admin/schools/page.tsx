@@ -33,8 +33,8 @@ export default function Schools() {
 
                 <br />
                 <h1>
-                    Requested Schools - Fill in the blank for "School not
-                    listed"
+                    Requested Schools - Fill in the blank for &quot;School not
+                    listed&quot;
                 </h1>
                 <div className="border-t-2" />
                 <br />
