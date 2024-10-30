@@ -10,13 +10,13 @@ import { useLogout } from "@/hooks/api/useLogout";
 import NotificationsManager from "@/components/ui/NotificationManager";
 import { useNotifications } from "@/hooks/api/useNotifications";
 import { useUser } from "@/hooks/api/useUser";
-import { useRegistrationPermission } from "@/hooks/api/useRegistrationPermission";
+import { useRegistrationFlag } from "@/hooks/api/useRegistrationFlag";
 
 export default function Dashboard() {
     const { user, isLoading, error } = useUser();
     const { logout, isSuccess, isPending: logoutLoading } = useLogout();
     const { notifications } = useNotifications();
-    const { permission } = useRegistrationPermission("workshop-changes");
+    const { flag } = useRegistrationFlag("workshop-changes");
 
     if (isSuccess) {
         window.location.href = "/";
@@ -72,7 +72,7 @@ export default function Dashboard() {
                             <LoadingCircle />
                         )}
                     </div>
-                    {permission?.value ? (
+                    {flag?.value ? (
                         <div className="text-center my-6">
                             <LinkButton
                                 text="UPDATE WORKSHOPS"

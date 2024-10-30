@@ -11,7 +11,7 @@ export async function middleware(request: NextRequest) {
     let flags: ResponseData<{ label: string; value: boolean }>[];
 
     try {
-        let response = await fetch(`${API_URL}/fact-admin/permissions/`);
+        let response = await fetch(`${API_URL}/fact-admin/flags/`);
         flags = await response.json();
     } catch {
         return NextResponse.error();

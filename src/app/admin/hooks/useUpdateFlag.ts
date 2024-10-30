@@ -1,21 +1,18 @@
 import { API_URL } from "@/util/constants";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
-async function fetchUpdatePermission(
+async function fetchUpdateFlag(
     label: string,
     value: boolean
 ): Promise<{ label: string; value: boolean }> {
     // request
-    const response = await fetch(
-        `${API_URL}/fact-admin/permissions/${label}/`,
-        {
-            credentials: "include",
-            method: "PUT",
-            body: JSON.stringify({
-                value: value,
-            }),
-        }
-    );
+    const response = await fetch(`${API_URL}/fact-admin/flags/${label}/`, {
+        credentials: "include",
+        method: "PUT",
+        body: JSON.stringify({
+            value: value,
+        }),
+    });
 
     const json = await response.json();
 
@@ -35,23 +32,23 @@ async function fetchUpdatePermission(
     };
 }
 
-export function useUpdatePermission() {
+export function useUpdateFlag() {
     const queryClient = useQueryClient();
 
     const {
         data,
         error,
         isPending,
-        mutate: updatePermission,
+        mutate: updateFlag,
         isSuccess,
     } = useMutation({
         mutationFn: (props: { label: string; value: boolean }) => {
-            return fetchUpdatePermission(props.label, props.value);
+            return fetchUpdateFlag(props.label, props.value);
         },
 
         onSuccess: (data) =>
-            queryClient.setQueryData(["permissions", data.label], data),
+            queryClient.setQueryData(["flag", data.label], data),
     });
 
-    return { data, error, isPending, updatePermission, isSuccess };
+    return { data, error, isPending, updateFlag, isSuccess };
 }

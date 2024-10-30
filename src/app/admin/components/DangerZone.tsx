@@ -1,27 +1,25 @@
-import { useRegistrationPermission } from "@/hooks/api/useRegistrationPermission";
+import { useUpdateFlag } from "../hooks/useUpdateFlag";
 import DangerZoneAction from "./DangerZoneAction";
-import { useUpdatePermission } from "../hooks/useUpdatePermission";
+import { useRegistrationFlag } from "@/hooks/api/useRegistrationFlag";
 
 export default function DangerZone() {
-    const { permission: registrationOpen } =
-        useRegistrationPermission("registration");
+    const { flag: registrationOpen } = useRegistrationFlag("registration");
 
-    const { permission: workshopsChangeable } =
-        useRegistrationPermission("workshop-changes");
+    const { flag: workshopsChangeable } =
+        useRegistrationFlag("workshop-changes");
 
-    const { permission: matchLocations } =
-        useRegistrationPermission("location-matching");
+    const { flag: matchLocations } = useRegistrationFlag("location-matching");
 
-    const { updatePermission } = useUpdatePermission();
+    const { updateFlag } = useUpdateFlag();
 
-    const toggleablePermissions = [
+    const toggleableFlags = [
         {
             title: "Registration",
             isEnabled: registrationOpen?.value,
             description:
                 "When registration is enabled, delegates are able to create accounts and register for workshops. When registration is disabled, new delegates can not register for workshops, but already registered delegates can change their workshops.",
             toggle: () => {
-                updatePermission({
+                updateFlag({
                     label: "registration",
                     value: !registrationOpen?.value,
                 });
@@ -33,7 +31,7 @@ export default function DangerZone() {
             description:
                 "When workshop changes are enabled, registered delegates can freely change their workshops. When workshop changes are disabled, registered delegates can not change their workshops",
             toggle: () => {
-                updatePermission({
+                updateFlag({
                     label: "workshop-changes",
                     value: !workshopsChangeable?.value,
                 });
@@ -45,7 +43,7 @@ export default function DangerZone() {
             description:
                 "When matching is enabled, workshops are automatically matched to locations based on popularity at 3:00AM CST every Sunday. When matching is disabled, workshop locations will not be changed",
             toggle: () => {
-                updatePermission({
+                updateFlag({
                     label: "location-matching",
                     value: !matchLocations?.value,
                 });
@@ -55,26 +53,26 @@ export default function DangerZone() {
 
     return (
         <div className="border-2 rounded divide-y-2 flex flex-col">
-            {toggleablePermissions.map((permission, idx) => {
+            {toggleableFlags.map((flag, idx) => {
                 return (
                     <DangerZoneAction
                         key={idx}
-                        title={permission.title}
-                        description={permission.description}
+                        title={flag.title}
+                        description={flag.description}
                         permissionState={
-                            permission.isEnabled ? "ENABLED" : "DISABLED"
+                            flag.isEnabled ? "ENABLED" : "DISABLED"
                         }
                         actionText={
-                            permission.isEnabled
-                                ? `Disable ${permission.title}`
-                                : `Enable ${permission.title}`
+                            flag.isEnabled
+                                ? `Disable ${flag.title}`
+                                : `Enable ${flag.title}`
                         }
                         confirmText={
-                            permission.isEnabled
-                                ? `enable ${permission.title.toLowerCase()}`
-                                : `disable ${permission.title.toLowerCase()}`
+                            flag.isEnabled
+                                ? `enable ${flag.title.toLowerCase()}`
+                                : `disable ${flag.title.toLowerCase()}`
                         }
-                        changePermission={permission.toggle}
+                        changePermission={flag.toggle}
                     />
                 );
             })}

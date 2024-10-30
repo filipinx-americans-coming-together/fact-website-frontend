@@ -1,7 +1,7 @@
 import { API_URL } from "@/util/constants";
 import { useQuery } from "@tanstack/react-query";
 
-async function fetchRegistrationPermission({
+async function fetchRegistrationFlag({
     label,
 }: {
     label: string;
@@ -9,7 +9,7 @@ async function fetchRegistrationPermission({
     label: string;
     value: boolean;
 }> {
-    const response = await fetch(`${API_URL}/fact-admin/permissions/${label}/`);
+    const response = await fetch(`${API_URL}/fact-admin/flags/${label}/`);
 
     const json = await response.json();
 
@@ -29,19 +29,19 @@ async function fetchRegistrationPermission({
     };
 }
 
-export function useRegistrationPermission(label: string): {
-    permission: { label: string; value: boolean } | undefined;
+export function useRegistrationFlag(label: string): {
+    flag: { label: string; value: boolean } | undefined;
     isLoading: boolean;
     error: Error | null;
 } {
     const {
-        data: permission,
+        data: flag,
         error,
         isLoading,
     } = useQuery({
-        queryKey: ["permission", label],
-        queryFn: () => fetchRegistrationPermission({ label: label }),
+        queryKey: ["flag", label],
+        queryFn: () => fetchRegistrationFlag({ label: label }),
     });
 
-    return { permission, isLoading, error };
+    return { flag, isLoading, error };
 }
