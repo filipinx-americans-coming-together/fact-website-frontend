@@ -37,7 +37,7 @@ export default function Workshops() {
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         className="w-full border-2 border-highlight-primary bg-background-primary p-3 rounded-md
-                                focus:outline-none hover:border-highlight-2-primary transition duration-300"
+                                focus:outline-none hover:border-highlight-2-primary transition duration-300 mb-4 md:mb-0"
                     />
 
                     {/** Session Filter */}
@@ -58,7 +58,7 @@ export default function Workshops() {
                 {!workshops ? (
                     <LoadingCircle />
                 ) : hasFilteredWorkshops ? (
-                    <div className="w-full">
+                    <div>
                         {filteredWorkshops?.map((workshop) => {
                             const workshopURL = `${workshop.title.toLowerCase().replace(/\s+/g, "-")}-${workshop.id}`;
 
