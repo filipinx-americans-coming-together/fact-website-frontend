@@ -3,6 +3,9 @@ import type { NextRequest } from "next/server";
 import { API_URL } from "./util/constants";
 import { ResponseData } from "./util/types";
 
+// TODO once registration is open, just intercept /my-fact/register
+// or change to redirect to page saying registration is closed/how to register late
+
 export async function middleware(request: NextRequest) {
     // get registration value, if it errors or is false, hide registration related pages
     let data: ResponseData<{ label: string; value: boolean }>;
