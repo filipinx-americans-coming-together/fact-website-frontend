@@ -7,22 +7,33 @@ import { ResponseData } from "./util/types";
 // or change to redirect to page saying registration is closed/how to register late
 
 export async function middleware(request: NextRequest) {
-    // get registration value, if it errors or is false, hide registration related pages
-    let data: ResponseData<{ label: string; value: boolean }>;
+    // get flags
+    let flags: ResponseData<{ label: string; value: boolean }>[];
 
     try {
         let response = await fetch(`${API_URL}/fact-admin/permissions/`);
-        let json = await response.json();
-
-        data = json.find(
-            (permission: ResponseData<{ label: string; value: boolean }>) =>
-                permission.fields.label == "registration"
-        );
+        flags = await response.json();
     } catch {
         return NextResponse.error();
     }
 
-    if (!data || !data.fields.value) {
+    // workshop changes
+    if (request.nextUrl.pathname.startsWith("/my-fact/workshops")) {
+        const workshopChanges = flags.find(
+            (flag) => flag.fields.label === "workshop-changes"
+        );
+
+        if (!workshopChanges || !workshopChanges.fields.value) {
+            return NextResponse.error();
+        }
+    }
+
+    // hide registration related pages
+    const registrationOpen = flags.find(
+        (flag) => flag.fields.label === "registration"
+    );
+
+    if (!registrationOpen || !registrationOpen.fields.value) {
         return NextResponse.error();
     }
 }
