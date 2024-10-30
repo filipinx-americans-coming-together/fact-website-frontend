@@ -6,6 +6,10 @@ import Link from "next/link";
 const FAQ_DOC_URL =
     "https://docs.google.com/document/d/1uCf3ccNpHQaDivkNXzSFPhFeI_9A8emW0L8SgSsS0II/edit?usp=sharing";
 
+function FAQLink({href, text, newTab = false}: {href: string, text: string, newTab?: boolean}) {
+	return(<Link href={href} target={newTab ? "_blank" : "_self"} className="underline font-semibold">{text}</Link>)
+}
+
 export default function FAQ() {
     return (
         <PageContainer title="FAQ">
@@ -19,6 +23,7 @@ export default function FAQ() {
 
             <div className="flex flex-row justify-evenly flex-wrap items-start">
                     <div className="text-5xl font-bold w-full text-center my-8">General</div>
+					<div className="flex flex-col lg:w-2/5">
 					<FAQSection question="What is FACT?">
                         FACT stands for Filipinx Americans Coming Together and
                         is a conference hosted annually by the Philippine
@@ -47,7 +52,7 @@ export default function FAQ() {
                         who are unattended by their guardians are not permitted
                         to attend FACT affiliated events.
                     </FAQSection>
-                    
+					
                     <FAQSection question="What are COVID/illness restrictions?">
                         PSA is currently not requiring any masking or
                         vaccination for this year’s FACT. If you are feeling
@@ -55,10 +60,13 @@ export default function FAQ() {
                         mask to protect the health and safety of others who may
                         be prone or sensitive to sickness.
                     </FAQSection>
+					</div>
+                    <div className="flex flex-col lg:w-2/5">
                     <FAQSection question="Is there accessibility for workshops or variety shows?">
                         All FACT venue entrances are accessible via ramps on
                         either the front or sides of buildings.
                     </FAQSection>
+					
                     <FAQSection question="Is there a dress code?">
                         As long as apparel is not offensive, there is no
                         specific dress code for FACT. Since this is a winter
@@ -75,12 +83,11 @@ export default function FAQ() {
                     <FAQSection question="Will the conference be live streamed?">
                         Yes the conference will be livestreamed and so will the
                         variety show! Please check out our{" "}
-                        <a
+                        <FAQLink
                             href="https://www.youtube.com/@factmedia92"
-                            target="_blank"
-                        >
-                            YouTube
-                        </a>
+                            newTab={true}
+							text="YouTube"
+                        />
                         : Subscribe, Like, and Comment!
                     </FAQSection>
                     <FAQSection question="What can I bring into Variety Show?">
@@ -88,14 +95,15 @@ export default function FAQ() {
                         Auditorium. Backpacks and large bags are subject for
                         search by Facilities Staff.
                     </FAQSection>
+					</div>
                     <div className="text-5xl font-bold w-full text-center my-8">At UIUC</div>
+					<div className="flex flex-col lg:w-2/5">
                     <FAQSection question="How do I book a hotel using the hotel block booking system?">
                         FACT has coordinated a selection of hotel blocks
                         specifically for conference guests. Details and
                         instructions are outlined on our Instagram (
-                        <a href="http://instagram.com/psa_fact" target="_blank">
-                            @psa_fact
-                        </a>
+                        <FAQLink href="http://instagram.com/psa_fact" text="@psa_fact" newTab={true}/>
+                            
                         ) and our newsletter, but rooms are only available for
                         booking for a limited time.
                     </FAQSection>
@@ -105,9 +113,7 @@ export default function FAQ() {
                         options available on and near the UIUC campus. We
                         encourage you to support our day-of food and drink
                         fundraisers, which will be announced via our Instagram (
-                        <a href="http://instagram.com/psa_fact" target="_blank">
-                            @psa_fact
-                        </a>
+							<FAQLink href="http://instagram.com/psa_fact" text="@psa_fact" newTab={true}/>
                         ) and our newsletter at a later date.
                     </FAQSection>
                     <FAQSection question="How can I get around campus?">
@@ -117,15 +123,16 @@ export default function FAQ() {
                         Illini Bus app and Google Maps. You may also use other
                         transportation or rideshares at your own expense.
                     </FAQSection>
+					</div>
+					<div className="flex flex-col lg:w-2/5">
                     <FAQSection question="What wifi services are available?">
                         Campus Wi-Fi is free for guests by connecting to
                         “IllinoisNet_Guest.” See instructions for connecting on{" "}
-                        <a
+                        <FAQLink
                             href="https://answers.uillinois.edu/illinois/page.php?id=90280"
-                            target="_blank"
-                        >
-                            this page here
-                        </a>
+							text="this page here"
+                            newTab={true}
+                        />
                         .
                     </FAQSection>
                     <FAQSection question="What do I do if I lose anything during the conference?">
@@ -138,30 +145,29 @@ export default function FAQ() {
                     <FAQSection question="Parking Policies">
                         Parking for non-UIUC faculty and staff is metered and/or
                         limited to the spaces outlined{" "}
-                        <a
+                        <FAQLink
                             href="https://parking.web.illinois.edu/maps/campus-parking-map"
-                            target="_blank"
-                        >
-                            on this website
-                        </a>
+							text="on this website"
+                            newTab={true}
+                        />
                         . Meter payments may be processed by coin, Pay by Phone,
                         or CashKey depending on the outlined instructions. Free
                         weekend and overnight parking lots are listed{" "}
-                        <a
+                        <FAQLink
                             href="https://parking.web.illinois.edu/campus-parking/weekday-and-overnight"
-                            target="_blank"
-                        >
-                            on this website
-                        </a>
+							text="on this website"
+                            newTab={true}
+                        />
                         . Parking is strictly monitored by campus officials and
                         those not adhering to the policies may be subject to
                         ticketing or towing. FACT is not responsible for any
                         parking charges made towards all attendees.
                     </FAQSection>
-
+					</div>
                     <div className="text-5xl font-bold w-full text-center my-8">Registration</div>
+					<div className="flex flex-col lg:w-2/5">
                     <FAQSection question="How do I register?">
-                        Use the “<Link href="/my-fact/register">Register</Link>”
+                        Use the “<FAQLink href="/my-fact/register" text="Register"/>”
                         tab on our website and fill out your information in the
                         boxes Continue to the next page and you can view the
                         sessions you signed up for and the details for those
@@ -170,23 +176,24 @@ export default function FAQ() {
                     <FAQSection question="Where can we find information regarding workshop information?">
                         Workshop and facilitator biographies are available via
                         our Instagram (
-                        <a href="http://instagram.com/psa_fact" target="_blank">
-                            @psa_fact
-                        </a>
-                        ) or via the “<Link href="/workshops">Workshops</Link>”
+                        <FAQLink href="http://instagram.com/psa_fact" text="@psa_fact" newTab={true}/>
+                        ) or via the “<FAQLink href="/workshops" text="Workshops"/>”
                         tab on our website. After registering, you can find
                         information about those specific workshops via your
                         Dashboard.
                     </FAQSection>
+					
                     <FAQSection question="How can I change my workshop choice that I have made?">
                         If other workshops have not reached capacity, you may
                         log into your dashboard, click on “Update Workshops,”
                         then click on confirm and you will see that your choice
                         has changed.
                     </FAQSection>
+					</div>
+					<div className="flex flex-col lg:w-2/5">
                     <FAQSection question="Are there refunds?">
                         Refunds can be requested via{" "}
-                        <Link href="/refund">this form</Link> up until the end
+                        <FAQLink href="/refund" text="this form"/> up until the end
                         of the Early Registration dates. Please secure your
                         availability and ensure that you will attend the events
                         paid for prior to providing payment during registration.
@@ -198,12 +205,11 @@ export default function FAQ() {
                         additionally register in-person at the conference with
                         the Late Registration price at the Asian American
                         Cultural Center (
-                        <a
+                        <FAQLink
                             href="https://maps.app.goo.gl/7A1cjxTF4R3pBPHr5"
-                            target="_blank"
-                        >
-                            1210 W Nevada St, Urbana, IL 61801
-                        </a>
+							text="1210 W Nevada St, Urbana, IL 61801"
+                            newTab={true}
+                        />
                         ) from 4:00-10:00 PM on Friday, December 6th, or from
                         8:30-9:30 AM on Saturday, December 7th.
                     </FAQSection>
@@ -212,6 +218,7 @@ export default function FAQ() {
                         is not allowed. You may purchase an additional session
                         or Variety Show ticket separately.
                     </FAQSection>
+					</div>
                 </div>
         </PageContainer>
     );
