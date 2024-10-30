@@ -1,5 +1,4 @@
 import { WorkshopData } from "@/util/types";
-import Select from "./Select";
 import { useWorkshops } from "@/hooks/api/useWorkshops";
 import SearchableSelect from "./SearchableSelect";
 
@@ -33,18 +32,18 @@ function WorkshopSelect({
         workshops.length > 0 && (
             <SearchableSelect
                 id={id}
-                label={`Session ${session} Workshop`}
+                label={`Session ${session}`}
                 placeholder="Search for workshops..."
                 setState={setState}
                 defaultValue={
                     defaultValue
-                        ? defaultValue
-                        : workshops
-                              .filter(
-                                  (workshop: WorkshopData) =>
-                                      workshop.session == session
-                              )[0]
-                              .id.toString()
+                    // ? defaultValue
+                    // : workshops
+                    //       .filter(
+                    //           (workshop: WorkshopData) =>
+                    //               workshop.session == session
+                    //       )[0]
+                    //       .id.toString()
                 }
                 required={required}
                 options={workshops
