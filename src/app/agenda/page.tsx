@@ -1,101 +1,108 @@
 "use client";
+import PageContainer from "@/components/formatting/PageContainer";
 import Navbar from "@/components/navigation/Navbar";
 import LinkButton from "@/components/ui/LinkButton";
-import { useState } from "react";
+import { useAgendaItems } from "@/hooks/api/useAgendaItems";
+import { AgendaItemData } from "@/util/types";
+import { useMemo, useState } from "react";
 
-const agendaData = [
-    {
-        day: "Friday mm/dd",
-        info: [
-            {
-                id: "0",
-                event: "Event Name",
-                time: "00:00AM - 00:00 AM",
-                location: "Building Name #",
-            },
-            {
-                id: "1",
-                event: "Event Name",
-                time: "00:00AM - 00:00 AM",
-                location: "Building Name #",
-            },
-        ],
-    },
-    {
-        day: "Saturday mm/dd",
-        info: [
-            {
-                id: "0",
-                event: "Event Name",
-                time: "00:00AM - 00:00 AM",
-                location: "Building Name #",
-            },
-            {
-                id: "1",
-                event: "Event Name",
-                time: "00:00AM - 00:00 AM",
-                location: "Building Name #",
-            },
-            {
-                id: "2",
-                event: "Event Name",
-                time: "00:00AM - 00:00 AM",
-                location: "Building Name #",
-            },
-            {
-                id: "3",
-                event: "Event Name",
-                time: "00:00AM - 00:00 AM",
-                location: "Building Name #",
-            },
-        ],
-    },
-];
+interface FormattedData extends AgendaItemData {
+    day: string;
+}
+
+const DATE_OPTIONS: Intl.DateTimeFormatOptions = {
+    month: "long",
+    day: "numeric",
+    weekday: "long",
+    timeZone: "America/Chicago",
+};
+
+const TIME_OPTIONS: Intl.DateTimeFormatOptions = {
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZone: "America/Chicago",
+};
+
+const SATURDAY = "Saturday, December 7";
+const FRIDAY = "Friday, December 6";
 
 export default function Agenda() {
-    const [activeTab, setActiveTab] = useState(0);
+    const currentDate = new Date().toLocaleDateString("en-US", DATE_OPTIONS);
+
+    const { agendaItems } = useAgendaItems();
+    const [activeTab, setActiveTab] = useState(
+        currentDate === SATURDAY ? SATURDAY : FRIDAY
+    );
+
+    const formattedData: FormattedData[] = useMemo(() => {
+        if (!agendaItems) {
+            return [];
+        }
+
+        return agendaItems.map((item) => {
+            const newItem = item as FormattedData;
+            newItem.day = item.start_time.toLocaleDateString(
+                "en-US",
+                DATE_OPTIONS
+            );
+
+            return newItem;
+        });
+    }, [agendaItems]);
 
     return (
-        <>
-            <Navbar />
-            <div className="text-center p-10 border-b-2 m-10">
-                <div className="font-bold sm:text-4xl lg:text-6xl">AGENDA</div>
+        <PageContainer title="Agenda">
+            <div className="flex flex-row justify-start border-b-2 w-fit">
+                {[FRIDAY, SATURDAY].map((day) => (
+                    <div
+                        className={
+                            "px-4 py-3 rounded-t-lg cursor-pointer" +
+                            (day == activeTab
+                                ? " bg-text-primary text-background-primary"
+                                : "")
+                        }
+                        key={day}
+                        onClick={() => setActiveTab(day)}
+                    >
+                        <div className="sm:text-3xl lg:text-4xl font-bold">
+                            {day}
+                        </div>
+                    </div>
+                ))}
             </div>
-            <div className="w-2/4 mx-auto mb-4">
-                <div className="flex flex-row justify-start">
-                    {agendaData.map((item, index) => (
-                        <div
-                            className={
-                                "px-4 py-3 rounded-t-lg cursor-pointer" +
-                                (index == activeTab
-                                    ? " bg-text-primary text-background-primary"
-                                    : "")
-                            }
-                            key={item.day}
-                            onClick={() => setActiveTab(index)}
-                        >
-                            <div className="sm:text-3xl lg:text-4xl font-bold">
-                                {item.day}
+            <br />
+            <div className="flex flex-col gap-14">
+                {formattedData
+                    .filter((item) => item.day === activeTab)
+                    .map((item) => (
+                        <div key={item.id} className="flex flex-col gap-2">
+                            <div className="uppercase font-bold text-4xl">
+                                {item.title}
+                            </div>
+                            <div className="text-2xl">
+                                {item.start_time.toLocaleTimeString(
+                                    "en-US",
+                                    TIME_OPTIONS
+                                )}{" "}
+                                -{" "}
+                                {item.end_time.toLocaleTimeString(
+                                    "en-US",
+                                    TIME_OPTIONS
+                                )}
+                            </div>
+                            <div className="text-2xl text-highlight-primary">
+                                {item.building != "nan" && item.building}{" "}
+                                {item.room_num != "nan" && item.room_num}
+                                {item.building === "nan" &&
+                                    item.room_num === "nan" &&
+                                    "Locations vary"}
                             </div>
                         </div>
                     ))}
-                </div>
-                <div className="border-t-2 p-2">
-                    {agendaData[activeTab].info.map((item) => (
-                        <div className="mb-4 text-xl" key={item.id}>
-                            <div className="font-bold">{item.event}</div>
-                            <div>{item.time}</div>
-                            <div>{item.location}</div>
-                        </div>
-                    ))}
-                </div>
             </div>
-            <div className="w-fit m-auto">
-                <LinkButton
-                 text="REGISTER NOW" url="/register" />
-            </div>
-            
-        </>
+            {/* <div className="w-fit m-auto">
+                <LinkButton text="REGISTER NOW" url="/register" />
+            </div> */}
+        </PageContainer>
     );
 }
-
