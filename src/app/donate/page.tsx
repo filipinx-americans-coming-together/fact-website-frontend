@@ -53,7 +53,7 @@ export default function Donate() {
                             be possible without the help of generous donors like
                             you. But your help goes beyond sponsorship. By
                             supporting this conference, you contribute to
-                            inspiring and empowering today's generation to be
+                            inspiring and empowering today&apos;s generation to be
                             passionate and responsible leaders, who aim to shape
                             their world and follow their dreams. You are laying
                             the groundwork to strengthen the upcoming

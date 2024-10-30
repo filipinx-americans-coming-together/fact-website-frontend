@@ -26,7 +26,7 @@ export async function middleware(request: NextRequest) {
             (flag) => flag.fields.label === "workshop-changes"
         );
 
-        if (!workshopChanges || !workshopChanges.fields.value) {
+        if (!workshopChanges || !workshopChanges?.fields.value) {
             return NextResponse.error();
         }
     }
@@ -36,7 +36,7 @@ export async function middleware(request: NextRequest) {
         (flag) => flag.fields.label === "registration"
     );
 
-    if (!registrationOpen || !registrationOpen.fields.value) {
+    if (!registrationOpen || !registrationOpen?.fields.value) {
         return NextResponse.error();
     }
 }
