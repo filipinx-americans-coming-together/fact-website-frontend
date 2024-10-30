@@ -7,6 +7,9 @@ import { ResponseData } from "./util/types";
 // or change to redirect to page saying registration is closed/how to register late
 
 export async function middleware(request: NextRequest) {
+    // TODO REMOVE ONCE BACKEND IS UP
+    return NextResponse.error();
+
     // get flags
     let flags: ResponseData<{ label: string; value: boolean }>[];
 
@@ -39,5 +42,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-    matcher: ["/my-fact/:path*", "/facilitators/:path*"],
+    matcher: ["/my-fact/:path*", "/facilitators/:path*", "/workshops/:path*", "/admin/:path*"],
 };

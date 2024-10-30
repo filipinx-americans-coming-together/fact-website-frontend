@@ -54,15 +54,15 @@ export default function CountdownTimer({ date }: CountdownTimerProps) {
         <>
             <div className="flex flex-row justify-center text-center">
                 <div className="mx-2">
-                    <div className="font-bold text-6xl">{timeLeft.days}</div>
+                    <div className="font-bold text-6xl md:text-8xl">{timeLeft.days}</div>
                     <div>DAYS</div>
                 </div>
                 <div className="mx-2">
-                    <div className="font-bold text-6xl">{timeLeft.hours}</div>
+                    <div className="font-bold text-6xl md:text-8xl">{timeLeft.hours}</div>
                     <div>HOURS</div>
                 </div>
                 <div className="mx-2">
-                    <div className="font-bold text-6xl">{timeLeft.minutes}</div>
+                    <div className="font-bold text-6xl md:text-8xl">{timeLeft.minutes}</div>
                     <div>MINUTES</div>
                 </div>
             </div>

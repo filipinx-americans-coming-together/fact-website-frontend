@@ -1,6 +1,8 @@
 "use client";
 
+import Footer from "@/components/formatting/PageFooter";
 import Navbar from "@/components/navigation/Navbar";
+import Link from "next/link";
 import { useEffect } from "react";
 
 export default function Donate() {
@@ -20,25 +22,57 @@ export default function Donate() {
     return (
         <>
             <Navbar />
+            <div className="bg-text-primary text-background-primary min-h-screen py-6">
+                <div className="w-7/12 mx-auto text-center flex flex-col items-center">
+                    <h1 className="font-bold text-5xl lg:text-6xl m-10 lg:mb-10">
+                        Support FACT
+                    </h1>
+                    <br />
+                    <iframe
+                        width="560"
+                        height="315"
+                        src="https://www.youtube.com/embed/I0ZY8nz8XfI?si=8IJxQXv1HICBv5PX&autoplay=1&mute=1&loop=1&cc_load_policy=1"
+                        title="FACT 2024 Promotional Video"
+                        frameBorder="0"
+                    />
+                    <br />
+                    <br />
+                    <div className="text-left">
+                        <p>
+                            The Filipinx Americans Coming Together (FACT)
+                            conference is an annual student-run conference
+                            organized by the Philippine Student Association at
+                            University of Illinois at Urbana-Champaign.
+                        </p>
+                        <br />
+                        <p>
+                            Your donation to the FACT Conference helps us bring
+                            facilitators, panelists, keynote speakers,
+                            headliners, venues, and much more for our attendees
+                            to enjoy and benefit from. This conference would not
+                            be possible without the help of generous donors like
+                            you. But your help goes beyond sponsorship. By
+                            supporting this conference, you contribute to
+                            inspiring and empowering today's generation to be
+                            passionate and responsible leaders, who aim to shape
+                            their world and follow their dreams. You are laying
+                            the groundwork to strengthen the upcoming
+                            generation.
+                        </p>
+                    </div>
+                    <Link
+                        className="text-highlight-2-secondary hover:underline"
+                        href="/about"
+                    >
+                        Learn More
+                    </Link>
 
-            <div className="w-9/12 mx-auto text-center flex flex-col items-center">
-                <h1 className="font-bold sm:text-4xl lg:text-6xl">
-                    Sponsor FACT
-                </h1>
-                <br />
-                <p className="w-8/12">
-                    The Filipino Americans Coming Together (FACT) conference is
-                    an annual conference organized by the Philippine Student
-                    Association at University of Illinois and Urbana-Champaign.
-                    To learn more, visit{" "}
-                    <a className="underline" href="/">
-                        fact.psauiuc.org
-                    </a>
-                    .
-                </p>
-                <br />
-                <div id="bbox-root"></div>
+                    <br />
+                    <br />
+                    <div id="bbox-root"></div>
+                </div>
             </div>
+            <Footer />
         </>
     );
 }

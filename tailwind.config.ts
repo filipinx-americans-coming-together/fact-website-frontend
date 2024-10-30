@@ -15,7 +15,7 @@ const config: Config = {
                 "home-image": "url('/welcome-ceremony.jpg')",
             },
             colors: {
-                "background-primary": "#263b3a",
+                "background-primary": "#233332",
                 "text-primary": "#F7F7F7",
                 "highlight-primary": "#95AA8C",
                 "highlight-secondary": "#2B4C4B",
