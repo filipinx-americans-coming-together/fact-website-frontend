@@ -8,7 +8,7 @@ import TextInput from "@/components/ui/TextInput";
 import WorkshopSelect from "@/components/ui/WorkshopSelect";
 
 import { registrationProps, useRegister } from "@/hooks/api/useRegister";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import ticketTypes from "./ticketTypes.json";
 import InteractiveButton from "@/components/ui/InteractiveButton";
@@ -39,7 +39,7 @@ export default function Register() {
         password: "",
         pronouns: "",
         year: "",
-        school_name: -1,
+        school_id: -1,
         workshop_1_id: -1,
         workshop_2_id: -1,
         workshop_3_id: -1,
@@ -77,6 +77,13 @@ export default function Register() {
             setValidDiscount(undefined);
         }
     }
+
+    // make sure to clear other school data if school_id changes to not be "School not listed"
+    useEffect(() => {
+        if (formData.school_id !== "School not listed") {
+            formData.other_school_name = null;
+        }
+    }, [formData.school_id]);
 
     if (isSuccess) {
         window.location.href = "/my-fact/dashboard";
@@ -198,12 +205,12 @@ export default function Register() {
                     )}
 
                     <SchoolSelect
-                        id="school_name"
+                        id="school_id"
                         setState={setFormData}
                         defaultValue="N/A"
                     />
 
-                    {formData.school_name == "School not listed" && (
+                    {formData.school_id == "School not listed" && (
                         <TextInput
                             label="School Name (no abbreviations please)"
                             id="other_school_name"
