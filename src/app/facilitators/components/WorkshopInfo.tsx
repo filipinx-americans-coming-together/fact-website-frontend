@@ -1,4 +1,4 @@
-import { useAgendaItems } from "@/app/admin/hooks/useAgendaItems";
+import { useAgendaItems } from "@/hooks/api/useAgendaItems";
 import { useWorkshop } from "@/hooks/api/useWorkshop";
 import { useMemo } from "react";
 
