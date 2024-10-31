@@ -8,9 +8,20 @@ import NotificationManager from "../components/NotificationManager";
 import Stats from "../components/Stats";
 import { FaDownload } from "react-icons/fa6";
 import DangerZone from "../components/DangerZone";
+import useDownloadFile from "../hooks/useDownloadFile";
+import { API_URL } from "@/util/constants";
 
 export default function AdminDashboard() {
     const { user, isLoading } = useAdminUser();
+
+    const downloadDelegates = useDownloadFile(
+        `${API_URL}/fact-admin/sheets/delegates/`,
+        "delegates"
+    );
+    const downloadLocations = useDownloadFile(
+        `${API_URL}/fact-admin/sheets/locations/`,
+        "locations"
+    );
 
     if (isLoading) {
         return (
@@ -39,11 +50,17 @@ export default function AdminDashboard() {
                 <br />
                 {/* downloads */}
                 <div>
-                    <button className="flex items-center gap-2 hover:underline">
+                    <button
+                        className="flex items-center gap-2 hover:underline"
+                        onClick={downloadDelegates}
+                    >
                         Download Delegate Data <FaDownload />
                     </button>
 
-                    <button className="flex items-center gap-2 hover:underline">
+                    <button
+                        className="flex items-center gap-2 hover:underline"
+                        onClick={downloadLocations}
+                    >
                         Download Workshop Locations <FaDownload />
                     </button>
                 </div>
