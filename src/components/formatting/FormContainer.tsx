@@ -16,7 +16,7 @@ function FormContainer(props: FormProps) {
         <div className="w-7/12 min-w-[460px] px-20 py-12 bg-text-primary text-black m-auto flex flex-col items-center gap-3 rounded-lg">
             <form
                 name={props.formName}
-                className="flex flex-col gap-6 items-center text-left w-full"
+                className="flex flex-col gap-6 items-center text-left w-7/12"
                 autoComplete="off"
                 onSubmit={(event) => {
                     event.preventDefault();

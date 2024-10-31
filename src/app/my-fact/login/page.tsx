@@ -87,19 +87,17 @@ export default function Login() {
                 <div className="text-center">
                     {isDelegate ? "Delegate " : "Facilitator "}Login
                 </div>
-                <div className="w-6/12 flex flex-col gap-6">
-                    <TextInput
-                        label={isDelegate ? "Email" : "Username"}
-                        id={isDelegate ? "email" : "username"}
-                        setState={setFormData}
-                    />
-                    <TextInput
-                        label="Password"
-                        id="password"
-                        showCharacters={false}
-                        setState={setFormData}
-                    />
-                </div>
+                <TextInput
+                    label={isDelegate ? "Email" : "Username"}
+                    id={isDelegate ? "email" : "username"}
+                    setState={setFormData}
+                />
+                <TextInput
+                    label="Password"
+                    id="password"
+                    showCharacters={false}
+                    setState={setFormData}
+                />
 
                 <Link
                     href="/my-fact/forgot-password"

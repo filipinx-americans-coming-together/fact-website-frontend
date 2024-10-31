@@ -14,6 +14,7 @@ import ticketTypes from "./ticketTypes.json";
 import InteractiveButton from "@/components/ui/InteractiveButton";
 import { useRequestEmailVerification } from "@/hooks/api/useRequestEmailVerification";
 import { useVerifyEmail } from "@/hooks/api/useVerifyEmail";
+import Link from "next/link";
 
 export default function Register() {
     const { register, isSuccess, isPending, error } = useRegister();
@@ -121,11 +122,11 @@ export default function Register() {
                 >
                     <h1 className="text-center">Register for FACT</h1>
 
-                    <div className="text-left w-full flex gap-2">
+                    <div className="text-left w-full flex flex-col gap-2">
                         Verified Email: {formData.email}
                         <a
                             href=""
-                            className="underline text-highlight-2-secondary hover:text-highlight-2-primary"
+                            className="text-xs underline text-highlight-primary hover:text-highlight-secondary"
                         >
                             Use a different email
                         </a>
@@ -153,6 +154,9 @@ export default function Register() {
                         setState={setFormData}
                         required={false}
                     />
+                    <p className="text-slate-600">
+                        The pronouns provided will appear on your name tag
+                    </p>
 
                     <Select id="year" label="Year" setState={setFormData}>
                         <option value="Freshman">Freshman</option>
@@ -190,6 +194,13 @@ export default function Register() {
 
                     <br />
                     <div className="text-center">Workshop Selection</div>
+                    <Link
+                        href="/workshops"
+                        target="_blank"
+                        className="underline text-highlight-primary hover:text-highlight-secondary"
+                    >
+                        Browse Workshops
+                    </Link>
 
                     <WorkshopSelect
                         session={1}
@@ -209,7 +220,7 @@ export default function Register() {
                     <br />
 
                     <div>
-                        <input type="checkbox" required/>{" "}
+                        <input type="checkbox" required />{" "}
                         <label>EVENTBRITE PLACEHOLDER</label>
                     </div>
 
