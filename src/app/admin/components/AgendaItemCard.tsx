@@ -20,7 +20,8 @@ export default function AgendaItemCard({
             <div className="text-left">
                 <div>{title}</div>
                 <div>
-                    {building} {roomNum}
+                    {building !== "nan" && building}{" "}
+                    {roomNum !== "nan" && roomNum}
                 </div>
             </div>
             <div className="text-right">
