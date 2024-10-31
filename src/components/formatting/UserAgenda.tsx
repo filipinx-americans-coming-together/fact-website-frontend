@@ -4,6 +4,29 @@ import AgendaWorkshop from "./AgendaWorkshop";
 import { useUser } from "@/hooks/api/useUser";
 import { useWorkshops } from "@/hooks/api/useWorkshops";
 import { useLocations } from "@/hooks/api/useLocations";
+import { useAgendaItems } from "@/hooks/api/useAgendaItems";
+import { AgendaItemData, LocationData, WorkshopData } from "@/util/types";
+import { useMemo } from "react";
+
+interface FormattedData extends AgendaItemData {
+    day: string;
+}
+
+const DATE_OPTIONS: Intl.DateTimeFormatOptions = {
+    month: "long",
+    day: "numeric",
+    weekday: "long",
+    timeZone: "America/Chicago",
+};
+
+const TIME_OPTIONS: Intl.DateTimeFormatOptions = {
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZone: "America/Chicago",
+};
+
+const SATURDAY = "Saturday, December 7";
+const FRIDAY = "Friday, December 6";
 
 /**
  * Agenda for individual user
@@ -14,55 +37,139 @@ function UserAgenda() {
     const { user } = useUser();
     const { workshops } = useWorkshops();
     const { locations } = useLocations();
+    const { agendaItems } = useAgendaItems();
 
-    function downloadAgendaPDF() {
-        if (!user) return;
+    const formattedData: FormattedData[] = useMemo(() => {
+        if (!agendaItems) {
+            return [];
+        }
+
+        return agendaItems.map((item) => {
+            const newItem = item as FormattedData;
+            newItem.day = item.start_time.toLocaleDateString(
+                "en-US",
+                DATE_OPTIONS
+            );
+
+            return newItem;
+        });
+    }, [agendaItems]);
+
+    const userWorkshops: Map<
+        number,
+        { workshop: WorkshopData; location: LocationData }
+    > = useMemo(() => {
+        if (!user || !workshops) {
+            return new Map();
+        }
+
+        const result = new Map();
+
+        user.registration.forEach((workshop) => {
+            const workshopData = workshops.find(
+                (otherWorkshop) => otherWorkshop.id === workshop.workshop
+            );
+
+            if (workshopData) {
+                const locationData = locations?.find(
+                    (location) => location.id === workshopData.location
+                );
+
+                if (locationData) {
+                    result.set(workshopData.session, {
+                        workshop: workshopData,
+                        location: locationData,
+                    });
+                }
+            }
+        });
+
+        return result;
+    }, [user, workshops, locations]);
+
+    function downloadAgendaPDF(
+        name: string,
+        data: FormattedData[],
+        workshops: Map<
+            number,
+            { workshop: WorkshopData; location: LocationData }
+        >
+    ) {
         const pdf = new jsPDF("p", "mm", "a4", true);
 
-        const textLines = [
-            `${user.user.first_name}'s FACT 2024 Agenda`,
-            "",
-            "Friday, December 6",
-        ];
+        const textLines = [`${name}'s FACT 2024 Agenda`, ""];
 
-        // friday schedule
-        for (let i = 0; i < 2; i++) {
-            textLines.push("    Event Name");
-            textLines.push("    00:00AM - 00:00AM");
-            textLines.push("    Building Name #");
-            textLines.push("");
-        }
+        [FRIDAY, SATURDAY].forEach((day) => {
+            textLines.push(day);
 
-        // saturday schedule
-        textLines.push("Saturday, December 7");
+            const events = data.filter((item) => item.day === day);
 
-        textLines.push("    Event Name");
-        textLines.push("    00:00AM - 00:00AM");
-        textLines.push("    Building Name #");
-        textLines.push("");
+            for (let i = 0; i < events.length; i++) {
+                const sessionNum = events[i].session_num;
+                if (sessionNum) {
+                    // workshop
+                    const workshopData = workshops.get(sessionNum);
 
-        // workshops
-        for (let i = 0; i < user.registration.length; i++) {
-            if (!workshops || !locations) break;
-            const workshop = workshops.find(
-                (workshop) => workshop.id === user.registration[i].workshop
-            );
-            const location = locations.find(
-                (location) => location.id === workshop?.location
-            );
+                    if (workshopData) {
+                        textLines.push(
+                            `    ${events[i].title} - ${workshopData.workshop.title}`
+                        );
 
-            textLines.push(`    Session ${i + 1}: ${workshop?.title}`);
-            textLines.push("    00:00AM - 00:00AM");
-            textLines.push(`    ${location?.building} ${location?.room_num}`);
-            textLines.push("");
-        }
+                        textLines.push(
+                            `       ${events[i].start_time.toLocaleString(
+                                "en-US",
+                                TIME_OPTIONS
+                            )} - ${events[i].end_time.toLocaleString(
+                                "en-US",
+                                TIME_OPTIONS
+                            )}`
+                        );
 
-        textLines.push("    Event Name");
-        textLines.push("    00:00AM - 00:00AM");
-        textLines.push("    Building Name #");
-        textLines.push("");
+                        const building = workshopData.location.building;
+                        const roomNum = workshopData.location.room_num;
 
-        pdf.text(textLines, 8, 8);
+                        if (building === "nan" && roomNum === "nan") {
+                            textLines.push(`        Location TBD`);
+                        } else {
+                            textLines.push(
+                                `       ${building !== "nan" ? building : ""} ${
+                                    roomNum !== "nan" ? roomNum : ""
+                                }`
+                            );
+                        }
+                    }
+                } else {
+                    // not workshop
+                    textLines.push(`    ${events[i].title}`);
+                    textLines.push(
+                        `       ${events[i].start_time.toLocaleString(
+                            "en-US",
+                            TIME_OPTIONS
+                        )} - ${events[i].end_time.toLocaleString(
+                            "en-US",
+                            TIME_OPTIONS
+                        )}`
+                    );
+
+                    const building = events[i].building;
+                    const roomNum = events[i].room_num;
+
+                    if (building === "nan" && roomNum === "nan") {
+                        textLines.push(`        Locations Vary`);
+                    } else {
+                        textLines.push(
+                            `       ${building !== "nan" ? building : ""} ${
+                                roomNum !== "nan" ? roomNum : ""
+                            }`
+                        );
+                    }
+                }
+
+                textLines.push("");
+            }
+        });
+
+        pdf.text(textLines, 10, 16);
         pdf.save("my-fact-agenda.pdf");
     }
 
@@ -75,34 +182,92 @@ function UserAgenda() {
                         <br />
                         <button
                             className="underline font-light hover:text-highlight-2-primary my-3"
-                            onClick={downloadAgendaPDF}
+                            onClick={() => {
+                                downloadAgendaPDF(
+                                    user.user.first_name,
+                                    formattedData,
+                                    userWorkshops
+                                );
+                            }}
                         >
                             Download
                         </button>
                     </div>
-                    <div className="flex flex-col gap-4">
-                        <div className="font-bold text-xl my-2">
-                            Friday, Month Day
-                        </div>
-                        <div>
-                            <div>Event Name</div>
-                            <div>00:00AM - 00:00AM</div>
-                            <div>Building Name #</div>
-                        </div>
-                        <div>
-                            <div>Event Name</div>
-                            <div>00:00AM - 00:00AM</div>
-                            <div>Building Name #</div>
-                        </div>
-                        <div className="font-bold text-xl my-2">
-                            Saturday, Month Day
-                        </div>
-                        {user.registration.map((pair) => (
-                            <AgendaWorkshop
-                                key={pair.workshop}
-                                id={pair.workshop}
-                            />
-                        ))}
+                    <div className="flex flex-col md:flex-row gap-10 text-left">
+                        {[FRIDAY, SATURDAY].map((day) => {
+                            return (
+                                <div className="flex flex-col gap-4 border-highlight-primary md:border-l-2 md:pl-4">
+                                    <div className="font-bold text-xl my-2">
+                                        {day}
+                                    </div>
+                                    {formattedData
+                                        .filter((item) => item.day === day)
+                                        .map((item) => {
+                                            if (item.session_num) {
+                                                const workshop =
+                                                    userWorkshops.get(
+                                                        item.session_num
+                                                    );
+
+                                                if (!workshop) {
+                                                    return <></>;
+                                                }
+
+                                                return (
+                                                    <AgendaWorkshop
+                                                        key={
+                                                            workshop.workshop.id
+                                                        }
+                                                        id={
+                                                            workshop.workshop.id
+                                                        }
+                                                        startTime={item.start_time.toLocaleString(
+                                                            "en-US",
+                                                            TIME_OPTIONS
+                                                        )}
+                                                        endTime={item.end_time.toLocaleString(
+                                                            "en-US",
+                                                            TIME_OPTIONS
+                                                        )}
+                                                    />
+                                                );
+                                            }
+
+                                            return (
+                                                <div>
+                                                    <div className="font-bold">
+                                                        {item.title}
+                                                    </div>
+                                                    <div>
+                                                        {item.start_time.toLocaleString(
+                                                            "en-US",
+                                                            TIME_OPTIONS
+                                                        )}{" "}
+                                                        -{" "}
+                                                        {item.end_time.toLocaleString(
+                                                            "en-US",
+                                                            TIME_OPTIONS
+                                                        )}
+                                                    </div>
+                                                    <div>
+                                                        {item.building ===
+                                                            "nan" &&
+                                                            item.room_num ===
+                                                                "nan" &&
+                                                            "Locations Vary"}
+                                                        {item.building !== "nan"
+                                                            ? item.building
+                                                            : ""}{" "}
+                                                        {item.room_num !== "nan"
+                                                            ? item.room_num
+                                                            : ""}
+                                                    </div>
+                                                </div>
+                                            );
+                                        })}
+                                </div>
+                            );
+                        })}
                     </div>
                 </>
             ) : (

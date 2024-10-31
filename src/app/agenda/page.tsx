@@ -1,7 +1,5 @@
 "use client";
 import PageContainer from "@/components/formatting/PageContainer";
-import Navbar from "@/components/navigation/Navbar";
-import LinkButton from "@/components/ui/LinkButton";
 import { useAgendaItems } from "@/hooks/api/useAgendaItems";
 import { AgendaItemData } from "@/util/types";
 import { useMemo, useState } from "react";

@@ -37,7 +37,7 @@ export default function Dashboard() {
             )}
 
             <Navbar />
-            <div className="flex justify-evenly sm: flex-col sm:text-center md:flex-row md:text-left">
+            <div className="w-9/12 flex justify-evenly flex-col gap-10 md:gap-16 md:flex-row text-left mx-auto">
                 <div>
                     {/* user info */}
                     <div>
@@ -90,11 +90,13 @@ export default function Dashboard() {
             <br />
             <br />
             <div className="mx-auto w-fit text-background-primary">
-                {logoutLoading ? (
-                    <LoadingCircle />
-                ) : (
-                    <InteractiveButton text="Log out" onClick={logout} />
-                )}
+                <InteractiveButton
+                    text="Log out"
+                    onClick={() => {
+                        logout();
+                        window.location.href = "/";
+                    }}
+                />
             </div>
         </>
     );
