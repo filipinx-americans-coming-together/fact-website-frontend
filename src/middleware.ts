@@ -9,6 +9,7 @@ import { ResponseData } from "./util/types";
 export async function middleware(request: NextRequest) {
     // TODO REMOVE ONCE BACKEND IS UP
     return NextResponse.error();
+    // return;
 
     // get flags
     let flags: ResponseData<{ label: string; value: boolean }>[];

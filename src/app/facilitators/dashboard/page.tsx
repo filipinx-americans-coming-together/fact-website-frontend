@@ -93,7 +93,13 @@ export default function FacilitatorDashboard() {
                         {user.facilitator.department_name}
                     </h1>
                     <div className="w-fit text-background-primary">
-                        <InteractiveButton text="Log Out" onClick={logout} />
+                        <InteractiveButton
+                            text="Log Out"
+                            onClick={() => {
+                                logout();
+                                window.location.href = "/";
+                            }}
+                        />
                     </div>
                 </div>
 

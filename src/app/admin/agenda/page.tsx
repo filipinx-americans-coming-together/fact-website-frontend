@@ -7,7 +7,7 @@ import AgendaList from "../components/AgendaList";
 import LoadingCircle from "@/components/icons/LoadingCircle";
 import { useAdminUser } from "@/hooks/api/useAdminUser";
 import ForbiddenPage from "@/components/formatting/ForbiddenPage";
-import { useAgendaItems } from "../hooks/useAgendaItems";
+import { useAgendaItems } from "../../../hooks/api/useAgendaItems";
 import { useState } from "react";
 import Select from "@/components/ui/Select";
 import { useCreateAgendaItem } from "../hooks/useCreateAgendaItem";
