@@ -98,6 +98,7 @@ export default function Login() {
                     showCharacters={false}
                     setState={setFormData}
                 />
+
                 <Link
                     href="/my-fact/forgot-password"
                     className="underline text-highlight-secondary text-xs hover:text-highlight-primary"

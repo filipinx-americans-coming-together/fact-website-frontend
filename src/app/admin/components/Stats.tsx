@@ -1,9 +1,15 @@
 import { BsPeopleFill } from "react-icons/bs";
-import { FaSchool, FaTicket } from "react-icons/fa6";
+import { FaSchool } from "react-icons/fa6";
 import RegistrationChart from "./charts/RegistrationChart";
-import TicketsChart from "./charts/TicketsChart";
+import { useRegistrationSummary } from "../hooks/useRegistrationSummary";
 
 export default function Stats() {
+    const { summary } = useRegistrationSummary();
+
+    if (!summary) {
+        return <></>;
+    }
+
     return (
         <>
             <div className="flex flex-col md:flex-row gap-4">
@@ -12,17 +18,10 @@ export default function Stats() {
                         <div className="text-4xl text-green-400">
                             <BsPeopleFill />
                         </div>
-                        <p className="text-4xl font-bold">234</p>
+                        <p className="text-4xl font-bold">
+                            {summary.delegates}
+                        </p>
                         <p>Registered Delegates</p>
-                    </div>
-                </div>
-                <div className="bg-gradient-to-r from-pink-100 to-rose-100 rounded shadow aspect-[4/3] md:w-[240px] flex items-center justify-center">
-                    <div className="flex flex-col gap-2">
-                        <div className="text-4xl text-rose-400">
-                            <FaTicket />
-                        </div>
-                        <p className="text-4xl font-bold">93</p>
-                        <p>Variety Show Tickets</p>
                     </div>
                 </div>
                 <div className="bg-gradient-to-r from-cyan-100 to-blue-100 rounded shadow aspect-[4/3] md:w-[240px] flex items-center justify-center">
@@ -30,15 +29,13 @@ export default function Stats() {
                         <div className="text-4xl text-blue-400">
                             <FaSchool />
                         </div>
-                        <p className="text-4xl font-bold">17</p>
+                        <p className="text-4xl font-bold">{summary.schools}</p>
                         <p>Unique Schools</p>
                     </div>
                 </div>
             </div>
             <br />
-            <RegistrationChart />
-            <br />
-            <TicketsChart />
+            <RegistrationChart dates={summary.registrations} />
         </>
     );
 }

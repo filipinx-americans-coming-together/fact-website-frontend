@@ -8,12 +8,13 @@ import TextInput from "@/components/ui/TextInput";
 import WorkshopSelect from "@/components/ui/WorkshopSelect";
 
 import { registrationProps, useRegister } from "@/hooks/api/useRegister";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import ticketTypes from "./ticketTypes.json";
 import InteractiveButton from "@/components/ui/InteractiveButton";
 import { useRequestEmailVerification } from "@/hooks/api/useRequestEmailVerification";
 import { useVerifyEmail } from "@/hooks/api/useVerifyEmail";
+import Link from "next/link";
 
 export default function Register() {
     const { register, isSuccess, isPending, error } = useRegister();
@@ -39,7 +40,7 @@ export default function Register() {
         password: "",
         pronouns: "",
         year: "",
-        school_name: -1,
+        school_id: -1,
         workshop_1_id: -1,
         workshop_2_id: -1,
         workshop_3_id: -1,
@@ -47,36 +48,12 @@ export default function Register() {
         code: "",
     });
 
-    const [ticketSelection, setTicketSelection] = useState<{
-        id: number;
-        label: string;
-        value: number;
-    }>({
-        id: 0,
-        label: ticketTypes.ticketTypes[0].label,
-        value: parseInt(ticketTypes.ticketTypes[0].price),
-    });
-
-    const [validDiscount, setValidDiscount] = useState<{
-        code: string;
-        value: number;
-    }>();
-
-    // TODO replace with server call to verify code
-    const discounts: { [key: string]: number } = {
-        FACILITATOR: 20,
-        DISCOUNT10: 10,
-    };
-
-    function validateDiscount(code: string): void {
-        const capitalCode = code.toUpperCase();
-
-        if (discounts[capitalCode]) {
-            setValidDiscount({ code: code, value: discounts[capitalCode] });
-        } else {
-            setValidDiscount(undefined);
+    // make sure to clear other school data if school_id changes to not be "School not listed"
+    useEffect(() => {
+        if (formData.school_id !== "School not listed") {
+            formData.other_school_name = null;
         }
-    }
+    }, [formData.school_id]);
 
     if (isSuccess) {
         window.location.href = "/my-fact/dashboard";
@@ -145,11 +122,11 @@ export default function Register() {
                 >
                     <h1 className="text-center">Register for FACT</h1>
 
-                    <div className="text-left w-full flex gap-2">
+                    <div className="text-left w-full flex flex-col gap-2">
                         Verified Email: {formData.email}
                         <a
                             href=""
-                            className="underline text-highlight-2-secondary hover:text-highlight-2-primary"
+                            className="text-xs underline text-highlight-primary hover:text-highlight-secondary"
                         >
                             Use a different email
                         </a>
@@ -177,6 +154,9 @@ export default function Register() {
                         setState={setFormData}
                         required={false}
                     />
+                    <p className="text-slate-600">
+                        The pronouns provided will appear on your name tag
+                    </p>
 
                     <Select id="year" label="Year" setState={setFormData}>
                         <option value="Freshman">Freshman</option>
@@ -198,12 +178,12 @@ export default function Register() {
                     )}
 
                     <SchoolSelect
-                        id="school_name"
+                        id="school_id"
                         setState={setFormData}
                         defaultValue="N/A"
                     />
 
-                    {formData.school_name == "School not listed" && (
+                    {formData.school_id == "School not listed" && (
                         <TextInput
                             label="School Name (no abbreviations please)"
                             id="other_school_name"
@@ -214,6 +194,13 @@ export default function Register() {
 
                     <br />
                     <div className="text-center">Workshop Selection</div>
+                    <Link
+                        href="/workshops"
+                        target="_blank"
+                        className="underline text-highlight-primary hover:text-highlight-secondary"
+                    >
+                        Browse Workshops
+                    </Link>
 
                     <WorkshopSelect
                         session={1}
@@ -232,151 +219,59 @@ export default function Register() {
                     />
                     <br />
 
-                    <div className="text-left flex flex-col gap-2 w-full">
-                        <label>
-                            Ticket Type <span className="text-red-600">*</span>
-                        </label>
-                        <div className="flex flex-col gap-2 items-start">
-                            {ticketTypes.ticketTypes.map(
-                                (
-                                    type: { label: string; price: string },
-                                    idx
-                                ) => (
-                                    <button
-                                        className="hover:cursor-pointer"
-                                        key={idx}
-                                        onClick={(event) => {
-                                            event.preventDefault();
+                    <div>
+                        <input type="checkbox" required />{" "}
+                        <label>EVENTBRITE PLACEHOLDER</label>
+                    </div>
 
-                                            setTicketSelection({
-                                                id: idx,
-                                                label: type.label,
-                                                value: parseInt(type.price),
-                                            });
-                                        }}
-                                    >
-                                        <input
-                                            type="radio"
-                                            name="ticket"
-                                            checked={idx == ticketSelection.id}
-                                            readOnly
-                                        />
-                                        <label>
-                                            {type.label} - ${type.price}
-                                        </label>
-                                    </button>
-                                )
-                            )}
-                        </div>
-
-                        <br />
-
-                        <TextInput
-                            label="Discount Code"
-                            id="discount"
-                            setState={setFormData}
-                            required={false}
-                        />
-                        <div className="flex justify-end">
-                            <InteractiveButton
-                                text="Apply Code"
-                                onClick={() => {
-                                    console.log(validDiscount);
-                                    validateDiscount(formData["discount"]);
-                                }}
-                            />
-                        </div>
-
-                        <br />
-                        <br />
-                        <div className="border-2 p-4">
-                            <p className="flex justify-between font-bold">
-                                Order total:
-                                <span>
-                                    $
-                                    {Math.max(
-                                        0,
-                                        ticketSelection.value -
-                                            (validDiscount?.value ?? 0)
-                                    )}
-                                </span>
-                            </p>
-                            <p className="text-highlight-2-secondary">
-                                {ticketSelection.label} - $
-                                {ticketSelection.value}
-                            </p>
-                            {validDiscount && (
-                                <p className="text-highlight-2-secondary">
-                                    Discount code{" "}
-                                    {validDiscount.code.toUpperCase()} applied
-                                </p>
-                            )}
-                        </div>
-
-                        <br />
-                        <div>
-                            Payment can be made via Venmo @PSA_Treasurer. Please
-                            upload proof of payment.{" "}
-                            <span className="text-red-600">*</span>
-                        </div>
+                    <br />
+                    <div className="static flex items-start gap-1">
                         <input
-                            type="file"
-                            accept="image/png, image/jpeg"
+                            className="relative top-1"
                             required
+                            type="checkbox"
+                            id="terms-conditions"
                         />
-
-                        <br />
-                        <div className="static flex items-start gap-1">
-                            <input
-                                className="relative top-1"
-                                required
-                                type="checkbox"
-                                id="terms-conditions"
-                            />
-                            <span>
+                        <span>
+                            <p>
+                                By checking this box, I affirm that I agree to
+                                the following terms and conditions:{" "}
+                                <span className="text-red-600">*</span>
+                            </p>
+                            <div className="text-xs">
                                 <p>
-                                    By checking this box, I affirm that I agree
-                                    to the following terms and conditions:{" "}
-                                    <span className="text-red-600">*</span>
+                                    I. I am responsible for loss of items or
+                                    damage to FACT Conference facilities. I will
+                                    be liable for any costs incurred to repair
+                                    any inflicted damage
                                 </p>
-                                <div className="text-xs">
-                                    <p>
-                                        I. I am responsible for loss of items or
-                                        damage to FACT Conference facilities. I
-                                        will be liable for any costs incurred to
-                                        repair any inflicted damage
-                                    </p>
-                                    <p>
-                                        II. I am responsible for any personal
-                                        valuables, as FACT Conference
-                                        coordinators and PSA will not be held
-                                        responsible for any missing belongings.
-                                    </p>
-                                    <p>
-                                        III. PSA is committed to providing a
-                                        safe, productive, and welcoming
-                                        environment to all participants,
-                                        including staff, vendors, guests, and
-                                        delegates. PSA has no tolerance for
-                                        discrimination, harassment, or bullying
-                                        in any form at FACT-related events.
-                                        Participants are expected to adhere to
-                                        these principles and respect the rights
-                                        of others.
-                                    </p>
-                                    <br />
-                                    <p>
-                                        If you are a witness or are subject to
-                                        unacceptable behavior, please report to
-                                        any PSA, FACT, or trusted organization
-                                        leader, who will assist in resolving the
-                                        issue and escorting out any individuals
-                                        disrupting the safe environment FACT
-                                        aims to foster.
-                                    </p>
-                                </div>
-                            </span>
-                        </div>
+                                <p>
+                                    II. I am responsible for any personal
+                                    valuables, as FACT Conference coordinators
+                                    and PSA will not be held responsible for any
+                                    missing belongings.
+                                </p>
+                                <p>
+                                    III. PSA is committed to providing a safe,
+                                    productive, and welcoming environment to all
+                                    participants, including staff, vendors,
+                                    guests, and delegates. PSA has no tolerance
+                                    for discrimination, harassment, or bullying
+                                    in any form at FACT-related events.
+                                    Participants are expected to adhere to these
+                                    principles and respect the rights of others.
+                                </p>
+                                <br />
+                                <p>
+                                    If you are a witness or are subject to
+                                    unacceptable behavior, please report to any
+                                    PSA, FACT, or trusted organization leader,
+                                    who will assist in resolving the issue and
+                                    escorting out any individuals disrupting the
+                                    safe environment FACT aims to foster.
+                                </p>
+                            </div>
+                        </span>
                     </div>
                 </FormContainer>
             )}
