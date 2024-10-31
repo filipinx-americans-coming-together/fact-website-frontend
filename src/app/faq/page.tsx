@@ -23,7 +23,7 @@ export default function FAQ() {
             </div>
 
             <div className="flex flex-row justify-evenly flex-wrap items-start">
-                    <div className="text-5xl font-bold w-full text-center my-8">General</div>
+                    <div className="text-3xl sm:text-4xl lg:text-5xl font-bold w-full text-center my-8">General</div>
 					<div className="flex flex-col lg:w-2/5">
 					<FAQSection question="What is FACT?">
                         FACT stands for Filipinx Americans Coming Together and
@@ -97,7 +97,7 @@ export default function FAQ() {
                         search by Facilities Staff.
                     </FAQSection>
 					</div>
-                    <div className="text-5xl font-bold w-full text-center my-8">At UIUC</div>
+                    <div className="text-3xl sm:text-4xl lg:text-5xl font-bold w-full text-center my-8">At UIUC</div>
 					<div className="flex flex-col lg:w-2/5">
                     <FAQSection question="How do I book a hotel using the hotel block booking system?">
                         FACT has coordinated a selection of hotel blocks
@@ -165,7 +165,7 @@ export default function FAQ() {
                         parking charges made towards all attendees.
                     </FAQSection>
 					</div>
-                    <div className="text-5xl font-bold w-full text-center my-8">Registration</div>
+                    <div className="text-3xl sm:text-4xl lg:text-5xl font-bold w-full text-center my-8">Registration</div>
 					<div className="flex flex-col lg:w-2/5">
                     <FAQSection question="How do I register?">
                         Use the “<FAQLink href="/my-fact/register" text="Register"/>”

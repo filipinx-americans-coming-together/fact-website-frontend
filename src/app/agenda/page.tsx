@@ -65,7 +65,7 @@ export default function Agenda() {
                                 key={day}
                                 onClick={() => setActiveTab(day)}
                             >
-                                <div className="text-3xl lg:text-4xl font-bold">
+                                <div className="text-xl sm:text-3xl lg:text-4xl font-bold">
                                     {day}
                                 </div>
                             </div>
@@ -80,10 +80,10 @@ export default function Agenda() {
                                     key={item.id}
                                     className="flex flex-col gap-2"
                                 >
-                                    <div className="uppercase font-bold text-4xl">
+                                    <div className="uppercase font-bold text-xl sm:text-3xl lg:text-4xl">
                                         {item.title}
                                     </div>
-                                    <div className="text-2xl">
+                                    <div className="text-m sm:text-xl lg:text-2xl">
                                         {item.start_time.toLocaleTimeString(
                                             "en-US",
                                             TIME_OPTIONS
@@ -94,7 +94,7 @@ export default function Agenda() {
                                             TIME_OPTIONS
                                         )}
                                     </div>
-                                    <div className="text-2xl text-highlight-primary">
+                                    <div className="text-m sm:text-xl lg:text-2xl text-highlight-primary">
                                         {item.building != "nan" &&
                                             item.building}{" "}
                                         {item.room_num != "nan" &&
@@ -107,7 +107,7 @@ export default function Agenda() {
                             ))}
                     </div>
                 </div>
-                <div className="bg-highlight-secondary rounded-lg px-8 py-6 h-fit lg:shrink-0 lg:w-1/3">
+                <div className="bg-highlight-secondary rounded-lg px-6 sm:px-8 py-6 h-fit lg:shrink-0 lg:w-1/3">
                     <div className="font-bold uppercase text-2xl md:text-3xl mb-8">
                         New to FACT 2024!
                     </div>
