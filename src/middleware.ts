@@ -48,5 +48,6 @@ export const config = {
         "/facilitators/:path*",
         "/workshops/:path*",
         "/admin/:path*",
+        "/agenda/:path*",
     ],
 };
