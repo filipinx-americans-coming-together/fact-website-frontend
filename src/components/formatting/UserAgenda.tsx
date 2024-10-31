@@ -196,7 +196,10 @@ function UserAgenda() {
                     <div className="flex flex-col md:flex-row gap-10 text-left">
                         {[FRIDAY, SATURDAY].map((day) => {
                             return (
-                                <div className="flex flex-col gap-4 border-highlight-primary md:border-l-2 md:pl-4">
+                                <div
+                                    key={day}
+                                    className="flex flex-col gap-4 border-highlight-primary md:border-l-2 md:pl-4"
+                                >
                                     <div className="font-bold text-xl my-2">
                                         {day}
                                     </div>
@@ -215,9 +218,7 @@ function UserAgenda() {
 
                                                 return (
                                                     <AgendaWorkshop
-                                                        key={
-                                                            workshop.workshop.id
-                                                        }
+                                                        key={item.id}
                                                         id={
                                                             workshop.workshop.id
                                                         }
@@ -234,7 +235,7 @@ function UserAgenda() {
                                             }
 
                                             return (
-                                                <div>
+                                                <div key={item.id}>
                                                     <div className="font-bold">
                                                         {item.title}
                                                     </div>
