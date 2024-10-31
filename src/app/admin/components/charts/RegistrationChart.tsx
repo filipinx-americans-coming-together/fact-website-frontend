@@ -1,21 +1,33 @@
 import * as React from "react";
 import { LineChart } from "@mui/x-charts/LineChart";
 
-function addDays(date: Date, days: number) {
-    var date = new Date(date.valueOf());
-    date.setDate(date.getDate() + days);
-    return date;
-}
+export default function RegistrationChart({ dates }: { dates: Date[] }) {
+    const data: { date: Date; value: number }[] = React.useMemo(() => {
+        const days: { [date: string]: number } = {};
 
-const data = [
-    { date: addDays(new Date(), 1), value: 10 },
-    { date: addDays(new Date(), 2), value: 24 },
-    { date: addDays(new Date(), 3), value: 34 },
-    { date: addDays(new Date(), 4), value: 2 },
-    { date: addDays(new Date(), 5), value: 95 },
-];
+        dates.forEach((date) => {
+            const asString = date.toLocaleDateString("en-US", {
+                month: "short",
+                day: "2-digit",
+                year: "numeric",
+            });
 
-export default function RegistrationChart() {
+            if (days[asString] === undefined) {
+                days[asString] = 1;
+            } else {
+                days[asString] += 1;
+            }
+        });
+
+        const result = [];
+
+        for (const [key, value] of Object.entries(days)) {
+            result.push({ date: new Date(key), value: value });
+        }
+
+        return result;
+    }, [dates]);
+
     return (
         <LineChart
             width={600}
