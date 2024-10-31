@@ -124,13 +124,13 @@ export default function Agenda() {
                     </div>
                     <div className="mb-4 md:text-xl">
                         Do you want to speak with facilitators and panelists
-                        one-on-one? FACT's{" "}
+                        one-on-one? FACT&apos;s{" "}
                         <span className="font-bold uppercase underline">
                             networking session
                         </span>{" "}
                         gives delegates the unique opportunity to connect with
                         facilitators and panelists in an intimate setting. If
-                        you were unable to attend a specific facilitator's
+                        you were unable to attend a specific facilitator&apos;s
                         workshop but wanted to, this session provides an ideal
                         chance to speak with them. Delegates are welcome to
                         explore beyond their original career panels. Please note
