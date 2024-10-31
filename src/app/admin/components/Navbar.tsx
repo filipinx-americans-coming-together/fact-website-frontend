@@ -25,7 +25,14 @@ export default function Navbar() {
             {isPending ? (
                 <LoadingCircle />
             ) : (
-                <Button text="Log out" onClick={logout} isSubmit={false} />
+                <Button
+                    text="Log out"
+                    onClick={() => {
+                        logout();
+                        window.location.href = "/";
+                    }}
+                    isSubmit={false}
+                />
             )}
         </div>
     );
