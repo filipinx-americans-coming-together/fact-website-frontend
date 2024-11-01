@@ -8,7 +8,7 @@ import { ResponseData } from "./util/types";
 
 export async function middleware(request: NextRequest) {
     // TODO REMOVE ONCE BACKEND IS UP
-    return NextResponse.error();
+    // return NextResponse.error();
     // return;
 
     // get flags
@@ -44,10 +44,8 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
     matcher: [
-        // "/my-fact/:path*",
-        "/facilitators/:path*",
+        "/my-fact/:path*",
         "/workshops/:path*",
-        // "/admin/:path*",
-        "/agenda/:path*",
+        "/admin/:path*",
     ],
 };

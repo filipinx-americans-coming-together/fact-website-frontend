@@ -25,7 +25,7 @@ const EventbriteWidget = ({ onComplete }: { onComplete: Function }) => {
             iframeContainerId: "eventbrite-widget-container-1060445463929",
 
             // Optional
-            iframeContainerHeight: 425, // Widget height in pixels. Defaults to a minimum of 425px if not provided
+            iframeContainerHeight: 500, // Widget height in pixels. Defaults to a minimum of 425px if not provided
             onOrderComplete: onComplete, // Method called when an order has successfully completed
         });
     }, []);
