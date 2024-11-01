@@ -18,8 +18,7 @@ export default async function fetchWithCredentials({
         let response = await fetch(`${API_URL}/csrf/`, {
             credentials: "include",
         });
-        // csrf = response.headers.get("X-CSRFToken");
-        csrf=cookies.get("csrftoken");
+        csrf = response.headers.get("X-CSRFToken");
     }
 
     let args: any = {
