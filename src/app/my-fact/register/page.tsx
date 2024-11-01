@@ -10,12 +10,36 @@ import WorkshopSelect from "@/components/ui/WorkshopSelect";
 import { registrationProps, useRegister } from "@/hooks/api/useRegister";
 import { useEffect, useState } from "react";
 
-import ticketTypes from "./ticketTypes.json";
-import InteractiveButton from "@/components/ui/InteractiveButton";
 import { useRequestEmailVerification } from "@/hooks/api/useRequestEmailVerification";
 import { useVerifyEmail } from "@/hooks/api/useVerifyEmail";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+
+const EventbriteWidget = ({ onComplete }: { onComplete: Function }) => {
+    useEffect(() => {
+        // @ts-ignore
+        window.EBWidgets.createWidget({
+            // Required
+            widgetType: "checkout",
+            eventId: "1060445463929",
+            iframeContainerId: "eventbrite-widget-container-1060445463929",
+
+            // Optional
+            iframeContainerHeight: 500, // Widget height in pixels. Defaults to a minimum of 425px if not provided
+            onOrderComplete: onComplete, // Method called when an order has successfully completed
+        });
+    }, []);
+
+    return <div className="w-full" id="eventbrite-widget-container-1060445463929"></div>;
+};
+
+// Load the Eventbrite widgets script
+const loadEventbriteScript = () => {
+    const script = document.createElement("script");
+    script.src = "https://www.eventbrite.com/static/widgets/eb_widgets.js";
+    script.async = true;
+    document.body.appendChild(script);
+};
 
 export default function Register() {
     const { register, isSuccess, isPending, error } = useRegister();
@@ -49,7 +73,14 @@ export default function Register() {
         code: "",
     });
 
+    const [checkoutComplete, setCheckoutComplete] = useState(false);
+    const [clientError, setClientError] = useState<string | null>(null);
+
     const router = useRouter();
+
+    useEffect(() => {
+        loadEventbriteScript();
+    }, [emailVerified]);
 
     // make sure to clear other school data if school_id changes to not be "School not listed"
     useEffect(() => {
@@ -117,11 +148,18 @@ export default function Register() {
                     submitText="Register"
                     formName="registerForm"
                     onSubmit={() => {
-                        console.log(formData);
-                        register(formData as registrationProps);
+                        setClientError(null);
+
+                        if (checkoutComplete) {
+                            register(formData as registrationProps);
+                        } else {
+                            setClientError(
+                                "Complete EventBrite checkout before continuing"
+                            );
+                        }
                     }}
                     isLoading={isPending}
-                    errorMessage={error?.message}
+                    errorMessage={clientError || error?.message}
                 >
                     <h1 className="text-center">Register for FACT</h1>
 
@@ -222,9 +260,12 @@ export default function Register() {
                     />
                     <br />
 
-                    <div>
-                        <input type="checkbox" required />{" "}
-                        <label>EVENTBRITE PLACEHOLDER</label>
+                    <div className="w-full">
+                        <EventbriteWidget
+                            onComplete={() => {
+                                setCheckoutComplete(true);
+                            }}
+                        />
                     </div>
 
                     <br />
