@@ -41,6 +41,12 @@ function FormContainer(props: FormProps) {
                         isSubmit={true}
                     />
                 )}
+
+                <p className="text-xs text-slate-600">
+                    This site uses cookies to perform necessary actions. If you
+                    are on a mobile device, please disable "Prevent Cross-Site
+                    Tracking" before continuing
+                </p>
             </form>
         </div>
     );

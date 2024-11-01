@@ -1,6 +1,7 @@
 "use client";
 
 import FormContainer from "@/components/formatting/FormContainer";
+import Footer from "@/components/formatting/PageFooter";
 import LoadingCircle from "@/components/icons/LoadingCircle";
 import Navbar from "@/components/navigation/Navbar";
 import WorkshopSelect from "@/components/ui/WorkshopSelect";
@@ -80,6 +81,8 @@ export default function Workshops() {
                     Back to Dashboard
                 </Link>
             </FormContainer>
+            <br />
+            <Footer />
         </>
     );
 }

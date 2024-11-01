@@ -1,6 +1,7 @@
 "use client";
 
 import FormContainer from "@/components/formatting/FormContainer";
+import Footer from "@/components/formatting/PageFooter";
 import Navbar from "@/components/navigation/Navbar";
 import TextInput from "@/components/ui/TextInput";
 import { useFacilitatorLogin } from "@/hooks/api/useFacilitatorLogin";
@@ -132,6 +133,8 @@ export default function Login() {
                     )}
                 </div>
             </FormContainer>
+            <br />
+            <Footer />
         </>
     );
 }

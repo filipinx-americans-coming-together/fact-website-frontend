@@ -1,6 +1,7 @@
 "use client";
 
 import FormContainer from "@/components/formatting/FormContainer";
+import Footer from "@/components/formatting/PageFooter";
 import LoadingCircle from "@/components/icons/LoadingCircle";
 import Navbar from "@/components/navigation/Navbar";
 import SchoolSelect from "@/components/ui/SchoolSelect";
@@ -215,6 +216,8 @@ export default function Profile() {
                     showCharacters={false}
                 />
             </FormContainer>
+            <br />
+            <Footer />
         </>
     );
 }
