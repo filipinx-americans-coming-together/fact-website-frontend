@@ -44,8 +44,8 @@ function FormContainer(props: FormProps) {
 
                 <p className="text-xs text-slate-600">
                     This site uses cookies to perform necessary actions. If you
-                    are on a mobile device, please disable "Prevent Cross-Site
-                    Tracking" before continuing
+                    are on a mobile device, please disable &quot;Prevent Cross-Site
+                    Tracking&quot; before continuing
                 </p>
             </form>
         </div>
