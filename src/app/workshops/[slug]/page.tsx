@@ -17,7 +17,7 @@ export default function WorkshopDetail({
 }: {
     params: { slug: string };
 }) {
-    const token = params.slug
+    const token = params.slug;
     const workshopId = extractWorkshopId(token);
     const router = useRouter();
 
@@ -41,9 +41,10 @@ export default function WorkshopDetail({
         );
     }
 
-    const { title, description, session } = workshop.workshop;
+    const { title, description, facilitators, session } = workshop.workshop;
     const { building, room_num, capacity } = workshop.location;
-    const { department_name, facilitators, image_url, bio } = workshop.facilitator;
+
+    const facilitatorLabel = session === 3 ? "Panelist(s)" : "Facilitator(s)";
 
     return (
         <PageContainer title="Workshop">
@@ -59,14 +60,12 @@ export default function WorkshopDetail({
                     <div className="flex-1 flex flex-col space-y-2 border-2 rounded p-4">
                         <h2 className="text-xl font-semibold">Details</h2>
                         <p>Session: {session}</p>
-                        <p>Facilitators: {facilitators}</p>
-                        <p>Department: {department_name} </p>
-                        <p>{bio}</p>
+                        <p>{facilitatorLabel}: {facilitators}</p>
                     </div>
 
                     {/** Location Details */}
                     <div className="flex-1 flex flex-col space-y-2 border-2 rounded p-4">
-                        <h2 className="text-xl font-semibold">Location</h2>
+                        <h2 className="text-xl font-semibold">Location (Subject to Change)</h2>
                         <p>Building: {building}</p>
                         <p>Room: {room_num}</p>
                         <p>Capacity: {capacity}</p>
