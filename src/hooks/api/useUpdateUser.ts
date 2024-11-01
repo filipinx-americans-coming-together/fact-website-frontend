@@ -22,7 +22,7 @@ async function fetchUpdateUser(props: UpdateUserProps): Promise<{
     registration: RegistrationData[];
 }> {
     // request
-    const response = await fetch(`${API_URL}/registration/user/`, {
+    const response = await fetch(`${API_URL}/registration/delegates/me/`, {
         credentials: "include",
         method: "PUT",
         body: JSON.stringify(props),
@@ -33,10 +33,10 @@ async function fetchUpdateUser(props: UpdateUserProps): Promise<{
     if (!response.ok) {
         let message = "Server error, please try again later";
 
-        if (json.message) {
+        if (json.message && response.status !== 500) {
             message = json.message;
         }
-
+        
         throw new Error(message);
     }
 

@@ -7,7 +7,7 @@ async function fetchApproveSchool(props: {
     approved_name: string;
 }): Promise<SchoolData> {
     // request
-    const response = await fetch(`${API_URL}/registration/new-schools/`, {
+    const response = await fetch(`${API_URL}/registration/schools/new/`, {
         credentials: "include",
         method: "POST",
         body: JSON.stringify(props),
@@ -18,10 +18,10 @@ async function fetchApproveSchool(props: {
     if (!response.ok) {
         let message = "Server error, please try again later";
 
-        if (json.message) {
+        if (json.message && response.status !== 500) {
             message = json.message;
         }
-
+        
         throw new Error(message);
     }
 

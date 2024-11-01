@@ -3,7 +3,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 async function fetchDeleteNotification(id: number): Promise<void> {
     // request
-    const response = await fetch(`${API_URL}/fact-admin/notification/${id}/`, {
+    const response = await fetch(`${API_URL}/fact-admin/notifications/${id}/`, {
         credentials: "include",
         method: "DELETE",
     });
@@ -13,10 +13,10 @@ async function fetchDeleteNotification(id: number): Promise<void> {
     if (!response.ok) {
         let message = "Server error, please try again later";
 
-        if (json.message) {
+        if (json.message && response.status !== 500) {
             message = json.message;
         }
-
+        
         throw new Error(message);
     }
 }

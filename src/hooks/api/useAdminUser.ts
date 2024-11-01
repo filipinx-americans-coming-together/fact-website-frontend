@@ -2,7 +2,7 @@ import { API_URL } from "@/util/constants";
 import { useQuery } from "@tanstack/react-query";
 
 async function fetchUser(): Promise<{ username: string }> {
-    const response = await fetch(`${API_URL}/fact-admin/`, {
+    const response = await fetch(`${API_URL}/fact-admin/me/`, {
         credentials: "include",
     });
     const json = await response.json();
@@ -10,9 +10,10 @@ async function fetchUser(): Promise<{ username: string }> {
     if (!response.ok) {
         let message = "Server error, please try again later";
 
-        if (json.message) {
+        if (json.message && response.status !== 500) {
             message = json.message;
         }
+        
         throw new Error(message);
     }
 

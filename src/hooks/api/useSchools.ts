@@ -10,10 +10,10 @@ async function fetchSchools(): Promise<SchoolData[]> {
     if (!response.ok) {
         let message = "Server error, please try again later";
 
-        if (json.message) {
+        if (json.message && response.status !== 500) {
             message = json.message;
         }
-
+        
         throw new Error(message);
     }
 

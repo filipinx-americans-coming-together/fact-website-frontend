@@ -14,7 +14,7 @@ async function fetchCreateLocation(
 ): Promise<LocationData> {
     // request
 	console.log(props.session)
-    const response = await fetch(`${API_URL}/registration/location/`, {
+    const response = await fetch(`${API_URL}/registration/locations/`, {
         credentials: "include",
         method: "POST",
         body: JSON.stringify(
@@ -27,10 +27,10 @@ async function fetchCreateLocation(
     if (!response.ok) {
         let message = "Server error, please try again later";
 
-        if (json.message) {
+        if (json.message && response.status !== 500) {
             message = json.message;
         }
-
+        
         throw new Error(message);
     }
 

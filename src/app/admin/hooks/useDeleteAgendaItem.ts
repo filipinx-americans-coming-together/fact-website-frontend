@@ -3,7 +3,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 async function fetchDeleteAgendaItem(id: number): Promise<void> {
     // request
-    const response = await fetch(`${API_URL}/fact-admin/agenda-item/${id}/`, {
+    const response = await fetch(`${API_URL}/fact-admin/agenda-items/${id}/`, {
         credentials: "include",
         method: "DELETE",
     });
@@ -13,10 +13,10 @@ async function fetchDeleteAgendaItem(id: number): Promise<void> {
     if (!response.ok) {
         let message = "Server error, please try again later";
 
-        if (json.message) {
+        if (json.message && response.status !== 500) {
             message = json.message;
         }
-
+        
         throw new Error(message);
     }
 }

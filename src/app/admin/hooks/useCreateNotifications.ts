@@ -10,7 +10,7 @@ async function fetchCreateNotification({
     expiration: Date;
 }): Promise<NotificationData> {
     // request
-    const response = await fetch(`${API_URL}/fact-admin/notification/`, {
+    const response = await fetch(`${API_URL}/fact-admin/notifications/`, {
         credentials: "include",
         method: "POST",
         body: JSON.stringify({
@@ -24,10 +24,10 @@ async function fetchCreateNotification({
     if (!response.ok) {
         let message = "Server error, please try again later";
 
-        if (json.message) {
+        if (json.message && response.status !== 500) {
             message = json.message;
         }
-
+        
         throw new Error(message);
     }
 

@@ -12,7 +12,7 @@ async function fetchUser(): Promise<{
     delegate: DelegateData;
     registration: RegistrationData[];
 }> {
-    const response = await fetch(`${API_URL}/registration/user/`, {
+    const response = await fetch(`${API_URL}/registration/delegates/me/`, {
         credentials: "include",
     });
     const json = await response.json();
@@ -20,10 +20,10 @@ async function fetchUser(): Promise<{
     if (!response.ok) {
         let message = "Server error, please try again later";
 
-        if (json.message) {
+        if (json.message && response.status !== 500) {
             message = json.message;
         }
-
+        
         throw new Error(message);
     }
 

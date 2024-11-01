@@ -7,7 +7,7 @@ async function fetchSetUpAccount(
     token: string
 ): Promise<void> {
     // request
-    const response = await fetch(`${API_URL}/registration/facilitator/set-up/`, {
+    const response = await fetch(`${API_URL}/registration/facilitators/set-up/`, {
         credentials: "include",
         method: "POST",
         body: JSON.stringify({
@@ -22,10 +22,10 @@ async function fetchSetUpAccount(
     if (!response.ok) {
         let message = "Server error, please try again later";
 
-        if (json.message) {
+        if (json.message && response.status !== 500) {
             message = json.message;
         }
-
+        
         throw new Error(message);
     }
 }

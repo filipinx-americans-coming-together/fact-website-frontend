@@ -3,14 +3,14 @@ import { ResponseData, WorkshopData } from "@/util/types";
 import { useQueries, useQuery } from "@tanstack/react-query";
 
 async function fetchWorkshops(): Promise<WorkshopData[]> {
-    const response = await fetch(`${API_URL}/registration/workshop/`);
+    const response = await fetch(`${API_URL}/registration/workshops/`);
 
     const json = await response.json();
 
     if (!response.ok) {
         let message = "Server error, please try again later";
 
-        if (json.message) {
+        if (json.message && response.status !== 500) {
             message = json.message;
         }
 

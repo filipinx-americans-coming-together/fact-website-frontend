@@ -7,7 +7,7 @@ async function fetchDeleteLocation(
 ): Promise<void> {
     // request
 	console.log(id)
-    const response = await fetch(`${API_URL}/registration/location/${id}/`, {
+    const response = await fetch(`${API_URL}/registration/locations/${id}/`, {
         credentials: "include",
         method: "DELETE",
     });
@@ -17,10 +17,10 @@ async function fetchDeleteLocation(
     if (!response.ok) {
         let message = "Server error, please try again later";
 
-        if (json.message) {
+        if (json.message && response.status !== 500) {
             message = json.message;
         }
-
+        
         throw new Error(message);
     }
 }

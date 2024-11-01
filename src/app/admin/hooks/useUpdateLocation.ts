@@ -14,7 +14,7 @@ async function fetchUpdateLocation(
     props: LocationProps
 ): Promise<LocationData> {
     // request
-    const response = await fetch(`${API_URL}/registration/location/${props.id}/`, {
+    const response = await fetch(`${API_URL}/registration/locations/${props.id}/`, {
         credentials: "include",
         method: "PUT",
         body: JSON.stringify(
@@ -27,10 +27,10 @@ async function fetchUpdateLocation(
     if (!response.ok) {
         let message = "Server error, please try again later";
 
-        if (json.message) {
+        if (json.message && response.status !== 500) {
             message = json.message;
         }
-
+        
         throw new Error(message);
     }
 

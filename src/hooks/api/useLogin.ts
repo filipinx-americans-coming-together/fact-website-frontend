@@ -11,7 +11,7 @@ async function fetchLogin(
     registration: RegistrationData[];
 }> {
     // request
-    const response = await fetch(`${API_URL}/registration/login/`, {
+    const response = await fetch(`${API_URL}/registration/delegates/login/`, {
         credentials: "include",
         method: "POST",
         body: JSON.stringify({ email: email, password: password }),
@@ -22,10 +22,10 @@ async function fetchLogin(
     if (!response.ok) {
         let message = "Server error, please try again later";
 
-        if (json.message) {
+        if (json.message && response.status !== 500) {
             message = json.message;
         }
-
+        
         throw new Error(message);
     }
 

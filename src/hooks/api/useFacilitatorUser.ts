@@ -13,7 +13,7 @@ async function fetchUser(): Promise<{
     registrations: FacilitatorRegistrationData[];
     workshops: FacilitatorWorkshopData[];
 }> {
-    const response = await fetch(`${API_URL}/registration/facilitator/`, {
+    const response = await fetch(`${API_URL}/registration/facilitators/me/`, {
         credentials: "include",
     });
     const json = await response.json();
@@ -24,6 +24,7 @@ async function fetchUser(): Promise<{
         if (json.message && response.status !== 500) {
             message = json.message;
         }
+
         throw new Error(message);
     }
 

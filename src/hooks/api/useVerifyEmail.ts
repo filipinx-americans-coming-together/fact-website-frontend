@@ -4,7 +4,7 @@ import { useMutation } from "@tanstack/react-query";
 async function fetchVerifyEmail(email: string, code: string): Promise<void> {
     console.log(email, code);
     // request
-    const response = await fetch(`${API_URL}/verification/verify/`, {
+    const response = await fetch(`${API_URL}/verifications/verify/`, {
         credentials: "include",
         method: "POST",
         body: JSON.stringify({ email: email, code: code }),
@@ -15,10 +15,10 @@ async function fetchVerifyEmail(email: string, code: string): Promise<void> {
     if (!response.ok) {
         let message = "Server error, please try again later";
 
-        if (json.message) {
+        if (json.message && response.status !== 500) {
             message = json.message;
         }
-
+        
         throw new Error(message);
     }
 }

@@ -2,7 +2,7 @@ import { API_URL } from "@/util/constants";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 async function fetchLogout() {
-    const response = await fetch(`${API_URL}/registration/logout/`, {
+    const response = await fetch(`${API_URL}/registration/users/logout/`, {
         credentials: "include",
         method: "POST",
     });
@@ -12,7 +12,7 @@ async function fetchLogout() {
     if (!response.ok) {
         let message = "Server error, please try again later";
 
-        if (json.message) {
+        if (json.message && response.status !== 500) {
             message = json.message;
         }
         
