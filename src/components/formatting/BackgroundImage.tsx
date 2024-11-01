@@ -14,7 +14,7 @@ export default function BackgroundImage({
     children,
 }: BackgroundImageProps) {
     return (
-        <div className="relative h-screen w-full">
+        <div className="relative h-screen w-full bg-[#112e28]">
             <div
                 className="absolute inset-0 bg-cover bg-center opacity-50 overflow-x-hidden"
                 style={{ backgroundImage: `url(${imageURL})` }}

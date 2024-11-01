@@ -21,7 +21,7 @@ export default function Home() {
                     )}
                 />
             )}
-            
+
             <Navbar />
 
             <BackgroundImage imageURL={BACKGROUND_URL}>
@@ -46,8 +46,12 @@ export default function Home() {
                     <div className="my-4 md:mx-8 lg:mx-14"></div>
                     <div className="flex flex-col justify-center text-center">
                         <CountdownTimer
-                            date={new Date("October 31, 2024 19:00:00")}
+                            date={new Date("December 6, 2024 19:00:00")}
                         />
+                        <br />
+                        <p className="italic font-light my-2">
+                            Registration opens 11/1/2024
+                        </p>
                         {/* <LinkButton
                             text="REGISTER NOW"
                             url="/my-fact/register"

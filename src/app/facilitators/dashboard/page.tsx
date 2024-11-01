@@ -1,63 +1,129 @@
 "use client";
 import Navbar from "@/components/navigation/Navbar";
 import InteractiveButton from "@/components/ui/InteractiveButton";
-import WorkshopSelect from "@/components/ui/WorkshopSelect";
-import FacilitatorRow from "../components/FacilitatorRow";
 import FacilitatorRegistration from "../components/FacilitatorRegistration";
+import { useLogout } from "@/hooks/api/useLogout";
+import { useFacilitatorUser } from "@/hooks/api/useFacilitatorUser";
+import { useWorkshops } from "@/hooks/api/useWorkshops";
+import { useMemo, useState } from "react";
+import ForbiddenPage from "@/components/formatting/ForbiddenPage";
+import LoadingCircle from "@/components/icons/LoadingCircle";
+import { useLocations } from "@/hooks/api/useLocations";
+import WorkshopInfo from "../components/WorkshopInfo";
 
 export default function FacilitatorDashboard() {
-    // PLACEHOLDERs FOR REQUESTS
-    const facilitatorData = {
-        facilitatorName: "Facilitator",
-        individualFacilitators: [
-            "Facilitator 1",
-            "Facilitator 3",
-            "Facilitator 4",
-            "Facilitator 5",
-        ],
-        imgURL: "https://www.psauiuc.org/wp-content/uploads/2023/09/About-Kayak-Trip-1.jpeg",
-        bios: [
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed blandit dui. Nam dolor dolor, vulputate sed justo a, efficitur auctor nisi. Donec neque elit, sagittis vel semper ac, ultrices at neque. Nunc semper neque eu viverra fringilla. Donec pharetra mi lorem. Pellentesque rutrum purus quam, in consequat mi imperdiet ut. Nulla molestie purus tristique tortor convallis hendrerit quis a tellus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut sem massa, fermentum id consectetur a, hendrerit sollicitudin est.",
-        ],
-        workshops: [
-            {
-                title: "Workshop 1 Title",
-                description: "Workshop 1 Description",
-                session: 2,
-            },
-        ],
-    };
+    const { logout } = useLogout();
+    const { user, isLoading } = useFacilitatorUser();
+    const { workshops } = useWorkshops();
+    const { locations } = useLocations();
 
-    const facilitatedSessions = facilitatorData.workshops.map(
-        (workshop) => workshop.session
-    );
+    const facilitatedSessions = useMemo(() => {
+        if (!user || !workshops) {
+            return [];
+        }
 
-    const panelists = [
-        "Facilitator 3",
-        "Facilitator 4",
-        "Facilitator 10",
-        "Facilitator 15",
-    ];
+        const result: { title: string; session: number }[] = [];
 
-    if (facilitatorData) {
+        user.workshops.forEach((facilitatorWorkshop) => {
+            const workshop = workshops.find(
+                (workshop) => facilitatorWorkshop.workshop === workshop.id
+            );
+
+            if (workshop) {
+                result.push({
+                    title: workshop.title,
+                    session: workshop.session,
+                });
+            }
+        });
+
+        return result;
+    }, [user, workshops]);
+
+    const facilitatorRegistrations = useMemo(() => {
+        if (!user || !workshops) {
+            return [];
+        }
+
+        const result: {
+            facilitator_name: string;
+            workshop: number;
+            session: number;
+        }[] = [];
+
+        user.registrations.forEach((registration) => {
+            const workshop = workshops.find(
+                (workshop) => registration.workshop === workshop.id
+            );
+
+            if (workshop) {
+                result.push({
+                    facilitator_name: registration.facilitator_name,
+                    workshop: workshop.id,
+                    session: workshop.session,
+                });
+            }
+        });
+
+        return result;
+    }, [user, workshops]);
+
+    if (isLoading) {
         return (
             <>
                 <Navbar />
-                <div className="w-9/12 mx-auto">
-                    <div className="my-8"></div>
-                    <FacilitatorRegistration
-                        facilitators={facilitatorData.individualFacilitators}
-                        facilitatedSessions={facilitatedSessions}
-                    />
+                <div className="my-2 w-fit mx-auto">
+                    <LoadingCircle />
                 </div>
             </>
         );
     }
 
+    if (!user) {
+        return <ForbiddenPage />;
+    }
+
     return (
+        // <div className="bg-gradient-to-tl from-background-primary to-emerald-900">
         <>
             <Navbar />
-            <p>You do not have permission to view this page.</p>
+            <div className="w-9/12 mx-auto flex flex-col items-left gap-10">
+                <div className="flex flex-col md:flex-row md:justify-between gap-2">
+                    <h1 className="text-4xl font-bold">
+                        {user.facilitator.department_name}
+                    </h1>
+                    <div className="w-fit text-background-primary">
+                        <InteractiveButton
+                            text="Log Out"
+                            onClick={() => {
+                                logout();
+                                window.location.href = "/";
+                            }}
+                        />
+                    </div>
+                </div>
+
+                <div>
+                    <h1 className="text-xl font-bold w-full border-b-2 pb-2 border-highlight-primary">
+                        Your Workshops
+                    </h1>
+                    <br />
+                    <div className="flex flex-col gap-6">
+                        {user.workshops.map((facilitatorWorkshop) => (
+                            <WorkshopInfo
+                                key={facilitatorWorkshop.workshop}
+                                workshopID={facilitatorWorkshop.workshop}
+                            />
+                        ))}
+                    </div>
+                </div>
+
+                <FacilitatorRegistration
+                    facilitators={user.facilitator.facilitator_names}
+                    facilitatedSessions={facilitatedSessions}
+                    registrations={facilitatorRegistrations}
+                />
+            </div>
         </>
     );
 }

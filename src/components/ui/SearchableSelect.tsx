@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 import { FaAngleDown } from "react-icons/fa";
 
 interface SearchableSelectProps {
@@ -30,6 +30,8 @@ function SearchableSelect<T>({
     options,
     placeholder,
 }: SearchableSelectProps) {
+    const containerRef = useRef<HTMLDivElement | null>(null);
+
     const [query, setQuery] = useState("");
     const [showOptions, setShowOptions] = useState(false);
     const [selected, setSelected] = useState<String>();
@@ -55,8 +57,29 @@ function SearchableSelect<T>({
         );
     }, [defaultValue, id, setState]);
 
+    function handleClickOutside(event: MouseEvent) {
+        if (
+            containerRef.current &&
+            !containerRef.current.contains(event.target as Node)
+        ) {
+            setShowOptions(false);
+        }
+    }
+
+    useEffect(() => {
+        if (showOptions) {
+            document.addEventListener("mousedown", handleClickOutside);
+        } else {
+            document.removeEventListener("mousedown", handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [showOptions]);
+
     return (
-        <div className="relative flex flex-col w-full">
+        <div ref={containerRef} className="relative flex flex-col w-full">
             {/* label */}
             <div>
                 {label} {required && <span className="text-red-600">*</span>}

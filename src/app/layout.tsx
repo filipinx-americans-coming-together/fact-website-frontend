@@ -18,6 +18,14 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
+            <head>
+                <link
+                    rel="icon"
+                    href="/fact-2024-logo.png"
+                    type="image/png"
+                    sizes="32x32"
+                />
+            </head>
             <body className={inter.className}>
                 <QueryProviderWrapper>{children}</QueryProviderWrapper>
             </body>

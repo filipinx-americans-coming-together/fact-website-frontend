@@ -25,7 +25,7 @@ async function fetchLogin(
         if (json.message) {
             message = json.message;
         }
-        
+
         throw new Error(message);
     }
 

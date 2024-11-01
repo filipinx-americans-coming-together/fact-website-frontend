@@ -3,12 +3,19 @@
 import FormContainer from "@/components/formatting/FormContainer";
 import Navbar from "@/components/navigation/Navbar";
 import TextInput from "@/components/ui/TextInput";
+import { useFacilitatorLogin } from "@/hooks/api/useFacilitatorLogin";
 import { useLogin } from "@/hooks/api/useLogin";
 import Link from "next/link";
 import { useState } from "react";
 
 export default function Login() {
     const { login, isPending, error, isSuccess } = useLogin();
+    const {
+        login: facilitatorLogin,
+        isPending: facilitatorPending,
+        error: facilitatorError,
+        isSuccess: facilitatorSuccess,
+    } = useFacilitatorLogin();
 
     const [isDelegate, setIsDelegate] = useState(true);
 
@@ -18,11 +25,11 @@ export default function Login() {
     });
 
     if (isSuccess) {
-        if (isDelegate) {
-            window.location.href = "/my-fact/dashboard";
-        } else {
-            window.location.href = "/facilitators/dashboard";
-        }
+        window.location.href = "/my-fact/dashboard";
+    }
+
+    if (facilitatorSuccess) {
+        window.location.href = "/facilitators/dashboard";
     }
 
     return (
@@ -66,21 +73,32 @@ export default function Login() {
                 submitText="Log in"
                 formName="loginForm"
                 onSubmit={() => {
-                    login(formData as { email: string; password: string });
+                    if (isDelegate) {
+                        login(formData as { email: string; password: string });
+                    } else {
+                        facilitatorLogin(
+                            formData as { username: string; password: string }
+                        );
+                    }
                 }}
-                isLoading={isPending}
-                errorMessage={error?.message}
+                isLoading={isPending || facilitatorPending}
+                errorMessage={error ? error.message : facilitatorError?.message}
             >
                 <div className="text-center">
                     {isDelegate ? "Delegate " : "Facilitator "}Login
                 </div>
-                <TextInput label="Email" id="email" setState={setFormData} />
+                <TextInput
+                    label={isDelegate ? "Email" : "Username"}
+                    id={isDelegate ? "email" : "username"}
+                    setState={setFormData}
+                />
                 <TextInput
                     label="Password"
                     id="password"
                     showCharacters={false}
                     setState={setFormData}
                 />
+
                 <Link
                     href="/my-fact/forgot-password"
                     className="underline text-highlight-secondary text-xs hover:text-highlight-primary"

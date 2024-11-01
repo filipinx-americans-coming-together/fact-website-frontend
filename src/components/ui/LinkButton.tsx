@@ -18,8 +18,8 @@ export default function LinkButton({
     newTab = false,
 }: LinkButtonProps) {
     return (
-        <Link href={url} target={newTab ? "_blank" : "_self"} className="m-4">
-            <button className="text-center text-text-primary border-solid border-2 w-60 py-4 hover:text-background-primary hover:bg-text-primary">
+        <Link href={url} target={newTab ? "_blank" : "_self"} className="mx:auto my:4 sm:mx-4">
+            <button className="text-center text-text-primary border-solid border-2 w-fit p-4 hover:text-background-primary hover:bg-text-primary">
                 {text}
             </button>
         </Link>

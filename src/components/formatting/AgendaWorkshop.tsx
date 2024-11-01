@@ -3,6 +3,8 @@ import { useWorkshop } from "@/hooks/api/useWorkshop";
 
 interface AgendaWorkshop {
     id: number;
+    startTime: string;
+    endTime: string;
 }
 
 /**
@@ -17,11 +19,13 @@ export default function AgendaWorkshop(props: AgendaWorkshop) {
         <>
             {workshop ? (
                 <div>
-                    <div>
+                    <div className="font-bold">
                         Session {workshop.workshop.session}:{" "}
                         {workshop.workshop.title}
                     </div>
-                    <div>00:00AM - 00:00AM</div>
+                    <div>
+                        {props.startTime} - {props.endTime}
+                    </div>
                     <div>
                         {workshop.location.building}{" "}
                         {workshop.location.room_num}
