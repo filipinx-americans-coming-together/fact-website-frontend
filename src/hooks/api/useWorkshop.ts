@@ -35,19 +35,17 @@ async function fetchWorkshop({ id }: { id: number }): Promise<{
         throw new Error(message);
     }
 
-    // format workshop data
     const workshopData = json.workshop[0];
 
     const formattedWorkshop: WorkshopData = {
         id: workshopData.pk,
         title: workshopData.fields.title,
         description: workshopData.fields.description,
-        facilitators: workshopData.fields.facilitators,
+        facilitators: json.facilitators[0].fields.department_name,
         location: workshopData.fields.location,
         session: workshopData.fields.session,
     };
 
-    // format location data
     const locationData = json.location[0];
 
     const formattedLocation: LocationData = {

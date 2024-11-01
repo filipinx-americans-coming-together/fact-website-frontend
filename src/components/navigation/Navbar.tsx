@@ -22,7 +22,7 @@ const NAV_LINKS = [
 	// { text: "Agenda", path: "/agenda" },
     { text: "Team", path: "/team" },
     { text: "Gallery", path: "/gallery" },
-    // { text: "Workshops", path: "/workshops" },
+    { text: "Workshops", path: "/workshops" },
     { text: "FAQ", path: "/faq" },
 ];
 
