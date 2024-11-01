@@ -19,6 +19,7 @@ export default async function fetchWithCredentials({
             credentials: "include",
         });
         csrf = response.headers.get("X-CSRFToken");
+        console.log("cooke", document.cookie);
     }
 
     let args: any = {
