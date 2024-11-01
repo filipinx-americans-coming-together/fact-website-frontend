@@ -14,6 +14,7 @@ import { useRequestEmailVerification } from "@/hooks/api/useRequestEmailVerifica
 import { useVerifyEmail } from "@/hooks/api/useVerifyEmail";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import Footer from "@/components/formatting/PageFooter";
 
 const EventbriteWidget = ({ onComplete }: { onComplete: Function }) => {
     useEffect(() => {
@@ -30,7 +31,12 @@ const EventbriteWidget = ({ onComplete }: { onComplete: Function }) => {
         });
     }, []);
 
-    return <div className="w-full" id="eventbrite-widget-container-1060445463929"></div>;
+    return (
+        <div
+            className="w-full"
+            id="eventbrite-widget-container-1060445463929"
+        ></div>
+    );
 };
 
 // Load the Eventbrite widgets script
@@ -382,6 +388,7 @@ export default function Register() {
             )}
 
             <br />
+            <Footer />
         </>
     );
 }
