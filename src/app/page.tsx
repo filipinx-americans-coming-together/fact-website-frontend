@@ -6,6 +6,7 @@ import Navbar from "@/components/navigation/Navbar";
 import Footer from "@/components/formatting/PageFooter";
 import NotificationsManager from "@/components/ui/NotificationManager";
 import { useNotifications } from "@/hooks/api/useNotifications";
+import LinkButton from "@/components/ui/LinkButton";
 
 const BACKGROUND_URL = "/welcome-ceremony.jpg";
 const BACKGROUND_ALT = "FACT 2023 Welcome Ceremony";
@@ -49,13 +50,13 @@ export default function Home() {
                             date={new Date("December 6, 2024 19:00:00")}
                         />
                         <br />
-                        <p className="italic font-light my-2">
+                        {/* <p className="italic font-light my-2">
                             Registration opens 11/1/2024
-                        </p>
-                        {/* <LinkButton
+                        </p> */}
+                        <LinkButton
                             text="REGISTER NOW"
                             url="/my-fact/register"
-                        /> */}
+                        />
                     </div>
                 </div>
             </BackgroundImage>
