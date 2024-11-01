@@ -11,20 +11,25 @@ import NotificationsManager from "@/components/ui/NotificationManager";
 import { useNotifications } from "@/hooks/api/useNotifications";
 import { useUser } from "@/hooks/api/useUser";
 import { useRegistrationFlag } from "@/hooks/api/useRegistrationFlag";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function Dashboard() {
     const { user, isLoading, error } = useUser();
     const { logout, isSuccess, isPending: logoutLoading } = useLogout();
     const { notifications } = useNotifications();
     const { flag } = useRegistrationFlag("workshop-changes");
+    const router = useRouter();
 
-    if (isSuccess) {
-        window.location.href = "/";
-    }
+    useEffect(() => {
+        if (isSuccess) {
+            router.push("/admin/dashboard");
+        }
 
-    if (error) {
-        window.location.href = "/my-fact/login";
-    }
+        if (error) {
+            router.push("/my-fact/login");
+        }
+    }, [isSuccess, error]);
 
     return (
         <>
@@ -94,7 +99,7 @@ export default function Dashboard() {
                     text="Log out"
                     onClick={() => {
                         logout();
-                        window.location.href = "/";
+                        router.push("/");
                     }}
                 />
             </div>

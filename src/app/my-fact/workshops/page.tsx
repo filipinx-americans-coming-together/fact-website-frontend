@@ -7,7 +7,8 @@ import WorkshopSelect from "@/components/ui/WorkshopSelect";
 import { UpdateUserProps, useUpdateUser } from "@/hooks/api/useUpdateUser";
 import { useUser } from "@/hooks/api/useUser";
 import Link from "next/link";
-import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Workshops() {
     const { updateUser, isSuccess, isPending, error } = useUpdateUser();
@@ -19,13 +20,17 @@ export default function Workshops() {
         workshop_3_id: "",
     });
 
-    if (noUser) {
-        window.location.href = "/my-fact/login";
-    }
+    const router = useRouter();
 
-    if (isSuccess) {
-        window.location.href = "/my-fact/dashboard";
-    }
+    useEffect(() => {
+        if (noUser) {
+            router.push("/my-fact/login");
+        }
+
+        if (isSuccess) {
+            router.push("/my-fact/dashboard");
+        }
+    }, [isSuccess, noUser]);
 
     return (
         <>
