@@ -59,7 +59,7 @@ const OfficerRow = ({ role, officers, onOfficerClick }: OfficerRowProps) => {
     return (
         <div>
             {/* Position Title */}
-            <h2 className="text-2xl lg:text-4xl font-bold">{role}</h2>
+            <h2 className="text-2xl md:text-4xl font-bold">{role}</h2>
             <div className="flex flex-col md:flex-row justify-center mb-8">
                 {officers.map((officer, index) => (
                     <OfficerCard
