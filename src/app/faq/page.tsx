@@ -24,7 +24,7 @@ export default function FAQ() {
 
             <div className="flex flex-row justify-evenly flex-wrap items-start">
                     <div className="text-3xl sm:text-4xl lg:text-5xl font-bold w-full text-center my-8">General</div>
-					<div className="flex flex-col lg:w-2/5">
+					<div className="flex flex-col w-11/12 lg:w-2/5">
 					<FAQSection question="What is FACT?">
                         FACT stands for Filipinx Americans Coming Together and
                         is a conference hosted annually by the Philippine
@@ -62,7 +62,7 @@ export default function FAQ() {
                         be prone or sensitive to sickness.
                     </FAQSection>
 					</div>
-                    <div className="flex flex-col lg:w-2/5">
+                    <div className="flex flex-col w-11/12 lg:w-2/5">
                     <FAQSection question="Is there accessibility for workshops or variety shows?">
                         All FACT venue entrances are accessible via ramps on
                         either the front or sides of buildings.
@@ -97,7 +97,8 @@ export default function FAQ() {
                         search by Facilities Staff.
                     </FAQSection>
 					</div>
-                    <div className="text-3xl sm:text-4xl lg:text-5xl font-bold w-full text-center my-8">At UIUC</div>
+					<div className="flex flex-row justify-evenly gap-x-20 flex-wrap bg-highlight-secondary lg:w-11/12 rounded-3xl px-8 lg:px-4">
+                    <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center my-8 w-full">At UIUC</div>
 					<div className="flex flex-col lg:w-2/5">
                     <FAQSection question="How do I book a hotel using the hotel block booking system?">
                         FACT has coordinated a selection of hotel blocks
@@ -165,8 +166,9 @@ export default function FAQ() {
                         parking charges made towards all attendees.
                     </FAQSection>
 					</div>
+					</div>
                     <div className="text-3xl sm:text-4xl lg:text-5xl font-bold w-full text-center my-8">Registration</div>
-					<div className="flex flex-col lg:w-2/5">
+					<div className="flex flex-col w-11/12 lg:w-2/5">
                     <FAQSection question="How do I register?">
                         Use the “<FAQLink href="/my-fact/register" text="Register"/>”
                         tab on our website and fill out your information in the
@@ -191,7 +193,7 @@ export default function FAQ() {
                         has changed.
                     </FAQSection>
 					</div>
-					<div className="flex flex-col lg:w-2/5">
+					<div className="flex flex-col w-11/12 lg:w-2/5">
                     <FAQSection question="Are there refunds?">
                         Refunds can be requested via{" "}
                         <FAQLink href="/refund" text="this form"/> up until the end
