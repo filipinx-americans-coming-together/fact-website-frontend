@@ -89,10 +89,10 @@ export default function Locations() {
                         <UpdateLocationForm locations={locations} />
                     </div>
 
-                    <div className="pb-10">
+                    {/* <div className="pb-10">
                         <h1>Delete Location</h1>
                         <DeleteLocationForm locations={locations} />
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </>
