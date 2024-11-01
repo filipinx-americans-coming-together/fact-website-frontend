@@ -1,4 +1,5 @@
 import { API_URL } from "@/util/constants";
+import fetchWithCredentials from "@/util/fetchWithCredentials";
 import { LocationData } from "@/util/types";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
@@ -14,20 +15,24 @@ async function fetchUpdateLocation(
     props: LocationProps
 ): Promise<LocationData> {
     // request
-    const response = await fetch(`${API_URL}/registration/location/${props.id}/`, {
-        credentials: "include",
+    const response = await fetchWithCredentials({
+        url: `${API_URL}/registration/locations/${props.id}/`,
         method: "PUT",
-        body: JSON.stringify(
-            props
-        ),
+        body: JSON.stringify(props),
     });
 
-    const json = await response.json();
+    let json;
+
+    try {
+        json = await response.json();
+    } catch {
+        throw new Error("Server error, please try again later");
+    }
 
     if (!response.ok) {
         let message = "Server error, please try again later";
 
-        if (json.message) {
+        if (json.message && response.status !== 500) {
             message = json.message;
         }
 
@@ -39,7 +44,7 @@ async function fetchUpdateLocation(
         room_num: json[0].fields.room_num,
         building: json[0].fields.building,
         capacity: json[0].fields.capacity,
-        session: json[0].fields.session
+        session: json[0].fields.session,
     };
 
     return formatted;

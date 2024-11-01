@@ -1,6 +1,6 @@
 import { API_URL } from "@/util/constants";
+import fetchWithCredentials from "@/util/fetchWithCredentials";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { error } from "console";
 
 export interface RegisterFacilitatorsProps {
     registrations: {
@@ -15,9 +15,9 @@ async function fetchRegisterFacilitators(
     // for each facilitator make request
 
     const responses = await Promise.all(
-        props.registrations.map((facilitator) => {
-            return fetch(`${API_URL}/registration/facilitator/register/`, {
-                credentials: "include",
+        props.registrations.map(async (facilitator) => {
+            return fetchWithCredentials({
+                url: `${API_URL}/registration/facilitators/register/`,
                 method: "PUT",
                 body: JSON.stringify({
                     facilitator_name: facilitator.facilitator_name,

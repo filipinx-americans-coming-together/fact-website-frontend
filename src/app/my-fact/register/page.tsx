@@ -15,6 +15,7 @@ import InteractiveButton from "@/components/ui/InteractiveButton";
 import { useRequestEmailVerification } from "@/hooks/api/useRequestEmailVerification";
 import { useVerifyEmail } from "@/hooks/api/useVerifyEmail";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Register() {
     const { register, isSuccess, isPending, error } = useRegister();
@@ -48,16 +49,18 @@ export default function Register() {
         code: "",
     });
 
+    const router = useRouter();
+
     // make sure to clear other school data if school_id changes to not be "School not listed"
     useEffect(() => {
         if (formData.school_id !== "School not listed") {
             formData.other_school_name = null;
         }
-    }, [formData.school_id]);
 
-    if (isSuccess) {
-        window.location.href = "/my-fact/dashboard";
-    }
+        if (isSuccess) {
+            router.push("/my-fact/dashboard");
+        }
+    }, [formData.school_id, isSuccess]);
 
     return (
         <>

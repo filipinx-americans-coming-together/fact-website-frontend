@@ -1,10 +1,11 @@
 import { API_URL } from "@/util/constants";
+import fetchWithCredentials from "@/util/fetchWithCredentials";
 import { useMutation } from "@tanstack/react-query";
 
 async function fetchRequestEmailVerification(email: string): Promise<void> {
     // request
-    const response = await fetch(`${API_URL}/verification/request/`, {
-        credentials: "include",
+    const response = await fetchWithCredentials({
+        url: `${API_URL}/verifications/request/`,
         method: "POST",
         body: JSON.stringify({
             email: email,
@@ -12,12 +13,18 @@ async function fetchRequestEmailVerification(email: string): Promise<void> {
         }),
     });
 
-    const json = await response.json();
+    let json;
+
+    try {
+        json = await response.json();
+    } catch {
+        throw new Error("Server error, please try again later");
+    }
 
     if (!response.ok) {
         let message = "Server error, please try again later";
 
-        if (json.message) {
+        if (json.message && response.status !== 500) {
             message = json.message;
         }
 

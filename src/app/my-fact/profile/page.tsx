@@ -11,6 +11,7 @@ import { UpdateUserProps, useUpdateUser } from "@/hooks/api/useUpdateUser";
 import { useUser } from "@/hooks/api/useUser";
 import { useVerifyEmail } from "@/hooks/api/useVerifyEmail";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function Profile() {
@@ -48,17 +49,17 @@ export default function Profile() {
         code: "",
     });
 
-    if (noUser) {
-        window.location.href = "/my-fact/login";
-    }
-
-    if (isSuccess) {
-        window.location.href = "/my-fact/dashboard";
-    }
+    const router = useRouter();
 
     useEffect(() => {
-        console.log(user);
-    }, [user]);
+        if (noUser) {
+            router.push("/my-fact/login");
+        }
+
+        if (isSuccess) {
+            router.push("/my-fact/dashboard");
+        }
+    }, [isSuccess, noUser]);
 
     return (
         <>

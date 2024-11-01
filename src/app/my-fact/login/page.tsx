@@ -6,7 +6,8 @@ import TextInput from "@/components/ui/TextInput";
 import { useFacilitatorLogin } from "@/hooks/api/useFacilitatorLogin";
 import { useLogin } from "@/hooks/api/useLogin";
 import Link from "next/link";
-import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Login() {
     const { login, isPending, error, isSuccess } = useLogin();
@@ -24,13 +25,17 @@ export default function Login() {
         password: "",
     });
 
-    if (isSuccess) {
-        window.location.href = "/my-fact/dashboard";
-    }
+    const router = useRouter();
 
-    if (facilitatorSuccess) {
-        window.location.href = "/facilitators/dashboard";
-    }
+    useEffect(() => {
+        if (isSuccess) {
+            router.push("/my-fact/dashboard");
+        }
+
+        if (facilitatorSuccess) {
+            router.push("/facilitators/dashboard");
+        }
+    }, [isSuccess, error, facilitatorSuccess]);
 
     return (
         <>
