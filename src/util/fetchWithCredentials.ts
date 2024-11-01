@@ -27,9 +27,7 @@ export default async function fetchWithCredentials({
         credentials: "include",
         headers: {
             "Content-Type":
-                body instanceof FormData
-                    ? "multipart/form-data"
-                    : "application/json",
+                body instanceof FormData ? undefined : "application/json",
             "X-CSRFToken": csrf,
         },
     };
