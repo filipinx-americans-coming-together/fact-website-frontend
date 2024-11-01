@@ -13,6 +13,8 @@ async function fetchAdminLogin(
         body: JSON.stringify({ username: username, password: password }),
     });
 
+    console.log(response);
+
     let json;
 
     try {
