@@ -8,7 +8,7 @@ async function fetchUploadAgendaItems(file: File): Promise<AgendaItemData[]> {
     formData.append("agenda", file);
 
     // request
-    const response = await fetch(`${API_URL}/registration/agenda-items/bulk/`, {
+    const response = await fetch(`${API_URL}/fact-admin/agenda-items/bulk/`, {
         credentials: "include",
         method: "POST",
         body: formData,
