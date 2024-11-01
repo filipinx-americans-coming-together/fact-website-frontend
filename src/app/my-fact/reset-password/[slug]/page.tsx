@@ -4,7 +4,8 @@ import FormContainer from "@/components/formatting/FormContainer";
 import Navbar from "@/components/navigation/Navbar";
 import TextInput from "@/components/ui/TextInput";
 import { useResetPassword } from "@/hooks/api/useResetPassword";
-import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 interface PasswordData {
     password: string;
@@ -27,9 +28,13 @@ export default function ResetPassword({
 
     const [clientError, setClientError] = useState<string | undefined>();
 
-    if (isSuccess) {
-        window.location.href = "/my-fact/login";
-    }
+    const router = useRouter();
+
+    useEffect(() => {
+        if (isSuccess) {
+            router.push("/my-fact/login");
+        }
+    }, [isSuccess]);
 
     return (
         <>

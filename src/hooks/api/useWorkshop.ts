@@ -13,16 +13,22 @@ async function fetchWorkshop({ id }: { id: number }): Promise<{
     registrations: number;
     facilitator_assistants?: { name: string; contact: string }[];
 }> {
-    const response = await fetch(`${API_URL}/registration/workshop/${id}`, {
+    const response = await fetch(`${API_URL}/registration/workshops/${id}`, {
         credentials: "include",
     });
 
-    const json = await response.json();
+    let json;
+
+    try {
+        json = await response.json();
+    } catch {
+        throw new Error("Server error, please try again later");
+    }
 
     if (!response.ok) {
         let message = "Server error, please try again later";
 
-        if (json.message) {
+        if (json.message && response.status !== 500) {
             message = json.message;
         }
 

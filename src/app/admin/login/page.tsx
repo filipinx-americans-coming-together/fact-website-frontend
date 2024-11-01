@@ -5,19 +5,23 @@ import Navbar from "@/components/navigation/Navbar";
 import TextInput from "@/components/ui/TextInput";
 import { useAdminLogin } from "@/hooks/api/useAdminLogin";
 import Link from "next/link";
-import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function AdminLogin() {
     const { login, error, isPending, isSuccess } = useAdminLogin();
+    const router = useRouter();
 
     const [formData, setFormData] = useState<Object>({
         username: "",
         password: "",
     });
 
-    if (isSuccess) {
-        window.location.href = "/admin/dashboard";
-    }
+    useEffect(() => {
+        if (isSuccess) {
+            router.push("/admin/dashboard");
+        }
+    }, [isSuccess]);
 
     return (
         <div className="min-h-screen bg-slate-50 text-black">

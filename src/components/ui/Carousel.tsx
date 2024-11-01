@@ -27,8 +27,8 @@ export default function Carousel({ title, src, length, numImages }: CarouselProp
 
     return (
         <>
-            <div className={`text-${(numImages == 1 ? "2xl" : "4xl")}`}>{title}</div>
-            <div className="flex flex-row justify-between my-8 h-fit">
+            <div className={`text-${(numImages === 1 ? "2xl" : "4xl")} font-bold`}>{title}</div>
+            <div className="flex flex-row justify-between my-8 h-fit w-full">
                 <div
                     className="w-fit cursor-pointer self-center text-2xl lg:text-4xl"
                     onClick={() =>
@@ -41,7 +41,7 @@ export default function Carousel({ title, src, length, numImages }: CarouselProp
                 >
                     <IoIosArrowBack />
                 </div>
-                <div className={`w-${numImages == 1 ? "1/6" : (numImages == 2 ? "2/5" : "1/4")}`}>
+                <div className={numImages === 1 ? "w-5/6" : `basis-${(numImages === 2 ? "2/5" : "1/4")}`}>
                     <Image
                         key={currentIndex}
                         src={`/${src}/${currentIndex}.JPG`}
@@ -51,7 +51,7 @@ export default function Carousel({ title, src, length, numImages }: CarouselProp
                         placeholder={PLACEHOLDER_URL}
                     />
                 </div>
-                <div className={numImages == 1 ? "hidden" : `w-${numImages == 1 ? "full" : (numImages == 2 ? "2/5" : "1/4")}`}>
+				{numImages > 1 && <div className={`basis-${numImages === 2 ? "2/5" : "1/4"}`}>
                     <Image
                         key={currentIndex + 1}
                         src={currentIndex + 1 > length ? TRANSPARENT_URL : `/${src}/${currentIndex + 1}.JPG`}
@@ -60,8 +60,9 @@ export default function Carousel({ title, src, length, numImages }: CarouselProp
                         alt=""
                         placeholder={currentIndex + 1 > length ? TRANSPARENT_URL : PLACEHOLDER_URL}
                     />
-                </div>
-                <div className={numImages == 3 ? "w-1/4" : "hidden"}>
+                </div>}
+                
+                {numImages === 3 && <div className="basis-1/4">
                     <Image
                         key={currentIndex + 2}
                         src={currentIndex + 2 > length ? TRANSPARENT_URL : `/${src}/${currentIndex + 2}.JPG`}
@@ -70,7 +71,7 @@ export default function Carousel({ title, src, length, numImages }: CarouselProp
                         alt=""
                         placeholder={currentIndex + 1 > length ? TRANSPARENT_URL : PLACEHOLDER_URL}
                     />
-                </div>
+                </div>}
                 <div
                     className="w-fit cursor-pointer self-center text-2xl lg:text-4xl"
                     onClick={() =>

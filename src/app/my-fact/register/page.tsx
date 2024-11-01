@@ -15,6 +15,7 @@ import InteractiveButton from "@/components/ui/InteractiveButton";
 import { useRequestEmailVerification } from "@/hooks/api/useRequestEmailVerification";
 import { useVerifyEmail } from "@/hooks/api/useVerifyEmail";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Register() {
     const { register, isSuccess, isPending, error } = useRegister();
@@ -48,16 +49,18 @@ export default function Register() {
         code: "",
     });
 
+    const router = useRouter();
+
     // make sure to clear other school data if school_id changes to not be "School not listed"
     useEffect(() => {
         if (formData.school_id !== "School not listed") {
             formData.other_school_name = null;
         }
-    }, [formData.school_id]);
 
-    if (isSuccess) {
-        window.location.href = "/my-fact/dashboard";
-    }
+        if (isSuccess) {
+            router.push("/my-fact/dashboard");
+        }
+    }, [formData.school_id, isSuccess]);
 
     return (
         <>
@@ -240,35 +243,96 @@ export default function Register() {
                             </p>
                             <div className="text-xs">
                                 <p>
-                                    I. I am responsible for loss of items or
-                                    damage to FACT Conference facilities. I will
-                                    be liable for any costs incurred to repair
-                                    any inflicted damage
+                                    I. I am a registered student of a college or
+                                    university with proof of ID or student
+                                    enrollment.
                                 </p>
                                 <p>
-                                    II. I am responsible for any personal
-                                    valuables, as FACT Conference coordinators
-                                    and PSA will not be held responsible for any
-                                    missing belongings.
+                                    II. I am responsible for any self-inflicted
+                                    loss, theft or damage of my person, personal
+                                    valuables, or FACT Conference facilities,
+                                    vendors, and furniture and therefore am
+                                    liable for any missing belongings or costs
+                                    incurred to repair any damage.
                                 </p>
                                 <p>
-                                    III. PSA is committed to providing a safe,
+                                    III. I understand that there may be
+                                    reactions to sensitive material discussed
+                                    and that I am allowed to leave any space
+                                    where I no longer feel comfortable in at any
+                                    time.
+                                </p>
+                                <p>
+                                    IV. I allow myself to be included in photos,
+                                    videos, and livestreams taken by
+                                    FACTographers during the event for
+                                    promotional purposes.
+                                </p>
+                                <p>
+                                    V. I am responsible for all payments made
+                                    for food, drink, parking, or Palengke
+                                    purchases during the duration of the
+                                    conference.
+                                </p>
+                                <p>
+                                    VI. If I would like to rescind my
+                                    registration purposes for reasons of changed
+                                    availability, I must submit a request for
+                                    refund prior to the Early Registration
+                                    deadline of November 21st.
+                                </p>
+                                <p>
+                                    VII. PSA does not associate with contraband
+                                    material such as alcohol, nicotine products,
+                                    or other drug related items. Therefore, I
+                                    will not bring any contraband material to
+                                    any FACT-related event during the
+                                    conference.
+                                </p>
+                                <p>
+                                    VIII. I agree to follow all policies of the
+                                    University of Illinois at Urbana-Champaign
+                                    and its campus facilities that are outlined
+                                    via their respective websites.
+                                </p>
+                                <p>
+                                    IX. My data and information will be used
+                                    solely for administering my participation in
+                                    this event and acting as a source of contact
+                                    for conference-related alerts and
+                                    notifications. All payment information will
+                                    be protected.
+                                </p>
+                                <p>
+                                    X. PSA is committed to providing a safe,
                                     productive, and welcoming environment to all
                                     participants, including staff, vendors,
                                     guests, and delegates. PSA has no tolerance
-                                    for discrimination, harassment, or bullying
-                                    in any form at FACT-related events.
-                                    Participants are expected to adhere to these
-                                    principles and respect the rights of others.
+                                    for any form of discrimination, harassment,
+                                    or bullying in any form at FACT-related
+                                    events. Participants are expected to adhere
+                                    to these principles and respect the rights
+                                    of others.
                                 </p>
-                                <br />
-                                <p>
-                                    If you are a witness or are subject to
+                                <p className="ml-8">
+                                    a. If you are a witness or are subject to
                                     unacceptable behavior, please report to any
                                     PSA, FACT, or trusted organization leader,
                                     who will assist in resolving the issue and
                                     escorting out any individuals disrupting the
                                     safe environment FACT aims to foster.
+                                </p>
+                                <p>
+                                    XI. PSA FACT reserves the right to change,
+                                    amend, add or remove any of the above Terms
+                                    & Conditions in its sole discretion and
+                                    without prior notice. If one or more of the
+                                    conditions outlined in these Terms &
+                                    Conditions should become invalid, the
+                                    remaining conditions will continue to be
+                                    valid and apply. These Terms & Conditions
+                                    apply to all event participants (attendees,
+                                    speakers, sponsors, exhibitors).
                                 </p>
                             </div>
                         </span>

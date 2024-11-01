@@ -47,7 +47,7 @@ export const config = {
         "/my-fact/:path*",
         "/facilitators/:path*",
         "/workshops/:path*",
-        "/admin/:path*",
+        // "/admin/:path*",
         "/agenda/:path*",
     ],
 };

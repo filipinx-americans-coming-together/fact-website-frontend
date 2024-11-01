@@ -8,14 +8,14 @@ import { useWorkshops } from "@/hooks/api/useWorkshops";
 import { useMemo, useState } from "react";
 import ForbiddenPage from "@/components/formatting/ForbiddenPage";
 import LoadingCircle from "@/components/icons/LoadingCircle";
-import { useLocations } from "@/hooks/api/useLocations";
 import WorkshopInfo from "../components/WorkshopInfo";
+import { useRouter } from "next/navigation";
 
 export default function FacilitatorDashboard() {
     const { logout } = useLogout();
     const { user, isLoading } = useFacilitatorUser();
     const { workshops } = useWorkshops();
-    const { locations } = useLocations();
+    const router = useRouter();
 
     const facilitatedSessions = useMemo(() => {
         if (!user || !workshops) {
@@ -97,7 +97,7 @@ export default function FacilitatorDashboard() {
                             text="Log Out"
                             onClick={() => {
                                 logout();
-                                window.location.href = "/";
+                                router.push("/");
                             }}
                         />
                     </div>
