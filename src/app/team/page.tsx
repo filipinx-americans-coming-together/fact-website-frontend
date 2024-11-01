@@ -27,7 +27,7 @@ const OfficerCard = ({ officer, onClick }: OfficerCardProps) => {
     return (
         <div className="m-4 p-2 md:m-8 mx-auto">
             <div
-                className="relative w-48 h-56 lg:w-80 lg:h-96 cursor-pointer"
+                className="relative w-80 h-96 cursor-pointer mx-auto"
                 onClick={() => onClick(officer)}
             >
                 <Image
@@ -43,7 +43,7 @@ const OfficerCard = ({ officer, onClick }: OfficerCardProps) => {
                 />
             </div>
 
-            <p className="text-center mt-2">{officer.name}</p>
+            <p className="text-center mt-4 text-xl lg:text-2xl">{officer.name}</p>
         </div>
     );
 };
@@ -59,8 +59,8 @@ const OfficerRow = ({ role, officers, onOfficerClick }: OfficerRowProps) => {
     return (
         <div>
             {/* Position Title */}
-            <h2 className="text-2xl md:text-4xl font-bold">{role}</h2>
-            <div className="flex flex-col md:flex-row justify-center mb-8">
+            <h2 className="text-3xl lg:text-4xl font-bold">{role}</h2>
+            <div className="flex flex-col lg:flex-row justify-center mb-8">
                 {officers.map((officer, index) => (
                     <OfficerCard
                         key={index}
@@ -128,12 +128,11 @@ export default function Team() {
                 <Modal onClose={() => setSelectedOfficer(null)}>
                     <div className="flex flex-col md:flex-row items-center text-black p-5">
                         {/* Image */}
-                        <div className="w-full md:w-1/2">
+                        <div className="relative w-1/2 h-[80vh]">
                             <Image
                                 src={`/team-fact/${selectedOfficer.image}`}
                                 alt={selectedOfficer.name}
-                                width={400}
-                                height={300}
+                                fill={true}
                                 className="object-cover text-center"
                             />
                         </div>
