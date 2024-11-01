@@ -1,4 +1,5 @@
 import { API_URL } from "@/util/constants";
+import fetchWithCredentials from "@/util/fetchWithCredentials";
 import { LocationData } from "@/util/types";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
@@ -13,16 +14,19 @@ async function fetchCreateLocation(
     props: LocationProps
 ): Promise<LocationData> {
     // request
-	console.log(props.session)
-    const response = await fetch(`${API_URL}/registration/locations/`, {
-        credentials: "include",
+    const response = await fetchWithCredentials({
+        url: `${API_URL}/registration/locations/`,
         method: "POST",
-        body: JSON.stringify(
-            props
-        ),
+        body: JSON.stringify(props),
     });
 
-    const json = await response.json();
+    let json;
+
+    try {
+        json = await response.json();
+    } catch {
+        throw new Error("Server error, please try again later");
+    }
 
     if (!response.ok) {
         let message = "Server error, please try again later";
@@ -30,7 +34,7 @@ async function fetchCreateLocation(
         if (json.message && response.status !== 500) {
             message = json.message;
         }
-        
+
         throw new Error(message);
     }
 

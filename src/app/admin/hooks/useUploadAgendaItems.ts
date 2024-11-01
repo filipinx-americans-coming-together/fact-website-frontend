@@ -1,4 +1,5 @@
 import { API_URL } from "@/util/constants";
+import fetchWithCredentials from "@/util/fetchWithCredentials";
 import { AgendaItemData, ResponseData } from "@/util/types";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
@@ -7,13 +8,19 @@ async function fetchUploadAgendaItems(file: File): Promise<AgendaItemData[]> {
     formData.append("agenda", file);
 
     // request
-    const response = await fetch(`${API_URL}/fact-admin/agenda-items/bulk/`, {
-        credentials: "include",
+    const response = await fetchWithCredentials({
+        url: `${API_URL}/fact-admin/agenda-items/bulk/`,
         method: "POST",
         body: formData,
     });
 
-    const json = await response.json();
+    let json;
+
+    try {
+        json = await response.json();
+    } catch {
+        throw new Error("Server error, please try again later");
+    }
 
     if (!response.ok) {
         let message = "Server error, please try again later";
@@ -21,7 +28,7 @@ async function fetchUploadAgendaItems(file: File): Promise<AgendaItemData[]> {
         if (json.message && response.status !== 500) {
             message = json.message;
         }
-        
+
         throw new Error(message);
     }
 

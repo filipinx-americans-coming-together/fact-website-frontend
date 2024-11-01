@@ -15,7 +15,14 @@ async function fetchUser(): Promise<{
     const response = await fetch(`${API_URL}/registration/delegates/me/`, {
         credentials: "include",
     });
-    const json = await response.json();
+
+    let json;
+
+    try {
+        json = await response.json();
+    } catch {
+        throw new Error("Server error, please try again later");
+    }
 
     if (!response.ok) {
         let message = "Server error, please try again later";
@@ -23,7 +30,7 @@ async function fetchUser(): Promise<{
         if (json.message && response.status !== 500) {
             message = json.message;
         }
-        
+
         throw new Error(message);
     }
 

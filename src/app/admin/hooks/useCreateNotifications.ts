@@ -1,4 +1,5 @@
 import { API_URL } from "@/util/constants";
+import fetchWithCredentials from "@/util/fetchWithCredentials";
 import { NotificationData } from "@/util/types";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
@@ -10,8 +11,8 @@ async function fetchCreateNotification({
     expiration: Date;
 }): Promise<NotificationData> {
     // request
-    const response = await fetch(`${API_URL}/fact-admin/notifications/`, {
-        credentials: "include",
+    const response = await fetchWithCredentials({
+        url: `${API_URL}/fact-admin/notifications/`,
         method: "POST",
         body: JSON.stringify({
             message: message,
@@ -19,7 +20,13 @@ async function fetchCreateNotification({
         }),
     });
 
-    const json = await response.json();
+    let json;
+
+    try {
+        json = await response.json();
+    } catch {
+        throw new Error("Server error, please try again later");
+    }
 
     if (!response.ok) {
         let message = "Server error, please try again later";
@@ -27,7 +34,7 @@ async function fetchCreateNotification({
         if (json.message && response.status !== 500) {
             message = json.message;
         }
-        
+
         throw new Error(message);
     }
 

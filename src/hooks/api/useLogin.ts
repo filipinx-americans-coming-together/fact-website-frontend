@@ -1,4 +1,5 @@
 import { API_URL } from "@/util/constants";
+import fetchWithCredentials from "@/util/fetchWithCredentials";
 import { DelegateData, RegistrationData, UserData } from "@/util/types";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
@@ -11,13 +12,19 @@ async function fetchLogin(
     registration: RegistrationData[];
 }> {
     // request
-    const response = await fetch(`${API_URL}/registration/delegates/login/`, {
-        credentials: "include",
+    const response = await fetchWithCredentials({
+        url: `${API_URL}/registration/delegates/login/`,
         method: "POST",
         body: JSON.stringify({ email: email, password: password }),
     });
 
-    const json = await response.json();
+    let json;
+
+    try {
+        json = await response.json();
+    } catch {
+        throw new Error("Server error, please try again later");
+    }
 
     if (!response.ok) {
         let message = "Server error, please try again later";
@@ -25,7 +32,7 @@ async function fetchLogin(
         if (json.message && response.status !== 500) {
             message = json.message;
         }
-        
+
         throw new Error(message);
     }
 

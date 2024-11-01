@@ -1,4 +1,5 @@
 import { API_URL } from "@/util/constants";
+import fetchWithCredentials from "@/util/fetchWithCredentials";
 import { SchoolData } from "@/util/types";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
@@ -7,13 +8,19 @@ async function fetchApproveSchool(props: {
     approved_name: string;
 }): Promise<SchoolData> {
     // request
-    const response = await fetch(`${API_URL}/registration/schools/new/`, {
-        credentials: "include",
+    const response = await fetchWithCredentials({
+        url: `${API_URL}/registration/schools/new/`,
         method: "POST",
         body: JSON.stringify(props),
     });
 
-    const json = await response.json();
+    let json;
+
+    try {
+        json = await response.json();
+    } catch {
+        throw new Error("Server error, please try again later");
+    }
 
     if (!response.ok) {
         let message = "Server error, please try again later";
@@ -21,7 +28,7 @@ async function fetchApproveSchool(props: {
         if (json.message && response.status !== 500) {
             message = json.message;
         }
-        
+
         throw new Error(message);
     }
 
