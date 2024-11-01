@@ -30,7 +30,7 @@ const EventbriteWidget = ({ onComplete }: { onComplete: Function }) => {
         });
     }, []);
 
-    return <div id="eventbrite-widget-container-1060445463929"></div>;
+    return <div className="w-full" id="eventbrite-widget-container-1060445463929"></div>;
 };
 
 // Load the Eventbrite widgets script
@@ -260,7 +260,7 @@ export default function Register() {
                     />
                     <br />
 
-                    <div>
+                    <div className="w-full">
                         <EventbriteWidget
                             onComplete={() => {
                                 setCheckoutComplete(true);
