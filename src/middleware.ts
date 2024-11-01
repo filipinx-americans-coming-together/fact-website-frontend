@@ -46,7 +46,7 @@ export const config = {
     matcher: [
         "/my-fact/:path*",
         "/facilitators/:path*",
-        "/workshops/:path*",
+        // "/workshops/:path*",
         // "/admin/:path*",
         "/agenda/:path*",
     ],

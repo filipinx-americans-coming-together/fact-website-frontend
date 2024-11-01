@@ -74,10 +74,15 @@ export interface LocationData {
 
 export interface FacilitatorData {
     id: number;
+    userId: number;
+    fa_name: string;
+    fa_contact: string;
     department_name: string;
-    facilitator_names: string[];
+    position: string | null;
+    facilitators: string[];
     image_url: string;
     bio: string;
+    attending_networking_session: boolean;
 }
 
 export interface FacilitatorRegistrationData {

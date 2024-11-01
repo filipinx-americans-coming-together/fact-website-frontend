@@ -1,5 +1,6 @@
 import { API_URL } from "@/util/constants";
 import {
+    FacilitatorData,
     LocationData,
     ResponseData,
     WorkshopData,
@@ -10,6 +11,7 @@ import { useQuery } from "@tanstack/react-query";
 async function fetchWorkshop({ id }: { id: number }): Promise<{
     workshop: WorkshopData;
     location: LocationData;
+    facilitator: FacilitatorData;
     registrations: number;
     facilitator_assistants?: { name: string; contact: string }[];
 }> {
@@ -35,7 +37,6 @@ async function fetchWorkshop({ id }: { id: number }): Promise<{
         throw new Error(message);
     }
 
-    // format workshop data
     const workshopData = json.workshop[0];
 
     const formattedWorkshop: WorkshopData = {
@@ -47,7 +48,7 @@ async function fetchWorkshop({ id }: { id: number }): Promise<{
         session: workshopData.fields.session,
     };
 
-    // format location data
+    // Format location data
     const locationData = json.location[0];
 
     const formattedLocation: LocationData = {
@@ -56,6 +57,21 @@ async function fetchWorkshop({ id }: { id: number }): Promise<{
         building: locationData.fields.building,
         capacity: locationData.fields.capacity,
         session: locationData.fields.session,
+    };
+
+    const facilitatorData = json.facilitator[0];
+
+    const formattedFacilitator: FacilitatorData = {
+        id: facilitatorData.pk,
+        userId: facilitatorData.fields.user,
+        fa_name: facilitatorData.fields.fa_name,
+        fa_contact: facilitatorData.fields.fa_contact,
+        department_name: facilitatorData.fields.department_name,
+        position: facilitatorData.fields.position,
+        facilitators: facilitatorData.fields.facilitators,
+        image_url: facilitatorData.fields.image_url,
+        bio: facilitatorData.fields.bio,
+        attending_networking_session: facilitatorData.fields.attending_networking_session,
     };
 
     const formattedAssistants = json.facilitator_assistants?.map(
@@ -67,6 +83,7 @@ async function fetchWorkshop({ id }: { id: number }): Promise<{
     return {
         workshop: formattedWorkshop,
         location: formattedLocation,
+        facilitator: formattedFacilitator,
         registrations: json.registrations,
         facilitator_assistants: formattedAssistants,
     };
@@ -77,6 +94,7 @@ export function useWorkshop({ id }: { id: number }): {
         | {
               workshop: WorkshopData;
               location: LocationData;
+              facilitator: FacilitatorData;
               registrations: number;
               facilitator_assistants?: { name: string; contact: string }[];
           }

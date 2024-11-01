@@ -41,8 +41,9 @@ export default function WorkshopDetail({
         );
     }
 
-    const { title, description, facilitators, session } = workshop.workshop;
+    const { title, description, session } = workshop.workshop;
     const { building, room_num, capacity } = workshop.location;
+    const { department_name, facilitators, image_url, bio } = workshop.facilitator;
 
     return (
         <PageContainer title="Workshop">
@@ -59,6 +60,8 @@ export default function WorkshopDetail({
                         <h2 className="text-xl font-semibold">Details</h2>
                         <p>Session: {session}</p>
                         <p>Facilitators: {facilitators}</p>
+                        <p>Department: {department_name} </p>
+                        <p>{bio}</p>
                     </div>
 
                     {/** Location Details */}
