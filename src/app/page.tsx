@@ -45,7 +45,7 @@ export default function Home() {
                         </div>
                     </div>
                     <div className="my-4 md:mx-8 lg:mx-14"></div>
-                    <div className="flex flex-col justify-center text-center">
+                    <div className="flex flex-col justify-center text-center gap-4">
                         <CountdownTimer
                             date={new Date("December 6, 2024 19:00:00")}
                         />

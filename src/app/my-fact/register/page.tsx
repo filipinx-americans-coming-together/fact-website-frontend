@@ -210,7 +210,7 @@ export default function Register() {
                         <option value="Sophomore">Sophomore</option>
                         <option value="Junior">Junior</option>
                         <option value="Senior">Senior</option>
-                        <option value="Super Senior">Super Senior</option>
+                        <option value="Grad Student">Grad Student</option>
                         <option value="Other">Other</option>
                         <option value="N/A">N/A</option>
                     </Select>

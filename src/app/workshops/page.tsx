@@ -26,14 +26,14 @@ export default function Workshops() {
     const hasFilteredWorkshops = (filteredWorkshops ?? []).length > 0;
 
     return (
-        <PageContainer title="Workshops">
+        <PageContainer title="Sessions">
             <div className="flex flex-col items-center px-4">
                 {/** Search and Filter Functionality */}
                 <div className="flex flex-col md:flex-row md:space-y-0 md:space-x-4 mb-8 w-full max-w-2xl">
                     {/** Search Input */}
                     <input
                         type="text"
-                        placeholder="Search workshops..."
+                        placeholder="Search workshops or panels..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         className="w-full border-2 border-highlight-primary bg-background-primary p-3 rounded-md
