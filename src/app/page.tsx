@@ -57,6 +57,8 @@ export default function Home() {
                             text="REGISTER NOW"
                             url="/my-fact/register"
                         />
+						<br />
+						<LinkButton text="GET VARIETY SHOW TICKETS" url="https://www.eventbrite.com/e/fact-2024-variety-show-tickets-1070730767549" newTab={true}/>
                     </div>
                 </div>
             </BackgroundImage>
