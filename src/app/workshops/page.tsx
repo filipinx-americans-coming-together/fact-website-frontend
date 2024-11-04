@@ -33,7 +33,7 @@ export default function Workshops() {
                     {/** Search Input */}
                     <input
                         type="text"
-                        placeholder="Search workshops..."
+                        placeholder="Search workshops or panels..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         className="w-full border-2 border-highlight-primary bg-background-primary p-3 rounded-md
