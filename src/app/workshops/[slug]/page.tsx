@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import PageContainer from "@/components/formatting/PageContainer";
 import Footer from "@/components/formatting/PageFooter";
 import LoadingCircle from "@/components/icons/LoadingCircle";
@@ -20,10 +20,14 @@ export default function WorkshopDetail({
     const token = params.slug;
     const workshopId = extractWorkshopId(token);
     const router = useRouter();
+    const searchParams = useSearchParams();
 
     const { workshop, isLoading, error } = useWorkshop({
         id: workshopId ?? 0,
     });
+
+    let filterParam = searchParams.get("search");
+    let sessionParam = searchParams.get("session");
 
     if (isLoading) {
         return (
@@ -76,7 +80,9 @@ export default function WorkshopDetail({
             {/** Back Button */}
             <div className="flex justify-center mt-8 px-4">
                 <button
-                    onClick={() => router.back()}
+                    onClick={() => {
+                        router.push(`/workshops?search=${filterParam}&session=${sessionParam}`)
+                    }}
                     className="w-full md:w-auto px-4 py-2 bg-highlight-secondary 
                                text-white rounded-md hover:bg-highlight-primary 
                                transition duration-500"

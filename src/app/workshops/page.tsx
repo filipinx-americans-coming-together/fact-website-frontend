@@ -1,29 +1,41 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import PageContainer from "@/components/formatting/PageContainer";
 import Footer from "@/components/formatting/PageFooter";
 import LoadingCircle from "@/components/icons/LoadingCircle";
 import { useWorkshops } from "@/hooks/api/useWorkshops";
+import { useSearchParams, useRouter } from "next/navigation";
 
 export default function Workshops() {
     const { workshops } = useWorkshops();
-    const [searchQuery, setSearchQuery] = useState("");
-    const [selectedSession, setSelectedSession] = useState("");
+    const router = useRouter();
+    const searchParams = useSearchParams();
 
-    const filteredWorkshops =
-        workshops?.filter((workshop) => {
-            const matchesSearch = workshop.title
-                .toLowerCase()
-                .includes(searchQuery.toLowerCase());
+    const [searchQuery, setSearchQuery] = useState(searchParams.get("search") || "");
+    const [selectedSession, setSelectedSession] = useState(searchParams.get("session") || "");
 
-            const matchesSession = (selectedSession === "") || (workshop.session === parseInt(selectedSession));
+    // Filter workshops based on search query and session
+    const filteredWorkshops = workshops?.filter((workshop) => {
+        const matchesSearch = workshop.title
+            .toLowerCase()
+            .includes(searchQuery.toLowerCase());
 
-            return matchesSearch && matchesSession;
-        });
+        const matchesSession = (selectedSession === "") || (workshop.session === parseInt(selectedSession));
+
+        return matchesSearch && matchesSession;
+    });
 
     const hasFilteredWorkshops = (filteredWorkshops ?? []).length > 0;
+
+    // Update URL parameters when search query or session changes
+    useEffect(() => {
+        const params = new URLSearchParams();
+        if (searchQuery) params.set("search", searchQuery);
+        if (selectedSession) params.set("session", selectedSession);
+        router.replace(`/workshops?${params.toString()}`);
+    }, [router, searchQuery, selectedSession]);
 
     return (
         <PageContainer title="Sessions">
@@ -61,9 +73,13 @@ export default function Workshops() {
                     <div>
                         {filteredWorkshops?.map((workshop) => {
                             const workshopURL = `${workshop.title.toLowerCase().replace(/\s+/g, "-")}-${workshop.id}`;
+                            const queryParams = new URLSearchParams({
+                                search: searchQuery,
+                                session: selectedSession,
+                            }).toString();
 
                             return (
-                                <Link key={workshop.id} href={`/workshops/${encodeURIComponent(workshopURL)}`}>
+                                <Link key={workshop.id} href={`/workshops/${encodeURIComponent(workshopURL)}?${queryParams}`}>
                                     <div
                                         className="bg-highlight-secondary p-8 m-8 rounded 
                                                 cursor-pointer hover:bg-highlight-primary 
