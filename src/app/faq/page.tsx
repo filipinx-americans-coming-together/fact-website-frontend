@@ -172,9 +172,9 @@ export default function FAQ() {
                     <FAQSection question="How do I register?">
                         Use the “<FAQLink href="/my-fact/register" text="Register"/>”
                         tab on our website and fill out your information in the
-                        boxes Continue to the next page and you can view the
+                        boxes. Continue to the next page and you can view the
                         sessions you signed up for and the details for those
-                        workshops!
+                        workshops! Watch <FAQLink href="https://youtu.be/RO5fCSOywBI?si=OLgI6Eq0AD76eFgU" text="this video" newTab={true}/> for a walkthrough of the steps to register.
                     </FAQSection>
                     <FAQSection question="Where can we find information regarding workshop information?">
                         Workshop and facilitator biographies are available via
