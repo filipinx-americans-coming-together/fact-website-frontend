@@ -19,10 +19,10 @@ const iconList = [
 const NAV_LINKS = [
     { text: "Home", path: "/" },
     { text: "About", path: "/about" },
-	// { text: "Agenda", path: "/agenda" },
+	{ text: "Agenda", path: "/agenda" },
+    { text: "Sessions", path: "/workshops" },
     { text: "Team", path: "/team" },
     { text: "Gallery", path: "/gallery" },
-    { text: "Sessions", path: "/workshops" },
     { text: "FAQ", path: "/faq" },
     { text: "My FACT", path: "/my-fact/login"}
 ];
