@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
 import PageContainer from "@/components/formatting/PageContainer";
 import Footer from "@/components/formatting/PageFooter";
@@ -8,7 +8,7 @@ import LoadingCircle from "@/components/icons/LoadingCircle";
 import { useWorkshops } from "@/hooks/api/useWorkshops";
 import { useSearchParams, useRouter } from "next/navigation";
 
-export default function Workshops() {
+function WorkshopsContent() {
     const { workshops } = useWorkshops();
     const router = useRouter();
     const searchParams = useSearchParams();
@@ -106,4 +106,12 @@ export default function Workshops() {
             <Footer />
         </PageContainer>
     );
+}
+
+export default function Workshops() {
+    return (
+        <Suspense fallback={<LoadingCircle />}>
+            <WorkshopsContent />
+        </Suspense>
+    )
 }

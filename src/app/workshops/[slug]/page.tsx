@@ -5,6 +5,7 @@ import PageContainer from "@/components/formatting/PageContainer";
 import Footer from "@/components/formatting/PageFooter";
 import LoadingCircle from "@/components/icons/LoadingCircle";
 import { useWorkshop } from "@/hooks/api/useWorkshop";
+import { Suspense } from "react";
 
 function extractWorkshopId(slug: string) {
     const parts = slug.split("-");
@@ -12,7 +13,7 @@ function extractWorkshopId(slug: string) {
     return parseInt(idPart, 10);
 }
 
-export default function WorkshopDetail({
+function WorkshopDetailContent({
     params,
 }: {
     params: { slug: string };
@@ -51,46 +52,54 @@ export default function WorkshopDetail({
     const facilitatorLabel = session === 3 ? "Panelist(s)" : "Facilitator(s)";
 
     return (
-        <PageContainer title="Workshop">
-            <div className="flex flex-col items-center w-full mx-auto 
-                            p-4 md:p-8 rounded bg-highlight-secondary">
-                {/** Workshop Title and Description */}
-                <h1 className="text-3xl font-bold text-center p-2 md:p-4">{title}</h1>
-                <p className="text-lg text-center px-2 py-12">{description}</p>
+            <PageContainer title="Workshop">
+                <div className="flex flex-col items-center w-full mx-auto 
+                                p-4 md:p-8 rounded bg-highlight-secondary">
+                    {/** Workshop Title and Description */}
+                    <h1 className="text-3xl font-bold text-center p-2 md:p-4">{title}</h1>
+                    <p className="text-lg text-center px-2 py-12">{description}</p>
 
-                {/** Workshop and Location Details */}
-                <div className="w-full flex flex-col md:flex-row md:justify-between md:space-x-6 space-y-4 md:space-y-0 text-center">
-                    {/** Workshop Details */}
-                    <div className="flex-1 flex flex-col space-y-2 border-2 rounded p-4">
-                        <h2 className="text-xl font-semibold">Details</h2>
-                        <p>Session: {session}</p>
-                        <p>{facilitatorLabel}: {facilitators}</p>
-                    </div>
+                    {/** Workshop and Location Details */}
+                    <div className="w-full flex flex-col md:flex-row md:justify-between md:space-x-6 space-y-4 md:space-y-0 text-center">
+                        {/** Workshop Details */}
+                        <div className="flex-1 flex flex-col space-y-2 border-2 rounded p-4">
+                            <h2 className="text-xl font-semibold">Details</h2>
+                            <p>Session: {session}</p>
+                            <p>{facilitatorLabel}: {facilitators}</p>
+                        </div>
 
-                    {/** Location Details */}
-                    <div className="flex-1 flex flex-col space-y-2 border-2 rounded p-4">
-                        <h2 className="text-xl font-semibold">Location (Subject to Change)</h2>
-                        <p>Building: {building}</p>
-                        <p>Room: {room_num}</p>
-                        <p>Capacity: {capacity}</p>
+                        {/** Location Details */}
+                        <div className="flex-1 flex flex-col space-y-2 border-2 rounded p-4">
+                            <h2 className="text-xl font-semibold">Location (Subject to Change)</h2>
+                            <p>Building: {building}</p>
+                            <p>Room: {room_num}</p>
+                            <p>Capacity: {capacity}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            {/** Back Button */}
-            <div className="flex justify-center mt-8 px-4">
-                <button
-                    onClick={() => {
-                        router.push(`/workshops?search=${filterParam}&session=${sessionParam}`)
-                    }}
-                    className="w-full md:w-auto px-4 py-2 bg-highlight-secondary 
-                               text-white rounded-md hover:bg-highlight-primary 
-                               transition duration-500"
-                >
-                    &larr; Back
-                </button>
-            </div>
-            <Footer />
-        </PageContainer>
+                {/** Back Button */}
+                <div className="flex justify-center mt-8 px-4">
+                    <button
+                        onClick={() => {
+                            router.push(`/workshops?search=${filterParam}&session=${sessionParam}`)
+                        }}
+                        className="w-full md:w-auto px-4 py-2 bg-highlight-secondary 
+                                text-white rounded-md hover:bg-highlight-primary 
+                                transition duration-500"
+                    >
+                        &larr; Back
+                    </button>
+                </div>
+                <Footer />
+            </PageContainer>
+    );
+}
+
+export default function WorkshopDetail({ params }: { params: { slug: string } }) {
+    return (
+        <Suspense fallback={<LoadingCircle />}>
+            <WorkshopDetailContent params={params} />
+        </Suspense>
     );
 }
