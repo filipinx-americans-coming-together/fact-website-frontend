@@ -34,7 +34,7 @@ const OfficerCard = ({ officer, onClick }: OfficerCardProps) => {
                     src={src}
                     alt={officer.name}
                     fill={true}
-                    className="object-cover"
+                    className="object-cover rounded-md shadow-lg transition duration-500 transform hover:scale-105"
                     blurDataURL={FACT_LOGO_SOURCE}
                     placeholder="blur"
                     onError={() => {
@@ -82,10 +82,10 @@ type ModalProps = {
 const Modal = ({ children, onClose }: ModalProps) => {
     return (
         <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 md:w-3/4 lg:w-full"
             onClick={onClose}
         >
-            <div className="relative bg-white rounded w-full max-w-4xl h-[90vh] md:h-auto mx-4">
+            <div className="relative bg-white rounded w-full md:w-3/4 lg:w-1/2 max-w-4xl h-[90vh] md:h-auto mx-4">
                 {/* Close Button */}
                 <button
                     className="absolute top-2 right-4 text-gray-500 hover:text-gray-800 text-3xl font-bold"
@@ -128,12 +128,12 @@ export default function Team() {
                 <Modal onClose={() => setSelectedOfficer(null)}>
                     <div className="flex flex-col md:flex-row items-center text-black p-5">
                         {/* Image */}
-                        <div className="relative w-1/2 h-[80vh]">
+                        <div className="relative w-full sm:h-[40vh] md:w-1/2 lg:w-1/2 lg:h-[60vh] md:h-[45vh]">
                             <Image
                                 src={`/team-fact/${selectedOfficer.image}`}
                                 alt={selectedOfficer.name}
                                 fill={true}
-                                className="object-cover text-center"
+                                className="object-cover text-center rounded-md shadow-lg"
                             />
                         </div>
                         {/* Officer Info */}
