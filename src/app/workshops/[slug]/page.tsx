@@ -58,29 +58,33 @@ const FacilitatorDetail = ({ facilitator }: { facilitator: Facilitator }) => {
 
     return (
         <div className="relative w-full flex flex-col md:flex-row items-center text-black p-5">
-            <div className="relative w-full h-[70vh] md:w-1/2 lg:w-1/2 lg:h-[60vh] md:h-[45vh]">
-                {isImageLoading && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-gray-200 rounded-md">
-                        <LoadingCircle />
-                    </div>
-                )}
-                {facilitator.image_url && (
+            <div className="relative flex items-center justify-center w-full md:w-1/2 lg:w-1/2">
+                <div className="w-full h-auto max-w-md max-h-[70vh] mx-auto lg:p-8">
+                    {isImageLoading && (
+                        <div className="absolute inset-0 flex items-center justify-center bg-gray-200 rounded-md">
+                            <LoadingCircle />
+                        </div>
+                    )}
+                    {facilitator.image_url && (
                         <Image
                             src={facilitator.image_url}
                             alt={facilitator.department_name}
-                            layout="fill"
-                            fill={true}
-                            className="object-cover text-center rounded-md shadow-lg"
+                            layout="intrinsic" // ensures image maintains aspect ratio
+                            width={500}
+                            height={500}
+                            objectFit="contain"
+                            className="rounded-md shadow-lg"
                             onLoadingComplete={() => setIsImageLoading(false)}
                             onError={() => setIsImageLoading(false)}
                         />
                     )}
+                </div>
             </div>
             <div className="md:ml-6 mt-4 md:mt-0 text-left w-full md:w-1/2 p-5">
                 <h2 className="text-2xl md:text-3xl font-bold">
                     {facilitator.department_name}
                 </h2>
-                {facilitator.position != "nan" && (
+                {facilitator.position !== "nan" && (
                     <p className="text-sm text-gray-500">{facilitator.position}</p>
                 )}
                 <p className="mt-4">{facilitator.bio}</p>
