@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
     title: "FACT 2024",
     description:
-        "Filipino Americans Coming Together conference presented by the Philippine Student Association at UIUC",
+        "Filipinx Americans Coming Together conference presented by the Philippine Student Association at UIUC",
 };
 
 export default function RootLayout({
