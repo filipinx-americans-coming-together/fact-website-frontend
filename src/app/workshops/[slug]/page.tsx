@@ -139,6 +139,8 @@ function WorkshopDetailContent({
     const { building, room_num, capacity } = workshop.location;
     const facilitators = workshop.facilitators;
 
+    const sessionLabel = session === 3 ? "Career Panel" : "Workshop";
+
     const facilitatorLabel =
     session === 3
         ? facilitators.length === 1
@@ -149,7 +151,7 @@ function WorkshopDetailContent({
         : "Facilitators";
 
     return (
-        <PageContainer title="Workshop">
+        <PageContainer title={sessionLabel}>
             <div className="flex flex-col items-center w-full mx-auto 
                             p-4 md:p-8 rounded bg-highlight-secondary">
                 <h1 className="text-3xl font-bold text-center p-2 md:p-4">{title}</h1>
