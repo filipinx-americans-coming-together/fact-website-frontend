@@ -4,6 +4,7 @@ import InteractiveButton from "@/components/ui/InteractiveButton";
 import FacilitatorRow from "./FacilitatorRow";
 import { useState } from "react";
 import { useRegisterFacilitators } from "@/hooks/api/useRegisterFacilitators";
+import LoadingCircle from "@/components/icons/LoadingCircle";
 
 export default function FacilitatorRegistration({
     facilitators,
@@ -20,7 +21,8 @@ export default function FacilitatorRegistration({
           }[];
 }) {
     const [formData, setFormData] = useState<Object>({});
-    const { registerFacilitators } = useRegisterFacilitators();
+    const { registerFacilitators, isPending, isSuccess } =
+        useRegisterFacilitators();
 
     return (
         <div>
@@ -50,48 +52,54 @@ export default function FacilitatorRegistration({
                 })}
                 <br />
                 <div className="flex justify-center">
-                    <InteractiveButton
-                        text="Save Changes"
-                        onClick={() => {
-                            // parse data, name|workshop
-                            // format with name: name, workshops: [ids]
+                    {isSuccess && "Changes saved successfully"}
+                    {isPending && !isSuccess && <LoadingCircle />}
+                    {!isPending && !isSuccess && (
+                        <InteractiveButton
+                            text="Save Changes"
+                            onClick={() => {
+                                // parse data, name|workshop
+                                // format with name: name, workshops: [ids]
 
-                            const registrationData: {
-                                facilitator_name: string;
-                                workshops: (number | undefined)[];
-                            }[] = [];
+                                const registrationData: {
+                                    facilitator_name: string;
+                                    workshops: (number | undefined)[];
+                                }[] = [];
 
-                            for (const [key, value] of Object.entries(
-                                formData
-                            )) {
-                                const data = key.split("|");
-                                const facilitatorName = data[0];
+                                for (const [key, value] of Object.entries(
+                                    formData
+                                )) {
+                                    const data = key.split("|");
+                                    const facilitatorName = data[0];
 
-                                const index = registrationData.findIndex(
-                                    (registration) =>
-                                        registration.facilitator_name ===
-                                        facilitatorName
-                                );
-
-                                if (index !== -1) {
-                                    registrationData[index].workshops.push(
-                                        value ? parseInt(value) : undefined
+                                    const index = registrationData.findIndex(
+                                        (registration) =>
+                                            registration.facilitator_name ===
+                                            facilitatorName
                                     );
-                                } else {
-                                    registrationData.push({
-                                        facilitator_name: facilitatorName,
-                                        workshops: [
-                                            value ? parseInt(value) : undefined,
-                                        ],
-                                    });
-                                }
-                            }
 
-                            registerFacilitators({
-                                registrations: registrationData,
-                            });
-                        }}
-                    />
+                                    if (index !== -1) {
+                                        registrationData[index].workshops.push(
+                                            value ? parseInt(value) : undefined
+                                        );
+                                    } else {
+                                        registrationData.push({
+                                            facilitator_name: facilitatorName,
+                                            workshops: [
+                                                value
+                                                    ? parseInt(value)
+                                                    : undefined,
+                                            ],
+                                        });
+                                    }
+                                }
+
+                                registerFacilitators({
+                                    registrations: registrationData,
+                                });
+                            }}
+                        />
+                    )}
                 </div>
             </div>
         </div>

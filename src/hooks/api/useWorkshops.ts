@@ -58,6 +58,9 @@ export function useWorkshops(): {
         retry: 0,
     });
 
+    workshops?.sort((a, b) => a.title.localeCompare(b.title)); // sort in alphabetical order
+    workshops?.sort((a, b) => a.session - b.session);      // while keeping the sessions in order   
+
     // const counts = useQueries({
     //     queries:
     //         workshops && workshops.length > 0
