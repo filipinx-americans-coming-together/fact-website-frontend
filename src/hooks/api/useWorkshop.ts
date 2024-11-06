@@ -1,5 +1,6 @@
 import { API_URL } from "@/util/constants";
 import {
+    FacilitatorData,
     LocationData,
     ResponseData,
     WorkshopData,
@@ -10,6 +11,7 @@ import { useQuery } from "@tanstack/react-query";
 async function fetchWorkshop({ id }: { id: number }): Promise<{
     workshop: WorkshopData;
     location: LocationData;
+    facilitators: FacilitatorData[];
     registrations: number;
     facilitator_assistants?: { name: string; contact: string }[];
 }> {
@@ -55,6 +57,19 @@ async function fetchWorkshop({ id }: { id: number }): Promise<{
         capacity: locationData.fields.capacity,
         session: locationData.fields.session,
     };
+    
+    const facilitatorData = json.facilitators;
+
+    const formattedFacilitators: FacilitatorData[] = facilitatorData.map((facilitator: any) => ({
+        id: facilitator.pk,
+        department_name: facilitator.fields.department_name,
+        facilitator_names: facilitator.fields.facilitators
+            .split(",")
+            .map((name: string) => name.trim()),
+        image_url: facilitator.fields.image_url,
+        position: facilitator.fields.position,
+        bio: facilitator.fields.bio,
+    }));
 
     const formattedAssistants = json.facilitator_assistants?.map(
         (fa: ResponseData<{ name: string; contact: string }>) => {
@@ -65,6 +80,7 @@ async function fetchWorkshop({ id }: { id: number }): Promise<{
     return {
         workshop: formattedWorkshop,
         location: formattedLocation,
+        facilitators: formattedFacilitators,
         registrations: json.registrations,
         facilitator_assistants: formattedAssistants,
     };
@@ -75,6 +91,7 @@ export function useWorkshop({ id }: { id: number }): {
         | {
               workshop: WorkshopData;
               location: LocationData;
+              facilitators: FacilitatorData[];
               registrations: number;
               facilitator_assistants?: { name: string; contact: string }[];
           }

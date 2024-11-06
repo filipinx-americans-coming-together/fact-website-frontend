@@ -43,6 +43,7 @@ async function fetchUser(): Promise<{
             .split(",")
             .map((name: string) => name.trim()),
         image_url: json.facilitator[0].fields.image_url,
+        position: json.facilitator[0].fields.position,
         bio: json.facilitator[0].fields.bio,
     };
 

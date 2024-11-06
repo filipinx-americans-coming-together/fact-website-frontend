@@ -77,6 +77,7 @@ export interface FacilitatorData {
     department_name: string;
     facilitator_names: string[];
     image_url: string;
+    position: string;
     bio: string;
 }
 
