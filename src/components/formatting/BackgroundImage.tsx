@@ -19,7 +19,7 @@ export default function BackgroundImage({
                 className="absolute inset-0 bg-cover bg-center opacity-50 overflow-hidden -z-10"
                 style={{ backgroundImage: `url(${imageURL})` }}
             ></div>
-            <div className="inset-x-0 item-center my-auto flex items-center justify-center z-40">
+            <div className="inset-x-0 item-center my-auto flex items-center justify-center">
                 {children}
             </div>
         </div>
