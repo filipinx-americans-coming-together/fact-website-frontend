@@ -14,12 +14,12 @@ export default function BackgroundImage({
     children,
 }: BackgroundImageProps) {
     return (
-        <div className="relative h-screen w-full bg-[#112e28]">
+        <div className="relative min-h-screen w-full py-4 sm:py-0 flex flex-col justify-center"> {/*bg-[#112e28] */}
             <div
-                className="absolute inset-0 bg-cover bg-center opacity-50 overflow-x-hidden"
+                className="absolute inset-0 bg-cover bg-center opacity-50 overflow-hidden -z-10"
                 style={{ backgroundImage: `url(${imageURL})` }}
             ></div>
-            <div className="absolute inset-0 flex items-center justify-center">
+            <div className="inset-x-0 item-center my-auto flex items-center justify-center z-40">
                 {children}
             </div>
         </div>
