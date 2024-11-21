@@ -2,7 +2,6 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import PageContainer from "@/components/formatting/PageContainer";
-import Footer from "@/components/formatting/PageFooter";
 import LoadingCircle from "@/components/icons/LoadingCircle";
 import Image from "next/image";
 import { useWorkshop } from "@/hooks/api/useWorkshop";
@@ -200,7 +199,6 @@ function WorkshopDetailContent({
                     <FacilitatorDetail facilitator={selectedFacilitator} />
                 </Modal>
             )}
-            <Footer />
         </PageContainer>
     );
 }

@@ -3,7 +3,6 @@
 import { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
 import PageContainer from "@/components/formatting/PageContainer";
-import Footer from "@/components/formatting/PageFooter";
 import LoadingCircle from "@/components/icons/LoadingCircle";
 import { useWorkshops } from "@/hooks/api/useWorkshops";
 import { useSearchParams, useRouter } from "next/navigation";
@@ -103,7 +102,6 @@ function WorkshopsContent() {
                     <p>No workshops found.</p>
                 )}
             </div>
-            <Footer />
         </PageContainer>
     );
 }

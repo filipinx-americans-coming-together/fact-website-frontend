@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import PageHeader from "./PageHeader";
 import Navbar from "../navigation/Navbar";
+import Footer from "./PageFooter";
 
 interface PageContainerProps {
     children: ReactNode;
@@ -21,6 +22,7 @@ export default function PageContainer({ children, title }: PageContainerProps) {
                 <PageHeader text={title} />
                 {children}
             </div>
+            <Footer />
         </div>
     );
 }
