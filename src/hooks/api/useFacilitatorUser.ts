@@ -45,6 +45,8 @@ async function fetchUser(): Promise<{
         image_url: json.facilitator[0].fields.image_url,
         position: json.facilitator[0].fields.position,
         bio: json.facilitator[0].fields.bio,
+        attending_networking_session:
+            json.facilitator[0].fields.attending_networking_session,
     };
 
     const registrations = json.registrations.map(
