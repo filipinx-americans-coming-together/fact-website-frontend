@@ -69,6 +69,7 @@ async function fetchWorkshop({ id }: { id: number }): Promise<{
         image_url: facilitator.fields.image_url,
         position: facilitator.fields.position,
         bio: facilitator.fields.bio,
+        attending_networking_session: facilitator.fields.attending_networking_session,
     }));
 
     const formattedAssistants = json.facilitator_assistants?.map(

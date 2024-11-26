@@ -20,6 +20,7 @@ type Facilitator = {
     image_url?: string;
     position: string;
     bio: string;
+    attending_networking_session: boolean;
 };
 
 type ModalProps = {
@@ -87,6 +88,7 @@ const FacilitatorDetail = ({ facilitator }: { facilitator: Facilitator }) => {
                     <p className="text-sm text-gray-500">{facilitator.position}</p>
                 )}
                 <p className="mt-4">{facilitator.bio}</p>
+                <h2 className="mt-4 text-l font-semibold">{facilitator.attending_networking_session ? "STAYING FOR NETWORKING" : null}</h2>
             </div>
         </div>
     );
