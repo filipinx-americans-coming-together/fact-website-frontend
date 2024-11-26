@@ -79,6 +79,7 @@ export interface FacilitatorData {
     image_url: string;
     position: string;
     bio: string;
+    attending_networking_session: boolean;
 }
 
 export interface FacilitatorRegistrationData {
