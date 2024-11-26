@@ -45,11 +45,11 @@ export default function Home() {
                         </div>
                     </div>
                     <div className="my-4 md:mx-8 lg:mx-14"></div>
-                    <div className="flex flex-col justify-center text-center gap-4">
+                    <div className="flex flex-col justify-center text-center gap-2">
                         <CountdownTimer
                             date={new Date("December 6, 2024 19:00:00")}
                         />
-                        <br />
+                        <br className="my-5" />
                         {/* <p className="italic font-light my-2">
                             Registration opens 11/1/2024
                         </p> */}
@@ -57,8 +57,18 @@ export default function Home() {
                             text="REGISTER NOW"
                             url="/my-fact/register"
                         />
-						<br />
-						<LinkButton text="GET VARIETY SHOW TICKETS" url="https://www.eventbrite.com/e/fact-2024-variety-show-tickets-1070730767549" newTab={true}/>
+                        <br />
+                        <LinkButton
+                            text="GET VARIETY SHOW TICKETS"
+                            url="https://www.eventbrite.com/e/fact-2024-variety-show-tickets-1070730767549"
+                            newTab={true}
+                        />
+                        <br />
+                        <LinkButton
+                            text="PRE-ORDER FACT x PUSO MERCH"
+                            url="https://wearepuso.co/collections/fact-pre-order"
+                            newTab={true}
+                        />
                     </div>
                 </div>
             </BackgroundImage>
