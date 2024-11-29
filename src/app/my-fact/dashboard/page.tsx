@@ -89,12 +89,19 @@ export default function Dashboard() {
                             Workshop changes are not available at this time.
                         </div>
                     )}
+                    <div className="text-center my-6">
+                        <LinkButton
+                            text="PRE-ORDER FACT x PUSO MERCH"
+                            url="https://wearepuso.co/collections/fact-pre-order"
+                            newTab={true}
+                        />
+                    </div>
                 </div>
                 <div>{user ? <UserAgenda /> : <LoadingCircle />}</div>
             </div>
             <br />
             <br />
-            <div className="mx-auto w-fit text-background-primary">
+            <div className="mx-auto mb-6 w-fit text-background-primary">
                 <InteractiveButton
                     text="Log out"
                     onClick={() => {
