@@ -34,6 +34,7 @@ export async function middleware(request: NextRequest) {
 
     // hide registration related pages
     if (request.nextUrl.pathname == "/my-fact/register"){
+        console.log(request.nextUrl.pathname)
         const registrationOpen = flags.find(
             (flag) => flag.fields.label === "registration"
         );
