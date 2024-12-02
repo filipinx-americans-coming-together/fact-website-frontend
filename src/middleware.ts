@@ -34,18 +34,16 @@ export async function middleware(request: NextRequest) {
 
     // hide registration related pages
     if (request.nextUrl.pathname == "/my-fact/register"){
-        // TODO: fix server communication
-        // const registrationOpen = flags.find(
-        //     (flag) => flag.fields.label === "registration"
-        // );
+        const registrationOpen = flags.find(
+            (flag) => flag.fields.label === "registration"
+        );
 
-        // if (!registrationOpen) {
-        //     return NextResponse.redirect(new URL('/registration-closed', request.url));
-        // }
-        // if (!registrationOpen?.fields.value) {
-        //     return NextResponse.error();
-        // }
-        return NextResponse.redirect(new URL('/registration-closed', request.url));
+        if (!registrationOpen) {
+            return NextResponse.error();
+        }
+        if (!registrationOpen?.fields.value) {
+            return NextResponse.redirect(new URL('/registration-closed', request.url));
+        }
     }
 }
 
