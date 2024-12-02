@@ -34,13 +34,12 @@ export async function middleware(request: NextRequest) {
 
     // hide registration related pages
     if (request.nextUrl.pathname == "/my-fact/register"){
-        console.log(request.nextUrl.pathname)
         const registrationOpen = flags.find(
             (flag) => flag.fields.label === "registration"
         );
 
         if (!registrationOpen) {
-            return NextResponse.rewrite(new URL('/registration-closed', request.url))
+            return NextResponse.redirect(new URL('/registration-closed', request.url))
         }
         if (!registrationOpen?.fields.value) {
             return NextResponse.error();
