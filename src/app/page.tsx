@@ -53,10 +53,10 @@ export default function Home() {
                         {/* <p className="italic font-light my-2">
                             Registration opens 11/1/2024
                         </p> */}
-                        <LinkButton
+                        {/* <LinkButton
                             text="REGISTER NOW"
                             url="/my-fact/register"
-                        />
+                        /> */}
                         <br />
                         <LinkButton
                             text="GET VARIETY SHOW TICKETS"

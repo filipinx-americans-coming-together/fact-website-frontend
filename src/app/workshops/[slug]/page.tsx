@@ -175,7 +175,7 @@ function WorkshopDetailContent({
 
                     {/** Location Details */}
                     <div className="flex-1 flex flex-col space-y-2 border-2 rounded p-4">
-                        <h2 className="text-xl font-semibold">Location (Subject to Change)</h2>
+                        <h2 className="text-xl font-semibold">Location</h2>
                         <p>Building: {building}</p>
                         <p>Room: {room_num}</p>
                         <p>Capacity: {capacity}</p>

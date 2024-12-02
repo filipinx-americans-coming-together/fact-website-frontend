@@ -33,18 +33,23 @@ export async function middleware(request: NextRequest) {
     }
 
     // hide registration related pages
-    const registrationOpen = flags.find(
-        (flag) => flag.fields.label === "registration"
-    );
+    if (request.nextUrl.pathname == "/my-fact/register"){
+        const registrationOpen = flags.find(
+            (flag) => flag.fields.label === "registration"
+        );
 
-    if (!registrationOpen || !registrationOpen?.fields.value) {
-        return NextResponse.error();
+        if (!registrationOpen) {
+            return NextResponse.rewrite(new URL('/registration-closed', request.url))
+        }
+        if (!registrationOpen?.fields.value) {
+            return NextResponse.error();
+        }
     }
 }
 
 export const config = {
     matcher: [
-        "/my-fact/:path*",
+        "/my-fact/register",
         "/workshops/:path*",
         // "/facilitators/:path*",
     ],

@@ -56,7 +56,7 @@ export default function WorkshopInfo({ workshopID }: { workshopID: number }) {
             </h2>
             <p>{workshop.workshop.title}</p>
             <p>
-                Location (subject to change): {workshop.location.building}{" "}
+                Location: {workshop.location.building}{" "}
                 {workshop.location.room_num}
             </p>
             <p>Registered Delegates: {workshop.registrations}</p>
