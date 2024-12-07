@@ -49,10 +49,7 @@ export default function Dashboard() {
                         {user ? (
                             <>
                                 <div className="font-bold text-xl my-2">
-                                    Welcome, {user.user.first_name}
-                                </div>
-                                <div className="my-1">
-                                    {user.user.first_name} {user.user.last_name}
+                                    Welcome, {user.user.first_name} {user.user.last_name}
                                 </div>
                             </>
                         ) : (
