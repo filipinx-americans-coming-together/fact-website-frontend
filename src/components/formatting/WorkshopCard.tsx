@@ -23,7 +23,12 @@ export default function WorkshopCard(props: WorkshopProps) {
                     <div>Session {workshop.workshop.session}</div>
                     <div className="text-center">
                         <div>{workshop.workshop.title}</div>
-                        <div>00:00AM - 00:00AM</div>
+                        <div>
+                            {workshop.workshop.session === 1 ? "9:50 AM - 11:00 AM" :
+                            workshop.workshop.session === 2 ? "11:10 AM - 12:20 PM" :
+                            workshop.workshop.session === 3 ? "1:45 PM - 3:00 PM" :
+                            "Time TBD"}
+                        </div>
                         <div>
                             {workshop.location.building}{" "}
                             {workshop.location.room_num}
