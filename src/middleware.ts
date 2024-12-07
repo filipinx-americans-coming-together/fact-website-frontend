@@ -33,18 +33,9 @@ export async function middleware(request: NextRequest) {
     }
 
     // hide registration related pages
-    if (request.nextUrl.pathname == "/my-fact/register"){
-        const registrationOpen = flags.find(
-            (flag) => flag.fields.label === "registration"
-        );
-
-        if (!registrationOpen) {
-            return NextResponse.error();
-        }
-        if (!registrationOpen?.fields.value) {
-            return NextResponse.redirect(new URL('/registration-closed', request.url));
-        }
-    }
+    // if (request.nextUrl.pathname == "/my-fact/register"){
+    //     return NextResponse.redirect(new URL('/registration-closed', request.url));
+    // }
 }
 
 export const config = {
