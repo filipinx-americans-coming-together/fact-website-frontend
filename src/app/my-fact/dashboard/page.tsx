@@ -89,13 +89,6 @@ export default function Dashboard() {
                             Workshop changes are not available at this time.
                         </div>
                     )}
-                    <div className="text-center my-6">
-                        <LinkButton
-                            text="PRE-ORDER FACT x PUSO MERCH"
-                            url="https://wearepuso.co/collections/fact-pre-order"
-                            newTab={true}
-                        />
-                    </div>
                 </div>
                 <div>{user ? <UserAgenda /> : <LoadingCircle />}</div>
             </div>
