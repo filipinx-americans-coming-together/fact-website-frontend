@@ -46,9 +46,7 @@ export default function Home() {
                     </div>
                     <div className="my-4 md:mx-8 lg:mx-14"></div>
                     <div className="flex flex-col justify-center text-center gap-2">
-                        <CountdownTimer
-                            date={new Date("December 6, 2024 19:00:00")}
-                        />
+                        <div className="font-bold text-6xl md:text-8xl">TODAY!</div>
                         <br className="my-5" />
                         {/* <p className="italic font-light my-2">
                             Registration opens 11/1/2024
