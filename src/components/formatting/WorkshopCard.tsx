@@ -22,7 +22,7 @@ export default function WorkshopCard(props: WorkshopProps) {
                 <div className="bg-highlight-primary text-black text-xs px-8 py-4 m-4 rounded-md w-80 shadow-lg">
                     <div>Session {workshop.workshop.session}</div>
                     <div className="text-center">
-                        <div>{workshop.workshop.title}</div>
+                        <div>{workshop.workshop.title === "Laging Magkasama (Always Together)" ? "Filipino Identity and Wellness" : workshop.workshop.title}</div>
                         <div>
                             {workshop.workshop.session === 1 ? "9:50 AM - 11:00 AM" :
                             workshop.workshop.session === 2 ? "11:10 AM - 12:20 PM" :
