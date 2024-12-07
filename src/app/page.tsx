@@ -62,11 +62,6 @@ export default function Home() {
                             newTab={true}
                         />
                         <br />
-                        <LinkButton
-                            text="PRE-ORDER FACT x PUSO MERCH"
-                            url="https://wearepuso.co/collections/fact-pre-order"
-                            newTab={true}
-                        />
                     </div>
                 </div>
             </BackgroundImage>
