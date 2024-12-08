@@ -37,6 +37,7 @@ export default function Home() {
                         <div className="font-bold my-6 text-4xl lg:text-6xl">
                             FACT 2024
                         </div>
+                        <div className="text-xl">December 6th and 7th</div>
                         <div className="italic font-light my-2 mt-4">
                             Philippine Student Association
                         </div>
@@ -45,7 +46,7 @@ export default function Home() {
                         </div>
                     </div>
                     <div className="my-4 md:mx-8 lg:mx-14"></div>
-                    <div className="flex flex-col justify-center text-center gap-2">
+                    <div className="hidden flex flex-col justify-center text-center gap-2">
                         <div className="font-bold text-6xl md:text-8xl">TODAY!</div>
                         <br className="my-5" />
                         {/* <p className="italic font-light my-2">
