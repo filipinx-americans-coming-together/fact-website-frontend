@@ -1,27 +1,30 @@
 import { API_URL } from "@/util/constants";
 import { NotificationData, ResponseData } from "@/util/types";
 import { useQuery } from "@tanstack/react-query";
+// import notifications from "./notifications.json";
 
 async function fetchNotifications(): Promise<NotificationData[]> {
-    const response = await fetch(`${API_URL}/fact-admin/notifications`);
+    // const response = await fetch(`${API_URL}/fact-admin/notifications`);
 
     let json;
 
-    try {
-        json = await response.json();
-    } catch {
-        throw new Error("Server error, please try again later");
-    }
+    // try {
+    //     json = await response.json();
+    // } catch {
+    //     throw new Error("Server error, please try again later");
+    // }
 
-    if (!response.ok) {
-        let message = "Server error, please try again later";
+    // if (!response.ok) {
+    //     let message = "Server error, please try again later";
 
-        if (json.message && response.status !== 500) {
-            message = json.message;
-        }
+    //     if (json.message && response.status !== 500) {
+    //         message = json.message;
+    //     }
 
-        throw new Error(message);
-    }
+    //     throw new Error(message);
+    // }
+
+    json = await fetch('./static-data/notifications.json').then(r=>r.json());
 
     const formatted_data = json.map(
         (

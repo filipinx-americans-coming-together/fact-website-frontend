@@ -1,27 +1,32 @@
 import { API_URL } from "@/util/constants";
 import { AgendaItemData, ResponseData } from "@/util/types";
 import { useQuery } from "@tanstack/react-query";
+// import agenda from "./agenda.json"
 
 async function fetchAgendaItems(): Promise<AgendaItemData[]> {
-    const response = await fetch(`${API_URL}/fact-admin/agenda-items/`);
+    // const response = await fetch(`${API_URL}/fact-admin/agenda-items/`);
 
     let json;
 
-    try {
-        json = await response.json();
-    } catch {
-        throw new Error("Server error, please try again later");
-    }
+    // try {
+    //     json = await response.json();
+    // } catch {
+    //     throw new Error("Server error, please try again later");
+    // }
     
-    if (!response.ok) {
-        let message = "Server error, please try again later";
+    // if (!response.ok) {
+    //     let message = "Server error, please try again later";
 
-        if (json.message && response.status !== 500) {
-            message = json.message;
-        }
+    //     if (json.message && response.status !== 500) {
+    //         message = json.message;
+    //     }
         
-        throw new Error(message);
-    }
+    //     throw new Error(message);
+    // }
+
+    // get data from static json downloaded from database
+    // TODO: put a conditional for toggling database on/off
+    json = await fetch('./static-data/agenda.json').then(r=>r.json());
 
     const agendaItems: AgendaItemData[] = json.map(
         (

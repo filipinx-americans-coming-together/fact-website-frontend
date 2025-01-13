@@ -1,0 +1,651 @@
+[
+    {
+        "model": "registration.location",
+        "pk": 6,
+        "fields": {
+            "room_num": "1026",
+            "building": "Lincoln Hall",
+            "capacity": 29,
+            "session": 1,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 7,
+        "fields": {
+            "room_num": "1027",
+            "building": "Lincoln Hall",
+            "capacity": 55,
+            "session": 1,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 8,
+        "fields": {
+            "room_num": "1028",
+            "building": "Lincoln Hall",
+            "capacity": 49,
+            "session": 1,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 9,
+        "fields": {
+            "room_num": "1051",
+            "building": "Lincoln Hall",
+            "capacity": 32,
+            "session": 1,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 10,
+        "fields": {
+            "room_num": "1057",
+            "building": "Lincoln Hall",
+            "capacity": 32,
+            "session": 1,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 11,
+        "fields": {
+            "room_num": "1060",
+            "building": "Lincoln Hall",
+            "capacity": 49,
+            "session": 1,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 12,
+        "fields": {
+            "room_num": "1062",
+            "building": "Lincoln Hall",
+            "capacity": 28,
+            "session": 1,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 13,
+        "fields": {
+            "room_num": "1065",
+            "building": "Lincoln Hall",
+            "capacity": 55,
+            "session": 1,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 14,
+        "fields": {
+            "room_num": "205",
+            "building": "Gregory Hall",
+            "capacity": 42,
+            "session": 1,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 15,
+        "fields": {
+            "room_num": "207",
+            "building": "Gregory Hall",
+            "capacity": 32,
+            "session": 1,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 16,
+        "fields": {
+            "room_num": "213",
+            "building": "Gregory Hall",
+            "capacity": 149,
+            "session": 1,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 18,
+        "fields": {
+            "room_num": "217",
+            "building": "Gregory Hall",
+            "capacity": 40,
+            "session": 1,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 19,
+        "fields": {
+            "room_num": "219",
+            "building": "Gregory Hall",
+            "capacity": 40,
+            "session": 1,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 20,
+        "fields": {
+            "room_num": "221",
+            "building": "Gregory Hall",
+            "capacity": 30,
+            "session": 1,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 21,
+        "fields": {
+            "room_num": "307",
+            "building": "Gregory Hall",
+            "capacity": 40,
+            "session": 1,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 22,
+        "fields": {
+            "room_num": "311",
+            "building": "Gregory Hall",
+            "capacity": 46,
+            "session": 1,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 23,
+        "fields": {
+            "room_num": "313",
+            "building": "Gregory Hall",
+            "capacity": 36,
+            "session": 1,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 28,
+        "fields": {
+            "room_num": "103",
+            "building": "Mumford Hall",
+            "capacity": 215,
+            "session": 1,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 33,
+        "fields": {
+            "room_num": "1026",
+            "building": "Lincoln Hall",
+            "capacity": 29,
+            "session": 2,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 34,
+        "fields": {
+            "room_num": "1027",
+            "building": "Lincoln Hall",
+            "capacity": 55,
+            "session": 2,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 35,
+        "fields": {
+            "room_num": "1028",
+            "building": "Lincoln Hall",
+            "capacity": 49,
+            "session": 2,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 36,
+        "fields": {
+            "room_num": "1051",
+            "building": "Lincoln Hall",
+            "capacity": 32,
+            "session": 2,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 37,
+        "fields": {
+            "room_num": "1057",
+            "building": "Lincoln Hall",
+            "capacity": 32,
+            "session": 2,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 38,
+        "fields": {
+            "room_num": "1060",
+            "building": "Lincoln Hall",
+            "capacity": 49,
+            "session": 2,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 39,
+        "fields": {
+            "room_num": "1062",
+            "building": "Lincoln Hall",
+            "capacity": 28,
+            "session": 2,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 40,
+        "fields": {
+            "room_num": "1065",
+            "building": "Lincoln Hall",
+            "capacity": 55,
+            "session": 2,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 41,
+        "fields": {
+            "room_num": "205",
+            "building": "Gregory Hall",
+            "capacity": 42,
+            "session": 2,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 42,
+        "fields": {
+            "room_num": "207",
+            "building": "Gregory Hall",
+            "capacity": 32,
+            "session": 2,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 43,
+        "fields": {
+            "room_num": "213",
+            "building": "Gregory Hall",
+            "capacity": 149,
+            "session": 2,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 44,
+        "fields": {
+            "room_num": "215",
+            "building": "Gregory Hall",
+            "capacity": 40,
+            "session": 2,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 45,
+        "fields": {
+            "room_num": "217",
+            "building": "Gregory Hall",
+            "capacity": 40,
+            "session": 2,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 46,
+        "fields": {
+            "room_num": "219",
+            "building": "Gregory Hall",
+            "capacity": 40,
+            "session": 2,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 47,
+        "fields": {
+            "room_num": "221",
+            "building": "Gregory Hall",
+            "capacity": 30,
+            "session": 2,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 48,
+        "fields": {
+            "room_num": "307",
+            "building": "Gregory Hall",
+            "capacity": 40,
+            "session": 2,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 49,
+        "fields": {
+            "room_num": "311",
+            "building": "Gregory Hall",
+            "capacity": 46,
+            "session": 2,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 50,
+        "fields": {
+            "room_num": "313",
+            "building": "Gregory Hall",
+            "capacity": 36,
+            "session": 2,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 52,
+        "fields": {
+            "room_num": "103",
+            "building": "Mumford Hall",
+            "capacity": 215,
+            "session": 2,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 24,
+        "fields": {
+            "room_num": "1066",
+            "building": "Lincoln Hall",
+            "capacity": 49,
+            "session": 1,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 53,
+        "fields": {
+            "room_num": "1066",
+            "building": "Lincoln Hall",
+            "capacity": 49,
+            "session": 2,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 56,
+        "fields": {
+            "room_num": "223",
+            "building": "Gregory Hall",
+            "capacity": 95,
+            "session": 3,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 60,
+        "fields": {
+            "room_num": "100",
+            "building": "Gregory Hall",
+            "capacity": 218,
+            "session": 3,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 59,
+        "fields": {
+            "room_num": "1092",
+            "building": "Lincoln Hall",
+            "capacity": 113,
+            "session": 3,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 17,
+        "fields": {
+            "room_num": "215",
+            "building": "Gregory Hall",
+            "capacity": 25,
+            "session": 1,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 61,
+        "fields": {
+            "room_num": "160",
+            "building": "English Building",
+            "capacity": 101,
+            "session": 3,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 25,
+        "fields": {
+            "room_num": "114",
+            "building": "David Kinley Hall",
+            "capacity": 281,
+            "session": 1,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 29,
+        "fields": {
+            "room_num": "104",
+            "building": "English Building",
+            "capacity": 35,
+            "session": 2,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 30,
+        "fields": {
+            "room_num": "108",
+            "building": "English Building",
+            "capacity": 50,
+            "session": 2,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 31,
+        "fields": {
+            "room_num": "160",
+            "building": "English Building",
+            "capacity": 101,
+            "session": 2,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 32,
+        "fields": {
+            "room_num": "259",
+            "building": "English Building",
+            "capacity": 48,
+            "session": 2,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 51,
+        "fields": {
+            "room_num": "114",
+            "building": "David Kinley Hall",
+            "capacity": 281,
+            "session": 2,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 58,
+        "fields": {
+            "room_num": "2079",
+            "building": "Natural History Building",
+            "capacity": 312,
+            "session": 3,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 2,
+        "fields": {
+            "room_num": "104",
+            "building": "English Building",
+            "capacity": 35,
+            "session": 1,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 3,
+        "fields": {
+            "room_num": "108",
+            "building": "English Building",
+            "capacity": 50,
+            "session": 1,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 4,
+        "fields": {
+            "room_num": "160",
+            "building": "English Building",
+            "capacity": 101,
+            "session": 1,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 5,
+        "fields": {
+            "room_num": "259",
+            "building": "English Building",
+            "capacity": 48,
+            "session": 1,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 62,
+        "fields": {
+            "room_num": "Lounge",
+            "building": "Asian American Cultural Center",
+            "capacity": 50,
+            "session": 1,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 63,
+        "fields": {
+            "room_num": "1022",
+            "building": "Lincoln Hall",
+            "capacity": 32,
+            "session": 1,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 64,
+        "fields": {
+            "room_num": "1022",
+            "building": "Lincoln Hall",
+            "capacity": 32,
+            "session": 2,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.location",
+        "pk": 57,
+        "fields": {
+            "room_num": "114",
+            "building": "David Kinley Hall",
+            "capacity": 281,
+            "session": 3,
+            "moveable_seats": false
+        }
+    }
+]
