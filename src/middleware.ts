@@ -3,13 +3,11 @@ import type { NextRequest } from "next/server";
 import { API_URL } from "./util/constants";
 import { ResponseData } from "./util/types";
 
-// TODO once registration is open, just intercept /my-fact/register
-// or change to redirect to page saying registration is closed/how to register late
+// TODO: have conditionals for the different states this file should be in (reg open, reg closed, database off)
 
 export async function middleware(request: NextRequest) {
-    // TODO REMOVE ONCE BACKEND IS UP
-    // return NextResponse.error();
-    // return;
+    // intercept all pages that use accounts
+    return NextResponse.redirect(new URL('/registration-closed', request.url));
 
     // get flags
     let flags: ResponseData<{ label: string; value: boolean }>[];
@@ -40,8 +38,9 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
     matcher: [
-        "/my-fact/register",
-        "/workshops/:path*",
-        // "/facilitators/:path*",
+        "/my-fact/:path*",
+        // "/workshops/:path*",
+        "/facilitators/:path*",
+        "/admin/:path*",
     ],
 };

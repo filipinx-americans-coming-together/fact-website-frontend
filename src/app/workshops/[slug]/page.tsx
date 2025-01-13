@@ -129,6 +129,7 @@ function WorkshopDetailContent({
     }
 
     if (error || !workshop) {
+        // console.log(error);
         return (
             <p className="flex items-center justify-center h-screen text-red-600">
                 Error loading workshop. Please try again later.

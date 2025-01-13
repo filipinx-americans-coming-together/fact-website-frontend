@@ -1,21 +1,24 @@
-import PageFooter from "@/components/formatting/PageFooter";
-import LinkButton from "@/components/ui/LinkButton";
+'use client';
 
+import PageContainer from "@/components/formatting/PageContainer";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import Link from "next/link";
 
 export default function RegistrationClosed() {
+    const router = useRouter();
+    const [seconds, setSeconds] = useState(10);
+    
+    seconds > 0 ? setTimeout(() => setSeconds(seconds-1), 1000) : router.push('/')
+
     return (
-        <div className="h-screen flex flex-col justify-between">
-        <div className="my-8 w-3/5 mx-auto text-center">
-            <div className="p-8 font-bold text-3xl rounded-3xl bg-highlight-secondary"> Online registration for FACT 2024 is closed.</div>
-            <div className="my-8 text-xl">You can still register in person:
-                <ul className="list-disc text-left">
-                    <li>Friday, December 6th from 4-7pm at the Asian American Cultural Center</li>
-                    <li>Friday, December 6th from 7-9pm at the Activities and Recreation Center</li>
-                    <li>Saturday, December 7th from 8:30-9:30am at the Asian American Cultural Center</li>
-                </ul></div>
-                <LinkButton text="BACK TO HOME" url="/"/>
-        </div>
-        <PageFooter/>
-        </div>
+        <PageContainer title="My FACT accounts are unavailable until FACT 2025 registration." maintainCase={true}>
+        <div className="flex flex-col justify-between gap-4 items-center mb-[-32px]">
+                <div className="p-8 font-bold text-3xl rounded-3xl bg-highlight-secondary w-fit">
+                    {`Redirecting to home page in ${seconds} seconds`}
+                </div>
+                <Link href='/' className="underline">Go To Home Now</Link>
+            </div>
+        </PageContainer>
     );
 }

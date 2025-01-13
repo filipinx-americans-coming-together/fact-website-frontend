@@ -1,0 +1,1840 @@
+{
+    "69": {
+        "workshop": [
+            {
+                "model": "registration.workshop",
+                "pk": 69,
+                "fields": {
+                    "title": "Sa Sining at Loob: Healing from Within through Arts",
+                    "description": "Through the power of cultural arts, heal from within in a very Pilipinx/o/a way in a community-centered, storytelling workshop that includes music, meditation, movement, self-massage, and storytelling by a trinity of queer Pilipinx artists Soultree, Crystle Dino, and DJ Know Hiya",
+                    "location": 11,
+                    "session": 1,
+                    "preferred_cap": 50,
+                    "moveable_seats": true
+                }
+            }
+        ],
+        "location": [
+            {
+                "model": "registration.location",
+                "pk": 11,
+                "fields": {
+                    "room_num": "1060",
+                    "building": "Lincoln Hall",
+                    "capacity": 49,
+                    "session": 1,
+                    "moveable_seats": true
+                }
+            }
+        ],
+        "facilitators": [
+            {
+                "model": "registration.facilitator",
+                "pk": 55,
+                "fields": {
+                    "user": 58,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Soultree, Soultree's Music and SHHAA Sustainable Holistic Healing Arts & Activations",
+                    "position": "nan",
+                    "facilitators": "Stephanie \"Soultree\" Camba, Crystle \"Liwayway\" Dino,  Danielle \"DJ Know Hiya\" De Vera",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1-ZZEVnZEFZcRS74fRQeggkKreioZcLi2",
+                    "bio": "Soultree is a Pilipinx queer, and genderfluid artist, creatrix, and connector of Waray, Pangasinan, Ilokano, and Ilonggo ancesTree and Marshallese cultural influence and upbringing. Soultree uses prayers, chants, songs, moveMeants, and co-creations to uplift unseen spirits and untold stories. They are an alumni of UIUC and PSA formerly serving as Awareness, Filamthropy, and FACT '11 co-chair. \r\n\r\nCrystle Dino folk art therapist, performance and visual artist, dancer, cultural worker, and youth development worker,  she specializes in working with people in community settings using art-based practices with the intention of fostering well-being, body/mind connection, and re-establishing a sense of safety and trust within one\u2019s body.   She uses a decolonization framework with a Pinayist/Womanist/Feminist lens as she co-creates spaces of healing and re-membering.  Her foundation and impetus for her practice is rooted in the concepts of Chicago House culture and the Babaylan consciousness.  \r\n\r\nDanielle \"DJ Know Hiya\" De Vera has spent the past half decade serving their community as an organizer, interweaving the strategic with the spiritual - holding space to navigate grief, disconnect, growing social unrest, and supported their community\u2019s process to unearth embodied wisdom and develop solutions to tend to societal gaps exacerbated by the conditions of the COVID-19 Pandemic.They are grateful to be in service to their community as a facilitator, intuitive messenger, and DJ and are deeply passionate about supporting the cultivation of transformative & liberating connection to Self, to Family, to Community, and to the Land we occupy.",
+                    "attending_networking_session": false
+                }
+            }
+        ],
+        "registrations": 35
+    },
+    "73": {
+        "workshop": [
+            {
+                "model": "registration.workshop",
+                "pk": 73,
+                "fields": {
+                    "title": "BECOMING JFERRER",
+                    "description": "This workshop explores the journey of JFERRER, chronicling how he transformed from facing doubt and uncertainty to achieving creative success. Through personal storytelling, it reflects on the challenges he overcame and the lessons learned along the way. With themes of resilience, emotional growth, and self-discovery, the chapter provides insight into his evolution as an artist. Targeted at an audience interested in Asian American experiences, the workshop aims to connect deeply with students through authenticity and reflection.",
+                    "location": 2,
+                    "session": 1,
+                    "preferred_cap": 250,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "location": [
+            {
+                "model": "registration.location",
+                "pk": 2,
+                "fields": {
+                    "room_num": "104",
+                    "building": "English Building",
+                    "capacity": 35,
+                    "session": 1,
+                    "moveable_seats": true
+                }
+            }
+        ],
+        "facilitators": [
+            {
+                "model": "registration.facilitator",
+                "pk": 59,
+                "fields": {
+                    "user": 62,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "DO WHAT I WANT/ MULTIMEDIA LABEL/JFERRER",
+                    "position": "nan",
+                    "facilitators": "JFERRER",
+                    "image_url": "https://drive.google.com/uc?export=view&id=12UNTHFSGut--zjCzcE89GhAVwuf6lfJc",
+                    "bio": "JFERRER is the visionary founder of DO WHAT I WANT, a music label dedicated to empowering Asian American talent through innovative storytelling and collaboration. With a background in film and music production, his work bridges the gap between bold, creative ambition and emotional depth. His two groundbreaking documentaries & debut to the music industry, showcased his ability to create compelling narratives that resonate. JFERRER is focused on building a legacy through authentic artistry, community, and a platform that champions up-and-coming voices. His work continues to push boundaries, earning him recognition within both the music and film industries.",
+                    "attending_networking_session": true
+                }
+            }
+        ],
+        "registrations": 21
+    },
+    "84": {
+        "workshop": [
+            {
+                "model": "registration.workshop",
+                "pk": 84,
+                "fields": {
+                    "title": "History In Harmonies: The Great Filipino Songbook",
+                    "description": "Lou Ella Rose shares and exchange insights with workshop attendees on events that defined the trajectory of Filipino American and Asian American history through the works and personal stories of the greatest Filipino Composers, some of whom have an intimate connection with Chicago (Nicanor Abelardo, Potenciano Gregorio, Francisco Santiago). The workshop also aims to impart a deeper appreciation of the significance of traditional Filipino music (Kundiman, Balitaw, Danza, Folk Songs) and how they have undoubtedly shaped our national identity as Filipinos and the culture we celebrate in the motherland as well as in the diaspora today. She will present some of the music composed during the period of The Great Filipino Songbook (the time of American colonization of the Philippines from 1902 to 1946), related photographs, sound bites, pre-war films, early recorded music as well as selected tracks of her band, SamaSama Project's reimagined works and their mission behind the TGFS passion project.",
+                    "location": 32,
+                    "session": 2,
+                    "preferred_cap": 50,
+                    "moveable_seats": true
+                }
+            }
+        ],
+        "location": [
+            {
+                "model": "registration.location",
+                "pk": 32,
+                "fields": {
+                    "room_num": "259",
+                    "building": "English Building",
+                    "capacity": 48,
+                    "session": 2,
+                    "moveable_seats": true
+                }
+            }
+        ],
+        "facilitators": [
+            {
+                "model": "registration.facilitator",
+                "pk": 57,
+                "fields": {
+                    "user": 60,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Lou Ella Rose",
+                    "position": "nan",
+                    "facilitators": "Lou Ella Rose",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1DhxOIRfk_RDJGrzUeVLsboe0Q65r4zw-",
+                    "bio": "LOU ELLA ROSE is a multidisciplinary immigrant artist based in Chicago recognized as an Asian Cultural Council Fellow, a Filipino Young Leaders Program (FYLPRO) Delegate and a Chicago DCASE Individual Artist Program Grantee for 2024. A singer-songwriter, actor, playwright, producer,  voice-over artist, and speaker, her credentials include memorable works in theater, TV, concerts, and festivals across three countries - the Philippines, Singapore, and the USA. The founder and Artistic Director of the Filipino Folk fusion band, SamaSama Project, the group was named 1st runner-up for Best World Music Act for Chicago Reader\u2019s Best of Chicago 2023 and was selected as one of 20 semi-finalists for Chicago DCASE\u2019s Chicago Made Music Showcase besting close to 200 artists. Hailed as Chicago Cabaret Professionals\u2019s Emerging Artists in 2022, Lou Ella Rose is the progenitor of The Great Filipino Songbook (TGFS) bringing to life the rich traditions of Filipino music on the intimate stage, captivating audiences and fostering a deeper appreciation for the cultural contributions of Filipino Americans to the USA. Two songs from the show, \"Bakya Mo Neneng\" and \"Tunay Na Tunay\" released in September 2024 have collectively gained over 2,000 streams worldwide in their first few weeks on Spotify; The Great Filipino Songbook full-length album is set to be released on June 2025. Lou Ella Rose is an active community leader who serves and advocates for causes that amplify the voices of Asian Americans in business and the arts.",
+                    "attending_networking_session": true
+                }
+            }
+        ],
+        "registrations": 49
+    },
+    "72": {
+        "workshop": [
+            {
+                "model": "registration.workshop",
+                "pk": 72,
+                "fields": {
+                    "title": "Navigating Multicultural Organizations",
+                    "description": "Today, many organizations bring people together from various cultures and work experiences to offer a wide range of perspectives on strategy and organizational challenges. In this workshop, participants will learn how to identify challenges of working in diverse teams and practice frameworks that can overcome these challenges. Participants will be able to navigate situations where cultural differences are present.",
+                    "location": 63,
+                    "session": 1,
+                    "preferred_cap": 50,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "location": [
+            {
+                "model": "registration.location",
+                "pk": 63,
+                "fields": {
+                    "room_num": "1022",
+                    "building": "Lincoln Hall",
+                    "capacity": 32,
+                    "session": 1,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "facilitators": [
+            {
+                "model": "registration.facilitator",
+                "pk": 58,
+                "fields": {
+                    "user": 61,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Illinois Leadership Center",
+                    "position": "nan",
+                    "facilitators": "Codie Sterner, Emily Chang, Thais Silveira, Ezra Delgadillo",
+                    "image_url": "https://drive.google.com/uc?export=view&id=17RDaPLyOaeFPWsUPxOYsIDHuy4M3lQ96",
+                    "bio": "The Illinois Leadership\u00ae Center (ILC) is a resource hub on the University of Illinois campus designed to provide comprehensive leadership education to all students. Our work is to study about leadership and teach our students the relevant skills to be effective leaders, so they can make positive impacts for society. The Illinois Leadership\u00ae Center is committed to developing and enhancing the leadership skills of all students through assessment, learning, and experiential opportunities. Students who participate in our programs and services gain a greater sense of self-awareness, and deeper understanding of the knowledge, skills, and attitudes necessary for effective leadership practice. In addition, the Illinois Leadership\u00ae Center supports faculty and staff who are pursuing leadership-related teaching, research, and student engagement activities.",
+                    "attending_networking_session": false
+                }
+            }
+        ],
+        "registrations": 24
+    },
+    "70": {
+        "workshop": [
+            {
+                "model": "registration.workshop",
+                "pk": 70,
+                "fields": {
+                    "title": "Filipino Identity and Wellness",
+                    "description": "In this workshop, participants will delve into the rich heritage of traditional Filipino cultural values and examine how these timeless principles can be reinterpreted to align with modern approaches to wellness and personal growth. Through engaging discussions and practical exercises, attendees will explore how values such as community, resilience, and spirituality can be transformed into tools for fostering mental, emotional, and physical well-being.",
+                    "location": 21,
+                    "session": 1,
+                    "preferred_cap": 40,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "location": [
+            {
+                "model": "registration.location",
+                "pk": 21,
+                "fields": {
+                    "room_num": "307",
+                    "building": "Gregory Hall",
+                    "capacity": 40,
+                    "session": 1,
+                    "moveable_seats": true
+                }
+            }
+        ],
+        "facilitators": [
+            {
+                "model": "registration.facilitator",
+                "pk": 56,
+                "fields": {
+                    "user": 59,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Midwest Association of Filipino Americans",
+                    "position": "nan",
+                    "facilitators": "Sara Estrada, Angelica Malasig, Clarice Brown, Julie Baguio, Geanessa Reglos, Nicholas Brigida, Jacob Espinosa, Anna Morehead, Elaine Pajanustan",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1vdHKZ0cEJcLkmVcNZr7E_9iQZuC4IssV",
+                    "bio": "The Midwest Association of Filipino-Americans exists to promote unity and cooperation amongst Filipinos and Filipino Americans around the Midwest and beyond by promoting Filipino culture and Asian American awareness, coordinating meetings and events, and supporting the objectives of the MAFA Member Organizations. MAFA shall operate as a charitable organization in order to fulfill its mission and provide resources to other charitable organizations that align with MAFA\u2019s mission and values",
+                    "attending_networking_session": false
+                }
+            }
+        ],
+        "registrations": 42
+    },
+    "79": {
+        "workshop": [
+            {
+                "model": "registration.workshop",
+                "pk": 79,
+                "fields": {
+                    "title": "Making Space",
+                    "description": "This workshop will explore how we can identify and make space through creative acts. An art therapy lens will be used to explore self-reflexivity and social location to develop personal rhizomes.  Making Space will include an experiential that reflects on the metaphors inherent in Filipino formal wear such as the Barong.",
+                    "location": 17,
+                    "session": 1,
+                    "preferred_cap": 25,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "location": [
+            {
+                "model": "registration.location",
+                "pk": 17,
+                "fields": {
+                    "room_num": "215",
+                    "building": "Gregory Hall",
+                    "capacity": 25,
+                    "session": 1,
+                    "moveable_seats": true
+                }
+            }
+        ],
+        "facilitators": [
+            {
+                "model": "registration.facilitator",
+                "pk": 65,
+                "fields": {
+                    "user": 68,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "James Bulosan, MAAT, ATR-BC",
+                    "position": "nan",
+                    "facilitators": "James Bulosan, MAAT, ATR-BC",
+                    "image_url": "https://drive.google.com/uc?export=view&id=17k4ncdpDnyK7V3DExs1a2vYOA6HMj9YJ",
+                    "bio": "James Bulosan is a multifaceted artist whose creative journey has been marked by a deep exploration of art and its intersection with psychology, community engagement, and the dynamics of human expression. With a rich educational background and a diverse range of professional experiences, he seeks to explore the human experience, fostering community, and pushing the boundaries of art's therapeutic potential.  Through his professional beginnings as a Research Director at Rush Medical Center to Director of an expressive therapy program at a small community hospital on the west side of Chicago and from teaching at SAIC and at Benedictine University, he seeks to show a rounded viewpoint that looks to include the many roles we carry in life.  James builds on this idea through his role as co-director of Lion VS Gorilla, a curatorial concept focused on creating shows where artists and viewers are collaborators in an aesthetic experience, and where the integration between artists and the larger community is promoted.  All together James Bulosan\u2019s work looks to transcend traditional artistic boundaries and invite viewers to engage with profound narratives and experiences.",
+                    "attending_networking_session": true
+                }
+            }
+        ],
+        "registrations": 25
+    },
+    "83": {
+        "workshop": [
+            {
+                "model": "registration.workshop",
+                "pk": 83,
+                "fields": {
+                    "title": "Leading with Heart",
+                    "description": "Redefining leadership within Filipino student organizations by emphasizing personal well-being, community support, and a heart-centered approach to leadership that reimagines traditional values for sustainable success",
+                    "location": 48,
+                    "session": 2,
+                    "preferred_cap": 40,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "location": [
+            {
+                "model": "registration.location",
+                "pk": 48,
+                "fields": {
+                    "room_num": "307",
+                    "building": "Gregory Hall",
+                    "capacity": 40,
+                    "session": 2,
+                    "moveable_seats": true
+                }
+            }
+        ],
+        "facilitators": [
+            {
+                "model": "registration.facilitator",
+                "pk": 56,
+                "fields": {
+                    "user": 59,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Midwest Association of Filipino Americans",
+                    "position": "nan",
+                    "facilitators": "Sara Estrada, Angelica Malasig, Clarice Brown, Julie Baguio, Geanessa Reglos, Nicholas Brigida, Jacob Espinosa, Anna Morehead, Elaine Pajanustan",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1vdHKZ0cEJcLkmVcNZr7E_9iQZuC4IssV",
+                    "bio": "The Midwest Association of Filipino-Americans exists to promote unity and cooperation amongst Filipinos and Filipino Americans around the Midwest and beyond by promoting Filipino culture and Asian American awareness, coordinating meetings and events, and supporting the objectives of the MAFA Member Organizations. MAFA shall operate as a charitable organization in order to fulfill its mission and provide resources to other charitable organizations that align with MAFA\u2019s mission and values",
+                    "attending_networking_session": false
+                }
+            }
+        ],
+        "registrations": 41
+    },
+    "88": {
+        "workshop": [
+            {
+                "model": "registration.workshop",
+                "pk": 88,
+                "fields": {
+                    "title": "Finding Bounty in Bayanihan: Philippine Student Associations as an Avenue for Social Change",
+                    "description": "What would prosperity look like for the Filipino community as whole, from the Philippines to the US and beyond? Access to basic needs and a sustainable livelihood are foundational to prosperity, yet we only need to ask for a few stories from our families to hear about the poverty that runs rampant in the Philippines. For Filipinos in the US, narratives of Filipino nurses and pursuing the American Dream dominate popular media, but missing is coverage of the rampant labor exploitation overseas Filipino workers (OFWs)  face in the workplace or why there are so many Filipino nurses here in the first place. In this workshop, we\u2019ll learn about the history of PSAs and how these community spaces pushed for positive community change beyond the confines of their universities.",
+                    "location": 42,
+                    "session": 2,
+                    "preferred_cap": 40,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "location": [
+            {
+                "model": "registration.location",
+                "pk": 42,
+                "fields": {
+                    "room_num": "207",
+                    "building": "Gregory Hall",
+                    "capacity": 32,
+                    "session": 2,
+                    "moveable_seats": true
+                }
+            }
+        ],
+        "facilitators": [
+            {
+                "model": "registration.facilitator",
+                "pk": 61,
+                "fields": {
+                    "user": 64,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Kabataan Alliance Midwest",
+                    "position": "nan",
+                    "facilitators": "Ysabel Ojoylan, Mia Rimmer, Janessa Juntilla",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1HbCrvzR2WPYf1FB8MSRzoFg0r3hWEjP8",
+                    "bio": "We are a national alliance of Filipino youth dedicated to serving our communities in the United States and back home in the Philippines. Kabataan Alliance's roots go back to 2014 when Kapit Bisig Kabataan Network (KBKN) was formed in response to Typhoon Haiyan. This network united the efforts of Filipino youth across the United States in supporting victims of calamities in the Philippines through fundraising, relief missions, and long-term advocacy. As this work continued, KBKN members saw their role to actively participate in social change and resolved to build a national alliance to educate, unite, and act for the rights and welfare of Filipinos beyond typhoon relief. Thus, Kabataan Alliance was born. Today, we unite and empower Filipino youth across the U.S. to engage in community organizing and advocacy to build towards a just society where people can reach their full potentials.",
+                    "attending_networking_session": false
+                }
+            }
+        ],
+        "registrations": 17
+    },
+    "85": {
+        "workshop": [
+            {
+                "model": "registration.workshop",
+                "pk": 85,
+                "fields": {
+                    "title": "Sustainability Leadership: Solving Wicked Problems in Organizations",
+                    "description": "Sustainability is a complex, ever-changing, wicked problem, so how can leaders begin to find solutions? Developed in collaboration with the Student Sustainability Committee, this workshop asks students to identify wicked questions within sustainability issues and navigate the different perspectives and priorities that inform solutions.  Participants will leave with tools and practices that sustainability-minded leaders can use in their organizations.",
+                    "location": 64,
+                    "session": 2,
+                    "preferred_cap": 50,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "location": [
+            {
+                "model": "registration.location",
+                "pk": 64,
+                "fields": {
+                    "room_num": "1022",
+                    "building": "Lincoln Hall",
+                    "capacity": 32,
+                    "session": 2,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "facilitators": [
+            {
+                "model": "registration.facilitator",
+                "pk": 58,
+                "fields": {
+                    "user": 61,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Illinois Leadership Center",
+                    "position": "nan",
+                    "facilitators": "Codie Sterner, Emily Chang, Thais Silveira, Ezra Delgadillo",
+                    "image_url": "https://drive.google.com/uc?export=view&id=17RDaPLyOaeFPWsUPxOYsIDHuy4M3lQ96",
+                    "bio": "The Illinois Leadership\u00ae Center (ILC) is a resource hub on the University of Illinois campus designed to provide comprehensive leadership education to all students. Our work is to study about leadership and teach our students the relevant skills to be effective leaders, so they can make positive impacts for society. The Illinois Leadership\u00ae Center is committed to developing and enhancing the leadership skills of all students through assessment, learning, and experiential opportunities. Students who participate in our programs and services gain a greater sense of self-awareness, and deeper understanding of the knowledge, skills, and attitudes necessary for effective leadership practice. In addition, the Illinois Leadership\u00ae Center supports faculty and staff who are pursuing leadership-related teaching, research, and student engagement activities.",
+                    "attending_networking_session": false
+                }
+            }
+        ],
+        "registrations": 16
+    },
+    "78": {
+        "workshop": [
+            {
+                "model": "registration.workshop",
+                "pk": 78,
+                "fields": {
+                    "title": "History of Filipino Youth and Student Activism",
+                    "description": "The \"History Filipino Youth and Student Activism\" Workshop aims to teach people about the history and current day situation of Filipino community organizing and advocacy in the Philippines and in the U.S. We want to bring together youth and students to learn about their history and connect to their own experiences.",
+                    "location": 24,
+                    "session": 1,
+                    "preferred_cap": 50,
+                    "moveable_seats": true
+                }
+            }
+        ],
+        "location": [
+            {
+                "model": "registration.location",
+                "pk": 24,
+                "fields": {
+                    "room_num": "1066",
+                    "building": "Lincoln Hall",
+                    "capacity": 49,
+                    "session": 1,
+                    "moveable_seats": true
+                }
+            }
+        ],
+        "facilitators": [
+            {
+                "model": "registration.facilitator",
+                "pk": 64,
+                "fields": {
+                    "user": 67,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Anakbayan at UIC",
+                    "position": "nan",
+                    "facilitators": "John Emiliano, Justin Eustaqio, Jannie Diaz, Megan Wikowsky, Jordan Pablo",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1SO8v3jmBwTAMPeyBdV-PNZrzj93SpjPh",
+                    "bio": "Anakbayan is a youth and student led organization fighting for the democratic rights in the Philippines. We aim to agitate, organize, and mobilize the youth to uplift and take action towards social change for Filipinos all over the world.",
+                    "attending_networking_session": false
+                }
+            }
+        ],
+        "registrations": 32
+    },
+    "75": {
+        "workshop": [
+            {
+                "model": "registration.workshop",
+                "pk": 75,
+                "fields": {
+                    "title": "Finding Bounty in Bayanihan: Philippine Student Associations as an Avenue for Social Change ",
+                    "description": "What would prosperity look like for the Filipino community as whole, from the Philippines to the US and beyond? Access to basic needs and a sustainable livelihood are foundational to prosperity, yet we only need to ask for a few stories from our families to hear about the poverty that runs rampant in the Philippines. For Filipinos in the US, narratives of Filipino nurses and pursuing the American Dream dominate popular media, but missing is coverage of the rampant labor exploitation overseas Filipino workers (OFWs)  face in the workplace or why there are so many Filipino nurses here in the first place. In this workshop, we\u2019ll learn about the history of PSAs and how these community spaces pushed for positive community change beyond the confines of their universities. ",
+                    "location": 15,
+                    "session": 1,
+                    "preferred_cap": 40,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "location": [
+            {
+                "model": "registration.location",
+                "pk": 15,
+                "fields": {
+                    "room_num": "207",
+                    "building": "Gregory Hall",
+                    "capacity": 32,
+                    "session": 1,
+                    "moveable_seats": true
+                }
+            }
+        ],
+        "facilitators": [
+            {
+                "model": "registration.facilitator",
+                "pk": 61,
+                "fields": {
+                    "user": 64,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Kabataan Alliance Midwest",
+                    "position": "nan",
+                    "facilitators": "Ysabel Ojoylan, Mia Rimmer, Janessa Juntilla",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1HbCrvzR2WPYf1FB8MSRzoFg0r3hWEjP8",
+                    "bio": "We are a national alliance of Filipino youth dedicated to serving our communities in the United States and back home in the Philippines. Kabataan Alliance's roots go back to 2014 when Kapit Bisig Kabataan Network (KBKN) was formed in response to Typhoon Haiyan. This network united the efforts of Filipino youth across the United States in supporting victims of calamities in the Philippines through fundraising, relief missions, and long-term advocacy. As this work continued, KBKN members saw their role to actively participate in social change and resolved to build a national alliance to educate, unite, and act for the rights and welfare of Filipinos beyond typhoon relief. Thus, Kabataan Alliance was born. Today, we unite and empower Filipino youth across the U.S. to engage in community organizing and advocacy to build towards a just society where people can reach their full potentials.",
+                    "attending_networking_session": false
+                }
+            }
+        ],
+        "registrations": 16
+    },
+    "66": {
+        "workshop": [
+            {
+                "model": "registration.workshop",
+                "pk": 66,
+                "fields": {
+                    "title": "Organizing for Gender Justice",
+                    "description": "This interactive workshop will provide the tools necessary to organize and mobilize groups of people and create action plans to work toward actualizing social change and gender justice. Skills learned in this workshop can be applied to a variety of social change movements.",
+                    "location": 9,
+                    "session": 1,
+                    "preferred_cap": 50,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "location": [
+            {
+                "model": "registration.location",
+                "pk": 9,
+                "fields": {
+                    "room_num": "1051",
+                    "building": "Lincoln Hall",
+                    "capacity": 32,
+                    "session": 1,
+                    "moveable_seats": true
+                }
+            }
+        ],
+        "facilitators": [
+            {
+                "model": "registration.facilitator",
+                "pk": 52,
+                "fields": {
+                    "user": 55,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Amie Baumeister Women's Resources Center",
+                    "position": "nan",
+                    "facilitators": "Amie Baumeister",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1UnVjYMMiRPKjvKQGVpFVPcLcwOZJgB9f",
+                    "bio": "Amie is a two time alumna of the University of Illinois, having earned a B.A. in English as well as a M.Ed in Diversity & Equity in Education. In her role at WRC, Amie leads the efforts to explore gender equity across all its many intersections and support the leadership of students of all genders as they work to improve campus climate and promote gender justice worldwide.",
+                    "attending_networking_session": true
+                }
+            }
+        ],
+        "registrations": 4
+    },
+    "77": {
+        "workshop": [
+            {
+                "model": "registration.workshop",
+                "pk": 77,
+                "fields": {
+                    "title": "Harmonizing Growth through OPM",
+                    "description": "Ever since the dawn of Filipino music, the music we refer to now as Original Pilipino Music (OPM) has developed and changed greatly from its traditional roots in the 1920s to the modern sounds we hear today. By blending traditional elements with contemporary sounds, OPM showcases the continuous redefinition of Filipino culture. In this workshop, the goal is to inspire and motivate participants to thrive artistically and musically through the exploration of OPM's rich history and evolution by the way of song. Whether that be by singing or by playing an instrument, participants will have the opportunity to learn history and arrangement of OPM, while at the same time, gaining hands-on experience by working on an OPM medley consisting of songs loved by many.",
+                    "location": 7,
+                    "session": 1,
+                    "preferred_cap": 100,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "location": [
+            {
+                "model": "registration.location",
+                "pk": 7,
+                "fields": {
+                    "room_num": "1027",
+                    "building": "Lincoln Hall",
+                    "capacity": 55,
+                    "session": 1,
+                    "moveable_seats": true
+                }
+            }
+        ],
+        "facilitators": [
+            {
+                "model": "registration.facilitator",
+                "pk": 63,
+                "fields": {
+                    "user": 66,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "FIA - FIA\u2019Liwan",
+                    "position": "nan",
+                    "facilitators": "Justin Sienes, Joaquin Santos, Jacob Egert, Matt Cabalfin",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1k2AO3ioELIZfrbvUwpli-youTq6MdMrN",
+                    "bio": "FIA'Liwan is a musical group stemming from UIC's Filipino organization, Filipinos in Alliance (FIA). The Filipino word \"aliwan\" means entertainment, which reflects the talent, versatility, and flexibility of the group - not just as performers, but as entertainers. Consisting of singers and instrumentalists, the group serves as a creative outlet for those looking to express themselves through Original Pinoy Music (OPM). Specializing in creating covers and medleys of both new and old OPM, FIA'Liwan aims to spread knowledge, sound, and culture from the Philippines and hopes to inspire others with their passion and musical talents.",
+                    "attending_networking_session": false
+                }
+            }
+        ],
+        "registrations": 57
+    },
+    "80": {
+        "workshop": [
+            {
+                "model": "registration.workshop",
+                "pk": 80,
+                "fields": {
+                    "title": "This Seems Sus: Sharpening Skills to Sniff Out Misinfo",
+                    "description": "Misinformation is nothing new in the Filipino community. Going back as far as the time of Jose Rizal, false and misleading narratives have found their way into our collective consciousness during crucial points in history. Throughout the diaspora, we\u2019ve seen how problematic online content in the present day can divide and spread dangerous narratives about important issues like public health, racial justice, and electoral participation. Mis- and disinformation is not just about lies, it is about power, and it exposes political frictions, fault lines, and tensions within and across immigrant communities.\r\n\r\nIn this workshop, FYLPRO\u2019s Tayo team will take attendees through the history of misinformation and fake news from the Filipino perspective, how those tactics translate into the influence operations we\u2019re seeing today and how to promote critical thinking and media literacy through culturally tailored community interventions.",
+                    "location": 35,
+                    "session": 2,
+                    "preferred_cap": 50,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "location": [
+            {
+                "model": "registration.location",
+                "pk": 35,
+                "fields": {
+                    "room_num": "1028",
+                    "building": "Lincoln Hall",
+                    "capacity": 49,
+                    "session": 2,
+                    "moveable_seats": true
+                }
+            }
+        ],
+        "facilitators": [
+            {
+                "model": "registration.facilitator",
+                "pk": 66,
+                "fields": {
+                    "user": 69,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Filipino Young Leaders Program (FYLPRO) Tayo",
+                    "position": "nan",
+                    "facilitators": "Leezel Tanglao, Mark Calaguas",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1r3yI-oscwRrQf6Knb1vbibKt3zjx0azw",
+                    "bio": "Tayo, a project of the Filipino Young Leaders Program (FYLPRO), is an innovative data hub that empowers Filipinx/a/o communities by collecting data, fostering partnerships, publishing culturally relevant insights, and developing leaders to create an equitable and sustainable future.\r\n\r\nThe project started as the Tayo Help Desk, which provides vital, trustworthy, and culturally relevant and tailored information to help Filipinos navigate the COVID-19 pandemic. \r\nThe team has expanded its work to issues beyond the pandemic such as election and racial equity topics that are relevant to the Filipino American community.\r\n\r\n FYLPRO is a 501(c)(3) non-profit organization of high-performing, next-generation leaders that have a passion for advancing the Philippines and the Filipino people. We continually expand the pipeline of Filipino young leaders in the diaspora.  By connecting them to the motherland, we foster collaborative multinational relationships that create innovations and support the socio-economic progress of the global Filipino community.",
+                    "attending_networking_session": true
+                }
+            }
+        ],
+        "registrations": 49
+    },
+    "71": {
+        "workshop": [
+            {
+                "model": "registration.workshop",
+                "pk": 71,
+                "fields": {
+                    "title": "History In Harmonies: The Great Filipino Songbook",
+                    "description": "Lou Ella Rose shares and exchange insights with workshop attendees on events that defined the trajectory of Filipino American and Asian American history through the works and personal stories of the greatest Filipino Composers, some of whom have an intimate connection with Chicago (Nicanor Abelardo, Potenciano Gregorio, Francisco Santiago). The workshop also aims to impart a deeper appreciation of the significance of traditional Filipino music (Kundiman, Balitaw, Danza, Folk Songs) and how they have undoubtedly shaped our national identity as Filipinos and the culture we celebrate in the motherland as well as in the diaspora today. She will present some of the music composed during the period of The Great Filipino Songbook (the time of American colonization of the Philippines from 1902 to 1946), related photographs, sound bites, pre-war films, early recorded music as well as selected tracks of her band, SamaSama Project's reimagined works and their mission behind the TGFS passion project.",
+                    "location": 5,
+                    "session": 1,
+                    "preferred_cap": 50,
+                    "moveable_seats": true
+                }
+            }
+        ],
+        "location": [
+            {
+                "model": "registration.location",
+                "pk": 5,
+                "fields": {
+                    "room_num": "259",
+                    "building": "English Building",
+                    "capacity": 48,
+                    "session": 1,
+                    "moveable_seats": true
+                }
+            }
+        ],
+        "facilitators": [
+            {
+                "model": "registration.facilitator",
+                "pk": 57,
+                "fields": {
+                    "user": 60,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Lou Ella Rose",
+                    "position": "nan",
+                    "facilitators": "Lou Ella Rose",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1DhxOIRfk_RDJGrzUeVLsboe0Q65r4zw-",
+                    "bio": "LOU ELLA ROSE is a multidisciplinary immigrant artist based in Chicago recognized as an Asian Cultural Council Fellow, a Filipino Young Leaders Program (FYLPRO) Delegate and a Chicago DCASE Individual Artist Program Grantee for 2024. A singer-songwriter, actor, playwright, producer,  voice-over artist, and speaker, her credentials include memorable works in theater, TV, concerts, and festivals across three countries - the Philippines, Singapore, and the USA. The founder and Artistic Director of the Filipino Folk fusion band, SamaSama Project, the group was named 1st runner-up for Best World Music Act for Chicago Reader\u2019s Best of Chicago 2023 and was selected as one of 20 semi-finalists for Chicago DCASE\u2019s Chicago Made Music Showcase besting close to 200 artists. Hailed as Chicago Cabaret Professionals\u2019s Emerging Artists in 2022, Lou Ella Rose is the progenitor of The Great Filipino Songbook (TGFS) bringing to life the rich traditions of Filipino music on the intimate stage, captivating audiences and fostering a deeper appreciation for the cultural contributions of Filipino Americans to the USA. Two songs from the show, \"Bakya Mo Neneng\" and \"Tunay Na Tunay\" released in September 2024 have collectively gained over 2,000 streams worldwide in their first few weeks on Spotify; The Great Filipino Songbook full-length album is set to be released on June 2025. Lou Ella Rose is an active community leader who serves and advocates for causes that amplify the voices of Asian Americans in business and the arts.",
+                    "attending_networking_session": true
+                }
+            }
+        ],
+        "registrations": 48
+    },
+    "74": {
+        "workshop": [
+            {
+                "model": "registration.workshop",
+                "pk": 74,
+                "fields": {
+                    "title": "Toxic Filipino BF \ud83e\udd1d Toxic Viet GF: Healthy Dating Behaviors in the Asian Community",
+                    "description": "The meme \u201cToxic Filipino BF \ud83e\udd1d Toxic Viet GF'' has been popularized all over TikTok and Twitter \u2013 but where did this come from? College is a transformative period for our identities, as you will be meeting new people, cultivating friendships, or even starting a romantic relationship. Let\u2019s talk about the intersectionality of cultural upbringing, creating healthy relationships\ud83e\udec2, and dismantling red flags \ud83d\udea9!",
+                    "location": 4,
+                    "session": 1,
+                    "preferred_cap": 75,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "location": [
+            {
+                "model": "registration.location",
+                "pk": 4,
+                "fields": {
+                    "room_num": "160",
+                    "building": "English Building",
+                    "capacity": 101,
+                    "session": 1,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "facilitators": [
+            {
+                "model": "registration.facilitator",
+                "pk": 60,
+                "fields": {
+                    "user": 63,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Asian American Cultural Center (Kayla and Will)",
+                    "position": "nan",
+                    "facilitators": "Kayla Nguyen and Will Yepsen",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1Jtfo2Hn4lB3Eo-9Na5tMmz8R9xuQvYSX",
+                    "bio": "Kayla Nguyen is a Assistant Director at the Asian American Cultural Center. Kayla came from the University of Iowa and worked as the Program Coordinator for the Asian Pacific American Cultural Center. Fun fact, Kayla helped restart the Filipino Student Association at the University of Iowa in 2019!\r\n\r\nWill Yepsen is a Program Coordinator at the Asian American Cultural Center. Will is a recent graduate from the U of I, with a B.A in Political Science and Asian American Studies. Fun fact, Will loves collecting smiskis!",
+                    "attending_networking_session": false
+                }
+            }
+        ],
+        "registrations": 95
+    },
+    "87": {
+        "workshop": [
+            {
+                "model": "registration.workshop",
+                "pk": 87,
+                "fields": {
+                    "title": "Seeds of Hope with The PUSO Foundation",
+                    "description": "Join the PUSO Foundation as they discuss the importance of how networking, mentorship, and learnings from the workplace can all tie into one\u2019s passion to giving back to those in need. PUSO\u2019s mission is to provide hope with a purpose. From working in non-profit spaces, higher education, to corporate America, you\u2019ll learn about how a panel of leaders take their personal experiences to plant seeds towards the success of the PUSO Foundation in order to help the underserved communities they support.",
+                    "location": 41,
+                    "session": 2,
+                    "preferred_cap": null,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "location": [
+            {
+                "model": "registration.location",
+                "pk": 41,
+                "fields": {
+                    "room_num": "205",
+                    "building": "Gregory Hall",
+                    "capacity": 42,
+                    "session": 2,
+                    "moveable_seats": true
+                }
+            }
+        ],
+        "facilitators": [
+            {
+                "model": "registration.facilitator",
+                "pk": 67,
+                "fields": {
+                    "user": 70,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "The PUSO Foundation",
+                    "position": "nan",
+                    "facilitators": "Nina Cedro, Ryann Dancel, Kandis Moran-Jimenez, Robert Banez, Kevin Moreno, Theo Daubresse, Noel Obusan, Angelo Battung, Ally Davis,  Rhyssa Hizon (Career Panelist), Sophia Libonate, Lara Pena, Tessa Sumagui, Abby Diaz (Career Panelist), ",
+                    "image_url": "https://drive.google.com/uc?export=view&id=122OSoyfZfXihkGPPZHHi43xXDHGSH1MG",
+                    "bio": "The PUSO Foundation's mission is to provide \"hope with a purpose\" by engaging individuals in service work through the act of giving back. The organization focuses on serving communities in need globally by providing resources like basic necessities, education, and disaster relief. The foundation embodies its name\u2014Purposeful Unconditional Service to Others (P.U.S.O.)\u2014with a strong emphasis on empowering people and planting the seeds of opportunity through their work.",
+                    "attending_networking_session": false
+                }
+            }
+        ],
+        "registrations": 43
+    },
+    "81": {
+        "workshop": [
+            {
+                "model": "registration.workshop",
+                "pk": 81,
+                "fields": {
+                    "title": "Leveraging AI in Your Job Search",
+                    "description": "As generative AI\u2019s impact on job searching and hiring continues to take shape, navigating AI tools like ChatGPT and others have become a powerful instrument to those seeking jobs and internships. This presentation will familiarize students with the current AI landscape, its challenges, best practices for its effective and ethical use in resumes, cover letters, interview preparation, and other parts of the search process, employer perspectives on candidates\u2019 use of AI, and future directions in which these tools may evolve.",
+                    "location": 46,
+                    "session": 2,
+                    "preferred_cap": null,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "location": [
+            {
+                "model": "registration.location",
+                "pk": 46,
+                "fields": {
+                    "room_num": "219",
+                    "building": "Gregory Hall",
+                    "capacity": 40,
+                    "session": 2,
+                    "moveable_seats": true
+                }
+            }
+        ],
+        "facilitators": [
+            {
+                "model": "registration.facilitator",
+                "pk": 54,
+                "fields": {
+                    "user": 57,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "The Career Center",
+                    "position": "nan",
+                    "facilitators": "James Castree",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1969KlLK1eMkQuxpUDqpwbenAfn1uXyNe",
+                    "bio": "James Castree currently serves as Senior Assistant Director at the Career Center at the University of Illinois Urbana-Champaign, where he leads a fantastic group of over twenty student-centered, outcomes-driven professionals and paraprofessionals on the center\u2019s Career Education team.  He has been with the Career Center for over five years, and also has over a decade of higher education experience at schools ranging from local community colleges to flagship Research I institutions.  James holds degrees in Psychology and in Education, Policy, Organization, & Leadership from the University of Illinois Urbana Champaign.",
+                    "attending_networking_session": false
+                }
+            }
+        ],
+        "registrations": 36
+    },
+    "86": {
+        "workshop": [
+            {
+                "model": "registration.workshop",
+                "pk": 86,
+                "fields": {
+                    "title": "BECOMING JFERRER",
+                    "description": "This workshop explores the journey of JFERRER, chronicling how he transformed from facing doubt and uncertainty to achieving creative success. Through personal storytelling, it reflects on the challenges he overcame and the lessons learned along the way. With themes of resilience, emotional growth, and self-discovery, the chapter provides insight into his evolution as an artist. Targeted at an audience interested in Asian American experiences, the workshop aims to connect deeply with students through authenticity and reflection.",
+                    "location": 29,
+                    "session": 2,
+                    "preferred_cap": 250,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "location": [
+            {
+                "model": "registration.location",
+                "pk": 29,
+                "fields": {
+                    "room_num": "104",
+                    "building": "English Building",
+                    "capacity": 35,
+                    "session": 2,
+                    "moveable_seats": true
+                }
+            }
+        ],
+        "facilitators": [
+            {
+                "model": "registration.facilitator",
+                "pk": 59,
+                "fields": {
+                    "user": 62,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "DO WHAT I WANT/ MULTIMEDIA LABEL/JFERRER",
+                    "position": "nan",
+                    "facilitators": "JFERRER",
+                    "image_url": "https://drive.google.com/uc?export=view&id=12UNTHFSGut--zjCzcE89GhAVwuf6lfJc",
+                    "bio": "JFERRER is the visionary founder of DO WHAT I WANT, a music label dedicated to empowering Asian American talent through innovative storytelling and collaboration. With a background in film and music production, his work bridges the gap between bold, creative ambition and emotional depth. His two groundbreaking documentaries & debut to the music industry, showcased his ability to create compelling narratives that resonate. JFERRER is focused on building a legacy through authentic artistry, community, and a platform that champions up-and-coming voices. His work continues to push boundaries, earning him recognition within both the music and film industries.",
+                    "attending_networking_session": true
+                }
+            }
+        ],
+        "registrations": 14
+    },
+    "67": {
+        "workshop": [
+            {
+                "model": "registration.workshop",
+                "pk": 67,
+                "fields": {
+                    "title": "Meryenda: Kinship & Stories",
+                    "description": "Meryenda are more than just tasty treats; they are a comforting reminder of home, family, and community. Bringing people together to share stories and memories, these Pinoy snacks bridge generations and foster a sense of shared cultural identity. Learn how to make a delicious Pinoy meryenda with us while exploring how the joy of storytelling promotes individual agency reclamation and collective liberation.",
+                    "location": 62,
+                    "session": 1,
+                    "preferred_cap": 50,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "location": [
+            {
+                "model": "registration.location",
+                "pk": 62,
+                "fields": {
+                    "room_num": "Lounge",
+                    "building": "Asian American Cultural Center",
+                    "capacity": 50,
+                    "session": 1,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "facilitators": [
+            {
+                "model": "registration.facilitator",
+                "pk": 53,
+                "fields": {
+                    "user": 56,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Asian American Cultural Center (Amy and Flordemia)",
+                    "position": "nan",
+                    "facilitators": "Amy Kyung Eun Breslin; Flordemia Conrad",
+                    "image_url": "https://drive.google.com/uc?export=view&id=16dPw6WAPpNEjqAUhGdb-yLImBW4DZuqv",
+                    "bio": "Flordemia Conrad is Office Manager of Asian American Cultural Center. She is first-generation Filipina and joined the AACC team in 2013. Amy Kyung-Eun Breslin is Associate Director of Asian American Cultural Center. She joined the AACC team in 2024. Amy and Flordemia enjoy building intergenerational community and collective power through food and storytelling.",
+                    "attending_networking_session": false
+                }
+            }
+        ],
+        "registrations": 57
+    },
+    "82": {
+        "workshop": [
+            {
+                "model": "registration.workshop",
+                "pk": 82,
+                "fields": {
+                    "title": "Toxic Filipino BF \ud83e\udd1d Toxic Viet GF: Healthy Dating Behaviors in the Asian Community",
+                    "description": "The meme \u201cToxic Filipino BF \ud83e\udd1d Toxic Viet GF'' has been popularized all over TikTok and Twitter \u2013 but where did this come from? College is a transformative period for our identities, as you will be meeting new people, cultivating friendships, or even starting a romantic relationship. Let\u2019s talk about the intersectionality of cultural upbringing, creating healthy relationships\ud83e\udec2, and dismantling red flags \ud83d\udea9!",
+                    "location": 31,
+                    "session": 2,
+                    "preferred_cap": 75,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "location": [
+            {
+                "model": "registration.location",
+                "pk": 31,
+                "fields": {
+                    "room_num": "160",
+                    "building": "English Building",
+                    "capacity": 101,
+                    "session": 2,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "facilitators": [
+            {
+                "model": "registration.facilitator",
+                "pk": 60,
+                "fields": {
+                    "user": 63,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Asian American Cultural Center (Kayla and Will)",
+                    "position": "nan",
+                    "facilitators": "Kayla Nguyen and Will Yepsen",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1Jtfo2Hn4lB3Eo-9Na5tMmz8R9xuQvYSX",
+                    "bio": "Kayla Nguyen is a Assistant Director at the Asian American Cultural Center. Kayla came from the University of Iowa and worked as the Program Coordinator for the Asian Pacific American Cultural Center. Fun fact, Kayla helped restart the Filipino Student Association at the University of Iowa in 2019!\r\n\r\nWill Yepsen is a Program Coordinator at the Asian American Cultural Center. Will is a recent graduate from the U of I, with a B.A in Political Science and Asian American Studies. Fun fact, Will loves collecting smiskis!",
+                    "attending_networking_session": false
+                }
+            }
+        ],
+        "registrations": 87
+    },
+    "89": {
+        "workshop": [
+            {
+                "model": "registration.workshop",
+                "pk": 89,
+                "fields": {
+                    "title": "Strength in the Struggle: Exploring Political Solidarity Across the Asian Diaspora",
+                    "description": "In this workshop, we aim to delve into the history of influential Asian and Filipino political activists and highlight the significance of solidarity across the broader Asian diaspora. Our organization is deeply dedicated to fostering unity among Asian American individuals on campus, emphasizing the power of shared experiences and collective action. We\u2019ll explore historical solidarity movements within the Filipino-American community, while encouraging participants to reflect on their own understanding of what solidarity means. Through this workshop, we hope to inspire delegates with a renewed commitment and the tools needed to nurture prosperity within our community moving forward.",
+                    "location": 37,
+                    "session": 2,
+                    "preferred_cap": 40,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "location": [
+            {
+                "model": "registration.location",
+                "pk": 37,
+                "fields": {
+                    "room_num": "1057",
+                    "building": "Lincoln Hall",
+                    "capacity": 32,
+                    "session": 2,
+                    "moveable_seats": true
+                }
+            }
+        ],
+        "facilitators": [
+            {
+                "model": "registration.facilitator",
+                "pk": 62,
+                "fields": {
+                    "user": 65,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Asian American Coalition Combating Oppression, Racism and Discrimination (ACCORD)",
+                    "position": "nan",
+                    "facilitators": "Ella Yoo (President/Founder), Ethan Lopez (Vice President External), Lillian Tan (Vice President Internal), Xueyi Lu (Treasurer), Oishii Basu (Arts Director)",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1sune6i__w4bIotmDg3xdrKnydzmMMh6k",
+                    "bio": "ACCORD (Asian American Coalition Combating Oppression, Racism and Discrimination) is a newly formed registered student organization here at UIUC. With the large prevalence of AAPI students on campus, we recognize that in these cultural communities there is a lack of space for discussion surrounding the AAPI identity, politics and social justice. Our goals are to create a space for AAPI students to engage in dialogue regarding social justice and politics surrounding the Asian American identity and its various intersecting identities. ACCORD aims to not only facilitate spaces for conversations about our AAPI identities internally with our membership, but discuss actionable items through coalition building with other organizations on campus on how to make our community safer and better for AAPI folx on the University of Illinois Urbana-Champaign campus.",
+                    "attending_networking_session": false
+                }
+            }
+        ],
+        "registrations": 27
+    },
+    "68": {
+        "workshop": [
+            {
+                "model": "registration.workshop",
+                "pk": 68,
+                "fields": {
+                    "title": "Leveraging AI in Your Job Search",
+                    "description": "As generative AI\u2019s impact on job searching and hiring continues to take shape, navigating AI tools like ChatGPT and others have become a powerful instrument to those seeking jobs and internships. This presentation will familiarize students with the current AI landscape, its challenges, best practices for its effective and ethical use in resumes, cover letters, interview preparation, and other parts of the search process, employer perspectives on candidates\u2019 use of AI, and future directions in which these tools may evolve.",
+                    "location": 19,
+                    "session": 1,
+                    "preferred_cap": null,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "location": [
+            {
+                "model": "registration.location",
+                "pk": 19,
+                "fields": {
+                    "room_num": "219",
+                    "building": "Gregory Hall",
+                    "capacity": 40,
+                    "session": 1,
+                    "moveable_seats": true
+                }
+            }
+        ],
+        "facilitators": [
+            {
+                "model": "registration.facilitator",
+                "pk": 54,
+                "fields": {
+                    "user": 57,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "The Career Center",
+                    "position": "nan",
+                    "facilitators": "James Castree",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1969KlLK1eMkQuxpUDqpwbenAfn1uXyNe",
+                    "bio": "James Castree currently serves as Senior Assistant Director at the Career Center at the University of Illinois Urbana-Champaign, where he leads a fantastic group of over twenty student-centered, outcomes-driven professionals and paraprofessionals on the center\u2019s Career Education team.  He has been with the Career Center for over five years, and also has over a decade of higher education experience at schools ranging from local community colleges to flagship Research I institutions.  James holds degrees in Psychology and in Education, Policy, Organization, & Leadership from the University of Illinois Urbana Champaign.",
+                    "attending_networking_session": false
+                }
+            }
+        ],
+        "registrations": 22
+    },
+    "95": {
+        "workshop": [
+            {
+                "model": "registration.workshop",
+                "pk": 95,
+                "fields": {
+                    "title": "Humanities/Literature Career Panel",
+                    "description": "During the 3rd session of FACT, six (6) question and answer style career panels of various industries will be simultaneously held. These panels will focus on enlightening delegates of all backgrounds, to promote productivity and set the foundation for fruitful futures by maximizing interconnectivity. Career panels will feature various members of our cultural and campus community and facilitated by a student assistant for a duration of 1 hour and 15 minutes. Delegates will be receiving an insight into the reality of the workforce industry by learning from credited individuals of various expertise.",
+                    "location": 56,
+                    "session": 3,
+                    "preferred_cap": null,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "location": [
+            {
+                "model": "registration.location",
+                "pk": 56,
+                "fields": {
+                    "room_num": "223",
+                    "building": "Gregory Hall",
+                    "capacity": 95,
+                    "session": 3,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "facilitators": [
+            {
+                "model": "registration.facilitator",
+                "pk": 52,
+                "fields": {
+                    "user": 55,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Amie Baumeister Women's Resources Center",
+                    "position": "nan",
+                    "facilitators": "Amie Baumeister",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1UnVjYMMiRPKjvKQGVpFVPcLcwOZJgB9f",
+                    "bio": "Amie is a two time alumna of the University of Illinois, having earned a B.A. in English as well as a M.Ed in Diversity & Equity in Education. In her role at WRC, Amie leads the efforts to explore gender equity across all its many intersections and support the leadership of students of all genders as they work to improve campus climate and promote gender justice worldwide.",
+                    "attending_networking_session": true
+                }
+            },
+            {
+                "model": "registration.facilitator",
+                "pk": 68,
+                "fields": {
+                    "user": 71,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Cheeno Marlo Sayuno, PhD",
+                    "position": "nan",
+                    "facilitators": "Cheeno Marlo Sayuno",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1T27QzqRo5rwdWkccKONGbPF8TqXdtvL_",
+                    "bio": "Cheeno Marlo M. Sayuno, PhD, is a Postdoctoral Research Associate at the School of Information Sciences, University of Illinois at Urbana-Champaign. In the Philippines, he is an Associate Professor of Communication, Research, and Children\u2019s Literature from the University of the Philippines (UP) Los Ba\u00f1os. He has received recognition from the prestigious Carlos Palanca Memorial Awards for Literature, the Philippine Board on Books for Young People\u2019s Salanga Prize (honorable mention), and the Normal Awards for Gender-Inclusive Literature by Philippine Normal University for his stories for children. He has published storybooks with Adarna House, Lampara Books, Tahanan Books, Anvil Publishing, Chikiting Books, and Save the Children Philippines, as well as various textbooks and research work in communication, media, and related fields. He is also a member of the Sanghaya Dance Ensemble and has performed Philippine dances in various cultural venues and events promoting the rich heritage of the country.",
+                    "attending_networking_session": true
+                }
+            }
+        ],
+        "registrations": 29
+    },
+    "100": {
+        "workshop": [
+            {
+                "model": "registration.workshop",
+                "pk": 100,
+                "fields": {
+                    "title": "From Roots to Resilience: Reclaiming API Mental Health Narratives",
+                    "description": "This workshop, inspired by API Roots Outreach's teams mission, connects mental health and cultural identity within API communities. \"Roots\" symbolizes the cultural wisdom passed down through generations, which shapes mental health experiences. Our goal is to promote cultural awareness and mental health understanding, addressing how issues like intergenerational trauma, racism, and the model minority myth impact API individuals. \r\n\r\nAPI Roots focuses on supporting cultural identity, mental health, and social justice issues in the Asian American, Pacific Islander, and Asian International (API) communities. This workshop will help participants gain tools for culturally sensitive mental health practices, fostering resilience and advocacy within API communities.",
+                    "location": 38,
+                    "session": 2,
+                    "preferred_cap": 50,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "location": [
+            {
+                "model": "registration.location",
+                "pk": 38,
+                "fields": {
+                    "room_num": "1060",
+                    "building": "Lincoln Hall",
+                    "capacity": 49,
+                    "session": 2,
+                    "moveable_seats": true
+                }
+            }
+        ],
+        "facilitators": [
+            {
+                "model": "registration.facilitator",
+                "pk": 87,
+                "fields": {
+                    "user": 233,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "The Counseling Center",
+                    "position": null,
+                    "facilitators": "Jr Walag, Michael La, Sharlei Deltang",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1fIrUKnXmGU_Kxf8dBvHcK57iPZV6Trec",
+                    "bio": "The Counseling Center's Outreach Team \"API Roots\" addresses the links between mental health and cultural identity through our outreach efforts to support cultural awareness and promote mental health awareness, identity exploration, and social justice issues in the Asian American, Pacific Islander, and Asian International (API) communities. Our work is consistently grounded in promoting an understanding of how API students are impacted by the changes in the local and global communities they call home.",
+                    "attending_networking_session": false
+                }
+            }
+        ],
+        "registrations": 33
+    },
+    "91": {
+        "workshop": [
+            {
+                "model": "registration.workshop",
+                "pk": 91,
+                "fields": {
+                    "title": "Fight For Your Education",
+                    "description": "The \"Fight For Your Education\" Workshop aims to empower students to advocate and take action within their universities! Hear from the experiences of youth and student organizers fighting for culturally relevant education on their campuses and how participants can begin to do it on their campus!",
+                    "location": 53,
+                    "session": 2,
+                    "preferred_cap": 50,
+                    "moveable_seats": true
+                }
+            }
+        ],
+        "location": [
+            {
+                "model": "registration.location",
+                "pk": 53,
+                "fields": {
+                    "room_num": "1066",
+                    "building": "Lincoln Hall",
+                    "capacity": 49,
+                    "session": 2,
+                    "moveable_seats": true
+                }
+            }
+        ],
+        "facilitators": [
+            {
+                "model": "registration.facilitator",
+                "pk": 64,
+                "fields": {
+                    "user": 67,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Anakbayan at UIC",
+                    "position": "nan",
+                    "facilitators": "John Emiliano, Justin Eustaqio, Jannie Diaz, Megan Wikowsky, Jordan Pablo",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1SO8v3jmBwTAMPeyBdV-PNZrzj93SpjPh",
+                    "bio": "Anakbayan is a youth and student led organization fighting for the democratic rights in the Philippines. We aim to agitate, organize, and mobilize the youth to uplift and take action towards social change for Filipinos all over the world.",
+                    "attending_networking_session": false
+                }
+            }
+        ],
+        "registrations": 23
+    },
+    "99": {
+        "workshop": [
+            {
+                "model": "registration.workshop",
+                "pk": 99,
+                "fields": {
+                    "title": "Leading with \"Yes, And\"",
+                    "description": "Would you like to lead an inclusive and collaborative group? Learn how basic improv techniques like \"Yes, And\" can be applied to enhance your group dynamic. \"Yes, And\" does not mean you need to agree with everything. In this workshop you will actively listen, be present, affirm your partner, and add value to build a scene. Then you will discuss how that can be applied to enhance any group dynamic.",
+                    "location": 45,
+                    "session": 2,
+                    "preferred_cap": 50,
+                    "moveable_seats": true
+                }
+            }
+        ],
+        "location": [
+            {
+                "model": "registration.location",
+                "pk": 45,
+                "fields": {
+                    "room_num": "217",
+                    "building": "Gregory Hall",
+                    "capacity": 40,
+                    "session": 2,
+                    "moveable_seats": true
+                }
+            }
+        ],
+        "facilitators": [
+            {
+                "model": "registration.facilitator",
+                "pk": 83,
+                "fields": {
+                    "user": 115,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Xyla Gatilao",
+                    "position": "nan",
+                    "facilitators": "Xyla Gatilao",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1sNazSmaLKWI8lSaJRyHwkqE6D0yWhUcT",
+                    "bio": "Xyla is a business solutions technology lead at HCSC (Health Care Services Corporation). As a business solutions lead she works with clinical and technical leads to assess idea scope and requirements for project delivery. Her interests include Toastmaters public speaking, producing, writing, impov and sketch comedy. Xyla holds an MBA in Entrepreneurship from the Kellstadt Graduate School of Business at DePaul University.",
+                    "attending_networking_session": true
+                }
+            }
+        ],
+        "registrations": 37
+    },
+    "90": {
+        "workshop": [
+            {
+                "model": "registration.workshop",
+                "pk": 90,
+                "fields": {
+                    "title": "Sayaw ng mga Ilaw: Basics of Pandanggo-Oasiwas and the Experiences of Martial Law in the Philippines",
+                    "description": "This workshop combines the art of storytelling and the craft of dance. The first part is a storytelling session of \"Sayaw ng mga Ilaw (Dance of Lights),\" a children's book written by Cheeno Sayuno and published by Tahanan Books. The book is about Laya, who is hoping to learn Pandanggo-Oasiwas with her Ate Kala during the Martial Law years in the Philippines. After discussions about the socio-political experiences of the time, as well as the history of Pandango-Oasiwas as a dance, participants would practice basic movements, balancing glasses, and the art of oasiwas.",
+                    "location": 50,
+                    "session": 2,
+                    "preferred_cap": 30,
+                    "moveable_seats": true
+                }
+            }
+        ],
+        "location": [
+            {
+                "model": "registration.location",
+                "pk": 50,
+                "fields": {
+                    "room_num": "313",
+                    "building": "Gregory Hall",
+                    "capacity": 36,
+                    "session": 2,
+                    "moveable_seats": true
+                }
+            }
+        ],
+        "facilitators": [
+            {
+                "model": "registration.facilitator",
+                "pk": 68,
+                "fields": {
+                    "user": 71,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Cheeno Marlo Sayuno, PhD",
+                    "position": "nan",
+                    "facilitators": "Cheeno Marlo Sayuno",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1T27QzqRo5rwdWkccKONGbPF8TqXdtvL_",
+                    "bio": "Cheeno Marlo M. Sayuno, PhD, is a Postdoctoral Research Associate at the School of Information Sciences, University of Illinois at Urbana-Champaign. In the Philippines, he is an Associate Professor of Communication, Research, and Children\u2019s Literature from the University of the Philippines (UP) Los Ba\u00f1os. He has received recognition from the prestigious Carlos Palanca Memorial Awards for Literature, the Philippine Board on Books for Young People\u2019s Salanga Prize (honorable mention), and the Normal Awards for Gender-Inclusive Literature by Philippine Normal University for his stories for children. He has published storybooks with Adarna House, Lampara Books, Tahanan Books, Anvil Publishing, Chikiting Books, and Save the Children Philippines, as well as various textbooks and research work in communication, media, and related fields. He is also a member of the Sanghaya Dance Ensemble and has performed Philippine dances in various cultural venues and events promoting the rich heritage of the country.",
+                    "attending_networking_session": true
+                }
+            }
+        ],
+        "registrations": 36
+    },
+    "76": {
+        "workshop": [
+            {
+                "model": "registration.workshop",
+                "pk": 76,
+                "fields": {
+                    "title": "Strength in the Struggle: Exploring Political Solidarity Across the Asian Diaspora",
+                    "description": "In this workshop, we aim to delve into the history of influential Asian and Filipino political activists and highlight the significance of solidarity across the broader Asian diaspora. Our organization is deeply dedicated to fostering unity among Asian American individuals on campus, emphasizing the power of shared experiences and collective action. We\u2019ll explore historical solidarity movements within the Filipino-American community, while encouraging participants to reflect on their own understanding of what solidarity means. Through this workshop, we hope to inspire delegates with a renewed commitment and the tools needed to nurture prosperity within our community moving forward.",
+                    "location": 10,
+                    "session": 1,
+                    "preferred_cap": 40,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "location": [
+            {
+                "model": "registration.location",
+                "pk": 10,
+                "fields": {
+                    "room_num": "1057",
+                    "building": "Lincoln Hall",
+                    "capacity": 32,
+                    "session": 1,
+                    "moveable_seats": true
+                }
+            }
+        ],
+        "facilitators": [
+            {
+                "model": "registration.facilitator",
+                "pk": 62,
+                "fields": {
+                    "user": 65,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Asian American Coalition Combating Oppression, Racism and Discrimination (ACCORD)",
+                    "position": "nan",
+                    "facilitators": "Ella Yoo (President/Founder), Ethan Lopez (Vice President External), Lillian Tan (Vice President Internal), Xueyi Lu (Treasurer), Oishii Basu (Arts Director)",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1sune6i__w4bIotmDg3xdrKnydzmMMh6k",
+                    "bio": "ACCORD (Asian American Coalition Combating Oppression, Racism and Discrimination) is a newly formed registered student organization here at UIUC. With the large prevalence of AAPI students on campus, we recognize that in these cultural communities there is a lack of space for discussion surrounding the AAPI identity, politics and social justice. Our goals are to create a space for AAPI students to engage in dialogue regarding social justice and politics surrounding the Asian American identity and its various intersecting identities. ACCORD aims to not only facilitate spaces for conversations about our AAPI identities internally with our membership, but discuss actionable items through coalition building with other organizations on campus on how to make our community safer and better for AAPI folx on the University of Illinois Urbana-Champaign campus.",
+                    "attending_networking_session": false
+                }
+            }
+        ],
+        "registrations": 25
+    },
+    "93": {
+        "workshop": [
+            {
+                "model": "registration.workshop",
+                "pk": 93,
+                "fields": {
+                    "title": "Business Career Panel",
+                    "description": "During the 3rd session of FACT, six (6) question and answer style career panels of various industries will be simultaneously held. These panels will focus on enlightening delegates of all backgrounds, to promote productivity and set the foundation for fruitful futures by maximizing interconnectivity. Career panels will feature various members of our cultural and campus community and facilitated by a student assistant for a duration of 1 hour and 15 minutes. Delegates will be receiving an insight into the reality of the workforce industry by learning from credited individuals of various expertise.",
+                    "location": 60,
+                    "session": 3,
+                    "preferred_cap": null,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "location": [
+            {
+                "model": "registration.location",
+                "pk": 60,
+                "fields": {
+                    "room_num": "100",
+                    "building": "Gregory Hall",
+                    "capacity": 218,
+                    "session": 3,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "facilitators": [
+            {
+                "model": "registration.facilitator",
+                "pk": 86,
+                "fields": {
+                    "user": 184,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Ferdinand Belga",
+                    "position": null,
+                    "facilitators": "Ferdinand Belga",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1Tl18uvcgHnYUtdGvrmGMvC3IQTlFv_NQ",
+                    "bio": "\"Ferdinand Belga is the Founder and CEO for Ascertain Biotech, an AI healthcare  company optimizing patient outcomes. Ascertain\u2019s lead asset is AI Depression, the 1st blood test to objectively diagnose depression. With their AI and biomarker, they can also predict which antidepressant is optimal for each patient. \r\n\r\nAdditionally, Ferdi is an adjunct professor at UIUC (Univ of Illinois- Urbana Champaign) iSchool (US News and Reports ranked #1 in Information Systems/Data Science) developing graduate and undergraduate students for success. He\u2019s also an entrepreneur mentor for the National Science Foundation (NSF) and Chicago\u2019s startup incubator, MATTER.\r\n\r\nPrior to Ascertain, Ferdi held various C-level positions in pharmaceutical and medical device companies, one which IPO\u2019ed in 2020. The lead asset in that IPO will potentially benefit those affected by the opioid crisis with a novel mechanism of action.\r\n\r\nFerdi held various senior leadership roles at Abbott/Abbvie and a successful start up exit in 2017 for a rare disease company. Ferdi has held various leadership roles in the US, Singapore (elevating the sales/marketing in the Emerging Markets: Russia, India, China to global standards) and ran a business in Russia. He earned an MBA from the Kellogg School of Management (Northwestern University) and graduated from the University of Illinois with a degree in Biology, Pre Medicine. At the Univ of Illinois College of Medicine, he conducted studies and was a co-author of ground-breaking research where the parent laboratory won the Nobel Prize in Chemistry in 2012.\"",
+                    "attending_networking_session": true
+                }
+            },
+            {
+                "model": "registration.facilitator",
+                "pk": 72,
+                "fields": {
+                    "user": 75,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Rachel Jimenez Penca",
+                    "position": "Founder of Rachel J Styling, TEDx Speaker, Professor of Fashion Styling at Columbia College Chicago",
+                    "facilitators": "Rachel Jimenez Penca ",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1P5nTDrD9dMANlMX5ugMui_uaWHxX0mtQ",
+                    "bio": "Rachel Jimenez Penca is a Fashion Stylist, Educator, Public Speaker and Entrepreneur. \r\nRachel Jimenez Penca is the Founder and Chief Stylist of Rachel J Styling, a Chicago-based wardrobe styling and consulting business since 2013. With almost 20 years in the fashion industry, Rachel's work spans celebrity, commercial, editorial and personal styling, featured on ABC7Chicago, WGN News, ESPN, the Wendy Williams Show, Fort Lauderdale Magazine and more. \r\n\r\nHer styling career has led her to coveted partnerships with leading brands such as Ferragamo, Michael Kors, Burberry, rag & bone, Nordstrom, and several Project Runway designers. As a Professor of Fashion Styling at Columbia College Chicago and an inspiring mentor, Rachel empowers the next generation of stylists with her expertise and passion for the industry and entrepreneurship.",
+                    "attending_networking_session": true
+                }
+            },
+            {
+                "model": "registration.facilitator",
+                "pk": 71,
+                "fields": {
+                    "user": 74,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Rhyssa Hizon",
+                    "position": "Technology Consultant at EY, Real Estate Agent",
+                    "facilitators": "Rhyssa Hizon",
+                    "image_url": "https://drive.google.com/uc?export=view&id=13xsBVGMClcnTNp6QAgZZkNidJTr0rGUy",
+                    "bio": "Rhyssa Hizon is a Manager consultant in the Financial Services Organization at Ernst & Young based in the northern VA area. She has been at EY for 5 years, primarily specializing in technical implementations, project management, and operational resiliency across clientele in the Banking space. She also holds her real estate license in Virginia and volunteers for the PUSO organization. Within PUSO, she serves as a Strategic director, liaising communication to progress effective operations amongst the US and Philippines-based teams.",
+                    "attending_networking_session": false
+                }
+            },
+            {
+                "model": "registration.facilitator",
+                "pk": 73,
+                "fields": {
+                    "user": 76,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Steve Raquel",
+                    "position": "Clinical Assistant Professional at Gies College of Business",
+                    "facilitators": "Steve Raquel",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1T0UWhgfczb25bcV3DmE8rWZ43AHCokjo",
+                    "bio": "Professor Steve Raquel has taught marketing and advertising classes at the University of Illinois since 2014.  With more than 25 years working in marketing and promotions with major brands and properties, he brings a fresh and interactive approach to help students learn.  He also received his bachelors and masters from the UIUC and grew up in Champaign as well.",
+                    "attending_networking_session": true
+                }
+            }
+        ],
+        "registrations": 96
+    },
+    "97": {
+        "workshop": [
+            {
+                "model": "registration.workshop",
+                "pk": 97,
+                "fields": {
+                    "title": "STEM Career Panel",
+                    "description": "During the 3rd session of FACT, six (6) question and answer style career panels of various industries will be simultaneously held. These panels will focus on enlightening delegates of all backgrounds, to promote productivity and set the foundation for fruitful futures by maximizing interconnectivity. Career panels will feature various members of our cultural and campus community and facilitated by a student assistant for a duration of 1 hour and 15 minutes. Delegates will be receiving an insight into the reality of the workforce industry by learning from credited individuals of various expertise.",
+                    "location": 58,
+                    "session": 3,
+                    "preferred_cap": null,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "location": [
+            {
+                "model": "registration.location",
+                "pk": 58,
+                "fields": {
+                    "room_num": "2079",
+                    "building": "Natural History Building",
+                    "capacity": 312,
+                    "session": 3,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "facilitators": [
+            {
+                "model": "registration.facilitator",
+                "pk": 81,
+                "fields": {
+                    "user": 84,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Mae Mercado",
+                    "position": "PhD Candidate at UIUC",
+                    "facilitators": "Mae Mercado",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1g_6OqiO9shsLqZ6rAYSLgCJvonvKGVu9",
+                    "bio": "Mae is a  PhD Candidate in Crop Sciences at University of Illinois Urbana-Champaign, working on heat stress tolerance and photosynthesis evolution in different grass species. As a scientist, she is passionate about plant science research, and ensuring that research gets communicated to the general audience.",
+                    "attending_networking_session": false
+                }
+            },
+            {
+                "model": "registration.facilitator",
+                "pk": 80,
+                "fields": {
+                    "user": 83,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Diana Rose E. Ranoa, PhD",
+                    "position": "Assistant Professor in Biochemistry at UIUC",
+                    "facilitators": "Diana Rose E. Ranoa",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1VrCJrzuAPSDaAbs0F6rP0goyKaX9ujZG",
+                    "bio": "Diana Ranoa holds a doctorate in Microbiology and is currently an assistant professor in Biochemistry at UIUC. She is an expert in the field of immuno-oncology, biochemistry, and molecular biology. Her research lab aims to develop T-cell receptor-based immunotherapy against solid tumors and gain a deeper understanding of how we can harness the power of the immune system to fight cancer.",
+                    "attending_networking_session": true
+                }
+            },
+            {
+                "model": "registration.facilitator",
+                "pk": 79,
+                "fields": {
+                    "user": 82,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Ernest-John Ignacio, PhD",
+                    "position": "Associate Director of Corporate Relations and Industry Partnerships, Teaching Assistant Professor",
+                    "facilitators": "Ernest-John Ignacio, PhD",
+                    "image_url": "https://drive.google.com/uc?export=view&id=14fEdJPklqZXUP1jo9902LOxx5M2Jo_nz",
+                    "bio": "Ernest-John Ignacio is a Teaching Assistant Professor in Civil and Environmental Engineering at the University of Illinois at Urbana-Champaign. He earned a B.Eng. (2004) and M.Eng. (2005) in Civil Engineering from the Cooper Union for the Advancement of Science and Art in New York, NY; and Ph.D. (2024) in Civil Engineering at the University of Illinois at Urbana-Champaign. Before pursuing a Ph.D., he worked in the construction industry in New York City for eleven years. He joined the Department of Civil and Environmental Engineering at the University of Illinois in 2018, and currently serves as the Interim Associate Director for Corporate Relations and Industry Partnerships.",
+                    "attending_networking_session": true
+                }
+            }
+        ],
+        "registrations": 133
+    },
+    "92": {
+        "workshop": [
+            {
+                "model": "registration.workshop",
+                "pk": 92,
+                "fields": {
+                    "title": "Arts/Media Career Panel",
+                    "description": "During the 3rd session of FACT, six (6) question and answer style career panels of various industries will be simultaneously held. These panels will focus on enlightening delegates of all backgrounds, to promote productivity and set the foundation for fruitful futures by maximizing interconnectivity. Career panels will feature various members of our cultural and campus community and facilitated by a student assistant for a duration of 1 hour and 15 minutes. Delegates will be receiving an insight into the reality of the workforce industry by learning from credited individuals of various expertise.",
+                    "location": 59,
+                    "session": 3,
+                    "preferred_cap": null,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "location": [
+            {
+                "model": "registration.location",
+                "pk": 59,
+                "fields": {
+                    "room_num": "1092",
+                    "building": "Lincoln Hall",
+                    "capacity": 113,
+                    "session": 3,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "facilitators": [
+            {
+                "model": "registration.facilitator",
+                "pk": 69,
+                "fields": {
+                    "user": 72,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Leezel Tanglao",
+                    "position": "Assistant Managing Editor for Digital at the Dallas Morning News",
+                    "facilitators": " Leezel Tanglao",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1CyN-PqJAszmO-EgvnDfbnkKHSFdvJ5x2",
+                    "bio": "\u200b\u200bLeezel Tanglao is a bridge journalist at the intersection of editorial, product and business development. She has worked at several media companies including The Points Guy, HuffPost, Associated Press, CNN, CBSNews.com, VICE News, NowThis, ABCNews.com, KCBS/KCAL and Press-Enterprise. She is currently the Assistant Managing Editor for Digital at Dallas Morning News. She is Immediate Past President of the Filipino Young Leaders Program (FYLPRO) and cofounder and project director of FYLPRO\u2019s Tayo, a data innovation hub and media literacy initiative.",
+                    "attending_networking_session": true
+                }
+            },
+            {
+                "model": "registration.facilitator",
+                "pk": 65,
+                "fields": {
+                    "user": 68,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "James Bulosan, MAAT, ATR-BC",
+                    "position": "nan",
+                    "facilitators": "James Bulosan, MAAT, ATR-BC",
+                    "image_url": "https://drive.google.com/uc?export=view&id=17k4ncdpDnyK7V3DExs1a2vYOA6HMj9YJ",
+                    "bio": "James Bulosan is a multifaceted artist whose creative journey has been marked by a deep exploration of art and its intersection with psychology, community engagement, and the dynamics of human expression. With a rich educational background and a diverse range of professional experiences, he seeks to explore the human experience, fostering community, and pushing the boundaries of art's therapeutic potential.  Through his professional beginnings as a Research Director at Rush Medical Center to Director of an expressive therapy program at a small community hospital on the west side of Chicago and from teaching at SAIC and at Benedictine University, he seeks to show a rounded viewpoint that looks to include the many roles we carry in life.  James builds on this idea through his role as co-director of Lion VS Gorilla, a curatorial concept focused on creating shows where artists and viewers are collaborators in an aesthetic experience, and where the integration between artists and the larger community is promoted.  All together James Bulosan\u2019s work looks to transcend traditional artistic boundaries and invite viewers to engage with profound narratives and experiences.",
+                    "attending_networking_session": true
+                }
+            },
+            {
+                "model": "registration.facilitator",
+                "pk": 70,
+                "fields": {
+                    "user": 73,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Danielle \"DJ Know Hiya\" De Vera",
+                    "position": "Artist, Organizer",
+                    "facilitators": "Danielle \"DJ Know Hiya\" De Vera",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1fAOR5PzfAQAh07Gl2E_1rOLfPXRHtVLl",
+                    "bio": "Danielle \"DJ Know Hiya\" De Vera has spent the past half decade serving their community as an organizer, interweaving the strategic with the spiritual - holding space to navigate grief, disconnect, growing social unrest, and supported their community\u2019s process to unearth embodied wisdom and develop solutions to tend to societal gaps exacerbated by the conditions of the COVID-19 Pandemic.They are grateful to be in service to their community as a facilitator, intuitive messenger, and DJ and are deeply passionate about supporting the cultivation of transformative & liberating connection to Self, to Family, to Community, and to the Land we occupy.",
+                    "attending_networking_session": false
+                }
+            },
+            {
+                "model": "registration.facilitator",
+                "pk": 59,
+                "fields": {
+                    "user": 62,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "DO WHAT I WANT/ MULTIMEDIA LABEL/JFERRER",
+                    "position": "nan",
+                    "facilitators": "JFERRER",
+                    "image_url": "https://drive.google.com/uc?export=view&id=12UNTHFSGut--zjCzcE89GhAVwuf6lfJc",
+                    "bio": "JFERRER is the visionary founder of DO WHAT I WANT, a music label dedicated to empowering Asian American talent through innovative storytelling and collaboration. With a background in film and music production, his work bridges the gap between bold, creative ambition and emotional depth. His two groundbreaking documentaries & debut to the music industry, showcased his ability to create compelling narratives that resonate. JFERRER is focused on building a legacy through authentic artistry, community, and a platform that champions up-and-coming voices. His work continues to push boundaries, earning him recognition within both the music and film industries.",
+                    "attending_networking_session": true
+                }
+            },
+            {
+                "model": "registration.facilitator",
+                "pk": 57,
+                "fields": {
+                    "user": 60,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Lou Ella Rose",
+                    "position": "nan",
+                    "facilitators": "Lou Ella Rose",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1DhxOIRfk_RDJGrzUeVLsboe0Q65r4zw-",
+                    "bio": "LOU ELLA ROSE is a multidisciplinary immigrant artist based in Chicago recognized as an Asian Cultural Council Fellow, a Filipino Young Leaders Program (FYLPRO) Delegate and a Chicago DCASE Individual Artist Program Grantee for 2024. A singer-songwriter, actor, playwright, producer,  voice-over artist, and speaker, her credentials include memorable works in theater, TV, concerts, and festivals across three countries - the Philippines, Singapore, and the USA. The founder and Artistic Director of the Filipino Folk fusion band, SamaSama Project, the group was named 1st runner-up for Best World Music Act for Chicago Reader\u2019s Best of Chicago 2023 and was selected as one of 20 semi-finalists for Chicago DCASE\u2019s Chicago Made Music Showcase besting close to 200 artists. Hailed as Chicago Cabaret Professionals\u2019s Emerging Artists in 2022, Lou Ella Rose is the progenitor of The Great Filipino Songbook (TGFS) bringing to life the rich traditions of Filipino music on the intimate stage, captivating audiences and fostering a deeper appreciation for the cultural contributions of Filipino Americans to the USA. Two songs from the show, \"Bakya Mo Neneng\" and \"Tunay Na Tunay\" released in September 2024 have collectively gained over 2,000 streams worldwide in their first few weeks on Spotify; The Great Filipino Songbook full-length album is set to be released on June 2025. Lou Ella Rose is an active community leader who serves and advocates for causes that amplify the voices of Asian Americans in business and the arts.",
+                    "attending_networking_session": true
+                }
+            }
+        ],
+        "registrations": 73
+    },
+    "94": {
+        "workshop": [
+            {
+                "model": "registration.workshop",
+                "pk": 94,
+                "fields": {
+                    "title": "Healthcare Career Panel",
+                    "description": "During the 3rd session of FACT, six (6) question and answer style career panels of various industries will be simultaneously held. These panels will focus on enlightening delegates of all backgrounds, to promote productivity and set the foundation for fruitful futures by maximizing interconnectivity. Career panels will feature various members of our cultural and campus community and facilitated by a student assistant for a duration of 1 hour and 15 minutes. Delegates will be receiving an insight into the reality of the workforce industry by learning from credited individuals of various expertise.",
+                    "location": 57,
+                    "session": 3,
+                    "preferred_cap": null,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "location": [
+            {
+                "model": "registration.location",
+                "pk": 57,
+                "fields": {
+                    "room_num": "114",
+                    "building": "David Kinley Hall",
+                    "capacity": 281,
+                    "session": 3,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "facilitators": [
+            {
+                "model": "registration.facilitator",
+                "pk": 76,
+                "fields": {
+                    "user": 79,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Abby Diaz, RN",
+                    "position": "ER Registered Nurse at Johns Hopkins Hospital",
+                    "facilitators": "Abby Diaz",
+                    "image_url": "https://drive.google.com/uc?export=view&id=18cYo_Br_a5c2NE9ryTqwphn7APKbv0Dh",
+                    "bio": "Abigail Diaz is part of the PUSO Foundation, serving as a College Outreach Intern this year. When she isn\u2019t serving her community, she is an emergency department registered nurse at Johns Hopkins Hospital in Baltimore, Maryland. She graduated from the University of Delaware (UD) in May 2024. She received her Bachelor of Science in Nursing (BSN), declared an honors degree in the Honors College, and minored in public health. During her undergraduate career, she was heavily involved with her school's Filipino organization, UDFSA, and FIND Inc. District 5.  This upcoming spring, she is continuing her education at UD, pursuing her Master of Science in Nursing (MSN) to become a Family Nurse practitioner.",
+                    "attending_networking_session": false
+                }
+            },
+            {
+                "model": "registration.facilitator",
+                "pk": 75,
+                "fields": {
+                    "user": 78,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Denzel Ryan Cruz",
+                    "position": "MD/PhD Student",
+                    "facilitators": "Denzel Ryan Cruz",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1pWOV9rLXayNHdnDaLzjfecScmdrQu9Um",
+                    "bio": "My name is Denzel Ryan Cruz, and I am a 3rd-year MD/PhD student (1st-year BME PhD student) at the University of Cincinnati. I graduated from UIUC in 2020 with a BS in bioengineering and spent two gap years as a postbac fellow at the National Institutes of Health prior to matriculating to medical school. I was FACT Co-Coordinator in 2019, and for the past year, I was Social Chair at UCCOM\u2019s Asian Pacific American Medical Association chapter and Mentorship Co-Chair in the Council of Filipinx-Americans in Medicine. I currently serve on UC\u2019s MD/PhD admissions committee.",
+                    "attending_networking_session": true
+                }
+            },
+            {
+                "model": "registration.facilitator",
+                "pk": 85,
+                "fields": {
+                    "user": 120,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Russia Vega, NP",
+                    "position": "Nurse Practitioner",
+                    "facilitators": "Russia Vega",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1nZ3E-RCm4FPmJ4tX0s1030UPetOtUZFX",
+                    "bio": "Graduated Bachelors of science in nursing- Velez College, Cebu city Philippines\r\nMigrated to US in 2005 \r\nWoking at Carle Foundation Hospital urbana as a nurse 2005-2014\r\nCarle at the Riverfront Danville from 2014- present as a family nurse practitioner",
+                    "attending_networking_session": true
+                }
+            },
+            {
+                "model": "registration.facilitator",
+                "pk": 74,
+                "fields": {
+                    "user": 77,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Edward Caballero, MD",
+                    "position": "Carle Hospital Internist",
+                    "facilitators": "Edward Caballero, MD",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1f0BFvwuskNkJNHBXGLkAMYQoYstMTgci",
+                    "bio": "I am an internist, working for Carle, at an underserved area in Danville, Illinois. I take care of patients with complex medical conditions and coordinate their care with their various specialists. I mostly work to prevent diseases that will require patients to need specialists. I went to undergrad and med school in the Philippines, did residency and fellowship and moved to the US before completing the fellowship program. Residency again in New Rochelle, NY before coming to central Illinois.",
+                    "attending_networking_session": true
+                }
+            },
+            {
+                "model": "registration.facilitator",
+                "pk": 83,
+                "fields": {
+                    "user": 115,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Xyla Gatilao",
+                    "position": "nan",
+                    "facilitators": "Xyla Gatilao",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1sNazSmaLKWI8lSaJRyHwkqE6D0yWhUcT",
+                    "bio": "Xyla is a business solutions technology lead at HCSC (Health Care Services Corporation). As a business solutions lead she works with clinical and technical leads to assess idea scope and requirements for project delivery. Her interests include Toastmaters public speaking, producing, writing, impov and sketch comedy. Xyla holds an MBA in Entrepreneurship from the Kellstadt Graduate School of Business at DePaul University.",
+                    "attending_networking_session": true
+                }
+            }
+        ],
+        "registrations": 148
+    },
+    "96": {
+        "workshop": [
+            {
+                "model": "registration.workshop",
+                "pk": 96,
+                "fields": {
+                    "title": "Law/Polisci Career Panel",
+                    "description": "During the 3rd session of FACT, six (6) question and answer style career panels of various industries will be simultaneously held. These panels will focus on enlightening delegates of all backgrounds, to promote productivity and set the foundation for fruitful futures by maximizing interconnectivity. Career panels will feature various members of our cultural and campus community and facilitated by a student assistant for a duration of 1 hour and 15 minutes. Delegates will be receiving an insight into the reality of the workforce industry by learning from credited individuals of various expertise.",
+                    "location": 61,
+                    "session": 3,
+                    "preferred_cap": null,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "location": [
+            {
+                "model": "registration.location",
+                "pk": 61,
+                "fields": {
+                    "room_num": "160",
+                    "building": "English Building",
+                    "capacity": 101,
+                    "session": 3,
+                    "moveable_seats": false
+                }
+            }
+        ],
+        "facilitators": [
+            {
+                "model": "registration.facilitator",
+                "pk": 88,
+                "fields": {
+                    "user": 236,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Dennis Mondero",
+                    "position": null,
+                    "facilitators": "Dennis Mondero",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1O0kTnoh38rgvuBvgoTgEcmVyTIKu8zSA",
+                    "bio": "Dennis is an attorney that has worked on billion dollar deals in private practice. He also worked as Deputy Buildings Commissioner for the City of Chicago, and later became Senior Vice President and Chief Administrative Officer for the Chicago Transit Authority. In November 2024, Chicago Mayor Brandon Johnson appointed Dennis to the Board of Directors for the RTA, which oversees CTA, Metra and Pace, the agencies responsible for public transit in Chicago and its suburbs.",
+                    "attending_networking_session": true
+                }
+            },
+            {
+                "model": "registration.facilitator",
+                "pk": 78,
+                "fields": {
+                    "user": 81,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Mark Calaguas, JD",
+                    "position": "Data Privacy Attorney and Co-Founder/Legal Counsel at Tayo",
+                    "facilitators": "Mark Calaguas",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1W3B_CqP3943gqmxYJMc4LVXM6ZFWnd2X",
+                    "bio": "Mark J. Calaguas is an attorney practicing at the intersection of law and technology, with interdisciplinary experience in nonprofit leadership and public service. As co-founder and legal counsel for Tayo, he provides legal and strategic support for a community data hub that first launched as an online public health education and media literacy platform. Mark also performs data privacy consulting and management services for startup founders, small businesses, and institutional clients. He is a past president of the Filipino American Lawyers Association of Chicago (FALA Chicago), a founding board member of the National Filipino American Lawyers Association (NFALA), executive council member of the National Conference of Bar Presidents (NCBP), executive vice president of the Filipino Young Leaders Program (FYLPRO), board chair of the Alliance of Filipinos for Immigrant Rights and Empowerment (AFIRE), and a member of the Communications Advisory Group of the National Academy of Medicine (NAM). Previously, Mark sat as a federal appointee on the Illinois State Advisory Committee of the U.S. Commission on Civil Rights and served as a community representative on the local school council of Skinner North Classical School on Chicago\u2019s Near North Side. Mark holds a B.A. in Comparative Literature and English from the University of Michigan and a J.D. with Certificate in International Law and Practice from Loyola University Chicago.",
+                    "attending_networking_session": true
+                }
+            },
+            {
+                "model": "registration.facilitator",
+                "pk": 77,
+                "fields": {
+                    "user": 80,
+                    "fa_name": "",
+                    "fa_contact": "",
+                    "department_name": "Arienne Calingo",
+                    "position": "Marketing Communications Specialist at Notre Dame Law School, 2023-24 FYLPRO Delegate for the Philippine Embassy, Junior Board Member at Children's Place Association",
+                    "facilitators": "Arienne Calingo",
+                    "image_url": "https://drive.google.com/uc?export=view&id=1Vrj6mGSIhLUObqW1fTAoJlxHTKPt74zP",
+                    "bio": "Arienne Calingo serves as Notre Dame Law School's Marketing Communications Specialist and is responsible for helping to develop and execute a purposeful and clear communications strategy that reflects the Law School's key messages; engages and informs internal and external audiences; and increases awareness of the global impact of Notre Dame Law School. \r\n\r\nShe was the first woman to serve as EducationUSA Ambassador for the U.S. Embassy in Manila and has given advice to outbound Filipino students, alongside former U.S. Ambassador Sung Kim and consular officers.\r\n\r\nIn 2023, Arienne was one of 15 Filipino Americans selected nationwide to serve as a 2023 delegate of the Filipino Young Leaders Program (FYLPRO), a joint initiative of the Philippine Embassy, Consulates General in the United States, and the Ayala Foundation. Through FYLPRO, Arienne aims to carry out projects that advance higher education, youth development, and women empowerment in the Filipino and Filipino American communities.\r\n\r\nIn addition to her extensive work in education, Arienne enjoys creating art, and her works in mixed media, photography, and poetry have been featured in exhibitions at Harvard University, the South Bend Museum of Art, St. Joe County Public Library, University of Notre Dame Center for Social Concerns, and Epiphany Center for the Arts.\r\n\r\nArienne serves as a member of the Junior Board of Directors of the Children's Place Association, which supports Chicago's most vulnerable children and their families who are challenged by poverty, health disparities, and racial injustice.",
+                    "attending_networking_session": true
+                }
+            }
+        ],
+        "registrations": 23
+    }
+}
