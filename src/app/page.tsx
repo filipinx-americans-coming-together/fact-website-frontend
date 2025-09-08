@@ -23,7 +23,11 @@ export default function Home() {
                 />
             )}
 
-            <Navbar />
+            <Navbar/>
+            <div>
+                <iframe className="pointer-events-none relative min-h-screen w-full py-4 sm:py-0 flex flex-col justify-center grayscale" src="https://www.youtube.com/embed/g_973tJqDe8?si=qEEoPmjbEjRI4orm&autoplay=1&mute=1&controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            
 
             <BackgroundImage imageURL={BACKGROUND_URL}>
                 <div className="max-w-lg flex justify-center text-center flex-col-reverse md:flex-row md:text-left">
@@ -34,6 +38,8 @@ export default function Home() {
                         {/* <div className="font-bold my-6 text-4xl lg:text-6xl">
                             Planting Prosperity
                         </div> */}
+
+
                         <div className="font-bold my-6 text-4xl lg:text-9xl">
                             FACT 2025
                         </div>
