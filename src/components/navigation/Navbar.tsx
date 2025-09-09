@@ -48,7 +48,7 @@ export default function Navbar() {
                 />
             </Link>
 
-            <DesktopNav links={NAV_LINKS} />
+            {/* <DesktopNav links={NAV_LINKS} /> */}
 
             <ul className="md:w-[140px] flex text-text-primary gap-6 items-center">
                 {/* socials */}
@@ -74,7 +74,7 @@ export default function Navbar() {
                 </Link>
 
                 {/* mobile navigation toggle */}
-                <li className="flex flex-col items-center">
+                {/* <li className="flex flex-col items-center">
                     <button className="relative text-text-primary rounded md:hidden">
                         {showModal ? (
                             <div>
@@ -91,7 +91,7 @@ export default function Navbar() {
                             />
                         )}
                     </button>
-                </li>
+                </li> */}
             </ul>
         </nav>
     );
