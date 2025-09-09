@@ -1,0 +1,410 @@
+[
+    {
+        "model": "registration.workshop",
+        "pk": 69,
+        "fields": {
+            "title": "Sa Sining at Loob: Healing from Within through Arts",
+            "description": "Through the power of cultural arts, heal from within in a very Pilipinx/o/a way in a community-centered, storytelling workshop that includes music, meditation, movement, self-massage, and storytelling by a trinity of queer Pilipinx artists Soultree, Crystle Dino, and DJ Know Hiya",
+            "location": 11,
+            "session": 1,
+            "preferred_cap": 50,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.workshop",
+        "pk": 73,
+        "fields": {
+            "title": "BECOMING JFERRER",
+            "description": "This workshop explores the journey of JFERRER, chronicling how he transformed from facing doubt and uncertainty to achieving creative success. Through personal storytelling, it reflects on the challenges he overcame and the lessons learned along the way. With themes of resilience, emotional growth, and self-discovery, the chapter provides insight into his evolution as an artist. Targeted at an audience interested in Asian American experiences, the workshop aims to connect deeply with students through authenticity and reflection.",
+            "location": 2,
+            "session": 1,
+            "preferred_cap": 250,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.workshop",
+        "pk": 84,
+        "fields": {
+            "title": "History In Harmonies: The Great Filipino Songbook",
+            "description": "Lou Ella Rose shares and exchange insights with workshop attendees on events that defined the trajectory of Filipino American and Asian American history through the works and personal stories of the greatest Filipino Composers, some of whom have an intimate connection with Chicago (Nicanor Abelardo, Potenciano Gregorio, Francisco Santiago). The workshop also aims to impart a deeper appreciation of the significance of traditional Filipino music (Kundiman, Balitaw, Danza, Folk Songs) and how they have undoubtedly shaped our national identity as Filipinos and the culture we celebrate in the motherland as well as in the diaspora today. She will present some of the music composed during the period of The Great Filipino Songbook (the time of American colonization of the Philippines from 1902 to 1946), related photographs, sound bites, pre-war films, early recorded music as well as selected tracks of her band, SamaSama Project's reimagined works and their mission behind the TGFS passion project.",
+            "location": 32,
+            "session": 2,
+            "preferred_cap": 50,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.workshop",
+        "pk": 72,
+        "fields": {
+            "title": "Navigating Multicultural Organizations",
+            "description": "Today, many organizations bring people together from various cultures and work experiences to offer a wide range of perspectives on strategy and organizational challenges. In this workshop, participants will learn how to identify challenges of working in diverse teams and practice frameworks that can overcome these challenges. Participants will be able to navigate situations where cultural differences are present.",
+            "location": 63,
+            "session": 1,
+            "preferred_cap": 50,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.workshop",
+        "pk": 70,
+        "fields": {
+            "title": "Filipino Identity and Wellness",
+            "description": "In this workshop, participants will delve into the rich heritage of traditional Filipino cultural values and examine how these timeless principles can be reinterpreted to align with modern approaches to wellness and personal growth. Through engaging discussions and practical exercises, attendees will explore how values such as community, resilience, and spirituality can be transformed into tools for fostering mental, emotional, and physical well-being.",
+            "location": 21,
+            "session": 1,
+            "preferred_cap": 40,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.workshop",
+        "pk": 79,
+        "fields": {
+            "title": "Making Space",
+            "description": "This workshop will explore how we can identify and make space through creative acts. An art therapy lens will be used to explore self-reflexivity and social location to develop personal rhizomes.  Making Space will include an experiential that reflects on the metaphors inherent in Filipino formal wear such as the Barong.",
+            "location": 17,
+            "session": 1,
+            "preferred_cap": 25,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.workshop",
+        "pk": 83,
+        "fields": {
+            "title": "Leading with Heart",
+            "description": "Redefining leadership within Filipino student organizations by emphasizing personal well-being, community support, and a heart-centered approach to leadership that reimagines traditional values for sustainable success",
+            "location": 48,
+            "session": 2,
+            "preferred_cap": 40,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.workshop",
+        "pk": 88,
+        "fields": {
+            "title": "Finding Bounty in Bayanihan: Philippine Student Associations as an Avenue for Social Change",
+            "description": "What would prosperity look like for the Filipino community as whole, from the Philippines to the US and beyond? Access to basic needs and a sustainable livelihood are foundational to prosperity, yet we only need to ask for a few stories from our families to hear about the poverty that runs rampant in the Philippines. For Filipinos in the US, narratives of Filipino nurses and pursuing the American Dream dominate popular media, but missing is coverage of the rampant labor exploitation overseas Filipino workers (OFWs)  face in the workplace or why there are so many Filipino nurses here in the first place. In this workshop, we’ll learn about the history of PSAs and how these community spaces pushed for positive community change beyond the confines of their universities.",
+            "location": 42,
+            "session": 2,
+            "preferred_cap": 40,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.workshop",
+        "pk": 85,
+        "fields": {
+            "title": "Sustainability Leadership: Solving Wicked Problems in Organizations",
+            "description": "Sustainability is a complex, ever-changing, wicked problem, so how can leaders begin to find solutions? Developed in collaboration with the Student Sustainability Committee, this workshop asks students to identify wicked questions within sustainability issues and navigate the different perspectives and priorities that inform solutions.  Participants will leave with tools and practices that sustainability-minded leaders can use in their organizations.",
+            "location": 64,
+            "session": 2,
+            "preferred_cap": 50,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.workshop",
+        "pk": 78,
+        "fields": {
+            "title": "History of Filipino Youth and Student Activism",
+            "description": "The \"History Filipino Youth and Student Activism\" Workshop aims to teach people about the history and current day situation of Filipino community organizing and advocacy in the Philippines and in the U.S. We want to bring together youth and students to learn about their history and connect to their own experiences.",
+            "location": 24,
+            "session": 1,
+            "preferred_cap": 50,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.workshop",
+        "pk": 75,
+        "fields": {
+            "title": "Finding Bounty in Bayanihan: Philippine Student Associations as an Avenue for Social Change ",
+            "description": "What would prosperity look like for the Filipino community as whole, from the Philippines to the US and beyond? Access to basic needs and a sustainable livelihood are foundational to prosperity, yet we only need to ask for a few stories from our families to hear about the poverty that runs rampant in the Philippines. For Filipinos in the US, narratives of Filipino nurses and pursuing the American Dream dominate popular media, but missing is coverage of the rampant labor exploitation overseas Filipino workers (OFWs)  face in the workplace or why there are so many Filipino nurses here in the first place. In this workshop, we’ll learn about the history of PSAs and how these community spaces pushed for positive community change beyond the confines of their universities. ",
+            "location": 15,
+            "session": 1,
+            "preferred_cap": 40,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.workshop",
+        "pk": 66,
+        "fields": {
+            "title": "Organizing for Gender Justice",
+            "description": "This interactive workshop will provide the tools necessary to organize and mobilize groups of people and create action plans to work toward actualizing social change and gender justice. Skills learned in this workshop can be applied to a variety of social change movements.",
+            "location": 9,
+            "session": 1,
+            "preferred_cap": 50,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.workshop",
+        "pk": 77,
+        "fields": {
+            "title": "Harmonizing Growth through OPM",
+            "description": "Ever since the dawn of Filipino music, the music we refer to now as Original Pilipino Music (OPM) has developed and changed greatly from its traditional roots in the 1920s to the modern sounds we hear today. By blending traditional elements with contemporary sounds, OPM showcases the continuous redefinition of Filipino culture. In this workshop, the goal is to inspire and motivate participants to thrive artistically and musically through the exploration of OPM's rich history and evolution by the way of song. Whether that be by singing or by playing an instrument, participants will have the opportunity to learn history and arrangement of OPM, while at the same time, gaining hands-on experience by working on an OPM medley consisting of songs loved by many.",
+            "location": 7,
+            "session": 1,
+            "preferred_cap": 100,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.workshop",
+        "pk": 80,
+        "fields": {
+            "title": "This Seems Sus: Sharpening Skills to Sniff Out Misinfo",
+            "description": "Misinformation is nothing new in the Filipino community. Going back as far as the time of Jose Rizal, false and misleading narratives have found their way into our collective consciousness during crucial points in history. Throughout the diaspora, we’ve seen how problematic online content in the present day can divide and spread dangerous narratives about important issues like public health, racial justice, and electoral participation. Mis- and disinformation is not just about lies, it is about power, and it exposes political frictions, fault lines, and tensions within and across immigrant communities.\r\n\r\nIn this workshop, FYLPRO’s Tayo team will take attendees through the history of misinformation and fake news from the Filipino perspective, how those tactics translate into the influence operations we’re seeing today and how to promote critical thinking and media literacy through culturally tailored community interventions.",
+            "location": 35,
+            "session": 2,
+            "preferred_cap": 50,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.workshop",
+        "pk": 71,
+        "fields": {
+            "title": "History In Harmonies: The Great Filipino Songbook",
+            "description": "Lou Ella Rose shares and exchange insights with workshop attendees on events that defined the trajectory of Filipino American and Asian American history through the works and personal stories of the greatest Filipino Composers, some of whom have an intimate connection with Chicago (Nicanor Abelardo, Potenciano Gregorio, Francisco Santiago). The workshop also aims to impart a deeper appreciation of the significance of traditional Filipino music (Kundiman, Balitaw, Danza, Folk Songs) and how they have undoubtedly shaped our national identity as Filipinos and the culture we celebrate in the motherland as well as in the diaspora today. She will present some of the music composed during the period of The Great Filipino Songbook (the time of American colonization of the Philippines from 1902 to 1946), related photographs, sound bites, pre-war films, early recorded music as well as selected tracks of her band, SamaSama Project's reimagined works and their mission behind the TGFS passion project.",
+            "location": 5,
+            "session": 1,
+            "preferred_cap": 50,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.workshop",
+        "pk": 74,
+        "fields": {
+            "title": "Toxic Filipino BF 🤝 Toxic Viet GF: Healthy Dating Behaviors in the Asian Community",
+            "description": "The meme “Toxic Filipino BF 🤝 Toxic Viet GF'' has been popularized all over TikTok and Twitter – but where did this come from? College is a transformative period for our identities, as you will be meeting new people, cultivating friendships, or even starting a romantic relationship. Let’s talk about the intersectionality of cultural upbringing, creating healthy relationships🫂, and dismantling red flags 🚩!",
+            "location": 4,
+            "session": 1,
+            "preferred_cap": 75,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.workshop",
+        "pk": 87,
+        "fields": {
+            "title": "Seeds of Hope with The PUSO Foundation",
+            "description": "Join the PUSO Foundation as they discuss the importance of how networking, mentorship, and learnings from the workplace can all tie into one’s passion to giving back to those in need. PUSO’s mission is to provide hope with a purpose. From working in non-profit spaces, higher education, to corporate America, you’ll learn about how a panel of leaders take their personal experiences to plant seeds towards the success of the PUSO Foundation in order to help the underserved communities they support.",
+            "location": 41,
+            "session": 2,
+            "preferred_cap": null,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.workshop",
+        "pk": 81,
+        "fields": {
+            "title": "Leveraging AI in Your Job Search",
+            "description": "As generative AI’s impact on job searching and hiring continues to take shape, navigating AI tools like ChatGPT and others have become a powerful instrument to those seeking jobs and internships. This presentation will familiarize students with the current AI landscape, its challenges, best practices for its effective and ethical use in resumes, cover letters, interview preparation, and other parts of the search process, employer perspectives on candidates’ use of AI, and future directions in which these tools may evolve.",
+            "location": 46,
+            "session": 2,
+            "preferred_cap": null,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.workshop",
+        "pk": 86,
+        "fields": {
+            "title": "BECOMING JFERRER",
+            "description": "This workshop explores the journey of JFERRER, chronicling how he transformed from facing doubt and uncertainty to achieving creative success. Through personal storytelling, it reflects on the challenges he overcame and the lessons learned along the way. With themes of resilience, emotional growth, and self-discovery, the chapter provides insight into his evolution as an artist. Targeted at an audience interested in Asian American experiences, the workshop aims to connect deeply with students through authenticity and reflection.",
+            "location": 29,
+            "session": 2,
+            "preferred_cap": 250,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.workshop",
+        "pk": 67,
+        "fields": {
+            "title": "Meryenda: Kinship & Stories",
+            "description": "Meryenda are more than just tasty treats; they are a comforting reminder of home, family, and community. Bringing people together to share stories and memories, these Pinoy snacks bridge generations and foster a sense of shared cultural identity. Learn how to make a delicious Pinoy meryenda with us while exploring how the joy of storytelling promotes individual agency reclamation and collective liberation.",
+            "location": 62,
+            "session": 1,
+            "preferred_cap": 50,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.workshop",
+        "pk": 82,
+        "fields": {
+            "title": "Toxic Filipino BF 🤝 Toxic Viet GF: Healthy Dating Behaviors in the Asian Community",
+            "description": "The meme “Toxic Filipino BF 🤝 Toxic Viet GF'' has been popularized all over TikTok and Twitter – but where did this come from? College is a transformative period for our identities, as you will be meeting new people, cultivating friendships, or even starting a romantic relationship. Let’s talk about the intersectionality of cultural upbringing, creating healthy relationships🫂, and dismantling red flags 🚩!",
+            "location": 31,
+            "session": 2,
+            "preferred_cap": 75,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.workshop",
+        "pk": 89,
+        "fields": {
+            "title": "Strength in the Struggle: Exploring Political Solidarity Across the Asian Diaspora",
+            "description": "In this workshop, we aim to delve into the history of influential Asian and Filipino political activists and highlight the significance of solidarity across the broader Asian diaspora. Our organization is deeply dedicated to fostering unity among Asian American individuals on campus, emphasizing the power of shared experiences and collective action. We’ll explore historical solidarity movements within the Filipino-American community, while encouraging participants to reflect on their own understanding of what solidarity means. Through this workshop, we hope to inspire delegates with a renewed commitment and the tools needed to nurture prosperity within our community moving forward.",
+            "location": 37,
+            "session": 2,
+            "preferred_cap": 40,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.workshop",
+        "pk": 68,
+        "fields": {
+            "title": "Leveraging AI in Your Job Search",
+            "description": "As generative AI’s impact on job searching and hiring continues to take shape, navigating AI tools like ChatGPT and others have become a powerful instrument to those seeking jobs and internships. This presentation will familiarize students with the current AI landscape, its challenges, best practices for its effective and ethical use in resumes, cover letters, interview preparation, and other parts of the search process, employer perspectives on candidates’ use of AI, and future directions in which these tools may evolve.",
+            "location": 19,
+            "session": 1,
+            "preferred_cap": null,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.workshop",
+        "pk": 95,
+        "fields": {
+            "title": "Humanities/Literature Career Panel",
+            "description": "During the 3rd session of FACT, six (6) question and answer style career panels of various industries will be simultaneously held. These panels will focus on enlightening delegates of all backgrounds, to promote productivity and set the foundation for fruitful futures by maximizing interconnectivity. Career panels will feature various members of our cultural and campus community and facilitated by a student assistant for a duration of 1 hour and 15 minutes. Delegates will be receiving an insight into the reality of the workforce industry by learning from credited individuals of various expertise.",
+            "location": 56,
+            "session": 3,
+            "preferred_cap": null,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.workshop",
+        "pk": 100,
+        "fields": {
+            "title": "From Roots to Resilience: Reclaiming API Mental Health Narratives",
+            "description": "This workshop, inspired by API Roots Outreach's teams mission, connects mental health and cultural identity within API communities. \"Roots\" symbolizes the cultural wisdom passed down through generations, which shapes mental health experiences. Our goal is to promote cultural awareness and mental health understanding, addressing how issues like intergenerational trauma, racism, and the model minority myth impact API individuals. \r\n\r\nAPI Roots focuses on supporting cultural identity, mental health, and social justice issues in the Asian American, Pacific Islander, and Asian International (API) communities. This workshop will help participants gain tools for culturally sensitive mental health practices, fostering resilience and advocacy within API communities.",
+            "location": 38,
+            "session": 2,
+            "preferred_cap": 50,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.workshop",
+        "pk": 91,
+        "fields": {
+            "title": "Fight For Your Education",
+            "description": "The \"Fight For Your Education\" Workshop aims to empower students to advocate and take action within their universities! Hear from the experiences of youth and student organizers fighting for culturally relevant education on their campuses and how participants can begin to do it on their campus!",
+            "location": 53,
+            "session": 2,
+            "preferred_cap": 50,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.workshop",
+        "pk": 99,
+        "fields": {
+            "title": "Leading with \"Yes, And\"",
+            "description": "Would you like to lead an inclusive and collaborative group? Learn how basic improv techniques like \"Yes, And\" can be applied to enhance your group dynamic. \"Yes, And\" does not mean you need to agree with everything. In this workshop you will actively listen, be present, affirm your partner, and add value to build a scene. Then you will discuss how that can be applied to enhance any group dynamic.",
+            "location": 45,
+            "session": 2,
+            "preferred_cap": 50,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.workshop",
+        "pk": 90,
+        "fields": {
+            "title": "Sayaw ng mga Ilaw: Basics of Pandanggo-Oasiwas and the Experiences of Martial Law in the Philippines",
+            "description": "This workshop combines the art of storytelling and the craft of dance. The first part is a storytelling session of \"Sayaw ng mga Ilaw (Dance of Lights),\" a children's book written by Cheeno Sayuno and published by Tahanan Books. The book is about Laya, who is hoping to learn Pandanggo-Oasiwas with her Ate Kala during the Martial Law years in the Philippines. After discussions about the socio-political experiences of the time, as well as the history of Pandango-Oasiwas as a dance, participants would practice basic movements, balancing glasses, and the art of oasiwas.",
+            "location": 50,
+            "session": 2,
+            "preferred_cap": 30,
+            "moveable_seats": true
+        }
+    },
+    {
+        "model": "registration.workshop",
+        "pk": 76,
+        "fields": {
+            "title": "Strength in the Struggle: Exploring Political Solidarity Across the Asian Diaspora",
+            "description": "In this workshop, we aim to delve into the history of influential Asian and Filipino political activists and highlight the significance of solidarity across the broader Asian diaspora. Our organization is deeply dedicated to fostering unity among Asian American individuals on campus, emphasizing the power of shared experiences and collective action. We’ll explore historical solidarity movements within the Filipino-American community, while encouraging participants to reflect on their own understanding of what solidarity means. Through this workshop, we hope to inspire delegates with a renewed commitment and the tools needed to nurture prosperity within our community moving forward.",
+            "location": 10,
+            "session": 1,
+            "preferred_cap": 40,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.workshop",
+        "pk": 93,
+        "fields": {
+            "title": "Business Career Panel",
+            "description": "During the 3rd session of FACT, six (6) question and answer style career panels of various industries will be simultaneously held. These panels will focus on enlightening delegates of all backgrounds, to promote productivity and set the foundation for fruitful futures by maximizing interconnectivity. Career panels will feature various members of our cultural and campus community and facilitated by a student assistant for a duration of 1 hour and 15 minutes. Delegates will be receiving an insight into the reality of the workforce industry by learning from credited individuals of various expertise.",
+            "location": 60,
+            "session": 3,
+            "preferred_cap": null,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.workshop",
+        "pk": 97,
+        "fields": {
+            "title": "STEM Career Panel",
+            "description": "During the 3rd session of FACT, six (6) question and answer style career panels of various industries will be simultaneously held. These panels will focus on enlightening delegates of all backgrounds, to promote productivity and set the foundation for fruitful futures by maximizing interconnectivity. Career panels will feature various members of our cultural and campus community and facilitated by a student assistant for a duration of 1 hour and 15 minutes. Delegates will be receiving an insight into the reality of the workforce industry by learning from credited individuals of various expertise.",
+            "location": 58,
+            "session": 3,
+            "preferred_cap": null,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.workshop",
+        "pk": 92,
+        "fields": {
+            "title": "Arts/Media Career Panel",
+            "description": "During the 3rd session of FACT, six (6) question and answer style career panels of various industries will be simultaneously held. These panels will focus on enlightening delegates of all backgrounds, to promote productivity and set the foundation for fruitful futures by maximizing interconnectivity. Career panels will feature various members of our cultural and campus community and facilitated by a student assistant for a duration of 1 hour and 15 minutes. Delegates will be receiving an insight into the reality of the workforce industry by learning from credited individuals of various expertise.",
+            "location": 59,
+            "session": 3,
+            "preferred_cap": null,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.workshop",
+        "pk": 94,
+        "fields": {
+            "title": "Healthcare Career Panel",
+            "description": "During the 3rd session of FACT, six (6) question and answer style career panels of various industries will be simultaneously held. These panels will focus on enlightening delegates of all backgrounds, to promote productivity and set the foundation for fruitful futures by maximizing interconnectivity. Career panels will feature various members of our cultural and campus community and facilitated by a student assistant for a duration of 1 hour and 15 minutes. Delegates will be receiving an insight into the reality of the workforce industry by learning from credited individuals of various expertise.",
+            "location": 57,
+            "session": 3,
+            "preferred_cap": null,
+            "moveable_seats": false
+        }
+    },
+    {
+        "model": "registration.workshop",
+        "pk": 96,
+        "fields": {
+            "title": "Law/Polisci Career Panel",
+            "description": "During the 3rd session of FACT, six (6) question and answer style career panels of various industries will be simultaneously held. These panels will focus on enlightening delegates of all backgrounds, to promote productivity and set the foundation for fruitful futures by maximizing interconnectivity. Career panels will feature various members of our cultural and campus community and facilitated by a student assistant for a duration of 1 hour and 15 minutes. Delegates will be receiving an insight into the reality of the workforce industry by learning from credited individuals of various expertise.",
+            "location": 61,
+            "session": 3,
+            "preferred_cap": null,
+            "moveable_seats": false
+        }
+    }
+]
