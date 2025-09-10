@@ -25,7 +25,7 @@ export default function Home() {
 
             <Navbar/>
             <div>
-                <iframe className="pointer-events-none relative min-h-screen w-full py-4 sm:py-0 flex flex-col justify-center grayscale" src="https://www.youtube.com/embed/g_973tJqDe8?si=qEEoPmjbEjRI4orm&autoplay=1&mute=1&controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe className="pointer-events-none relative min-h-screen w-full py-4 sm:py-0 flex flex-col justify-center grayscale" src="https://www.youtube.com/embed/g_973tJqDe8?si=qEEoPmjbEjRI4orm&autoplay=1&mute=1&controls=0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
             </div>
             
 
