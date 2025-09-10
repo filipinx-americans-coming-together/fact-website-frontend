@@ -21,7 +21,7 @@ export default function RootLayout({
             <head>
                 <link
                     rel="icon"
-                    href="/fact-2024-logo.png"
+                    href="/fact-logo.png"
                     type="image/png"
                     sizes="32x32"
                 />

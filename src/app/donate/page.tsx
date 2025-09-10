@@ -2,6 +2,7 @@
 
 import Footer from "@/components/formatting/PageFooter";
 import Navbar from "@/components/navigation/Navbar";
+import LinkButton from "@/components/ui/LinkButton";
 import Link from "next/link";
 import { useEffect } from "react";
 
@@ -22,8 +23,8 @@ export default function Donate() {
     return (
         <>
             <Navbar />
-            <div className="bg-text-primary text-background-primary min-h-screen py-6">
-                <div className="w-7/12 mx-auto text-center flex flex-col items-center">
+            <div className="min-h-screen py-6">
+                <div className="w-7/12 mx-auto text-center flex flex-col items-center gap-4">
                     <h1 className="font-bold text-5xl lg:text-6xl m-10 lg:mb-10">
                         Support FACT
                     </h1>
@@ -60,12 +61,11 @@ export default function Donate() {
                             generation.
                         </p>
                     </div>
-                    <Link
-                        className="text-highlight-2-secondary hover:underline"
-                        href="/about"
+                    <LinkButton
+                        url="/about"
+                        text="Learn More"
                     >
-                        Learn More
-                    </Link>
+                    </LinkButton>
 
                     <br />
                     <br />

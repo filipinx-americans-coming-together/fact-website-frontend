@@ -3,10 +3,11 @@ import Link from "next/link";
 
 export const Footer = () => {
     const FACT_LOGO_LENGTH = 60;
-    const FACT_LOGO_SOURCE = "/fact-2024-logo.png";
-    const PSA_LOGO_SOURCE = "/psa-logo.jpg";
+    const FACT_LOGO_SOURCE = "/fact-logo.png";
+    const PSA_LOGO_SOURCE = "/psa-logo.png";
 
     return (
+        <div className="bg-gradient saturate-200">
         <footer className="pt-12 pb-6 px-4 w-full flex flex-col items-center">
             {/* Logos */}
             <div className="flex flex-row flex-wrap items-center gap-4">
@@ -16,7 +17,7 @@ export const Footer = () => {
                     width={FACT_LOGO_LENGTH}
                     height={FACT_LOGO_LENGTH}
                     alt="FACT 2024 Logo"
-                    className="object-contain rounded-lg"
+                    className="object-cover rounded-lg aspect-square"
                 />
                 <Image
                     src={PSA_LOGO_SOURCE}
@@ -40,6 +41,7 @@ export const Footer = () => {
             </p>
             <p className="text-center mt-2">Copyright © 2025 PSA UIUC</p>
         </footer>
+        </div>
     );
 };
 

@@ -6,6 +6,9 @@ import { ResponseData } from "./util/types";
 // TODO: have conditionals for the different states this file should be in (reg open, reg closed, database off)
 
 export async function middleware(request: NextRequest) {
+    // minimal theme drop website
+    return NextResponse.rewrite(new URL('/not-found', request.url));
+    
     // intercept all pages that use accounts
     return NextResponse.redirect(new URL('/registration-closed', request.url));
 
@@ -38,6 +41,7 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
     matcher: [
+        "/agenda", "/faq", "/gallery", "/refund", "/registration-closed", "/team", "/workshops",
         "/my-fact/:path*",
         // "/workshops/:path*",
         "/facilitators/:path*",
