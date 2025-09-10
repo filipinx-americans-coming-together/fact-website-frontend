@@ -58,7 +58,7 @@ export default function Navbar() {
                             <Link
                                 href={item.link}
                                 target="_blank"
-                                className="hover:text-highlight-primary"
+                                className="hover:text-highlight-2-secondary"
                             >
                                 {item.icon}
                             </Link>

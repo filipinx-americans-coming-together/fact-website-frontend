@@ -43,7 +43,7 @@ export const config = {
     matcher: [
         "/agenda", "/faq", "/gallery", "/refund", "/registration-closed", "/team", "/workshops",
         "/my-fact/:path*",
-        // "/workshops/:path*",
+        "/workshops/:path*",
         "/facilitators/:path*",
         "/admin/:path*",
     ],
