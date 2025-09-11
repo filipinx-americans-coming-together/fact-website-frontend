@@ -16,7 +16,7 @@ interface PageContainerProps {
  */
 export default function PageContainer({ children, title, maintainCase=false }: PageContainerProps) {
     return (
-        <div>
+        <div className="bg-about bg-cover bg-right-top">
             <Navbar />
 
             <div className="mx-6 mb-6 sm:mx-14 lg:mx-32 lg:mb-10">

@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import teamData from "./teamData.json";
 
-const FACT_LOGO_SOURCE = "/fact-2024-logo-transparent.png";
+const FACT_LOGO_SOURCE = "/fact-logo-transparent.png";
 
 type Officer = {
     name: string;
