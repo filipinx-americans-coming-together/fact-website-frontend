@@ -38,7 +38,7 @@ export default function Navbar() {
 
     return (
         <div className="bg-gradient saturate-200">
-            <nav className="flex justify-between mx-auto items-center py-4 px-10 md:px-20">
+            <nav className="flex justify-between mx-auto items-center py-4 px-4 sm:px-10 md:px-20">
                 <Link className="md:w-[140px]" href={"/"}>
                     <Image
                         className="rounded-lg object-cover aspect-square"
