@@ -3,8 +3,8 @@ import Link from "next/link";
 
 export const Footer = () => {
     const FACT_LOGO_LENGTH = 60;
-    const FACT_LOGO_SOURCE = "/fact-logo.png";
-    const PSA_LOGO_SOURCE = "/psa-logo.png";
+    const FACT_LOGO_SOURCE = "/images/fact-logo.png";
+    const PSA_LOGO_SOURCE = "/images/psa-logo.png";
 
     return (
         <div className="bg-gradient saturate-200">

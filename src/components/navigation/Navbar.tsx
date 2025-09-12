@@ -27,7 +27,7 @@ const NAV_LINKS = [
     { text: "My FACT", path: "/my-fact/login"}
 ];
 
-const FACT_LOGO_SRC = "/fact-logo.png";
+const FACT_LOGO_SRC = "/images/fact-logo.png";
 
 export default function Navbar() {
     const [showModal, setShowModal] = useState(false);
