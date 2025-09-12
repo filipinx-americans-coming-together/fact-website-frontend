@@ -48,7 +48,7 @@ export default function UploadFile({
                 <p className="border-2 p-2">{file.name} uploaded</p>
             ) : (
                 <div
-                    className="hidden md:flex items-center justify-center w-7/12 aspect-video border-4 rounded border-dashed"
+                    className="hidden md:flex items-center justify-center w-7/12 aspect-video border-4 rounded-sm border-dashed"
                     onDrop={handleDrop}
                     onDragOver={handleDragOver}
                 >

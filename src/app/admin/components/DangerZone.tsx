@@ -52,7 +52,7 @@ export default function DangerZone() {
     ];
 
     return (
-        <div className="border-2 rounded divide-y-2 flex flex-col">
+        <div className="border-2 rounded-sm divide-y-2 flex flex-col">
             {toggleableFlags.map((flag, idx) => {
                 return (
                     <DangerZoneAction

@@ -84,7 +84,7 @@ export default function FacilitatorDashboard() {
     }
 
     return (
-        // <div className="bg-gradient-to-tl from-background-primary to-emerald-900">
+        // <div className="bg-linear-to-tl from-background-primary to-emerald-900">
         <>
             <Navbar />
             <div className="w-9/12 mx-auto flex flex-col items-left gap-10">

@@ -71,7 +71,7 @@ export default function Agenda() {
                         </>
                     )}
 
-                    <div className="mx-auto rounded bg-gray-300 p-6 w-fit">
+                    <div className="mx-auto rounded-sm bg-gray-300 p-6 w-fit">
                         <FormContainer
                             formName="newAgendaItem"
                             submitText="Add"

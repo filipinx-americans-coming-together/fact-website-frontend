@@ -63,7 +63,7 @@ export default function Schools() {
                             newSchools.map((school) => (
                                 <div
                                     key={school.id}
-                                    className="rounded shadow bg-gray-300 p-6 grid grid-cols-1 gap-2 md:grid-cols-3"
+                                    className="rounded shadow-sm bg-gray-300 p-6 grid grid-cols-1 gap-2 md:grid-cols-3"
                                 >
                                     <p className="text-blue-600">
                                         {school.name}

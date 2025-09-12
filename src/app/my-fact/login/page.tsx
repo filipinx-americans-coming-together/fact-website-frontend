@@ -44,12 +44,12 @@ export default function Login() {
 
             <br />
             {/* toggle log in type */}
-            <div className="mx-auto p-2 border-2 border-highlight-primary rounded w-fit flex gap-4">
+            <div className="mx-auto p-2 border-2 border-highlight-primary rounded-sm w-fit flex gap-4">
                 <button
                     type="button"
                     className={
                         (isDelegate
-                            ? "bg-highlight-primary text-background-primary rounded"
+                            ? "bg-highlight-primary text-background-primary rounded-sm"
                             : "") + " py-2 px-4"
                     }
                     onClick={(event) => {
@@ -63,7 +63,7 @@ export default function Login() {
                     type="button"
                     className={
                         (!isDelegate
-                            ? "bg-highlight-primary text-background-primary rounded"
+                            ? "bg-highlight-primary text-background-primary rounded-sm"
                             : "") + " py-2 px-4"
                     }
                     onClick={(event) => {

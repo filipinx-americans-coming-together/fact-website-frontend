@@ -13,7 +13,7 @@ export default function Stats() {
     return (
         <>
             <div className="flex flex-col md:flex-row gap-4">
-                <div className="bg-gradient-to-r from-lime-100 to-green-100 rounded shadow aspect-[4/3] md:w-[240px] flex items-center justify-center">
+                <div className="bg-linear-to-r from-lime-100 to-green-100 rounded-sm shadow-sm aspect-4/3 md:w-[240px] flex items-center justify-center">
                     <div className="flex flex-col gap-2">
                         <div className="text-4xl text-green-400">
                             <BsPeopleFill />
@@ -24,7 +24,7 @@ export default function Stats() {
                         <p>Registered Delegates</p>
                     </div>
                 </div>
-                <div className="bg-gradient-to-r from-cyan-100 to-blue-100 rounded shadow aspect-[4/3] md:w-[240px] flex items-center justify-center">
+                <div className="bg-linear-to-r from-cyan-100 to-blue-100 rounded-sm shadow-sm aspect-4/3 md:w-[240px] flex items-center justify-center">
                     <div className="flex flex-col gap-2">
                         <div className="text-4xl text-blue-400">
                             <FaSchool />

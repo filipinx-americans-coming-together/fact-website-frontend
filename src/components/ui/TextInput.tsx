@@ -64,7 +64,7 @@ function TextInput({
                 placeholder={placeholder}
                 defaultValue={value}
                 autoComplete={autoComplete}
-                className="py-1 px-2 rounded border w-full min-w-48"
+                className="py-1 px-2 rounded-sm border w-full min-w-48"
                 onChange={(event) => {
                     const value = event.currentTarget.value;
 

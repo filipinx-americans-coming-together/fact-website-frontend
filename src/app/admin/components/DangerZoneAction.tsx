@@ -34,7 +34,7 @@ export default function DangerZoneAction({
             </div>
             <div className="text-center md:col-span-2">
                 <button
-                    className="shadow text-sm text-red-600 px-8 py-2 bg-gray-300 hover:bg-gray-200 rounded"
+                    className="shadow text-sm text-red-600 px-8 py-2 bg-gray-300 hover:bg-gray-200 rounded-sm"
                     type="button"
                     onClick={() => {
                         let confirmation = confirm(

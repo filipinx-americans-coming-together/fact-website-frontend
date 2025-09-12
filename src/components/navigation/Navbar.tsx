@@ -67,7 +67,7 @@ export default function Navbar() {
 
                     {/* donate */}
                     <Link
-                        className="bg-highlight-2-primary hover:bg-highlight-2-secondary text-text-primary px-4 py-2 rounded-full shadow flex gap-2 justify-center items-center"
+                        className="bg-highlight-2-primary hover:bg-highlight-2-secondary text-text-primary px-4 py-2 rounded-full shadow-sm flex gap-2 justify-center items-center"
                         href="/donate"
                         target="_blank"
                     >
@@ -76,7 +76,7 @@ export default function Navbar() {
 
                     {/* mobile navigation toggle */}
                     {/* <li className="flex flex-col items-center">
-                        <button className="relative text-text-primary rounded md:hidden">
+                        <button className="relative text-text-primary rounded-sm md:hidden">
                             {showModal ? (
                                 <div>
                                     <FaTimes

@@ -42,7 +42,7 @@ function Select<T>({
             </label>
 
             <select
-                className="py-1 px-2 rounded border"
+                className="py-1 px-2 rounded-sm border"
                 id={id}
                 defaultValue={defaultValue ? defaultValue : undefined}
                 onChange={(event) => {

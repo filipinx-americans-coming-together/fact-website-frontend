@@ -11,7 +11,7 @@ export const Footer = () => {
         <footer className="pt-12 pb-6 px-4 w-full flex flex-col items-center">
             {/* Logos */}
             <div className="flex flex-row flex-wrap items-center gap-4">
-                <span className="hidden sm:block flex-grow" />
+                <span className="hidden sm:block grow" />
                 <Image
                     src={FACT_LOGO_SOURCE}
                     width={FACT_LOGO_LENGTH}
