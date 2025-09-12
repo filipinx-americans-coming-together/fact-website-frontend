@@ -149,6 +149,7 @@
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
+    --background-image-noise-base: repeating-linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2) 50%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.2));
     --background-image-noise: url('/generated-html.svg');
     --background-image-gradient: linear-gradient(
       90deg,
@@ -360,8 +361,8 @@
   .inset-x-0 {
     inset-inline: calc(var(--spacing) * 0);
   }
-  .-top-50 {
-    top: calc(var(--spacing) * -50);
+  .-top-\[50px\] {
+    top: calc(50px * -1);
   }
   .top-1 {
     top: calc(var(--spacing) * 1);
@@ -381,11 +382,11 @@
   .right-4 {
     right: calc(var(--spacing) * 4);
   }
+  .-left-\[50px\] {
+    left: calc(50px * -1);
+  }
   .left-1\/2 {
     left: calc(1/2 * 100%);
-  }
-  .left-50 {
-    left: calc(var(--spacing) * 50);
   }
   .-z-10 {
     z-index: calc(10 * -1);
@@ -534,6 +535,9 @@
   .h-\[90vh\] {
     height: 90vh;
   }
+  .h-\[calc\(100\%\+50px\)\] {
+    height: calc(100% + 50px);
+  }
   .h-auto {
     height: auto;
   }
@@ -575,6 +579,9 @@
   }
   .w-80 {
     width: calc(var(--spacing) * 80);
+  }
+  .w-\[calc\(100\%\+50px\)\] {
+    width: calc(100% + 50px);
   }
   .w-fit {
     width: fit-content;
@@ -906,6 +913,9 @@
   .bg-noise {
     background-image: var(--background-image-noise);
   }
+  .bg-noise-base {
+    background-image: var(--background-image-noise-base);
+  }
   .from-background-primary {
     --tw-gradient-from: var(--color-background-primary);
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
@@ -1171,6 +1181,9 @@
   }
   .filter {
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
+  .filter-\[url\(\#noise\)\] {
+    filter: url(#noise);
   }
   .transition {
     transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
