@@ -6,7 +6,8 @@
     var(--tw-gradient-stops)
   );
   --background-image-home-image: url('/welcome-ceremony.jpg');
-  --background-image-animated-noise: url('data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence id='turbulence'%3E%3Canimate attributeName='baseFrequency' dur='8s' values='0.90.9;0.80.8;0.90.9' repeatCount='indefinite'%3E%3C/animate%3E%3C/feTurbulence%3E%3CfeDisplacementMap in='SourceGraphic' scale='60'%3E%3C/feDisplacementMap%3E%3C/filter%3E%3C/svg%3E');
+  /* --background-image-noise-base: repeating-gradient(#111, #111 50%, #000 50%, #000); */
+  --background-image-noise-base: linear-gradient(black, white);
   --background-image-noise: url('/generated-html.svg');
   --background-image-gradient:
     linear-gradient(
