@@ -93,19 +93,10 @@ export default function About() {
 
                     <div className="flex flex-col">
                         <div className="self-start lg:self-end text-2xl font-bold">
-                            FACT 2024
+                            FACT 2025
                         </div>
                         <div className="text-left lg:text-right">
-                            This year’s Filipinx Americans Coming Together
-                            (FACT) Conference proudly presents the theme for its
-                            32nd year: “Magbubunga: Planting Prosperity”! FACT
-                            strives to encourage conference attendees to
-                            leverage their strengths to achieve fruitful
-                            outcomes and nurture a culture of productivity
-                            within our community. We hope to maximize
-                            connections between all conference attendees and
-                            enrich each delegate’s personal and professional
-                            growth.
+                            Our theme for this year is “Ipahayag nang Malakas,” which translates to “Proclaim Loudly.” Our theme is rooted in the belief that everyone carries a collection of beautiful and complex identities, and those identities deserve to be seen, heard, and celebrated. We want to encourage attendees to embrace all parts of who they are and step confidently into the person they aspire to become. It’s not just about self-expression. It is about empowerment, finding your voice, and using it to speak up for yourself, for your communities, and for the values and ideas that matter to you. Whether that means reconnecting with your heritage, stepping into leadership, or advocating for change, this theme is a call to own your narrative and proclaim it boldly, unapologetically, and with purpose.
                         </div>
                     </div>
                 </div>
