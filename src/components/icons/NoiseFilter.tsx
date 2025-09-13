@@ -1,6 +1,9 @@
-import * as React from "react";
-const SVGComponent = (props: {className: string}) => (
-  <svg className={props.className}>
+/**
+ * SVG filter to create noise effect
+ * @returns NoiseFilter component
+ */
+const NoiseFilter = () => (
+  <svg className="h-0 w-0">
     <filter id="noise">
       <feTurbulence id="turbulence">
         <animate
@@ -14,4 +17,4 @@ const SVGComponent = (props: {className: string}) => (
     </filter>
   </svg>
 );
-export default SVGComponent;
+export default NoiseFilter;

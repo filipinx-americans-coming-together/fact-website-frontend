@@ -1,14 +1,13 @@
 "use client";
 
 import BackgroundImage from "@/components/formatting/BackgroundImage";
-import BackgroundVideo from "@/components/formatting/BackgroundVideo";
 import CountdownTimer from "@/components/CountdownTimer";
 import Navbar from "@/components/navigation/Navbar";
 import Footer from "@/components/formatting/PageFooter";
 import NotificationsManager from "@/components/ui/NotificationManager";
 import { useNotifications } from "@/hooks/api/useNotifications";
 import LinkButton from "@/components/ui/LinkButton";
-import SVGComponent from "@/components/icons/SVGComponent";
+import NoiseFilter from "@/components/icons/NoiseFilter";
 
 const BACKGROUND_URL = "/pre-drop.jpg";
 const BACKGROUND_ALT = "FACT 2025 In Progress";
@@ -28,16 +27,8 @@ export default function Home() {
             <Navbar/>
             <div className="relative flex flex-col">
                 <div className="absolute inset-0 overflow-hidden -z-10 min-h-screen min-w-screen">
-                    {/* <div className="absolute h-full w-full bg-noise"></div> */}
                     <div className="absolute -top-[50px] -left-[50px] w-[calc(100%+50px)] h-[calc(100%+50px)] bg-noise-base bg-size-[5px_5px] filter-[url(#noise)]"></div>
-                    <svg className="absolute h-full w-full">
-                        <filter id="noise">
-                            <feTurbulence id="turbulence">
-                            <animate attributeName="baseFrequency" dur="8s" values="0.9 0.9;0.8 0.8; 0.9 0.9" repeatCount="indefinite"></animate>
-                            </feTurbulence>
-                            <feDisplacementMap in="SourceGraphic" scale="60"></feDisplacementMap>
-                        </filter>
-                    </svg>
+                    <NoiseFilter></NoiseFilter>
                     <iframe className="-z-20 pointer-events-none relative min-h-full min-w-full aspect-video origin-center -mt-1 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 grayscale" src="https://www.youtube.com/embed/g_973tJqDe8?si=qEEoPmjbEjRI4orm&autoplay=1&mute=1&controls=0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen>
                     </iframe>
                 </div>

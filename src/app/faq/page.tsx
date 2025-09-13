@@ -13,7 +13,7 @@ function FAQLink({href, text, newTab = false}: {href: string, text: string, newT
 
 export default function FAQ() {
     return (
-        <PageContainer title="FAQ">
+        <PageContainer title="FAQ" background="bg-spill bg-top bg-no-repeat">
             <div className="w-fit mx-auto">
                 <LinkButton
                     text="View this page as a Google Doc"

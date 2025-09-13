@@ -15,7 +15,7 @@ const PDF_URL =
 
 export default function About() {
     return (
-        <PageContainer title="About">
+        <PageContainer title="About" background="bg-oscillate bg-cover bg-top-right">
             <div className="flex flex-col lg:flex-row justify-center lg:justify-evenly gap-6">
                 <div className="flex flex-col lg:w-2/5 xl:w-2/6 items-center justify-between gap-6">
                     <div className="flex flex-col">

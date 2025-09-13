@@ -12,7 +12,7 @@ const Gallery = () => {
     );
 
     return (
-        <PageContainer title="Gallery">
+        <PageContainer title="Gallery" background="bg-repeat bg-center bg-cover lg:bg-contain lg:bg-no-repeat">
             <Carousel title="Welcome Ceremony" src="welcome-ceremony" length={25} numImages={isSmallDevice ? 1 : (isMediumDevice ? 2 : 3)} />
             <div className="border-b-2 h-4 w-full mb-4"></div>
             <Carousel title="Workshops" src="workshop-pics" length={11} numImages={isSmallDevice ? 1 : (isMediumDevice ? 2 : 3)} />

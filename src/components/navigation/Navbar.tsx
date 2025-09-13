@@ -19,12 +19,12 @@ const iconList = [
 const NAV_LINKS = [
     { text: "Home", path: "/" },
     { text: "About", path: "/about" },
-	{ text: "Agenda", path: "/agenda" },
-    { text: "Sessions", path: "/workshops" },
-    { text: "Team", path: "/team" },
+	// { text: "Agenda", path: "/agenda" },
+    // { text: "Sessions", path: "/workshops" },
+    // { text: "Team", path: "/team" },
     { text: "Gallery", path: "/gallery" },
     { text: "FAQ", path: "/faq" },
-    { text: "My FACT", path: "/my-fact/login"}
+    // { text: "My FACT", path: "/my-fact/login"}
 ];
 
 const FACT_LOGO_SRC = "/images/fact-logo.png";
@@ -49,7 +49,7 @@ export default function Navbar() {
                     />
                 </Link>
 
-                {/* <DesktopNav links={NAV_LINKS} /> */}
+                <DesktopNav links={NAV_LINKS} />
 
                 <ul className="md:w-[140px] flex text-text-primary gap-6 items-center">
                     {/* socials */}
@@ -58,7 +58,7 @@ export default function Navbar() {
                             <Link
                                 href={item.link}
                                 target="_blank"
-                                className="hover:text-highlight-2-secondary"
+                                className="hover:text-highlight-primary"
                             >
                                 {item.icon}
                             </Link>
@@ -67,7 +67,7 @@ export default function Navbar() {
 
                     {/* donate */}
                     <Link
-                        className="bg-highlight-2-primary hover:bg-highlight-2-secondary text-text-primary px-4 py-2 rounded-full shadow-sm flex gap-2 justify-center items-center"
+                        className="bg-highlight-secondary hover:bg-highlight-primary text-text-primary px-4 py-2 rounded-full shadow-sm flex gap-2 justify-center items-center"
                         href="/donate"
                         target="_blank"
                     >
@@ -75,7 +75,7 @@ export default function Navbar() {
                     </Link>
 
                     {/* mobile navigation toggle */}
-                    {/* <li className="flex flex-col items-center">
+                    <li className="flex flex-col items-center">
                         <button className="relative text-text-primary rounded-sm md:hidden">
                             {showModal ? (
                                 <div>
@@ -92,7 +92,7 @@ export default function Navbar() {
                                 />
                             )}
                         </button>
-                    </li> */}
+                    </li>
                 </ul>
             </nav>
         </div>
