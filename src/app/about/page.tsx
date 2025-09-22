@@ -1,6 +1,7 @@
 import PageContainer from "@/components/formatting/PageContainer";
 import LinkButton from "@/components/ui/LinkButton";
 import Image from "next/image";
+import SVGUndulate from "@/components/icons/SVGUndulate";
 
 const IMG1_URL = "/variety-show.JPG";
 const IMG2_URL = "/workshop.JPG";
@@ -15,7 +16,9 @@ const PDF_URL =
 
 export default function About() {
     return (
-        <PageContainer title="About" background="bg-oscillate bg-cover bg-top-right">
+        <PageContainer title="About" background={"bg-gradient opacity-50 saturate-200 mask-[var(--background-image-chaos)] mask-center"}>
+            <SVGUndulate></SVGUndulate>
+            <div className="w-full h-full">
             <div className="flex flex-col lg:flex-row justify-center lg:justify-evenly gap-6">
                 <div className="flex flex-col lg:w-2/5 xl:w-2/6 items-center justify-between gap-6">
                     <div className="flex flex-col">
@@ -100,6 +103,7 @@ export default function About() {
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </PageContainer>
     );

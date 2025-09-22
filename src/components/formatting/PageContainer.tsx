@@ -17,11 +17,17 @@ interface PageContainerProps {
  */
 export default function PageContainer({ children, title, background="bg-whirl bg-cover bg-center", maintainCase=false }: PageContainerProps) {
     return (
-        <div>
+        <div className="h-fit w-screen">
             <Navbar />
-            <div className={background}>
-                <div className="mx-6 mb-6 sm:mx-14 lg:mx-32 lg:mb-10">
-                    <PageHeader text={title} maintainCase={maintainCase} />
+            
+            <div className="flex relative">
+                <div className={`-z-10 absolute inset-0 w-full grow ${background}`}></div>
+                <div className="mx-6 py-6 sm:mx-14 lg:mx-32 lg:py-10">
+                    <div className="text-center py-4 sm:p-10 border-b-2 mb-6 lg:mb-10 bg-linear-to-b from-[rgba(255,255,255,1)] from-70% to-[rgba(255,255,255,0)]">
+                        <div className={`font-bold text-4xl sm:text-5xl lg:text-6xl ${maintainCase ? "" : "uppercase"}`}>
+                            {title}
+                        </div>
+                    </div>
                     {children}
                 </div>
             </div>

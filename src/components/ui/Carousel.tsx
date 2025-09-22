@@ -44,9 +44,10 @@ export default function Carousel({ title, src, length, numImages }: CarouselProp
                 <div className={numImages === 1 ? "w-5/6" : `basis-${(numImages === 2 ? "2/5" : "1/4")}`}>
                     <Image
                         key={currentIndex}
-                        src={`/${src}/${currentIndex}.JPG`}
+                        src={`/${src}/${currentIndex}.jpg`}
                         height={IMG_HEIGHT}
                         width={IMG_WIDTH}
+                        className="aspect-3/2 object-cover"
                         alt=""
                         placeholder={PLACEHOLDER_URL}
                     />
@@ -54,9 +55,10 @@ export default function Carousel({ title, src, length, numImages }: CarouselProp
 				{numImages > 1 && <div className={`basis-${numImages === 2 ? "2/5" : "1/4"}`}>
                     <Image
                         key={currentIndex + 1}
-                        src={currentIndex + 1 > length ? TRANSPARENT_URL : `/${src}/${currentIndex + 1}.JPG`}
+                        src={currentIndex + 1 > length ? TRANSPARENT_URL : `/${src}/${currentIndex + 1}.jpg`}
                         height={currentIndex + 1 > length ? 1 : IMG_HEIGHT}
                         width={currentIndex + 1 > length ? 1 : IMG_WIDTH}
+                        className="aspect-3/2 object-cover"
                         alt=""
                         placeholder={currentIndex + 1 > length ? TRANSPARENT_URL : PLACEHOLDER_URL}
                     />
@@ -65,9 +67,10 @@ export default function Carousel({ title, src, length, numImages }: CarouselProp
                 {numImages === 3 && <div className="basis-1/4">
                     <Image
                         key={currentIndex + 2}
-                        src={currentIndex + 2 > length ? TRANSPARENT_URL : `/${src}/${currentIndex + 2}.JPG`}
+                        src={currentIndex + 2 > length ? TRANSPARENT_URL : `/${src}/${currentIndex + 2}.jpg`}
                         height={currentIndex + 2 > length ? 1 : IMG_HEIGHT}
                         width={currentIndex + 2 > length ? 1 : IMG_WIDTH}
+                        className="aspect-3/2 object-cover"
                         alt=""
                         placeholder={currentIndex + 1 > length ? TRANSPARENT_URL : PLACEHOLDER_URL}
                     />

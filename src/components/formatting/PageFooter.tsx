@@ -7,7 +7,7 @@ export const Footer = () => {
     const PSA_LOGO_SOURCE = "/images/psa-logo.png";
 
     return (
-        <div className="bg-gradient saturate-200">
+        <div className="bg-gradient saturate-200 w-full">
         <footer className="pt-12 pb-6 px-4 w-full flex flex-col items-center">
             {/* Logos */}
             <div className="flex flex-row flex-wrap items-center gap-4">
