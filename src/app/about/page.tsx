@@ -16,9 +16,99 @@ const PDF_URL =
 
 export default function About() {
     return (
-        <PageContainer title="About" background={"bg-gradient opacity-50 saturate-200 mask-[var(--background-image-chaos)] mask-center"}>
-            <SVGUndulate></SVGUndulate>
-            <div className="w-full h-full">
+        <PageContainer title="About" background="bg-oscillate bg-cover bg-top-right">
+            <div className="flex relative text-center items-center">
+                <div className="w-[50%] flex items-center justify-center text-7xl">
+                    <h1 className="absolute text-white">WHAT IS FACT?</h1>
+                    {/* <div className="absolute -top-[50px] -left-[50px] w-[calc(100%+50px)] h-[calc(100%+50px)] bg-rose-900 opacity-15"></div> */}
+                    <img src="/workshop-pics/1.JPG"></img>
+                </div>
+                <div className="flex pl-[2vw] text-xl w-[50%] items-center justify-center">
+                            FACT stands for Filipinx Americans Coming Together
+                            and is a conference hosted annually by the
+                            Philippine Student Association at the University of
+                            Illinois at Urbana-Champaign. It is the largest
+                            Filipinx-interest conference in the Midwest,
+                            bringing in over 1,000 delegates yearly. The
+                            conference works to empower young, rising
+                            professionals while simultaneously educating the
+                            delegates about Filipinx culture, identity and
+                            issues. Despite the conference’s title, the
+                            conference is not limited to delegates of Filipinx
+                            descent. The facilitators and delegates come from
+                            different backgrounds and ethnicities, and the
+                            workshops cover a wide array of topics. FACT’s
+                            mission is to build a community of leaders by
+                            uniting, enlightening and empowering the
+                            Filipinx/Fil-Am/Non-Filipinx youth nationwide. By
+                            exploring our interests, culture and identity as a
+                            rising generation, we hope that our delegates can
+                            take with them knowledge that they can apply beyond
+                            their college career as leaders in the professional
+                            world ready to give back to their community.
+                </div>
+            </div>
+
+            <div className="flex relative text-center items-center">
+                <div className="flex pr-[2vw] text-xl w-[50%] items-center justify-center">
+                Our theme for this year is “Ipahayag nang Malakas,” which translates to “Proclaim Loudly.” Our theme is rooted in the belief that everyone carries a collection of beautiful and complex identities, and those identities deserve to be seen, heard, and celebrated. We want to encourage attendees to embrace all parts of who they are and step confidently into the person they aspire to become. It’s not just about self-expression. It is about empowerment, finding your voice, and using it to speak up for yourself, for your communities, and for the values and ideas that matter to you. Whether that means reconnecting with your heritage, stepping into leadership, or advocating for change, this theme is a call to own your narrative and proclaim it boldly, unapologetically, and with purpose.
+                        
+                </div>
+                <div className="w-[50%] flex items-center justify-center text-7xl">
+                    <h1 className="absolute text-white">FACT 2025</h1>
+                    {/* <div className="absolute -top-[50px] -left-[50px] w-[calc(100%+50px)] h-[calc(100%+50px)] bg-rose-900 opacity-15"></div> */}
+                    <img src="/workshop-pics/2.JPG"></img>
+                </div>
+            </div>
+            
+
+            <div className="mt-[2vw] bg-highlight-2-secondary p-[2vw] flex flex-row text-6xl justify-between rounded-md items-center">
+                <div className="flex-col">
+                    <h1 className="">
+                        600
+                    </h1>
+                    <p className="text-3xl pt-[2vw]">delegates</p>
+                </div>
+                <div className="flex-col">
+                    <h1 className="">
+                        25
+                    </h1>
+                    <p className="text-3xl pt-[2vw]">schools</p>
+                </div>
+                <div className="flex-col">
+                    <h1 className="">
+                        3
+                    </h1>
+                    <p className="text-3xl pt-[2vw]">days</p>
+                </div>
+                <div className="flex-col">
+                    <h1 className="">
+                        18
+                    </h1>
+                    <p className="text-3xl pt-[2vw]">workshops</p>
+                </div>
+                <div className="flex-col">
+                    <h1 className="">
+                        12
+                    </h1>
+                    <p className="text-3xl pt-[2vw]">performers</p>
+                </div>
+                <div className="flex-col">
+                    <h1 className="">
+                        14
+                    </h1>
+                    <p className="text-3xl pt-[2vw]">vendors</p>
+                </div>
+                <div className="flex-col">
+                    <h1 className="">
+                        19
+                    </h1>
+                    <p className="text-3xl pt-[2vw]">Fact Pack Members</p>
+                </div>
+                
+            </div>
+            
+            {/* <div className="bg-gradient-to-r via-[#ff992a,#fe68b9,#339afe,#6dda6c,#ffd42d]"></div>
             <div className="flex flex-col lg:flex-row justify-center lg:justify-evenly gap-6">
                 <div className="flex flex-col lg:w-2/5 xl:w-2/6 items-center justify-between gap-6">
                     <div className="flex flex-col">
@@ -99,12 +189,10 @@ export default function About() {
                             FACT 2025
                         </div>
                         <div className="text-left lg:text-right">
-                            Our theme for this year is “Ipahayag nang Malakas,” which translates to “Proclaim Loudly.” Our theme is rooted in the belief that everyone carries a collection of beautiful and complex identities, and those identities deserve to be seen, heard, and celebrated. We want to encourage attendees to embrace all parts of who they are and step confidently into the person they aspire to become. It’s not just about self-expression. It is about empowerment, finding your voice, and using it to speak up for yourself, for your communities, and for the values and ideas that matter to you. Whether that means reconnecting with your heritage, stepping into leadership, or advocating for change, this theme is a call to own your narrative and proclaim it boldly, unapologetically, and with purpose.
-                        </div>
+                            </div>
                     </div>
                 </div>
-            </div>
-            </div>
+            </div> */}
         </PageContainer>
     );
 }
