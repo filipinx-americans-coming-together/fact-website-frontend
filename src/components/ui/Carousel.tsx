@@ -27,7 +27,7 @@ export default function Carousel({ title, src, length, numImages }: CarouselProp
 
     return (
         <>
-            <div className={`text-${(numImages === 1 ? "2xl" : "4xl")} font-bold`}>{title}</div>
+            <div className={`text-${(numImages === 1 ? "xl" : "3xl")} text-center uppercase`}>{title}</div>
             <div className="flex flex-row justify-between my-8 h-fit w-full">
                 <div
                     className="w-fit cursor-pointer self-center text-2xl lg:text-4xl"
@@ -41,7 +41,7 @@ export default function Carousel({ title, src, length, numImages }: CarouselProp
                 >
                     <IoIosArrowBack />
                 </div>
-                <div className={numImages === 1 ? "w-5/6" : `basis-${(numImages === 2 ? "2/5" : "1/4")}`}>
+                <div className={numImages === 1 ? "w-5/6" : `basis-${(numImages === 2 ? "1/3" : "1/4")}`}>
                     <Image
                         key={currentIndex}
                         src={`/${src}/${currentIndex}.jpg`}
@@ -52,7 +52,7 @@ export default function Carousel({ title, src, length, numImages }: CarouselProp
                         placeholder={PLACEHOLDER_URL}
                     />
                 </div>
-				{numImages > 1 && <div className={`basis-${numImages === 2 ? "2/5" : "1/4"}`}>
+				{numImages > 1 && <div className={`basis-${numImages === 2 ? "1/3" : "1/4"}`}>
                     <Image
                         key={currentIndex + 1}
                         src={currentIndex + 1 > length ? TRANSPARENT_URL : `/${src}/${currentIndex + 1}.jpg`}

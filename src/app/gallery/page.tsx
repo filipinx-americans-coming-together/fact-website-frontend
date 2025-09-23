@@ -12,13 +12,13 @@ const Gallery = () => {
     );
 
     return (
-        <PageContainer title="Gallery" background="bg-gradient mask-(--background-image-repeat) mask-no-repeat saturate-200">
+        <PageContainer title="Gallery" background="bg-gradient mask-(--background-image-blurry) saturate-200">
             <Carousel title="Delegate Day" src="delegate-day" length={12} numImages={isSmallDevice ? 1 : (isMediumDevice ? 2 : 3)} />
-            <div className="border-b-2 h-4 w-full mb-4"></div>
+            <div className="border-b-2 h-4 w-full mb-6 lg:mb-10"></div>
             <Carousel title="Workshops" src="workshop-pics" length={27} numImages={isSmallDevice ? 1 : (isMediumDevice ? 2 : 3)} />
-            <div className="border-b-2 h-4 w-full mb-4"></div>
+            <div className="border-b-2 h-4 w-full mb-6 lg:mb-10"></div>
             <Carousel title="Palengke" src="palengke" length={24} numImages={isSmallDevice ? 1 : (isMediumDevice ? 2 : 3)} />
-            <div className="border-b-2 h-4 w-full mb-4"></div>
+            <div className="border-b-2 h-4 w-full mb-6 lg:mb-10"></div>
             <Carousel title="Variety Show" src="variety-show" length={39} numImages={isSmallDevice ? 1 : (isMediumDevice ? 2 : 3)} />
         </PageContainer>
     );
