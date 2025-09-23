@@ -15,7 +15,7 @@ interface PageContainerProps {
  * @param children page content
  * @returns PageContainer
  */
-export default function PageContainer({ children, title, background="bg-gradient opacity-40 saturate-200 mask-[var(--background-image-blurry)]", maintainCase=false }: PageContainerProps) {
+export default function PageContainer({ children, title, background="bg-gradient-2 opacity-70 saturate-150", maintainCase=false }: PageContainerProps) {
     return (
         <div className="h-fit w-screen">
             <Navbar />
