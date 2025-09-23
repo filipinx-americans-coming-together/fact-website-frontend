@@ -1,10 +1,10 @@
 import PageContainer from "@/components/formatting/PageContainer";
 import LinkButton from "@/components/ui/LinkButton";
 import Image from "next/image";
-import SVGUndulate from "@/components/icons/SVGUndulate";
 
 const IMG1_URL = "/variety-show.JPG";
-const IMG2_URL = "/workshop.JPG";
+const IMG2_URL = "/palengke/2.JPG";
+const IMG3_URL = "/variety-show/8.JPG";
 
 const IMG_HEIGHT = 5184;
 const IMG_WIDTH = 3456;
@@ -14,33 +14,18 @@ const PLACEHOLDER_URL =
 const PDF_URL =
   "https://drive.google.com/file/d/1DYkEqr0mfdsLnzYbCdy_xSr2JNiPvgcZ/view";
 
-function InfoBlock({ key, number, caption }: { key: number, number: string; caption: string }) {
-  return (
-    <div key={key} className="flex flex-col justify-between gap-6">
-      <div className="font-semibold text-4xl">{number}</div>
-      <div className="text-lg/5">{caption}</div>
-    </div>
-  );
-}
-
 export default function About() {
-  const stats = [
-    { number: "600", caption: "Delegates" },
-    { number: "25", caption: "Schools" },
-    { number: "3", caption: "Days" },
-    { number: "18", caption: "Workshops" },
-    { number: "12", caption: "Variety Show Performers" },
-    { number: "14", caption: "Palengke Vendors" },
-    { number: "19", caption: "FACT Pack Members" },
-  ];
+    const nums = ["600", "25", "3", "18", "12", "14", "19"];
+    const caps = ["Delegates", "Schools", "Days", "Workshops", "Variety Show Performers", "Palengke Vendors", "FACT Pack Members"];
   return (
     <PageContainer
       title="About"
-      background="bg-gradient saturate-200 mask-[var(--background-image-blurry)] mask-position-[50%_150%]"
-    //   background="bg-rose-300"
+    //   background="bg-gradient opacity-40 saturate-200 mask-[var(--background-image-blurry)] mask-left"
+    //   background="bg-gradient-2 opacity-60 saturate-150"
     >
-      <div className="flex relative text-center items-center border-y">
-        <div className="w-1/3 flex items-center justify-center text-5xl">
+        
+      <div className="flex flex-col sm:flex-row relative text-center items-center border-b-2 -mt-6 lg:-mt-10">
+        <div className="sm:w-1/2 xl:w-1/3 grow flex items-center justify-center text-5xl">
           <h1 className="absolute text-white z-10">WHAT IS FACT?</h1>
 
           <div className="flex relative">
@@ -51,11 +36,11 @@ export default function About() {
               height={IMG_HEIGHT}
               alt=""
               placeholder={PLACEHOLDER_URL}
-              className="-z-10"
+              className="-z-10 aspect-3/2"
             />
           </div>
         </div>
-        <div className="flex pl-[2vw]  w-2/3 items-center justify-center">
+        <div className="flex items-center justify-center sm:ml-6 sm:-mr-6 sm:w-1/2 xl:w-2/3 text-xs xl:text-sm my-6">
           FACT stands for Filipinx Americans Coming Together and is a conference
           hosted annually by the Philippine Student Association at the
           University of Illinois at Urbana-Champaign. It is the largest
@@ -75,14 +60,51 @@ export default function About() {
         </div>
       </div>
 
-      <div className="my-[2vw] bg-highlight-secondary p-[2vw] flex justify-around rounded-4xl text-center gap-2">
-        {stats.map((item, index) => (
-          <InfoBlock key={index} number={item.number} caption={item.caption}></InfoBlock>
-        ))}
+      
+      <div className="flex flex-col-reverse sm:flex-row relative text-center items-center">
+        <div className="flex items-center justify-center sm:mr-6 sm:-ml-6 sm:w-1/2 xl:w-2/3 text-xs xl:text-sm my-6">
+          The Filipinx Americans Coming Together (FACT)
+                            Conference at the University of Illinois at
+                            Urbana-Champaign is committed to honoring,
+                            educating, and celebrating Philippine culture and
+                            identity. FACT strives to create a space for
+                            everyone to feel welcome and appreciate all unique
+                            identities. Through this conference, FACT hopes to
+                            inspire delegates to embrace their cultural heritage
+                            and promote personal growth and connections.
+        </div>
+        <div className="sm:w-1/2 xl:w-1/3 flex items-center justify-center text-5xl">
+          <h1 className="absolute text-white z-10">MISSION STATEMENT</h1>
+          <div className="flex relative">
+            <div className="grow absolute inset-0 bg-gray-600 opacity-30"></div>
+            <Image
+              src={IMG2_URL}
+              width={IMG_WIDTH}
+              height={IMG_HEIGHT}
+              alt=""
+              placeholder={PLACEHOLDER_URL}
+              className="-z-10 aspect-3/2"
+            />
+          </div>
+        </div>
       </div>
+        <div className="flex flex-col sm:flex-row relative text-center items-center border-y-2">
+        <div className="sm:w-1/2 xl:w-1/3 flex items-center justify-center text-5xl">
+          <h1 className="absolute text-white z-10">FACT 2025</h1>
 
-      <div className="flex relative text-center items-center border-y">
-        <div className="flex pr-[2vw] w-2/3 items-center justify-center">
+          <div className="flex relative">
+            <div className="grow absolute inset-0 bg-gray-600 opacity-30"></div>
+            <Image
+              src={IMG3_URL}
+              width={IMG_WIDTH}
+              height={IMG_HEIGHT}
+              alt=""
+              placeholder={PLACEHOLDER_URL}
+              className="-z-10 aspect-3/2"
+            />
+          </div>
+        </div>
+        <div className="flex items-center justify-center sm:ml-6 sm:-mr-6 sm:w-1/2 xl:w-2/3 text-xs xl:text-sm my-6">
           Our theme for this year is “Ipahayag nang Malakas,” which translates
           to “Proclaim Loudly.” Our theme is rooted in the belief that everyone
           carries a collection of beautiful and complex identities, and those
@@ -96,19 +118,37 @@ export default function About() {
           change, this theme is a call to own your narrative and proclaim it
           boldly, unapologetically, and with purpose.
         </div>
-        <div className="w-1/3 flex items-center justify-center text-5xl">
-          <h1 className="absolute text-white z-10">FACT 2025</h1>
-          <div className="flex relative">
-            <div className="grow absolute inset-0 bg-gray-600 opacity-30"></div>
-            <Image
-              src={IMG2_URL}
-              width={IMG_WIDTH}
-              height={IMG_HEIGHT}
-              alt=""
-              placeholder={PLACEHOLDER_URL}
-              className="-z-10"
-            />
-          </div>
+      </div>
+      <div className="my-8 bg-highlight-secondary p-4 sm:p-6 flex flex-col justify-around rounded-4xl text-center gap-4 sm:gap-6">
+        <div className="font-semibold text-4xl justify-around hidden sm:flex">
+            {nums.map((num, index)=>(
+                <div key={index} className="flex-1">{num}</div>
+            ))}
+        </div>
+        <div className="text-xs/3 md:text-sm/5 xl:text-lg/5 justify-around items-center hidden sm:flex">
+            {caps.map((cap, index)=>(
+                <div key={index} className="flex-1">{cap}</div>
+            ))}
+        </div>
+        <div className="flex font-semibold text-4xl justify-around sm:hidden">
+            {nums.slice(0,4).map((num, index)=>(
+                <div key={index} className="flex-1">{num}</div>
+            ))}
+        </div>
+        <div className="flex text-xs/3 md:text-sm/5 xl:text-lg/5 justify-around items-center mb-4 sm:hidden">
+            {caps.slice(0,4).map((cap, index)=>(
+                <div key={index} className="flex-1">{cap}</div>
+            ))}
+        </div>
+         <div className="flex font-semibold text-4xl justify-around sm:hidden">
+            {nums.slice(4).map((num, index)=>(
+                <div key={index} className="flex-1">{num}</div>
+            ))}
+        </div>
+        <div className="flex text-xs/3 md:text-sm/5 xl:text-lg/5 justify-around items-center sm:hidden">
+            {caps.slice(4).map((cap, index)=>(
+                <div key={index} className="flex-1">{cap}</div>
+            ))}
         </div>
       </div>
     </PageContainer>

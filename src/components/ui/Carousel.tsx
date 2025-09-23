@@ -27,7 +27,7 @@ export default function Carousel({ title, src, length, numImages }: CarouselProp
 
     return (
         <>
-            <div className={`text-${(numImages === 1 ? "xl" : "3xl")} text-center uppercase`}>{title}</div>
+            <div className={`text-${(numImages === 1 ? "xl" : "3xl")} font-medium text-center uppercase`}>{title}</div>
             <div className="flex flex-row justify-between my-8 h-fit w-full">
                 <div
                     className="w-fit cursor-pointer self-center text-2xl lg:text-4xl"
