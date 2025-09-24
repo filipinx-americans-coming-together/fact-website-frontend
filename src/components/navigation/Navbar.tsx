@@ -24,7 +24,7 @@ const NAV_LINKS = [
     // { text: "Team", path: "/team" },
     { text: "Gallery", path: "/gallery" },
     { text: "FAQ", path: "/faq" },
-    { text: "My FACT", path: "/my-fact/login"}
+    // { text: "My FACT", path: "/my-fact/login"}
 ];
 
 const FACT_LOGO_SRC = "/images/fact-logo.png";
@@ -38,7 +38,7 @@ export default function Navbar() {
 
     return (
         <div className="bg-gradient w-full relative z-10">
-            <nav className="flex justify-between mx-auto items-center py-4 px-4 sm:px-10 md:px-20">
+            <nav className="flex justify-between mx-auto items-center py-4 px-4 sm:px-10">
                 <Link className="mr-8" href={"/"}>
                     <Image
                         className="rounded-lg object-cover aspect-square"
@@ -58,7 +58,7 @@ export default function Navbar() {
                             <Link
                                 href={item.link}
                                 target="_blank"
-                                className="hover:text-highlight-primary"
+                                className="hover:text-highlight-secondary"
                             >
                                 {item.icon}
                             </Link>

@@ -20,11 +20,9 @@ export default function About() {
   return (
     <PageContainer
       title="About"
-    //   background="bg-gradient opacity-40 saturate-200 mask-[var(--background-image-blurry)] mask-left"
-    //   background="bg-gradient-2 opacity-60 saturate-150"
     >
         
-      <div className="flex flex-col sm:flex-row relative text-center items-center border-b-2 -mt-6 lg:-mt-10">
+      <div className="flex flex-col sm:flex-row relative text-center items-center sm:-mt-6 lg:-mt-10">
         <div className="sm:w-1/2 xl:w-1/3 grow flex items-center justify-center text-5xl sm:text-4xl lg:text-5xl">
           <h1 className="absolute text-white z-10 px-4">WHAT IS FACT?</h1>
 
@@ -61,7 +59,7 @@ export default function About() {
       </div>
 
       
-      <div className="flex flex-col-reverse sm:flex-row relative text-center items-center">
+      <div className="flex flex-col-reverse sm:flex-row relative text-center items-center sm:border-y-2">
         <div className="flex items-center justify-center sm:mr-6 sm:-ml-6 sm:w-1/2 xl:w-2/3 sm:text-xs xl:text-sm my-6">
           The Filipinx Americans Coming Together (FACT)
                             Conference at the University of Illinois at
@@ -88,7 +86,7 @@ export default function About() {
           </div>
         </div>
       </div>
-        <div className="flex flex-col sm:flex-row relative text-center items-center border-y-2">
+        <div className="flex flex-col sm:flex-row relative text-center items-center border-b-2">
         <div className="sm:w-1/2 xl:w-1/3 flex items-center justify-center text-5xl sm:text-4xl lg:text-5xl">
           <h1 className="absolute text-white z-10 px-4">FACT 2025</h1>
 
@@ -119,7 +117,7 @@ export default function About() {
           boldly, unapologetically, and with purpose.
         </div>
       </div>
-      <div className="mt-6 lg:mt-10 bg-highlight-secondary p-4 sm:p-6 flex flex-col justify-around rounded-4xl text-center gap-4 sm:gap-6">
+      <div className="mt-6 lg:mt-10 bg-highlight-primary p-4 sm:p-6 flex flex-col justify-around rounded-4xl text-center gap-4 sm:gap-6">
         <div className="font-semibold text-4xl justify-around hidden sm:flex">
             {nums.map((num, index)=>(
                 <div key={index} className="flex-1">{num}</div>
