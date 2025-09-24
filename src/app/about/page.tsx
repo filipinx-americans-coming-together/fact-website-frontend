@@ -119,7 +119,7 @@ export default function About() {
           boldly, unapologetically, and with purpose.
         </div>
       </div>
-      <div className="my-8 bg-highlight-secondary p-4 sm:p-6 flex flex-col justify-around rounded-4xl text-center gap-4 sm:gap-6">
+      <div className="my-8 bg-highlight-primary p-4 sm:p-6 flex flex-col justify-around rounded-4xl text-center gap-4 sm:gap-6">
         <div className="font-semibold text-4xl justify-around hidden sm:flex">
             {nums.map((num, index)=>(
                 <div key={index} className="flex-1">{num}</div>

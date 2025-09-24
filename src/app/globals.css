@@ -27,13 +27,13 @@
     radial-gradient(
       circle,
       rgba(239, 156, 115, 0.5) 0%,
-      rgba(242, 47, 115, 0.5) 50%
+      rgba(242, 47, 115, 0.5) 100%
     ),
     url('/noise.svg'),
     radial-gradient(
       circle,
       rgba(239, 156, 115, 1) 0%,
-      rgba(242, 47, 115, 1) 50%
+      rgba(242, 47, 115, 1) 100%
     );
   --background-image-gradient-2:
     /* linear-gradient(180deg,rgba(255, 255, 255, 0) 90%, rgba(255, 255, 255, 0.8) 100%), */
@@ -83,10 +83,10 @@
 
   --color-background-primary: #ffffff;
   --color-text-primary: #000000;
-  --color-highlight-primary: #f2b6af;
-  --color-highlight-secondary: #ffcd09;
+  --color-highlight-primary: #ffcd09;
+  --color-highlight-secondary: #f2b6af;
   --color-highlight-2-primary: #f22f73;
-  --color-highlight-2-secondary: #ef9c73;
+  --color-highlight-2-secondary: #ff7e64;
 
   --animate-drop-down: dropDown 0.4s ease-in-out forwards;
 

@@ -44,12 +44,12 @@ export default function Login() {
 
             <br />
             {/* toggle log in type */}
-            <div className="mx-auto p-2 border-2 border-highlight-primary rounded-sm w-fit flex gap-4">
+            <div className="mx-auto p-2 border-2 border-highlight-2-secondary rounded-sm w-fit flex gap-4">
                 <button
                     type="button"
                     className={
                         (isDelegate
-                            ? "bg-highlight-primary text-background-primary rounded-sm"
+                            ? "bg-highlight-2-secondary text-background-primary rounded-sm"
                             : "") + " py-2 px-4"
                     }
                     onClick={(event) => {
@@ -63,7 +63,7 @@ export default function Login() {
                     type="button"
                     className={
                         (!isDelegate
-                            ? "bg-highlight-primary text-background-primary rounded-sm"
+                            ? "bg-highlight-2-secondary text-background-primary rounded-sm"
                             : "") + " py-2 px-4"
                     }
                     onClick={(event) => {
@@ -90,7 +90,7 @@ export default function Login() {
                 isLoading={isPending || facilitatorPending}
                 errorMessage={error ? error.message : facilitatorError?.message}
             >
-                <div className="text-center">
+                <div className="text-center font-medium">
                     {isDelegate ? "Delegate " : "Facilitator "}Login
                 </div>
                 <TextInput
@@ -107,9 +107,9 @@ export default function Login() {
 
                 <Link
                     href="/my-fact/forgot-password"
-                    className="underline text-highlight-secondary text-xs hover:text-highlight-primary"
+                    className="underline text-highlight-2-primary text-xs hover:text-highlight-2-secondary"
                 >
-                    Forgot Password
+                    Forgot Password?
                 </Link>
 
                 <br />
@@ -120,7 +120,7 @@ export default function Login() {
                             New to FACT?{" "}
                             <a
                                 href="/my-fact/register"
-                                className="underline hover:text-highlight-primary"
+                                className="underline hover:text-highlight-2-secondary"
                             >
                                 Create an account
                             </a>
@@ -132,6 +132,8 @@ export default function Login() {
                         </p>
                     )}
                 </div>
+
+                <br />
             </FormContainer>
             <br />
             <Footer />

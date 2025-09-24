@@ -24,7 +24,7 @@ const NAV_LINKS = [
     // { text: "Team", path: "/team" },
     { text: "Gallery", path: "/gallery" },
     { text: "FAQ", path: "/faq" },
-    // { text: "My FACT", path: "/my-fact/login"}
+    { text: "My FACT", path: "/my-fact/login"}
 ];
 
 const FACT_LOGO_SRC = "/images/fact-logo.png";
@@ -67,7 +67,7 @@ export default function Navbar() {
 
                     {/* donate */}
                     <Link
-                        className="bg-highlight-secondary hover:bg-highlight-primary text-text-primary px-4 py-2 rounded-full shadow-sm flex gap-2 justify-center items-center"
+                        className="bg-highlight-primary hover:bg-highlight-secondary text-text-primary px-4 py-2 rounded-full shadow-sm flex gap-2 justify-center items-center"
                         href="/donate"
                         target="_blank"
                     >

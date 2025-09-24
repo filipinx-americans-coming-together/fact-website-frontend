@@ -100,7 +100,7 @@ export default function Register() {
     }, [formData.school_id, isSuccess]);
 
     return (
-        <>
+        <div className="min-h-screen flex flex-col justify-between gap-6">
             <Navbar />
 
             {!emailVerified && (
@@ -389,6 +389,6 @@ export default function Register() {
 
             <br />
             <Footer />
-        </>
+        </div>
     );
 }
