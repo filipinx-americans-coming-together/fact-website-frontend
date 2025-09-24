@@ -41,7 +41,7 @@ export default function Carousel({ title, src, length, numImages }: CarouselProp
                 >
                     <IoIosArrowBack />
                 </div>
-                <div className={numImages === 1 ? "w-5/6" : `basis-${(numImages === 2 ? "1/3" : "1/4")}`}>
+                <div className={numImages === 1 ? "w-5/6" : `w-${(numImages === 2 ? "1/3" : "1/4")}`}>
                     <Image
                         key={currentIndex}
                         src={`/${src}/${currentIndex}.jpg`}
@@ -52,7 +52,7 @@ export default function Carousel({ title, src, length, numImages }: CarouselProp
                         placeholder={PLACEHOLDER_URL}
                     />
                 </div>
-				{numImages > 1 && <div className={`basis-${numImages === 2 ? "1/3" : "1/4"}`}>
+				{numImages > 1 && <div className={`w-${numImages === 2 ? "1/3" : "1/4"}`}>
                     <Image
                         key={currentIndex + 1}
                         src={currentIndex + 1 > length ? TRANSPARENT_URL : `/${src}/${currentIndex + 1}.jpg`}
@@ -64,7 +64,7 @@ export default function Carousel({ title, src, length, numImages }: CarouselProp
                     />
                 </div>}
                 
-                {numImages === 3 && <div className="basis-1/4">
+                {numImages === 3 && <div className="w-1/4">
                     <Image
                         key={currentIndex + 2}
                         src={currentIndex + 2 > length ? TRANSPARENT_URL : `/${src}/${currentIndex + 2}.jpg`}

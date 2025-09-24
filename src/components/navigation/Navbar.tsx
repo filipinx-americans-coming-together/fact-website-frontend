@@ -37,9 +37,9 @@ export default function Navbar() {
     };
 
     return (
-        <div className="bg-gradient saturate-200 w-full">
+        <div className="bg-gradient w-full relative z-10">
             <nav className="flex justify-between mx-auto items-center py-4 px-4 sm:px-10 md:px-20">
-                <Link className="md:w-[140px]" href={"/"}>
+                <Link className="mr-8" href={"/"}>
                     <Image
                         className="rounded-lg object-cover aspect-square"
                         src={FACT_LOGO_SRC}
@@ -51,7 +51,7 @@ export default function Navbar() {
 
                 <DesktopNav links={NAV_LINKS} />
 
-                <ul className="md:w-[140px] flex text-text-primary gap-6 items-center">
+                <ul className="md:w-[140px] ml-8 flex text-text-primary gap-6 items-center">
                     {/* socials */}
                     {iconList.map((item, index) => (
                         <li key={index}>

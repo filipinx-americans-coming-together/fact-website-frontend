@@ -15,16 +15,16 @@ interface PageContainerProps {
  * @param children page content
  * @returns PageContainer
  */
-export default function PageContainer({ children, title, background="bg-gradient opacity-40 saturate-200 mask-[var(--background-image-blurry)]", maintainCase=false }: PageContainerProps) {
+export default function PageContainer({ children, title, background="bg-gradient mask-[var(--background-image-blurry-1)]", maintainCase=false }: PageContainerProps) {
     return (
-        <div className="h-fit w-screen">
+        <div className="h-fit w-screen relative">
             <Navbar />
             
-            <div className="flex relative">
+            <div className="flex relative z-0">
                 <div className={`-z-10 absolute inset-0 w-full grow ${background}`}></div>
-                <div className="mx-6 py-6 sm:mx-14 lg:mx-32 lg:py-10">
+                <div className="py-6 mx-14 lg:mx-32 lg:py-10">
                     <div className="text-center py-4 sm:p-10 border-b-2 mb-6 lg:mb-10">
-                        <div className={`font-bold text-4xl sm:text-5xl lg:text-6xl ${maintainCase ? "" : "uppercase"}`}>
+                        <div className={`font-bold text-5xl lg:text-6xl ${maintainCase ? "" : "uppercase"}`}>
                             {title}
                         </div>
                     </div>

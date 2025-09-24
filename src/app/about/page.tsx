@@ -25,8 +25,8 @@ export default function About() {
     >
         
       <div className="flex flex-col sm:flex-row relative text-center items-center border-b-2 -mt-6 lg:-mt-10">
-        <div className="sm:w-1/2 xl:w-1/3 grow flex items-center justify-center text-5xl">
-          <h1 className="absolute text-white z-10">WHAT IS FACT?</h1>
+        <div className="sm:w-1/2 xl:w-1/3 grow flex items-center justify-center text-5xl sm:text-4xl lg:text-5xl">
+          <h1 className="absolute text-white z-10 px-4">WHAT IS FACT?</h1>
 
           <div className="flex relative">
             <div className="grow absolute inset-0 bg-gray-600 opacity-30"></div>
@@ -40,7 +40,7 @@ export default function About() {
             />
           </div>
         </div>
-        <div className="flex items-center justify-center sm:ml-6 sm:-mr-6 sm:w-1/2 xl:w-2/3 text-xs xl:text-sm my-6">
+        <div className="flex items-center justify-center sm:ml-6 sm:-mr-6 sm:w-1/2 xl:w-2/3 sm:text-xs xl:text-sm my-6">
           FACT stands for Filipinx Americans Coming Together and is a conference
           hosted annually by the Philippine Student Association at the
           University of Illinois at Urbana-Champaign. It is the largest
@@ -62,7 +62,7 @@ export default function About() {
 
       
       <div className="flex flex-col-reverse sm:flex-row relative text-center items-center">
-        <div className="flex items-center justify-center sm:mr-6 sm:-ml-6 sm:w-1/2 xl:w-2/3 text-xs xl:text-sm my-6">
+        <div className="flex items-center justify-center sm:mr-6 sm:-ml-6 sm:w-1/2 xl:w-2/3 sm:text-xs xl:text-sm my-6">
           The Filipinx Americans Coming Together (FACT)
                             Conference at the University of Illinois at
                             Urbana-Champaign is committed to honoring,
@@ -73,8 +73,8 @@ export default function About() {
                             inspire delegates to embrace their cultural heritage
                             and promote personal growth and connections.
         </div>
-        <div className="sm:w-1/2 xl:w-1/3 flex items-center justify-center text-5xl">
-          <h1 className="absolute text-white z-10">MISSION STATEMENT</h1>
+        <div className="sm:w-1/2 xl:w-1/3 flex items-center justify-center text-5xl sm:text-4xl lg:text-5xl">
+          <h1 className="absolute text-white z-10 px-4">MISSION STATEMENT</h1>
           <div className="flex relative">
             <div className="grow absolute inset-0 bg-gray-600 opacity-30"></div>
             <Image
@@ -89,8 +89,8 @@ export default function About() {
         </div>
       </div>
         <div className="flex flex-col sm:flex-row relative text-center items-center border-y-2">
-        <div className="sm:w-1/2 xl:w-1/3 flex items-center justify-center text-5xl">
-          <h1 className="absolute text-white z-10">FACT 2025</h1>
+        <div className="sm:w-1/2 xl:w-1/3 flex items-center justify-center text-5xl sm:text-4xl lg:text-5xl">
+          <h1 className="absolute text-white z-10 px-4">FACT 2025</h1>
 
           <div className="flex relative">
             <div className="grow absolute inset-0 bg-gray-600 opacity-30"></div>
@@ -104,7 +104,7 @@ export default function About() {
             />
           </div>
         </div>
-        <div className="flex items-center justify-center sm:ml-6 sm:-mr-6 sm:w-1/2 xl:w-2/3 text-xs xl:text-sm my-6">
+        <div className="flex items-center justify-center sm:ml-6 sm:-mr-6 sm:w-1/2 xl:w-2/3 sm:text-xs xl:text-sm my-6">
           Our theme for this year is “Ipahayag nang Malakas,” which translates
           to “Proclaim Loudly.” Our theme is rooted in the belief that everyone
           carries a collection of beautiful and complex identities, and those
@@ -119,7 +119,7 @@ export default function About() {
           boldly, unapologetically, and with purpose.
         </div>
       </div>
-      <div className="my-8 bg-highlight-primary p-4 sm:p-6 flex flex-col justify-around rounded-4xl text-center gap-4 sm:gap-6">
+      <div className="mt-6 lg:mt-10 bg-highlight-secondary p-4 sm:p-6 flex flex-col justify-around rounded-4xl text-center gap-4 sm:gap-6">
         <div className="font-semibold text-4xl justify-around hidden sm:flex">
             {nums.map((num, index)=>(
                 <div key={index} className="flex-1">{num}</div>
