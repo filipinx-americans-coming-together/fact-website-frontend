@@ -16,7 +16,7 @@ export default function NotFound(){
             <div className="flex flex-col gap-5 items-center">
                 <span className="text-xl sm:text-2xl font-bold py-6 sm:py-8 px-8 sm:px-16 border-4 border-black">404 | Page Not Found</span>
                  <Link
-                        className="bg-highlight-secondary hover:bg-highlight-primary text-text-primary px-2 py-2 rounded-full flex items-center gap-2 justify-center w-50"
+                        className="bg-highlight-primary hover:bg-highlight-secondary text-text-primary px-2 py-2 rounded-full flex items-center gap-2 justify-center w-50"
                         href="/"
                 ><FaArrowLeftLong /> Back Home</Link>
             </div>
