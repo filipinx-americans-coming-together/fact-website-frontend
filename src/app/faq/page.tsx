@@ -96,7 +96,7 @@ export default function FAQ() {
             Yes, the Opening Ceremony will be livestreamed and so will the
             Variety Show! Please check out our{" "}
             <FAQLink
-              href="https://www.youtube.com/@factmedia92"
+              href="https://www.youtube.com/@psafactmedia"
               newTab={true}
               text="YouTube"
             />{" "}

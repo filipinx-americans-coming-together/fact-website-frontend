@@ -23,7 +23,7 @@ export default function About() {
     >
         
       <div className="flex flex-col sm:flex-row relative text-center items-center sm:-mt-6 lg:-mt-10">
-        <div className="sm:w-1/2 xl:w-1/3 grow flex items-center justify-center text-5xl sm:text-4xl lg:text-5xl">
+        <div className="sm:w-1/2 xl:w-1/3 grow flex items-center justify-center text-4xl lg:text-5xl">
           <h1 className="absolute text-white z-10 px-4">WHAT IS FACT?</h1>
 
           <div className="flex relative">
@@ -71,7 +71,7 @@ export default function About() {
                             inspire delegates to embrace their cultural heritage
                             and promote personal growth and connections.
         </div>
-        <div className="sm:w-1/2 xl:w-1/3 flex items-center justify-center text-5xl sm:text-4xl lg:text-5xl">
+        <div className="sm:w-1/2 xl:w-1/3 flex items-center justify-center text-4xl lg:text-5xl">
           <h1 className="absolute text-white z-10 px-4">MISSION STATEMENT</h1>
           <div className="flex relative">
             <div className="grow absolute inset-0 bg-gray-600 opacity-30"></div>
@@ -87,7 +87,7 @@ export default function About() {
         </div>
       </div>
         <div className="flex flex-col sm:flex-row relative text-center items-center border-b-2">
-        <div className="sm:w-1/2 xl:w-1/3 flex items-center justify-center text-5xl sm:text-4xl lg:text-5xl">
+        <div className="sm:w-1/2 xl:w-1/3 flex items-center justify-center text-4xl lg:text-5xl">
           <h1 className="absolute text-white z-10 px-4">FACT 2025</h1>
 
           <div className="flex relative">
@@ -117,7 +117,7 @@ export default function About() {
           boldly, unapologetically, and with purpose.
         </div>
       </div>
-      <div className="mt-6 lg:mt-10 bg-highlight-primary p-4 sm:p-6 flex flex-col justify-around rounded-4xl text-center gap-4 sm:gap-6">
+      <div className="-mx-6 sm:mx-0 mt-6 lg:mt-10 bg-highlight-primary p-4 sm:p-6 flex flex-col justify-around rounded-4xl text-center gap-4 sm:gap-6">
         <div className="font-semibold text-4xl justify-around hidden sm:flex">
             {nums.map((num, index)=>(
                 <div key={index} className="flex-1">{num}</div>
@@ -128,7 +128,7 @@ export default function About() {
                 <div key={index} className="flex-1">{cap}</div>
             ))}
         </div>
-        <div className="flex font-semibold text-4xl justify-around sm:hidden">
+        <div className="flex font-semibold text-3xl justify-around sm:hidden">
             {nums.slice(0,4).map((num, index)=>(
                 <div key={index} className="flex-1">{num}</div>
             ))}
@@ -138,7 +138,7 @@ export default function About() {
                 <div key={index} className="flex-1">{cap}</div>
             ))}
         </div>
-         <div className="flex font-semibold text-4xl justify-around sm:hidden">
+         <div className="flex font-semibold text-3xl justify-around sm:hidden">
             {nums.slice(4).map((num, index)=>(
                 <div key={index} className="flex-1">{num}</div>
             ))}
