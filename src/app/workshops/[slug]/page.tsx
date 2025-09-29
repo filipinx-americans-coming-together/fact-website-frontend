@@ -36,7 +36,7 @@ const Modal = ({ children, onClose }: ModalProps) => {
             onClick={onClose}
         >
             <div
-                className="relative bg-white rounded w-full md:w-3/4 max-w-6xl h-[90vh] md:h-auto mx-4"
+                className="relative bg-white rounded-sm w-full md:w-3/4 max-w-6xl h-[90vh] md:h-auto mx-4"
             >
                 <button
                     className="absolute top-2 right-4 text-gray-500 hover:text-gray-800 text-3xl font-bold"
@@ -161,7 +161,7 @@ function WorkshopDetailContent({
                 <p className="text-lg text-center px-2 py-12">{description}</p>
                 <div className="w-full flex flex-col md:flex-row md:justify-between md:space-x-6 space-y-4 md:space-y-0 text-center">
                     {/** Facilitator/Panelist Details */}
-                    <div className="flex-1 flex flex-col space-y-2 border-2 rounded p-4">
+                    <div className="flex-1 flex flex-col space-y-2 border-2 rounded-sm p-4">
                         <h2 className="text-xl font-semibold">{facilitatorLabel}:</h2>
                         {facilitators.map((facilitator, index) => (
                             <a
@@ -175,7 +175,7 @@ function WorkshopDetailContent({
                     </div>
 
                     {/** Location Details */}
-                    <div className="flex-1 flex flex-col space-y-2 border-2 rounded p-4">
+                    <div className="flex-1 flex flex-col space-y-2 border-2 rounded-sm p-4">
                         <h2 className="text-xl font-semibold">Location</h2>
                         <p>Building: {building}</p>
                         <p>Room: {room_num}</p>

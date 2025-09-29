@@ -41,7 +41,7 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
     matcher: [
-        "/agenda", "/faq", "/gallery", "/refund", "/registration-closed", "/team", "/workshops",
+        "/agenda", "/refund", "/registration-closed", "/workshops",
         "/my-fact/:path*",
         "/workshops/:path*",
         "/facilitators/:path*",

@@ -3,15 +3,15 @@ import Link from "next/link";
 
 export const Footer = () => {
     const FACT_LOGO_LENGTH = 60;
-    const FACT_LOGO_SOURCE = "/fact-logo.png";
-    const PSA_LOGO_SOURCE = "/psa-logo.png";
+    const FACT_LOGO_SOURCE = "/images/fact-logo.png";
+    const PSA_LOGO_SOURCE = "/images/psa-logo.png";
 
     return (
-        <div className="bg-gradient saturate-200">
+        <div className="bg-gradient w-full">
         <footer className="pt-12 pb-6 px-4 w-full flex flex-col items-center">
             {/* Logos */}
             <div className="flex flex-row flex-wrap items-center gap-4">
-                <span className="hidden sm:block flex-grow" />
+                <span className="hidden sm:block grow" />
                 <Image
                     src={FACT_LOGO_SOURCE}
                     width={FACT_LOGO_LENGTH}

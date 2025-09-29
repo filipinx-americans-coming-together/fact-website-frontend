@@ -48,7 +48,7 @@ function WorkshopsContent() {
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         className="w-full border-2 border-highlight-primary bg-background-primary p-3 rounded-md
-                                focus:outline-none hover:border-highlight-2-primary transition duration-500 mb-4 md:mb-0"
+                                focus:outline-hidden hover:border-highlight-2-primary transition duration-500 mb-4 md:mb-0"
                     />
 
                     {/** Session Filter */}
@@ -57,7 +57,7 @@ function WorkshopsContent() {
                         onChange={(e) => setSelectedSession(e.target.value)}
                         className="w-full md:w-1/3 border-2 border-highlight-secondary 
                                 bg-background-primary p-3 rounded-md hover:border-highlight-2-primary
-                                focus:outline-none transition duration-500 font-semibold font-sans"
+                                focus:outline-hidden transition duration-500 font-semibold font-sans"
                     >
                         <option value="">All Sessions</option>
                         <option value="1">Session 1</option>

@@ -27,8 +27,8 @@ export default function Carousel({ title, src, length, numImages }: CarouselProp
 
     return (
         <>
-            <div className={`text-${(numImages === 1 ? "2xl" : "4xl")} font-bold`}>{title}</div>
-            <div className="flex flex-row justify-between my-8 h-fit w-full">
+            <div className={`text-${(numImages === 1 ? "xl" : "3xl")} font-medium text-center uppercase`}>{title}</div>
+            <div className="flex flex-row justify-between my-6 lg:my-10 h-fit w-full gap-8">
                 <div
                     className="w-fit cursor-pointer self-center text-2xl lg:text-4xl"
                     onClick={() =>
@@ -41,33 +41,36 @@ export default function Carousel({ title, src, length, numImages }: CarouselProp
                 >
                     <IoIosArrowBack />
                 </div>
-                <div className={numImages === 1 ? "w-5/6" : `basis-${(numImages === 2 ? "2/5" : "1/4")}`}>
+                <div className="">
                     <Image
                         key={currentIndex}
-                        src={`/${src}/${currentIndex}.JPG`}
+                        src={`/${src}/${currentIndex}.jpg`}
                         height={IMG_HEIGHT}
                         width={IMG_WIDTH}
+                        className="aspect-3/2 object-cover"
                         alt=""
                         placeholder={PLACEHOLDER_URL}
                     />
                 </div>
-				{numImages > 1 && <div className={`basis-${numImages === 2 ? "2/5" : "1/4"}`}>
+				{numImages > 1 && <div className="">
                     <Image
                         key={currentIndex + 1}
-                        src={currentIndex + 1 > length ? TRANSPARENT_URL : `/${src}/${currentIndex + 1}.JPG`}
+                        src={currentIndex + 1 > length ? TRANSPARENT_URL : `/${src}/${currentIndex + 1}.jpg`}
                         height={currentIndex + 1 > length ? 1 : IMG_HEIGHT}
                         width={currentIndex + 1 > length ? 1 : IMG_WIDTH}
+                        className="aspect-3/2 object-cover"
                         alt=""
                         placeholder={currentIndex + 1 > length ? TRANSPARENT_URL : PLACEHOLDER_URL}
                     />
                 </div>}
                 
-                {numImages === 3 && <div className="basis-1/4">
+                {numImages === 3 && <div className="">
                     <Image
                         key={currentIndex + 2}
-                        src={currentIndex + 2 > length ? TRANSPARENT_URL : `/${src}/${currentIndex + 2}.JPG`}
+                        src={currentIndex + 2 > length ? TRANSPARENT_URL : `/${src}/${currentIndex + 2}.jpg`}
                         height={currentIndex + 2 > length ? 1 : IMG_HEIGHT}
                         width={currentIndex + 2 > length ? 1 : IMG_WIDTH}
+                        className="aspect-3/2 object-cover"
                         alt=""
                         placeholder={currentIndex + 1 > length ? TRANSPARENT_URL : PLACEHOLDER_URL}
                     />

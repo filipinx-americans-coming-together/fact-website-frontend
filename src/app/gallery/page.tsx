@@ -12,14 +12,14 @@ const Gallery = () => {
     );
 
     return (
-        <PageContainer title="Gallery">
-            <Carousel title="Welcome Ceremony" src="welcome-ceremony" length={25} numImages={isSmallDevice ? 1 : (isMediumDevice ? 2 : 3)} />
-            <div className="border-b-2 h-4 w-full mb-4"></div>
-            <Carousel title="Workshops" src="workshop-pics" length={11} numImages={isSmallDevice ? 1 : (isMediumDevice ? 2 : 3)} />
-            <div className="border-b-2 h-4 w-full mb-4"></div>
-            <Carousel title="Palengke" src="palengke" length={10} numImages={isSmallDevice ? 1 : (isMediumDevice ? 2 : 3)} />
-            <div className="border-b-2 h-4 w-full mb-4"></div>
-            <Carousel title="Variety Show" src="variety-show" length={28} numImages={isSmallDevice ? 1 : (isMediumDevice ? 2 : 3)} />
+        <PageContainer title="Gallery" background="bg-gradient mask-(--background-image-blurry-2) mask-size-[1400px] mask-top">
+            <Carousel title="Delegate Day" src="delegate-day" length={12} numImages={isSmallDevice ? 1 : (isMediumDevice ? 2 : 3)} />
+            <div className="border-b-2 h-4 w-full mb-6 lg:mb-10"></div>
+            <Carousel title="Workshops" src="workshop-pics" length={27} numImages={isSmallDevice ? 1 : (isMediumDevice ? 2 : 3)} />
+            <div className="border-b-2 h-4 w-full mb-6 lg:mb-10"></div>
+            <Carousel title="Palengke" src="palengke" length={24} numImages={isSmallDevice ? 1 : (isMediumDevice ? 2 : 3)} />
+            <div className="border-b-2 h-4 w-full mb-6 lg:mb-10"></div>
+            <Carousel title="Variety Show" src="variety-show" length={39} numImages={isSmallDevice ? 1 : (isMediumDevice ? 2 : 3)} />
         </PageContainer>
     );
 };

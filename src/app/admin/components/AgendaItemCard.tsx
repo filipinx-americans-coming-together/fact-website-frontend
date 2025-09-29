@@ -16,7 +16,7 @@ export default function AgendaItemCard({
     end: string;
 }) {
     return (
-        <div className="w-full flex flex-col md:flex-row gap-8 bg-slate-50 px-6 py-4 rounded shadow justify-between">
+        <div className="w-full flex flex-col md:flex-row gap-8 bg-slate-50 px-6 py-4 rounded-sm shadow-sm justify-between">
             <div className="text-left">
                 <div>{title}</div>
                 <div>

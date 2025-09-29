@@ -1,13 +1,13 @@
 "use client";
 
 import BackgroundImage from "@/components/formatting/BackgroundImage";
-import BackgroundVideo from "@/components/formatting/BackgroundVideo";
 import CountdownTimer from "@/components/CountdownTimer";
 import Navbar from "@/components/navigation/Navbar";
 import Footer from "@/components/formatting/PageFooter";
 import NotificationsManager from "@/components/ui/NotificationManager";
 import { useNotifications } from "@/hooks/api/useNotifications";
 import LinkButton from "@/components/ui/LinkButton";
+import NoiseFilter from "@/components/icons/NoiseFilter";
 
 const BACKGROUND_URL = "/pre-drop.jpg";
 const BACKGROUND_ALT = "FACT 2025 In Progress";
@@ -25,13 +25,16 @@ export default function Home() {
             )}
 
             <Navbar/>
-            <div className="relative flex flex-col">
-                <div className="absolute inset-0 bg-cover bg-center overflow-hidden -z-10 min-h-screen min-w-screen">
-                    <iframe className="pointer-events-none relative min-h-full min-w-full aspect-video origin-center -mt-1 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 grayscale" src="https://www.youtube.com/embed/g_973tJqDe8?si=qEEoPmjbEjRI4orm&autoplay=1&mute=1&controls=0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen>
+            <div className="relative flex flex-col -z-1">
+                <div className="absolute inset-0 overflow-hidden -z-10 min-h-screen min-w-screen">
+                    <div className="absolute w-full h-full bg-gradient-2 opacity-30"></div>
+                    {/* <div className="absolute -top-[50px] -left-[50px] w-[calc(100%+50px)] h-[calc(100%+50px)] bg-noise-base bg-size-[5px_5px] filter-[url(#noise)]"></div> */}
+                    {/* <NoiseFilter></NoiseFilter> */}
+                    <iframe className="-z-20 pointer-events-none relative min-h-full min-w-full aspect-video origin-center -mt-1 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" src="https://www.youtube.com/embed/g_973tJqDe8?si=qEEoPmjbEjRI4orm&autoplay=1&mute=1&controls=0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen>
                     </iframe>
                 </div>
-                <div className="w-full sm:w-4/5 h-screen flex justify-center sm:justify-start text-center flex-col md:flex-row md:text-left inset-x-0 mx-auto my-auto sm:px-20 gap-8">
-                    <div className="flex flex-col justify-center text-white sm:gap-4 lg:gap-6 xl:gap-8 w-full sm:w-3/4">
+                <div className="relative w-full sm:w-4/5 min-h-screen h-fit flex justify-center sm:justify-start text-center flex-col md:flex-row md:text-left inset-x-0 mx-auto my-8 sm:px-20 gap-8">
+                    <div className="flex flex-col justify-center text-white sm:gap-4 lg:gap-6 xl:gap-8 w-full md:w-3/4">
                         <div className="font-bold my-6 text-5xl md:text-7xl lg:text-8xl xl:text-9xl">
                             FACT 2025
                             <div className="italic font-normal text-base my-2 sm:text-md md:text-lg lg:text-xl xl:text-2xl">Filipinx Americans Coming Together</div>
@@ -49,7 +52,7 @@ export default function Home() {
                             University of Illinois at Urbana-Champaign
                         </div>
                     </div>
-                    <div className="flex flex-col justify-center items-center text-white gap-8 sm:w-1/4">
+                    <div className="flex flex-col justify-center items-center text-white gap-8 md:w-1/4">
                         <div className="font-bold">
                             <CountdownTimer date={new Date("2025-11-14T00:00:00Z")}></CountdownTimer>
                         </div>
