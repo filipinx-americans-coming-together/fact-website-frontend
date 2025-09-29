@@ -2,9 +2,9 @@ import PageContainer from "@/components/formatting/PageContainer";
 import LinkButton from "@/components/ui/LinkButton";
 import Image from "next/image";
 
-const IMG1_URL = "/variety-show.JPG";
-const IMG2_URL = "/palengke/2.JPG";
-const IMG3_URL = "/variety-show/8.JPG";
+const IMG3_URL = "/workshop-pics/17.jpg";
+const IMG2_URL = "/palengke/2.jpg";
+const IMG1_URL = "/variety-show/8.jpg";
 
 const IMG_HEIGHT = 5184;
 const IMG_WIDTH = 3456;
