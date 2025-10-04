@@ -107,7 +107,7 @@ export default function FAQ() {
             Backpacks and large bags are subject for search by Facilities Staff.
           </FAQSection>
           <FAQSection question="How do I register?">
-            Registration will tentatively open on October 6th. More information
+            Registration will tentatively open on October 13th. More information
             will be released closer to that date.
           </FAQSection>
         </div>

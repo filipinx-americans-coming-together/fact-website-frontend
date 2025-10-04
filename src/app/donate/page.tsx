@@ -1,5 +1,6 @@
 "use client";
 
+import PageContainer from "@/components/formatting/PageContainer";
 import Footer from "@/components/formatting/PageFooter";
 import Navbar from "@/components/navigation/Navbar";
 import LinkButton from "@/components/ui/LinkButton";
@@ -21,13 +22,12 @@ export default function Donate() {
     }, []);
 
     return (
-        <>
-            <Navbar />
+        <PageContainer title="Support FACT">
             <div className="min-h-screen py-6">
                 <div className="w-7/12 mx-auto text-center flex flex-col items-center gap-4">
-                    <h1 className="font-bold text-5xl lg:text-6xl m-10 lg:mb-10">
+                    {/* <h1 className="font-bold text-5xl lg:text-6xl m-10 lg:mb-10">
                         Support FACT
-                    </h1>
+                    </h1> */}
                     <br />
                     <iframe
                         width="560"
@@ -72,7 +72,7 @@ export default function Donate() {
                     <div id="bbox-root"></div>
                 </div>
             </div>
-            <Footer />
-        </>
+        </PageContainer>
+        
     );
 }
