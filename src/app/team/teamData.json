@@ -4,20 +4,20 @@
         "image": "fact-coords.jpg",
         "officers": [
             {
-                "name": "Kristel Ong",
-                "bio": "Kristel is a senior majoring in Community Health with minors in Spanish and Chemistry. She has previous FACT planning experience as the '23 Hospitality co-chair and has served as a board member of the Philippine Student Association as the '23-'24 Vice-President External and '22-'23 Awareness co-chair. Outside of PSA, Kristel is very passionate about public health and medicine and hopes to pursue a career that connects both. She is extremely excited to see the culmination of her and her co-chairs' hard work and meet everyone attending FACT!",
+                "name": "Maya Maloney",
+                "bio": "Maya is a senior majoring in Learning & Education Studies with a concentration in Workplace Training & Development. She has previously served on PSA's core board as Co-Cultural Chair (23'-24') and executive board as Treasurer (24'-25'). Maya is passionate about Human Resource Management and Development as well as DEI initiatives in the workplace. Maya and her co-chairs are thrilled about this year's FACT Conference and can't wait for all attendees to enjoy themselves and have a great time.",
                 "pronouns": "she/her",
                 "image": "kristel-ong.JPG"
             },
             {
-                "name": "Eillen Nigos",
-                "bio": "Eillen is a junior studying Architecture with a minor in Spanish and is one of this year's FACT Co-Coordinators with Team EHKO! She has a passion for culture and the arts and dreams to work in non-profit organizations post-grad, providing housing and other essential needs to countries abroad. Eillen is currently involved in architecture student organizations as the Event and Marketing/Merchandise Chair and has previously held positions in PSA as Awareness, FCN Marketing, and FACT Marketing. She is super excited to see everyone come out for the 32nd conference anniversary and hopes that you all have an experience even better than the last year!",
+                "name": "Diane Alagaban",
+                "bio": "Diane is a senior majoring in Information Systems at the Gies College of Business and is one of the FACT Co-Coordinators this year. She was formerly PSA's Vice President External and Philanthropy Chair. On campus, Diane is involved in a business fraternity, Beta Alpha Psi, serves as a TA for BADM 353, and works as a barista at Espresso Royale. She hopes that this year's conference will build meaningful connections, support delegates in their growth, and be a space where people can find their voice. You can probably find her at the BIF working on her laptop while listening to the same song on repeat! ",
                 "pronouns": "she/her",
                 "image": "eillen-nigos.JPG"
             },
             {
-                "name": "Hahnbit Lee",
-                "bio": "Hahnbit is a senior in the College of Applied Health Sciences, studying Kinesiology with a minor in Health Administration on the Pre-Occupational Therapy (OT) Track to become an OT. Afterward, she would like to return to school and gain an education degree to become an OT professor or take a side in health management. Hahnbit was PSA's co-publicity chair, and secretary, and held positions under the Filipinx Culture Night committee. On campus, she is part of the Phi Chi Pre-Health Fraternity, the Asian American Association, and the Korean American Association. In her downtime, she watches shows, dances, listens to music, try new dishes, and sleep. For the 32nd Annual FACT Conference, she hopes her co-chairs, Eillen Nigos and Kristel Ong, FACT Pack, and PSA, create a memorable experience for the delegates and bring excitement throughout the conference!",
+                "name": "Catalina Sophia Murga",
+                "bio": "Catalina is a senior studying Engineering Mechanics and minoring in Mathematics and Physics. She hopes to take part in research and development in the technology industry, so she is currently working on graduate school applications. She has loved the welcoming community that PSA offers since coming from overseas and has been involved in PSA's board, FACT Pack, Barkada, and Harana. For fun, Catalina enjoys cooking/baking, watching movies and listening to a range of music. She can't wait for FACT this year and is excited to see everyone embrace their identities while sharing a love for our culture as a community.",
                 "pronouns": "she/her",
                 "image": "hahnbit-lee.jpg"
             }
@@ -28,9 +28,9 @@
         "image": "treasurer.jpg",
         "officers": [
             {
-                "name": "Maya Moloney",
-                "bio": "Maya is a Junior majoring in Learning & Education Studies, with a concentration in Workplace Training & Development. She currently serves as PSA's Treasurer and was one of the Cultural Coordinators last year. Outside of PSA, Maya is involved in an Asian-Interest sorority, Kappa Phi Lambda, interning at the Asian American Cultural Center, and was recently elected to serve on the Board of Governors at the YMCA! She hopes and plans to raise money to support this annual event that brings students from around the nation together to celebrate their Filipinx culture.",
-                "pronouns": "she/they",
+                "name": "Asher Kim",
+                "bio": "Asher is a junior majoring in Statistics with minors in Data Science and Public Health. He currently serves as PSA's Treasurer and was one of PSA's Cultural Co-Chairs last year. Outside of PSA, Asher is involved in Kappa Pi Beta, an Asian American-founded service and social fraternity, where he currently serves as one of the organization's Performance Co-Chairs. Asher is excited to help raise funds to support this annual event, bringing students from across the nation together to celebrate Filipinx culture!",
+                "pronouns": "he/him",
                 "image": "maya-moloney.jpeg"
             }
         ]
@@ -40,14 +40,14 @@
         "image": "delegate.jpg",
         "officers": [
             {
-                "name": "Diane Alagaban",
-                "bio": "Diane is a junior majoring in Information Systems in the Gies Business School, with a minor in Health Administration. She currently serves as the Vice President External for PSA and has previously held the position of philanthropy chair. Outside of PSA, Diane is actively involved in Beta Alpha Psi, a business fraternity, where she is the Co-Director of Internal Engagement. She is excited to foster new friendships during FACT and looks forward to the fun events planned for Delegate Day!",
+                "name": "Kasandra Medrano",
+                "bio": "Kasandra is a Junior studying Molecular and Cellular Biology. When she's not sleeping or studying, she loves performing and dancing with PSA Barkada or spending all her money on yummy drinks. She looks forward to meeting the delegates visiting for FACT as well as seeing all the cool performers at V-Show! ",
                 "pronouns": "she/her",
                 "image": "diane-alagaban.jpeg"
             },
             {
-                "name": "Charlynne Ligo",
-                "bio": "Charlynne is a sophomore studying molecular and cellular biology with a minor in psychology, following the pre-physician's assistant track. During her time in PSA, she has been an active member of Barkada and is currently FCN co-coordinator. Outside of PSA, she is involved in a couple pre-health RSOs. Charlynne is excited to make the very first FACT Delegate Day memorable and fun for everyone! ",
+                "name": "Sophia Mata",
+                "bio": "Sophia is a senior majoring in Advertising with a double minor in business and informatics. Within PSA, she is involved with PSA Harana and is one of the Soprano Section Leads. Outside of PSA, she is involved in the Illio Yearbook and AAF. Sophia enjoys going to the gym, cooking, and watching kdramas. She is looking forward to meeting new people and fostering a sense of community at FACT!",
                 "pronouns": "she/her",
                 "image": "charlynne-ligo.jpeg"
             }
@@ -58,15 +58,15 @@
         "image": "hospitality.jpg",
         "officers": [
             {
-                "name": "Catalina Sophia Murga",
-                "bio": "Catalina is a junior studying Engineering Mechanics and minoring in Mathematics and hopes to take part in research or technological development post-graduation. She has loved the welcoming community that PSA offers since coming from overseas and has been involved in PSA's board, FACT Pack, Barkada, and Harana. For fun, Catalina enjoys painting and crocheting, watching movies and listening to a range of music. She hopes for a successful FACT this year and is excited to see people from all across the country come together and partake in all that FACT has to offer!",
+                "name": "Anna Santos",
+                "bio": "Anna is a senior in psychology and creative writing. Though she is excited to graduate this coming spring semester, she is also looking forward to a great final year with PSA! So far, she has been involved with event volunteering, Barkada, and Harana. When not with PSA, she has been a part of UIUC's sexual violence prevention peer education program with the WRC, or else can be found playing video games, writing, or getting into yet another hobby. Anna is really excited for FACT and hopes that everyone will have a great time at this year's conference! ",
                 "pronouns": "she/her",
                 "image": "catalina-sophia-murga.jpeg"
             },
             {
-                "name": "Grace Requeno",
-                "bio": "Grace is a Junior studying Information Sciences and minoring in Computer Science & Data Science. She is interested in pursuing a career in Bioinformatics or a general Data Science field after graduation. Over these past couple of years, she has been involved in PSA through Barkada and being an active member! Outside of PSA, she enjoys painting, skating, thrifting, and exploring new cafes. She is super excited to be a part of FACT Pack and can't wait to meet everyone during FACT Weekend!",
-                "pronouns": "she/her",
+                "name": "Carl Lorejo",
+                "bio": "Carl is a junior majoring in chemistry with minors in IB and ESE, and is one of this year's Hospitality Co-chairs with Team Anac! With passions in community and sustainability, they hope to pursue a career in sustainable research, while staying involved within the community and being able to give back to the community. They have previously held positions within PSA as Awareness and FCN Kamayan director. For fun, Carl likes baking, listening to music, reading, doodling, and going to cafes. They are super excited for everyone to come out for FACT this year and to have an amazing time!",
+                "pronouns": "he/they",
                 "image": "grace-requeno.jpeg"
             }
         ]
@@ -86,6 +86,12 @@
                 "bio": "Kian is a junior studying Computer Science. He is currently one of the IT Chairs for FACT and has been involved in PSA since his freshman year. Besides PSA, Kian is a brother of Kappa Pi Beta Fraternity Inc., works as a Site Consultant for Illinois Technology Services, and is a CS 222 Course Assistant. He is ecstatic to work hard to create a smooth, enjoyable FACT for all delegates, and is looking forward to meeting everyone during the conference!",
                 "pronouns": "he/him",
                 "image": "kian-de-guzman.jpeg"
+            },
+            {
+                "name": "Samuel Evangelista",
+                "bio": "Sam is a Senior studying Computer Science. He is currently one of the IT Chairs for FACT and has been involved in PSA since his freshman year. During his time in PSA, he served as PSA's friendly neigborhood Webmaster, founded PSA's Tech Team, been involved in Harana and Barkada and interned for FACT last year. Besides PSA, Sam is a CS 222 Course Assistant, the lead Software Engineer of both BUILT and SHPE and Vice President of SIGMobile. Overall, he is ecstatic to work hard to create a smooth, enjoyable FACT for all delegates, and is looking forward to meeting everyone during the conference!",
+                "pronouns": "he/him",
+                "image": "kian-de-guzman.jpeg"
             }
         ]
     },
@@ -95,19 +101,19 @@
         "officers": [
             {
                 "name": "Kaila Babyar",
-                "bio": "Kaila is a Junior majoring in Global Studies and minoring in East Asian Languages & Culture and Media. She is currently one of the Marketing Chairs for FACT, and in PSA she has three super cute Adings! Outside of PSA, Kaila is also this semester’s Social Chair for the Global Studies Professional Society (GSPS), does a lot of drawing, bakes too many deserts, and works as a part time barista. With FACT coming up this year, she is excited to make connections across different schools and to create lasting memories with friends. Kaila is also looking forward to the merchandise her and her co-chairs will design, which you can expect to see during the conference!",
+                "bio": "Kaila is a senior majoring in Global Studies, specializing in Global Advertising and Marketing. She’s still undecided about her post-graduation plans but hopes to build a meaningful career and attend graduate school in the future. In PSA, Kaila has three wonderful Adings and two amazing co-chairs on FACT Marketing. Outside of PSA, she is a member of the Global Studies Professional Society, bartends at the Krannert Center, and designs graphics for a restaurant near her hometown. She also enjoys baking for her friends and drawing. Kaila's looking forward to this year's FACT and can't wait to see everyone's hard work pay off!",
                 "pronouns": "she/her",
                 "image": "kaila-babyar.jpeg"
             },
             {
-                "name": "Hailey Grace Keating",
-                "bio": "Hailey is currently a sophomore studying Molecular and Cellular Biology with plans to pursue research in the future. Within PSA, she has been an active member of Barkada since her freshman year, performing in some smaller performances and FACT's Variety Show in 2023, as well as competing in Battle of the Bamboo 2024. Outside of PSA, you can find her skiing way too fast, proctoring at the CBTF, doodling in a café, or locking in at a library. Hailey is looking forward to fostering a sense of community at this year's FACT Conference, and she hopes that it will be an exciting and memorable experience for all that attend! ",
-                "pronouns": "she/they",
+                "name": "Eliana Moloney",
+                "bio": "Eliana Moloney is a sophomore at the University of Illinois at Urbana-Champaign, studying Business with an interest in Marketing and Information Systems. Within PSA, she serves as a Marketing Coordinator for the FACT 2025 Conference. Outside of PSA, Eliana is the Historian and Professional Chair of alpha Kappa Delta Phi, an Asian-interest sorority, and a Family Head in Beta Alpha Psi, a professional business fraternity. Looking ahead, she aspires to pursue a career in social media marketing and listening, helping clients better understand and engage with what users are saying online. For FACT, she hopes to attract a wide audience through compelling and creative visuals.",
+                "pronouns": "she/her",
                 "image": "lee-keating.jpeg"
             },
             {
                 "name": "Miranda Espinoza",
-                "bio": "Miranda is currently a sophomore majoring in Earth, Society, and Environmental Sustainability. She has been an active member of PSA since her freshman year, performing with Barkada for FACT 2023 and Battle of the Bamboo 2024. Outside of PSA, you can find her trying to focus on homework at Funk Library, wandering the streets of Urbana-Champaign late at night, or journaling in her room. Miranda is eager to further people’s knowledge on Filipinx culture in a fun and engaging way.",
+                "bio": "Miranda is a junior majoring in Early Childhood Education. She has been an active member of PSA since her freshman year as a Barkada performer and as one of FCN Committee’s co-Marketing chairs last semester. Outside of PSA, you can find her reading in the Education Building or trying to read in her living room. She hopes to travel and further her experience with environmental education in Maine after graduation. Miranda is excited to watch Variety Show for the very first time and help build upon people’s curiosity about Philippine culture at this year’s FACT!",
                 "pronouns": "she/her",
                 "image": "miranda-espinoza.jpeg"
             }
@@ -118,14 +124,14 @@
         "image": "media.jpg",
         "officers": [
             {
-                "name": "Jamila Nadine Booc",
-                "bio": "Jamila Nadine is a sophomore studying Computer Science and Linguistics with a minor in East Asian Languages and Cultures. As part of PSA, she was a member of Barkada as a musician during the Battle of the Bamboo competition, and is excited to be further involved as one of the FACT Media Chairs. Outside of PSA, she devotes a lot of her time to the Illini Student Musicals (ISM) as the current Head Sound Designer for their upcoming production of \"9 to 5\". She is really excited to be working with her co-chair Sofia, and is looking forward to seeing everyone at FACT!",
+                "name": "Isabella Panopio",
+                "bio": "Isabella is a junior studying Interdisciplinary Health Sciences. In PSA, she has been involved in Barkada and Harana, and she was last year's media director for Filipinx Culture Night. Outside of PSA, she is involved in Heart of Kindness and is one of the vice presidents of public relations for UIUC's chapter of Letters of Love. She hopes FACT will be a memorable and enriching experience for everyone!",
                 "pronouns": "she/her",
                 "image": "jamila-nadine-booc.jpeg"
             },
             {
-                "name": "Sofia Kanda",
-                "bio": "Sofia is a junior majoring in Media & Cinema Studies with a minor in Business. Within PSA, she is involved with PSA Harana and was one of the short film directors for Filipinx Culture Night 2024. Outside of PSA, Sofia is involved in Alpha Delta Pi, Phi Eta Sigma, and the Illini Swim Club. In addition, she is also a Video Intern for the UIUC College of Media and a Creative Video Intern for Fighting Illini Productions (through the athletic department). After graduation, Sofia hopes to attend grad school and pursue a career within the realm of film and television production. Sofia is beyond excited to be one of the Media chairs for FACT this year, as she can't wait to meet other students and help them feel a sense of empowerment through all of the amazing activities that FACT has to offer!",
+                "name": "Samantha Tolentino",
+                "bio": "Sam is a junior studying Marketing + Information Systems. Within PSA, she has been involved through being PSA's previous Publicity chair, performing with Barkada at Battle of the Bamboo 2024 and 2025, and performing at FCN with Barkada and PSA Modern. Outside of PSA, Sam is involved in Ascend and in her free time loves to bake and try new cafes. She is excited to film fun promotional videos to spread the word about FACT, and capture memories at FACT!",
                 "pronouns": "she/her",
                 "image": "sofia-kanda.JPG"
             }
@@ -136,14 +142,14 @@
         "image": "palengke.jpg",
         "officers": [
             {
-                "name": "Michael Echavez",
-                "bio": "Michael is a senior studying Animal Sciences with a minor in Wildlife Conservation. After graduation they plan to continue their internship at the Scovill Zoo for nine months before hopefully becoming a full-time keeper at an AZA accredited zoo. Michael has been a Barkada performer since Fall 2021, Harana section lead since Spring 2024, and is FACT's Palengke Chair for a second year. ",
-                "pronouns": "he/they",
+                "name": "Clarisse Panlilio",
+                "bio": "Clarisse is a junior studying Social Work and International Development. She plans on going into community development and macro social work, delving professionally into neighborhood renewal and working with homelessness. She served as Philanthropy chair for the '24-'25 school year and is very active on Barkada and Harana. Clarisse hopes to give you all a wonderful Palengke experience, and a great time at FACT!",
+                "pronouns": "she/her",
                 "image": "michael-echavez.jpeg"
             },
             {
-                "name": "Ysabelle Pinpin",
-                "bio": "Ysabelle is a senior majoring in both Animal Sciences and Psychology and minoring in both Food & Environmental Systems and Chemistry. In the future, Ysabelle hopes to attend vet school and become a feline and canine vet with a specialization in radiology or rehabilitation therapy. In PSA, she has been both FACT 2023 Palengke co-coordinator and FCN 2024 Tiangge co-director with Michael Echavez. She has also participated in Battle of the Bamboo as a musician and FCN as a dancer in 2023. Outside of PSA, Ysabelle is a resident advisor (RA), desk clerk, co-advisor for Sherman Hall's Residential Leadership Board (RLB), and publicity chair for the Asian American Student Housing Organization (AASHO). When she isn't stressing about her to-do list, she is most likely writing stuff on her to-do list, talking about her dog, Shadow, or working on her art business, YPArtistry.",
+                "name": "Annika Panopio",
+                "bio": "Annika is a junior studying Interdisciplinary Health Sciences. Within PSA, she has been an active member, dancing with Barkada at Battle of the Bamboo 2024 and 2025, and singing as a soprano in Harana. In her free time, she likes baking, reading, and spending time with her friends. She is excited to be part of FACT Pack and hopes this year's FACT will be a fun, memorable experience for all delegates.",
                 "pronouns": "she/her",
                 "image": "ysabelle-pinpin.jpeg"
             }
@@ -154,14 +160,14 @@
         "image": "team-fact-managers.jpg",
         "officers": [
             {
-                "name": "Erien Lucero",
-                "bio": "Erien is a senior majoring in Bioengineering. After graduation, she plans to enter into industry working in research and development. She is also a co-coordinator of PSA's Filipinx Culture Night. Outside of PSA, Erien is involved in her Bioengineering department as an ambassador and course assistant. In her free time, she loves to cook, watch tv shows, and hang out with friends. Erien hopes everyone can have a fun and memorable time at FACT whether its their first time or they are returning.",
+                "name": "Lili Aquino",
+                "bio": "Lili is a senior majoring in Community Health with a concentration in Health Planning and Administration and certification in Health Technology. She is also one of the co-coordinators for Filipinx Culture Night (FCN)! In PSA, she has been involved in Battle of the Bamboo as a musician for Barkada and served as Volunteer Team Director on FCN Committee for 2 years. Outside of PSA, she is involved in health RSOs, volunteers, works part-time at a coffee shop, and is currently an operations intern at Wesley Food Pantry. She is excited about making new connections during FACT and hopes everyone attending FACT has a memorable and fun experience!",
                 "pronouns": "she/her",
                 "image": "erien-lucero.jpg"
             },
             {
-                "name": "Joshua Ryan Fajardo",
-                "bio": "Joshua Ryan Fajardo is a sophomore at UIUC majoring in Information Sciences + Data Science with a minor in Computer Science. He's been involved in PSA, as the current co-Formal chair and performed for Barkada at FACT, Battle of the Bamboo, and FCN. Outside of PSA, he enjoys going to the gym and spontaneous hangouts with friends. Josh is excited to help create a memorable FACT weekend for you all!",
+                "name": "Rainiel Bartolome",
+                "bio": "Rainiel is a senior studying biochemistry and after graduation would like to be employed or in grad school. When it comes to PSA he is involved both as a FCN co-coordinator and 1 of 2 Team Fact Managers. Other than that though he will prolly be in school or in a cold research lab working on his cursed senior project. He hopes that FACT will be a lot of fun for everyone this year, and that his last FACT will be the best he's ever seen.",
                 "pronouns": "he/him",
                 "image": "joshua-fajardo.jpg"
             }
@@ -172,14 +178,32 @@
         "image": "variety-show.jpg",
         "officers": [
             {
-                "name": "Adrian Matthew Isidoro",
-                "bio": "Adrian Matthew is currently a sophomore studying political science with plans to become a professor after graduation. He is a former FIA at UIC general body and Liwan member and has been involved with Battle of the Bamboo for 5 years. After transferring to UIUC last semester, Adrian Matthew has since become a general member of PSA, a props master for PSA Barkada, a college outreach ambassador for the PUSO Foundation, and a brother of Chi Sigma Tau Fraternity Inc. In his free time, he can't stop drinking coffee and other caffeinated drinks (it might be a problem) and has the barista experience to prove it! Adrian Matthew also loves travelling, boxing, dancing, riding his electric motorbike. He is excited to bring you a great and memorable Variety show with his co-coordinator Stephanie!",
+                "name": "Ralph Rinon",
+                "bio": "Ralph is a sophomore studying Integrative Biology on the Pre-Med Track, in hopes to become an orthopaedic surgeon. Within PSA, he was involved in Barkada for Battle of the Bamboo, and currently a Tenor and Trumpeter for Harana. On campus and in the CU community, he is part of the swim club and teaches music lessons to middle school students. In his free time, Ralph likes to listen to music artists like Sade and The Weeknd, binge watch Kitchen Nightmares, and learn Japanese! All in all, Ralph is most excited to see all the new and returning attendees at FACT this year!",
                 "pronouns": "he/him",
                 "image": "adrian-isidoro.jpeg"
             },
             {
-                "name": "Stephanie Mago",
-                "bio": "Stephanie is a sophomore majoring in interdisciplinary health sciences on the pre-nursing track. Within PSA, she has competed in Battle of the Bamboo with Barkada and also sings with Harana. Outside of PSA, she is marketing and recruitment chair for the American Medical Students Association and volunteers around the Champaign-Urbana area. She is so excited to share with you all this year's variety show!",
+                "name": "Alex De Guzman",
+                "bio": "Alex is a senior in Information Systems + Management, he plans on going to the Philippines and then getting a Full time position after Graduation. In previous years he worked on PSA board as FCN Coordinator, FACT 2025 MC, Barkada lead at Battle 2025, and a Harana Vocalist. He's also an exec member of Inline Insomniacs, UIUC's night skating club and is an avid longboard dancer. He's very excited for this years FACT and is looking forward to what's in store for this year's V-Show!!",
+                "pronouns": "he/him",
+                "image": "stephanie-mago.jpeg"
+            }
+        ]
+    },
+    {
+        "role": "Activity Coordinators",
+        "image": "variety-show.jpg",
+        "officers": [
+            {
+                "name": "Ava Caselli",
+                "bio": "Ava is a sophomore majoring in psychology with a minor in linguistics on the pre-law track. During her time in PSA, she has been an active member of Harana, the singing sub-group, and Barkada, the dancing sub-group. She is also currently on PSA board serving as the Formal co-coordinator. Outside of PSA, she is a member of the Asian Pre-Law Association and the Flippin' Illini Gymnastics Club. She is so excited for FACT and is looking forward to all the fun events planned for Delegate Day!",
+                "pronouns": "she/her",
+                "image": "adrian-isidoro.jpeg"
+            },
+            {
+                "name": "Meryl Resurrecion",
+                "bio": "Meryl is currently a senior majoring in Music with a minor in Speech & Hearing Science. She plans to go to graduate school to pursue a career as a speech language pathologist post-graduation. Within PSA, she is an active member of Barkada and Harana, as well as previously serving as one of Harana's co-coordinators last school year. You can also find her drawing graphics for The Daily Illini and singing in Women's Glee Club. She enjoys reading, watching movies, playing sports, hanging on the quad, and playing instruments like piano, guitar, and harmonica. Meryl aspires to make FACT as memorable for everyone as it has been for her.",
                 "pronouns": "she/her",
                 "image": "stephanie-mago.jpeg"
             }
