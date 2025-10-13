@@ -15,7 +15,7 @@ import { useVerifyEmail } from "@/hooks/api/useVerifyEmail";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Footer from "@/components/formatting/PageFooter";
-import { useCreateAccount } from "@/hooks/api/useCreateAccount";
+import { createAccountProps, useCreateAccount } from "@/hooks/api/useCreateAccount";
 import RegPageContainer from "@/components/formatting/RegPageContainer";
 
 
@@ -117,7 +117,7 @@ export default function CreateAccount() {
                         setClientError(null);
 
                         if (true) {
-                            createAccount(formData as registrationProps);
+                            createAccount(formData as createAccountProps);
                         } else {
                             setClientError(
                                 "Complete EventBrite checkout before continuing" // change if necessary
