@@ -2,6 +2,7 @@
 
 import FormContainer from "@/components/formatting/FormContainer";
 import Footer from "@/components/formatting/PageFooter";
+import RegPageContainer from "@/components/formatting/RegPageContainer";
 import Navbar from "@/components/navigation/Navbar";
 import TextInput from "@/components/ui/TextInput";
 import { useFacilitatorLogin } from "@/hooks/api/useFacilitatorLogin";
@@ -39,10 +40,8 @@ export default function Login() {
     }, [isSuccess, error, facilitatorSuccess]);
 
     return (
-        <>
-            <Navbar />
+        <RegPageContainer>
 
-            <br />
             {/* toggle log in type */}
             <div className="mx-auto p-2 border-2 border-highlight-2-secondary rounded-sm w-fit flex gap-4">
                 <button
@@ -74,7 +73,9 @@ export default function Login() {
                     Facilitator
                 </button>
             </div>
-            <br />
+
+            <br/>
+
             <FormContainer
                 submitText="Log in"
                 formName="loginForm"
@@ -90,7 +91,7 @@ export default function Login() {
                 isLoading={isPending || facilitatorPending}
                 errorMessage={error ? error.message : facilitatorError?.message}
             >
-                <div className="text-center font-medium">
+                <div className="text-center text-3xl uppercase font-bold pb-4 border-b w-full">
                     {isDelegate ? "Delegate " : "Facilitator "}Login
                 </div>
                 <TextInput
@@ -107,20 +108,19 @@ export default function Login() {
 
                 <Link
                     href="/my-fact/forgot-password"
-                    className="underline text-highlight-2-primary text-xs hover:text-highlight-2-secondary"
+                    className="underline text-slate-700 text-xs hover:text-highlight-third"
                 >
                     Forgot Password?
                 </Link>
 
-                <br />
 
-                <div className="text-center">
+                <div className="text-center text-md">
                     {isDelegate ? (
                         <>
                             New to FACT?{" "}
                             <a
-                                href="/my-fact/register"
-                                className="underline hover:text-highlight-2-secondary"
+                                href="/my-fact/create-account"
+                                className="underline hover:text-highlight-third"
                             >
                                 Create an account
                             </a>
@@ -133,10 +133,8 @@ export default function Login() {
                     )}
                 </div>
 
-                <br />
             </FormContainer>
-            <br />
-            <Footer />
-        </>
+        
+        </RegPageContainer>
     );
 }

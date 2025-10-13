@@ -1,6 +1,7 @@
 import { WorkshopData } from "@/util/types";
 import { useWorkshops } from "@/hooks/api/useWorkshops";
 import SearchableSelect from "./SearchableSelect";
+import LoadingCircle from "../icons/LoadingCircle";
 
 interface WorkshopSelectProps {
     id: string;
@@ -25,9 +26,10 @@ function WorkshopSelect({
     defaultValue,
     required = true,
 }: WorkshopSelectProps) {
-    const { workshops } = useWorkshops();
+    const { workshops, isLoading, error } = useWorkshops();
 
     return (
+        isLoading && session===2 ? <LoadingCircle/> : 
         workshops &&
         workshops.length > 0 && (
             <SearchableSelect
@@ -37,13 +39,13 @@ function WorkshopSelect({
                 setState={setState}
                 defaultValue={
                     defaultValue
-                    // ? defaultValue
-                    // : workshops
-                    //       .filter(
-                    //           (workshop: WorkshopData) =>
-                    //               workshop.session == session
-                    //       )[0]
-                    //       .id.toString()
+                    ? defaultValue
+                    : workshops
+                          .filter(
+                              (workshop: WorkshopData) =>
+                                  workshop.session == session
+                          )[0]
+                          .id.toString()
                 }
                 required={required}
                 options={workshops

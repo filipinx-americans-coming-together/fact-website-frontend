@@ -13,11 +13,14 @@ async function fetchRequestEmailVerification(email: string): Promise<void> {
         }),
     });
 
+    console.log("Email", email)
+
     let json;
 
     try {
         json = await response.json();
     } catch {
+        console.log("JSON", json);
         throw new Error("Server error, please try again later");
     }
 
@@ -30,6 +33,8 @@ async function fetchRequestEmailVerification(email: string): Promise<void> {
 
         throw new Error(message);
     }
+
+    console.log("JSON", json);
 }
 
 export function useRequestEmailVerification() {

@@ -13,6 +13,7 @@ import { useUser } from "@/hooks/api/useUser";
 import { useRegistrationFlag } from "@/hooks/api/useRegistrationFlag";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import RegPageContainer from "@/components/formatting/RegPageContainer";
 
 export default function Dashboard() {
     const { user, isLoading, error } = useUser();
@@ -32,7 +33,10 @@ export default function Dashboard() {
     }, [isSuccess, error]);
 
     return (
-        <>
+        <div>
+        <RegPageContainer>
+            {user ?
+            <>
             {notifications && (
                 <NotificationsManager
                     notifications={notifications.map(
@@ -40,21 +44,13 @@ export default function Dashboard() {
                     )}
                 />
             )}
-
-            <Navbar />
             <div className="w-9/12 flex justify-evenly flex-col gap-10 md:gap-16 md:flex-row text-left mx-auto">
                 <div>
                     {/* user info */}
                     <div>
-                        {user ? (
-                            <>
-                                <div className="font-bold text-xl my-2">
-                                    Welcome, {user.user.first_name} {user.user.last_name}
-                                </div>
-                            </>
-                        ) : (
-                            <LoadingCircle />
-                        )}
+                         <div className="font-bold text-xl my-2">
+                            Welcome, {user.user.first_name} {user.user.last_name}
+                        </div>
                     </div>
                     <div className="text-center my-6">
                         <LinkButton
@@ -62,32 +58,38 @@ export default function Dashboard() {
                             url="/my-fact/profile"
                         />
                     </div>
-                    <div className="flex flex-col justify-center items-center bg-text-primary px-2 py-4 my-4">
+                    <div className="flex flex-col justify-center items-center px-2 py-4 my-4">
                         {user?.registration ? (
-                            user.registration.map((pair) => (
+                            <>
+                            {user.registration.map((pair) => (
                                 <WorkshopCard
                                     key={pair.workshop}
                                     id={pair.workshop}
                                 />
-                            ))
+                            ))}
+                            {flag?.value ? (
+                                <div className="text-center my-6">
+                                    <LinkButton
+                                        text="UPDATE WORKSHOPS"
+                                        url="/my-fact/workshops"
+                                    />
+                                </div>
+                            ) : (
+                                <div className="text-center my-6 text-xs">
+                                    Workshop changes are not available at this time.
+                                </div>
+                            )}
+                            </>
                         ) : (
-                            <LoadingCircle />
+                            <>
+                            <div>Thank you for creating an account! You have not yet registered for FACT 2025.</div>
+                            <LinkButton text="REGISTER NOW" url="/my-fact/register"/>
+                            </>
                         )}
                     </div>
-                    {flag?.value ? (
-                        <div className="text-center my-6">
-                            <LinkButton
-                                text="UPDATE WORKSHOPS"
-                                url="/my-fact/workshops"
-                            />
-                        </div>
-                    ) : (
-                        <div className="text-center my-6 text-xs">
-                            Workshop changes are not available at this time.
-                        </div>
-                    )}
+                    
                 </div>
-                <div>{user ? <UserAgenda /> : <LoadingCircle />}</div>
+                {user.registration && <UserAgenda/>}
             </div>
             <br />
             <br />
@@ -99,7 +101,8 @@ export default function Dashboard() {
                         router.push("/");
                     }}
                 />
-            </div>
-        </>
+            </div> </> : <div className="w-fit mx-auto"><LoadingCircle/></div> }
+        </RegPageContainer> 
+        </div>
     );
 }

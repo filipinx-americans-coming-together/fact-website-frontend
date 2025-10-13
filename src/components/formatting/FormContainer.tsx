@@ -13,41 +13,45 @@ interface FormProps {
 
 function FormContainer(props: FormProps) {
     return (
-        <div className="w-7/12 min-w-[460px] px-20 py-12 bg-highlight-primary text-black m-auto flex flex-col items-center gap-3 rounded-lg">
-            <form
-                name={props.formName}
-                className="flex flex-col gap-6 items-center text-left w-7/12"
-                autoComplete="off"
-                onSubmit={(event) => {
-                    event.preventDefault();
-                    props.onSubmit(event);
-                }}
-            >
-                {props.children}
-                {props.errorMessage && (
-                    <p className="text-red-600">{props.errorMessage}</p>
-                )}
+        <div className="w-7/12 min-w-[460px] py-12 bg-[#FFAC7D] m-auto rounded-lg">
+            <div className="text-black m-auto flex flex-col items-center gap-3 ">
+                <form
+                    name={props.formName}
+                    className="flex flex-col gap-4 lg:gap-6 items-center text-left w-3/4 md:w-5/6 lg:w-7/12"
+                    autoComplete="off"
+                    onSubmit={(event) => {
+                        event.preventDefault();
+                        props.onSubmit(event);
+                    }}
+                >
+                    {props.children}
+                    {props.errorMessage && (
+                        <p className="text-red-600">{props.errorMessage}</p>
+                    )}
 
-                {props.isLoading ? (
-                    // loading
-                    <div className="flex justify-center py-2s">
-                        <LoadingCircle />
-                    </div>
-                ) : (
-                    // submit
-                    <InteractiveButton
-                        text={props.submitText}
-                        onClick={() => {}}
-                        isSubmit={true}
-                    />
-                )}
+                    {props.isLoading ? (
+                        // loading
+                        <div className="flex justify-center py-2s">
+                            <LoadingCircle />
+                        </div>
+                    ) : (
+                        // submit
+                        <div className="my-4 lg:my-6">
+                            <InteractiveButton
+                                text={props.submitText}
+                                onClick={() => {}}
+                                isSubmit={true}
+                            />
+                        </div>
+                    )}
 
-                <p className="text-xs text-slate-600">
-                    This site uses cookies to perform necessary actions. If you
-                    are on a mobile device, please disable &quot;Prevent Cross-Site
-                    Tracking&quot; before continuing
-                </p>
-            </form>
+                    <p className="text-xs text-slate-700">
+                        This site uses cookies to perform necessary actions. If you
+                        are on a mobile device, please disable &quot;Prevent Cross-Site
+                        Tracking&quot; before continuing
+                    </p>
+                </form>
+            </div>
         </div>
     );
 }

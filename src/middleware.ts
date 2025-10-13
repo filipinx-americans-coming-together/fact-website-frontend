@@ -41,10 +41,10 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
     matcher: [
-        "/agenda", "/refund", "/registration-closed", "/workshops",
-        "/my-fact/:path*",
-        "/workshops/:path*",
-        "/facilitators/:path*",
-        "/admin/:path*",
+        // "/agenda", "/refund", "/registration-closed", "/workshops",
+        // "/my-fact/:path*",
+        // "/workshops/:path*",
+        // "/facilitators/:path*",
+        // "/admin/:path*",
     ],
 };

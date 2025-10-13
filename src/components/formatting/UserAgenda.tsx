@@ -65,7 +65,7 @@ function UserAgenda() {
 
         const result = new Map();
 
-        user.registration.forEach((workshop) => {
+        user.registration?.forEach((workshop) => {
             const workshopData = workshops.find(
                 (otherWorkshop) => otherWorkshop.id === workshop.workshop
             );
