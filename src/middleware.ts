@@ -7,36 +7,36 @@ import { ResponseData } from "./util/types";
 
 export async function middleware(request: NextRequest) {
     // minimal theme drop website
-    return NextResponse.rewrite(new URL('/not-found', request.url));
+    // return NextResponse.rewrite(new URL('/not-found', request.url));
     
-    // intercept all pages that use accounts
-    return NextResponse.redirect(new URL('/registration-closed', request.url));
+    // // intercept all pages that use accounts
+    // return NextResponse.redirect(new URL('/registration-closed', request.url));
 
-    // get flags
-    let flags: ResponseData<{ label: string; value: boolean }>[];
+    // // get flags
+    // let flags: ResponseData<{ label: string; value: boolean }>[];
 
-    try {
-        let response = await fetch(`${API_URL}/fact-admin/flags/`);
-        flags = await response.json();
-    } catch {
-        return NextResponse.error();
-    }
+    // try {
+    //     let response = await fetch(`${API_URL}/fact-admin/flags/`);
+    //     flags = await response.json();
+    // } catch {
+    //     return NextResponse.error();
+    // }
 
-    // workshop changes
-    if (request.nextUrl.pathname.startsWith("/my-fact/workshops")) {
-        const workshopChanges = flags.find(
-            (flag) => flag.fields.label === "workshop-changes"
-        );
+    // // workshop changes
+    // if (request.nextUrl.pathname.startsWith("/my-fact/workshops")) {
+    //     const workshopChanges = flags.find(
+    //         (flag) => flag.fields.label === "workshop-changes"
+    //     );
 
-        if (!workshopChanges || !workshopChanges?.fields.value) {
-            return NextResponse.error();
-        }
-    }
+    //     if (!workshopChanges || !workshopChanges?.fields.value) {
+    //         return NextResponse.error();
+    //     }
+    // }
 
-    // hide registration related pages
-    if (request.nextUrl.pathname == "/my-fact/register"){
-        return NextResponse.redirect(new URL('/', request.url));
-    }
+    // // hide registration related pages
+    // if (request.nextUrl.pathname == "/my-fact/register"){
+    //     return NextResponse.redirect(new URL('/', request.url));
+    // }
 }
 
 export const config = {

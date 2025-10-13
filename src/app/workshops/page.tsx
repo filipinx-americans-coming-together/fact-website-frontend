@@ -37,19 +37,26 @@ function WorkshopsContent() {
     }, [router, searchQuery, selectedSession]);
 
     return (
-        <PageContainer title="Sessions">
+        <PageContainer title="Workshops">
             <div className="flex flex-col items-center px-4">
                 {/** Search and Filter Functionality */}
                 <div className="flex flex-col md:flex-row md:space-y-0 md:space-x-4 mb-8 w-full max-w-2xl">
                     {/** Search Input */}
-                    <input
-                        type="text"
-                        placeholder="Search workshops or panels..."
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                        className="w-full border-2 border-highlight-primary bg-background-primary p-3 rounded-md
-                                focus:outline-hidden hover:border-highlight-2-primary transition duration-500 mb-4 md:mb-0"
-                    />
+                    <div className="relative w-full mb-4 md:mb-0">
+                        <img
+                            src="/icons/search.png"
+                            alt="Search"
+                            className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 opacity-70"
+                        />
+                        <input
+                            type="text"
+                            placeholder="Search workshops or panels..."
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            className="w-full border-2 border-highlight-primary bg-background-primary p-3 pl-10 rounded-md
+                                    focus:outline-hidden hover:border-highlight-2-primary transition duration-500"
+                        />
+                    </div>
 
                     {/** Session Filter */}
                     <select
@@ -85,7 +92,15 @@ function WorkshopsContent() {
                                                 transition-all duration-500 ease-in-out"
                                     >
                                         <div className="flex justify-between items-start mb-4">
-                                            <h2 className="text-xl font-bold mr-4">{workshop.title}</h2>
+                                        <div className="flex items-center gap-2">
+                                        <img
+                                            src="/icons/megaphone.png"
+                                            alt="Megaphone"
+                                            className="w-6 h-6 opacity-80"
+                                        />
+                                        <h2 className="text-xl font-bold">{workshop.title}</h2>
+                                        </div>
+
                                             <div className="text-right">
                                                 <h3 className="text-lg font-bold">
                                                     Session {workshop.session}
