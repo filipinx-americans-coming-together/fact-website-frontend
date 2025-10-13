@@ -20,7 +20,7 @@ async function fetchRegister(props: createAccountProps): Promise<{
     // request
     // TODO: check endpoint w backend
     const response = await fetchWithCredentials({
-        url: `${API_URL}/registration/delegates/`,
+        url: `${API_URL}/registration/delegates/create-account`,
         method: "POST",
         body: JSON.stringify(props),
     });

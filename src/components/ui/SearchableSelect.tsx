@@ -2,7 +2,7 @@ import { ReactNode, useEffect, useRef, useState } from "react";
 import { FaAngleDown } from "react-icons/fa";
 
 interface SearchableSelectProps {
-    options: { label: string; value: string }[];
+    options: { label: string; value: string, disabled?: boolean }[];
     id: string;
     label: string;
     setState: (state: Object) => void;
@@ -142,6 +142,7 @@ function SearchableSelect<T>({
                                     value={option.value}
                                     id={label + option.value.toString()}
                                     checked={option.label === selected}
+                                    disabled={option.disabled}
                                     hidden
                                     readOnly
                                 />

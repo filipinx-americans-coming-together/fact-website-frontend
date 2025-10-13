@@ -69,9 +69,6 @@ export default function Register() {
 
     useEffect(() => {
         loadEventbriteScript();
-        return () => {
-            setLoadEB(true);
-        };
     });
 
     // make sure to clear other school data if school_id changes to not be "School not listed"
@@ -196,10 +193,8 @@ export default function Register() {
                                 time.
                             </p>
                             <p>
-                                IV. I allow myself to be included in photos,
-                                videos, and livestreams taken by
-                                FACTographers during the event for
-                                promotional purposes.
+                                IV. I allow myself to be included in photos, videos, and livestreams taken by FACTographers during the event for promotional purposes. If I feel uncomfortable with this, I will promptly inform the FACTographer.
+
                             </p>
                             <p>
                                 V. I am responsible for all payments made
@@ -208,11 +203,7 @@ export default function Register() {
                                 conference.
                             </p>
                             <p>
-                                VI. If I would like to rescind my
-                                registration purposes for reasons of changed
-                                availability, I must submit a request for
-                                refund prior to the Early Registration
-                                deadline of November 21st.
+                                VI. If I would like to rescind my registration purposes for reasons of changed availability, I must submit a request for refund prior to the Early Registration deadline of October 27th.
                             </p>
                             <p>
                                 VII. PSA does not associate with contraband
@@ -237,15 +228,7 @@ export default function Register() {
                                 be protected.
                             </p>
                             <p>
-                                X. PSA is committed to providing a safe,
-                                productive, and welcoming environment to all
-                                participants, including staff, vendors,
-                                guests, and delegates. PSA has no tolerance
-                                for any form of discrimination, harassment,
-                                or bullying in any form at FACT-related
-                                events. Participants are expected to adhere
-                                to these principles and respect the rights
-                                of others.
+                                X. PSA is committed to providing a safe, productive, and welcoming environment to all participants, including staff, vendors, guests, facilitators, and delegates. PSA has no tolerance for any form of discrimination, harassment, or bullying in any form at FACT-related events. Participants are expected to adhere to these principles and respect the rights of others.
                             </p>
                             <p className="ml-8">
                                 a. If you are a witness or are subject to
