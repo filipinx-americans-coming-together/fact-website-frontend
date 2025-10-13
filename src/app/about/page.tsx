@@ -22,7 +22,7 @@ export default function About() {
       title="About"
     >
         
-      <div className="overflow-x-hidden flex flex-col sm:flex-row relative text-center items-center sm:-mt-6 lg:-mt-10">
+      <div className="flex flex-col sm:flex-row relative text-center items-center sm:-mt-6 lg:-mt-10">
         <div className="sm:w-1/2 xl:w-1/3 grow flex items-center justify-center text-4xl lg:text-5xl">
           <h1 className="absolute text-white z-10 px-4">WHAT IS FACT?</h1>
 
