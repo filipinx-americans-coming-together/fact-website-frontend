@@ -61,6 +61,7 @@ export default function Register() {
         script.src = "https://www.eventbrite.com/static/widgets/eb_widgets.js";
         script.async = true;
         document.body.appendChild(script);
+        console.log('eventbrite script loaded')
         setLoadEB(true);
     };
     
@@ -98,8 +99,8 @@ export default function Register() {
             modal: true,
             modalTriggerElementId: 'eventbrite-widget-modal-trigger-1672144321679',
             onOrderComplete: onComplete
-        });
-        }}, [loadEB]);
+        })} 
+        }, [loadEB]);
 
         return (
             <>
