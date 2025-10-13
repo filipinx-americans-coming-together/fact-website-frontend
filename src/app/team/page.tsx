@@ -81,7 +81,7 @@ type ModalProps = {
 const Modal = ({ children, onClose }: ModalProps) => {
     return (
         <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 md:w-3/4 lg:w-full"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-red-50 bg-opacity-50 md:w-3/4 lg:w-full"
             onClick={onClose}
         >
             <div className="relative bg-white rounded-sm w-full md:w-3/4 lg:w-1/2 max-w-4xl h-[90vh] md:h-auto mx-4">
