@@ -3,5 +3,6 @@
   "/agenda/page": "app/agenda/page.js",
   "/team/page": "app/team/page.js",
   "/faq/page": "app/faq/page.js",
-  "/gallery/page": "app/gallery/page.js"
+  "/gallery/page": "app/gallery/page.js",
+  "/workshops/[slug]/page": "app/workshops/[slug]/page.js"
 }

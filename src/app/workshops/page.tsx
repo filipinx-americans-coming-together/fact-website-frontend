@@ -113,110 +113,111 @@ function WorkshopsContent() {
         ) : hasFilteredWorkshops ? (
           <>
             {/* Wrapping container: relative + group to enable hover fade for arrows */}
-<div className="group relative w-full max-w-[1400px] mx-auto">
-  {/* Grid of Cards */}
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
-    {currentPageItems.map((workshop) => {
-      const workshopURL = `${workshop.title
-        .toLowerCase()
-        .replace(/\s+/g, "-")}-${workshop.id}`;
+            <div className="group relative w-full max-w-[1400px] mx-auto">
+            {/* Grid of Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
+                {currentPageItems.map((workshop) => {
+                const workshopURL = `${workshop.title
+                    .toLowerCase()
+                    .replace(/\s+/g, "-")}-${workshop.id}`;
 
-      const queryParams = new URLSearchParams({
-        ...(searchQuery ? { search: searchQuery } : {}),
-        ...(selectedSession ? { session: selectedSession } : {}),
-        ...(page > 1 ? { page: String(page) } : {}),
-      }).toString();
+                const queryParams = new URLSearchParams({
+                    ...(searchQuery ? { search: searchQuery } : {}),
+                    ...(selectedSession ? { session: selectedSession } : {}),
+                    ...(page > 1 ? { page: String(page) } : {}),
+                }).toString();
 
-      // --- Character limits for a consistent card height ---
-      const TITLE_MAX = 60;       // ~2 lines for text-xl
-      const DESC_MAX  = 180;      // ~4-5 lines for base text
-      const titleText = truncateText(workshop.title, TITLE_MAX);
-      const descText  = truncateText(workshop.description, DESC_MAX);
+                // --- Character limits for a consistent card height ---
+                const TITLE_MAX = 60;       // ~2 lines for text-xl
+                const DESC_MAX  = 180;      // ~4-5 lines for base text
+                const titleText = truncateText(workshop.title, TITLE_MAX);
+                const descText  = truncateText(workshop.description, DESC_MAX);
 
-      return (
-        <Link
-          key={workshop.id}
-          href={`/workshops/${encodeURIComponent(workshopURL)}?${queryParams}`}
-        >
-          <div
-            className="bg-background-primary border-2 border-highlight-primary rounded-xl shadow-md 
-                       hover:shadow-lg hover:border-highlight-2-primary transition-all duration-300 
-                       cursor-pointer p-8 flex flex-col h-full"
-          >
-            {/* Header */}
-            <div className="flex justify-between items-start mb-3">
-              <div className="flex items-center gap-3">
-                <img
-                  src="/icons/megaphone.png"
-                  alt="Megaphone"
-                  className="w-7 h-7 opacity-80"
-                />
-                {/* Reserve space for up to ~2 lines of title */}
-                <h2 className="text-xl font-semibold text-foreground-primary leading-snug min-h-[3.5rem]">
-                  {titleText}
-                </h2>
-              </div>
+                return (
+                    <Link
+                    key={workshop.id}
+                    href={`/workshops/${encodeURIComponent(workshopURL)}?${queryParams}`}
+                    >
+                    <div
+                        className="bg-background-primary border-2 border-highlight-primary rounded-xl shadow-md 
+                                hover:shadow-lg hover:border-highlight-2-primary transition-all duration-300 
+                                cursor-pointer p-8 flex flex-col h-full"
+                    >
+                        {/* Header */}
+                        <div className="flex justify-between items-center mb-3">
+                        <div className="flex items-center gap-3">
+                            <img
+                            src="/icons/megaphone.png"
+                            alt="Megaphone"
+                            className="w-7 h-7 opacity-80"
+                            />
+                            <h2 className="text-xl font-semibold text-foreground-primary leading-snug line-clamp-2">
+                                {truncateText(workshop.title, 80)}
+                            </h2>
 
-              <div className="text-right whitespace-nowrap">
-                <h3 className="text-md font-bold text-highlight-primary">
-                  Session {workshop.session}
-                </h3>
-              </div>
+                        </div>
+
+                        <div className="text-right whitespace-nowrap flex items-center">
+                            <h3 className="text-md font-bold text-highlight-primary">
+                            Session {workshop.session}
+                            </h3>
+                        </div>
+                        </div>
+
+
+                        {/* Description – reserve space for ~4–5 lines */}
+                        <p className="text-foreground-secondary leading-relaxed min-h-[6.5rem]">
+                        {descText}
+                        </p>
+
+                        {/* If you later add footer buttons/tags, push them down uniformly */}
+                        {/* <div className="mt-auto pt-4">...</div> */}
+                    </div>
+                    </Link>
+                );
+                })}
             </div>
 
-            {/* Description – reserve space for ~4–5 lines */}
-            <p className="text-foreground-secondary leading-relaxed min-h-[6.5rem]">
-              {descText}
-            </p>
+            {/* Left Arrow */}
+            <button
+            onClick={() => setPage((p) => Math.max(1, p - 1))}
+            disabled={page === 1}
+            className="opacity-0 group-hover:opacity-100 absolute -left-[3vw] top-1/2 -translate-y-1/2
+                        flex items-center justify-center w-10 h-10 rounded-full
+                        bg-background-primary/90 border-2 border-highlight-primary
+                        text-highlight-primary shadow-lg transition
+                        hover:scale-110 hover:border-highlight-2-primary
+                        disabled:opacity-30 disabled:cursor-not-allowed"
+            aria-label="Previous page"
+            >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" strokeWidth="2.5"
+                className="w-5 h-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+            </button>
 
-            {/* If you later add footer buttons/tags, push them down uniformly */}
-            {/* <div className="mt-auto pt-4">...</div> */}
-          </div>
-        </Link>
-      );
-    })}
-  </div>
-
-{/* Left Arrow */}
-<button
-  onClick={() => setPage((p) => Math.max(1, p - 1))}
-  disabled={page === 1}
-  className="opacity-0 group-hover:opacity-100 absolute -left-[3vw] top-1/2 -translate-y-1/2
-             flex items-center justify-center w-10 h-10 rounded-full
-             bg-background-primary/90 border-2 border-highlight-primary
-             text-highlight-primary shadow-lg transition
-             hover:scale-110 hover:border-highlight-2-primary
-             disabled:opacity-30 disabled:cursor-not-allowed"
-  aria-label="Previous page"
->
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-       fill="none" stroke="currentColor" strokeWidth="2.5"
-       className="w-5 h-5">
-    <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-  </svg>
-</button>
-
-{/* Right Arrow */}
-<button
-  onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
-  disabled={page >= totalPages}
-  className="opacity-0 group-hover:opacity-100 absolute -right-[3vw] top-1/2 -translate-y-1/2
-             flex items-center justify-center w-10 h-10 rounded-full
-             bg-background-primary/90 border-2 border-highlight-primary
-             text-highlight-primary shadow-lg transition
-             hover:scale-110 hover:border-highlight-2-primary
-             disabled:opacity-30 disabled:cursor-not-allowed"
-  aria-label="Next page"
->
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-       fill="none" stroke="currentColor" strokeWidth="2.5"
-       className="w-5 h-5">
-    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-  </svg>
-</button>
+            {/* Right Arrow */}
+            <button
+            onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+            disabled={page >= totalPages}
+            className="opacity-0 group-hover:opacity-100 absolute -right-[3vw] top-1/2 -translate-y-1/2
+                        flex items-center justify-center w-10 h-10 rounded-full
+                        bg-background-primary/90 border-2 border-highlight-primary
+                        text-highlight-primary shadow-lg transition
+                        hover:scale-110 hover:border-highlight-2-primary
+                        disabled:opacity-30 disabled:cursor-not-allowed"
+            aria-label="Next page"
+            >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" strokeWidth="2.5"
+                className="w-5 h-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+            </button>
 
 
-</div>
+            </div>
 
 
           </>

@@ -525,6 +525,12 @@
   .ml-\[-8px\] {
     margin-left: -8px;
   }
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
   .block {
     display: block;
   }
@@ -760,6 +766,9 @@
   }
   .flex-wrap-reverse {
     flex-wrap: wrap-reverse;
+  }
+  .content-center {
+    align-content: center;
   }
   .items-center {
     align-items: center;
