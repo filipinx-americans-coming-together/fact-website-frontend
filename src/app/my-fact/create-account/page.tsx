@@ -57,7 +57,7 @@ export default function CreateAccount() {
         }
 
         if (isSuccess) {
-            router.push("/my-fact/dashboard");
+            router.push("/my-fact/register");
         }
     }, [formData.school_id, isSuccess]);
 

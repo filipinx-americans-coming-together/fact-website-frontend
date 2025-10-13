@@ -19,6 +19,7 @@ import RegPageContainer from "@/components/formatting/RegPageContainer";
 import Script from "next/script";
 import LinkButton from "@/components/ui/LinkButton";
 import LoadingCircle from "@/components/icons/LoadingCircle";
+import { useUser } from "@/hooks/api/useUser";
 
 /* <!-- Noscript content for added SEO -->
 <noscript><a href="https://www.eventbrite.com/e/test-tickets-1672144321679" rel="noopener noreferrer" target="_blank">Buy Tickets on Eventbrite</a></noscript>
@@ -43,6 +44,7 @@ import LoadingCircle from "@/components/icons/LoadingCircle";
 
 export default function Register() {
     const { register, isSuccess, isPending, error } = useRegister();
+    const { user, isLoading, error : userError } = useUser();
 
     const [formData, setFormData] = useState<{ [key: string]: any }>({
         workshop_1_id: -1,
@@ -52,7 +54,7 @@ export default function Register() {
         code: "",
     });
 
-    const [checkoutComplete, setCheckoutComplete] = useState(false);
+    const [checkoutComplete, setCheckoutComplete] = useState(true);
     const [clientError, setClientError] = useState<string | null>(null);
     const [loadEB, setLoadEB] = useState(false);
     // Load the Eventbrite widgets script
@@ -126,7 +128,10 @@ export default function Register() {
         if (isSuccess) {
             router.push("/my-fact/dashboard");
         }
-    }, [formData.school_id, isSuccess]);
+        if (userError) {
+            router.push("/my-fact/login")
+        }
+    }, [formData.school_id, isSuccess, user]);
 
     return (
         <RegPageContainer>
@@ -175,13 +180,15 @@ export default function Register() {
                 />
 
                 <div className="w-full">
-                    {loadEB ? <>
-                        {/* <EventbriteWidgetWks
+                    {loadEB ? 
+                        /* <EventbriteWidgetWks
                         onComplete={() => {
                             setCheckoutComplete(true);
-                        }}/> */}
-                        <EventbriteWidgetBnd onComplete={() => {setCheckoutComplete(true)}}
-                    /></> : <LoadingCircle/>}
+                        }}/> */
+                    //     <EventbriteWidgetBnd onComplete={() => {setCheckoutComplete(true)}}
+                    // /> 
+                    <LoadingCircle/>
+                    : <LoadingCircle/>}
                     {/* <div id="eventbrite-widget-container-1672144321679"></div>
                     <Script src="https://www.eventbrite.com/static/widgets/eb_widgets.js" strategy="beforeInteractive" />
 

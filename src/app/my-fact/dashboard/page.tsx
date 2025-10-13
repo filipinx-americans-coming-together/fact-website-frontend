@@ -23,11 +23,10 @@ export default function Dashboard() {
     const { flag } = useRegistrationFlag("workshop-changes");
     const router = useRouter();
 
-    console.log(user?.registration);
 
     useEffect(() => {
         if (isSuccess) {
-            router.push("/admin/dashboard");
+            router.push("/");
         }
 
         if (error) {
