@@ -18,37 +18,28 @@ import Footer from "@/components/formatting/PageFooter";
 import RegPageContainer from "@/components/formatting/RegPageContainer";
 import Script from "next/script";
 import LinkButton from "@/components/ui/LinkButton";
+import LoadingCircle from "@/components/icons/LoadingCircle";
 
-const EventbriteWidget = ({ onComplete }: { onComplete: Function }) => {
-    useEffect(() => {
-        // @ts-ignore
-        window.EBWidgets.createWidget({
-            // Required
-            widgetType: 'checkout',
-            eventId: '1672144321679',
-            iframeContainerId: 'eventbrite-widget-container-1672144321679',
+/* <!-- Noscript content for added SEO -->
+<noscript><a href="https://www.eventbrite.com/e/test-tickets-1672144321679" rel="noopener noreferrer" target="_blank">Buy Tickets on Eventbrite</a></noscript>
+<!-- You can customize this button any way you like -->
+<button id="eventbrite-widget-modal-trigger-1672144321679" type="button">Buy Tickets</button>
 
-            // Optional
-            iframeContainerHeight: 500, // Widget height in pixels. Defaults to a minimum of 425px if not provided
-            onOrderComplete: onComplete, // Method called when an order has successfully completed
-        });
-    }, []);
+<script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
 
-    return (
-        <div
-            className="w-full"
-            id="eventbrite-widget-container-1060445463929"
-        ></div>
-    );
-};
+<script type="text/javascript">
+    var exampleCallback = function() {
+        console.log('Order complete!');
+    };
 
-// Load the Eventbrite widgets script
-const loadEventbriteScript = () => {
-    const script = document.createElement("script");
-    script.src = "https://www.eventbrite.com/static/widgets/eb_widgets.js";
-    script.async = true;
-    document.body.appendChild(script);
-};
+    window.EBWidgets.createWidget({
+        widgetType: 'checkout',
+        eventId: '1672144321679',
+        modal: true,
+        modalTriggerElementId: 'eventbrite-widget-modal-trigger-1672144321679',
+        onOrderComplete: exampleCallback
+    });
+</script> */
 
 export default function Register() {
     const { register, isSuccess, isPending, error } = useRegister();
@@ -63,13 +54,67 @@ export default function Register() {
 
     const [checkoutComplete, setCheckoutComplete] = useState(false);
     const [clientError, setClientError] = useState<string | null>(null);
-    const [loadEB, setLoadEB] = useState(true);
+    const [loadEB, setLoadEB] = useState(false);
+    // Load the Eventbrite widgets script
+    const loadEventbriteScript = () => {
+        const script = document.createElement("script");
+        script.src = "https://www.eventbrite.com/static/widgets/eb_widgets.js";
+        script.async = true;
+        document.body.appendChild(script);
+        setLoadEB(true);
+    };
+    
+    const EventbriteWidgetWks = ({ onComplete }: { onComplete: Function }) => {
+    useEffect(() => {
+        if (loadEB) {
+            // @ts-ignore
+            window.EBWidgets.createWidget({
+                // Required
+                widgetType: 'checkout',
+                eventId: '1672144321679',
+                iframeContainerId: 'eventbrite-widget-container-1672144321679',
+
+                // Optional
+                iframeContainerHeight: 500, // Widget height in pixels. Defaults to a minimum of 425px if not provided
+                onOrderComplete: onComplete, // Method called when an order has successfully completed
+            });
+        }}, [loadEB]);
+
+        return (
+            <div
+                className="w-full"
+                id="eventbrite-widget-container-1672144321679"
+            ></div>
+        );
+    };
+
+    const EventbriteWidgetBnd = ({ onComplete }: { onComplete: Function }) => {
+    useEffect(() => {
+        if (loadEB) {
+            // @ts-ignore
+            window.EBWidgets.createWidget({
+            widgetType: 'checkout',
+            eventId: '1672144321679',
+            modal: true,
+            modalTriggerElementId: 'eventbrite-widget-modal-trigger-1672144321679',
+            onOrderComplete: onComplete
+        });
+        }}, [loadEB]);
+
+        return (
+            <>
+            <noscript><a href="https://www.eventbrite.com/e/test-tickets-1672144321679" rel="noopener noreferrer" target="_blank">Buy Tickets on Eventbrite</a></noscript>
+            
+            <button id="eventbrite-widget-modal-trigger-1672144321679" type="button">Buy Tickets</button>
+            </>
+        );
+    };
 
     const router = useRouter();
 
     useEffect(() => {
         loadEventbriteScript();
-    });
+    }, []);
 
     // make sure to clear other school data if school_id changes to not be "School not listed"
     useEffect(() => {
@@ -129,12 +174,16 @@ export default function Register() {
                 />
 
                 <div className="w-full">
-                    {/* {loadEB && (<EventbriteWidget
+                    {loadEB ? <>
+                        <EventbriteWidgetWks
                         onComplete={() => {
                             setCheckoutComplete(true);
-                        }}
-                    />)} */}
-                    <div id="eventbrite-widget-container-1672144321679"></div>
+                        }}/>
+                        <EventbriteWidgetBnd onComplete={() => {setCheckoutComplete(true)}}
+                    /></> : <LoadingCircle/>}
+                    <noscript><a href="https://www.eventbrite.com/e/test-tickets-1672144321679" rel="noopener noreferrer" target="_blank">Buy Tickets on Eventbrite</a></noscript>
+                    <button id="eventbrite-widget-modal-trigger-1672144321679" type="button">Buy Tickets</button>
+                    {/* <div id="eventbrite-widget-container-1672144321679"></div>
                     <Script src="https://www.eventbrite.com/static/widgets/eb_widgets.js" strategy="beforeInteractive" />
 
                     <Script id='inline'>
@@ -154,7 +203,7 @@ export default function Register() {
                             onOrderComplete: exampleCallback  // Method called when an order has successfully completed
                         });
                         `}
-                    </Script>
+                    </Script> */}
                 </div>
                 <div className="static flex items-start gap-1">
                     <div>
