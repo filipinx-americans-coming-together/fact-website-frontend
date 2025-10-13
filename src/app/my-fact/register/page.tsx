@@ -179,14 +179,15 @@ export default function Register() {
                 />
 
                 <div className="w-full">
-                    {loadEB ? 
-                        /* <EventbriteWidgetWks
+                    {loadEB ?
+                    <>
+                        <EventbriteWidgetWks
                         onComplete={() => {
                             setCheckoutComplete(true);
-                        }}/> */
-                    //     <EventbriteWidgetBnd onComplete={() => {setCheckoutComplete(true)}}
-                    // /> 
-                    <LoadingCircle/>
+                        }}/>
+                        <EventbriteWidgetBnd onComplete={() => {setCheckoutComplete(true)}}
+                    />
+                    </>
                     : <LoadingCircle/>}
                     {/* <div id="eventbrite-widget-container-1672144321679"></div>
                     <Script src="https://www.eventbrite.com/static/widgets/eb_widgets.js" strategy="beforeInteractive" />

@@ -1,7 +1,4 @@
 {
-  "/page": "app/page.js",
-  "/team/page": "app/team/page.js",
-  "/about/page": "app/about/page.js",
-  "/gallery/page": "app/gallery/page.js",
-  "/faq/page": "app/faq/page.js"
+  "/my-fact/register/page": "app/my-fact/register/page.js",
+  "/_not-found/page": "app/_not-found/page.js"
 }
