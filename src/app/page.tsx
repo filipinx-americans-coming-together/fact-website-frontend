@@ -25,7 +25,7 @@ export default function Home() {
             )}
 
             <Navbar/>
-            <div className="relative flex flex-col -z-1">
+            <div className="overflow-x-hidden relative flex flex-col -z-1">
                 <div className="absolute inset-0 overflow-hidden -z-10 min-h-screen min-w-screen">
                     <div className="absolute w-full h-full bg-gradient-2 opacity-30"></div>
                     {/* <div className="absolute -top-[50px] -left-[50px] w-[calc(100%+50px)] h-[calc(100%+50px)] bg-noise-base bg-size-[5px_5px] filter-[url(#noise)]"></div> */}

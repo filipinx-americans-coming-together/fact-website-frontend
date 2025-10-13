@@ -26,7 +26,7 @@ export default function RootLayout({
                     sizes="32x32"
                 />
             </head>
-            <body className={inter.className}>
+            <body className= {inter.className} >
                 <QueryProviderWrapper>{children}</QueryProviderWrapper>
             </body>
         </html>
