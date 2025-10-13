@@ -12,7 +12,7 @@ async function fetchWorkshop({ id }: { id: number }): Promise<{
     workshop: WorkshopData;
     location: LocationData;
     facilitators: FacilitatorData[];
-    registrations: number;
+    // registrations: number;
     facilitator_assistants?: { name: string; contact: string }[];
 }> {
     const response = await fetch(`${API_URL}/registration/workshops/${id}`, {
@@ -47,6 +47,7 @@ async function fetchWorkshop({ id }: { id: number }): Promise<{
         title: workshopData.fields.title,
         description: workshopData.fields.description,
         facilitators: json.facilitators[0].fields.department_name,
+        registrationCount: json.registrations,
         location: workshopData.fields.location,
         session: workshopData.fields.session,
     };
@@ -85,7 +86,7 @@ async function fetchWorkshop({ id }: { id: number }): Promise<{
         workshop: formattedWorkshop,
         location: formattedLocation,
         facilitators: formattedFacilitators,
-        registrations: json.registrations,
+        // registrations: json.registrations,
         facilitator_assistants: formattedAssistants,
     };
 }
@@ -96,7 +97,7 @@ export function useWorkshop({ id }: { id: number }): {
               workshop: WorkshopData;
               location: LocationData;
               facilitators: FacilitatorData[];
-              registrations: number;
+            //   registrations: number;
               facilitator_assistants?: { name: string; contact: string }[];
           }
         | undefined;

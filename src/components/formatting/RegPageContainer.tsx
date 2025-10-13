@@ -13,7 +13,7 @@ interface RegPageContainerProps {
  * @param children page content
  * @returns PageContainer
  */
-export default function RegPageContainer({ children, background="bg-gradient mask-(--background-image-blurry-2) mask-size-[1400px] mask-top" }: RegPageContainerProps) {
+export default function RegPageContainer({ children, background="bg-gradient mask-(--background-image-blurry-3) mask-size-[1400px] mask-top" }: RegPageContainerProps) {
     return (
         <div className={`h-fit w-screen relative`}>
             

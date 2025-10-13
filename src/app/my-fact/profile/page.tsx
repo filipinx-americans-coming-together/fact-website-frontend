@@ -2,6 +2,7 @@
 
 import FormContainer from "@/components/formatting/FormContainer";
 import Footer from "@/components/formatting/PageFooter";
+import RegPageContainer from "@/components/formatting/RegPageContainer";
 import LoadingCircle from "@/components/icons/LoadingCircle";
 import Navbar from "@/components/navigation/Navbar";
 import SchoolSelect from "@/components/ui/SchoolSelect";
@@ -63,8 +64,7 @@ export default function Profile() {
     }, [isSuccess, noUser]);
 
     return (
-        <>
-            <Navbar />
+        <RegPageContainer>
             <FormContainer
                 submitText="Save Changes"
                 formName="updateProfile"
@@ -74,7 +74,7 @@ export default function Profile() {
                 isLoading={isPending}
                 errorMessage={error?.message}
             >
-                <div className="text-center">Edit Profile</div>
+                <div className="text-center text-3xl uppercase font-bold pb-4 border-b w-full">Edit Profile</div>
 
                 {!user && <LoadingCircle />}
 
@@ -127,7 +127,7 @@ export default function Profile() {
                 )}
 
                 <Link
-                    className="text-center text-sm text-highlight-primary hover:underline"
+                    className="text-center text-sm hover:text-highlight-2-primary underline"
                     href="/my-fact/dashboard"
                 >
                     Back to Dashboard
@@ -157,7 +157,7 @@ export default function Profile() {
                 isLoading={verificationPending || requestPending}
                 errorMessage={verificationError?.message}
             >
-                <div className="text-center">Update Email</div>
+                <div className="text-center text-3xl uppercase font-bold pb-4 border-b w-full">Update Email</div>
 
                 <TextInput
                     label="Email"
@@ -195,8 +195,8 @@ export default function Profile() {
                 isLoading={isPending}
                 errorMessage={error?.message}
             >
-                <div className="text-center">Update Password</div>
-                <p className="text-center text-xs">
+                <div className="text-center text-3xl uppercase font-bold pb-4 border-b w-full">Update Password</div>
+                <p className="text-center text-xs text-slate-700">
                     After updating your password you will be asked to log in
                     again.
                 </p>
@@ -216,8 +216,6 @@ export default function Profile() {
                     showCharacters={false}
                 />
             </FormContainer>
-            <br />
-            <Footer />
-        </>
+        </RegPageContainer>
     );
 }

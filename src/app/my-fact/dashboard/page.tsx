@@ -48,7 +48,7 @@ export default function Dashboard() {
                 <div className="font-bold text-4xl my-2 flex items-center">
                             Welcome, {user.user.first_name} {user.user.last_name} <span className="text-5xl"><GiGClef /></span>
                         </div>
-                <div className="flex justify-between flex-col lg:flex-row">
+                <div className="flex justify-between flex-col xl:flex-row">
                 <div className="flex flex-col">
                 
                         <div className="text-center my-6">

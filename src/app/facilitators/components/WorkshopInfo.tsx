@@ -59,7 +59,7 @@ export default function WorkshopInfo({ workshopID }: { workshopID: number }) {
                 Location: {workshop.location.building}{" "}
                 {workshop.location.room_num}
             </p>
-            <p>Registered Delegates: {workshop.registrations}</p>
+            <p>Registered Delegates: {workshop.workshop.registrationCount}</p>
             <br />
             <div>
                 <h2>Facilitator Assistant(s)</h2>

@@ -105,7 +105,7 @@ export default function Register() {
                 isLoading={isPending}
                 errorMessage={clientError || error?.message}
             >
-                <h1 className="text-center text-3xl uppercase font-bold pb-4 border-b w-full">Workshop Selection</h1>
+                <h1 className="text-center text-3xl uppercase font-bold pb-4 border-b w-full">Register for FACT</h1>
 
                 
                 {/* <div className="text-center">Workshop Selection</div> */}

@@ -1,7 +1,8 @@
-import { WorkshopData } from "@/util/types";
+import { LocationData, WorkshopData } from "@/util/types";
 import { useWorkshops } from "@/hooks/api/useWorkshops";
 import SearchableSelect from "./SearchableSelect";
 import LoadingCircle from "../icons/LoadingCircle";
+import { useLocations } from "@/hooks/api/useLocations";
 
 interface WorkshopSelectProps {
     id: string;
@@ -10,6 +11,8 @@ interface WorkshopSelectProps {
     defaultValue?: string;
     required?: boolean;
 }
+
+const session_labels = [ "Awareness Workshops", "Personal Growth Workshops", "Professional Skill Workshops" ];
 
 /**
  * Workshop selection menu
@@ -27,14 +30,15 @@ function WorkshopSelect({
     required = true,
 }: WorkshopSelectProps) {
     const { workshops, isLoading, error } = useWorkshops();
+    const { locations, isLoading: isLoadingLocs, error: errorLocs } = useLocations();
 
     return (
-        isLoading && session===2 ? <LoadingCircle/> : 
+        (isLoading || isLoadingLocs) ? (session===2 && <LoadingCircle/>) : 
         workshops &&
         workshops.length > 0 && (
             <SearchableSelect
                 id={id}
-                label={`Session ${session}`}
+                label={`Session ${session}: ${session_labels[session-1]}`}
                 placeholder="Search for workshops..."
                 setState={setState}
                 defaultValue={
@@ -54,7 +58,7 @@ function WorkshopSelect({
                     )
                     .map((workshop) => {
                         return {
-                            label: workshop.title,
+                            label: `${workshop.title} (${workshop.registrationCount ? workshop.registrationCount.toString():"--"}/${locations?.filter((location: LocationData) => location.id == workshop.location)[0].capacity.toString()})`,
                             value: workshop.id.toString(),
                         };
                     })}
