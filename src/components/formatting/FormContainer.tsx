@@ -12,8 +12,8 @@ interface FormProps {
 }
 
 function FormContainer(props: FormProps) {
-    return (
-        <div className="w-7/12 min-w-[460px] py-12 bg-[#FFAC7D] m-auto rounded-lg">
+    return ( // bg-[#FFAC7D]
+        <div className="w-7/12 min-w-[460px] py-12 bg-[rgba(240,240,240,0.3)] m-auto rounded-lg">
             <div className="text-black m-auto flex flex-col items-center gap-3 ">
                 <form
                     name={props.formName}

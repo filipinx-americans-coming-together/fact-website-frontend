@@ -14,6 +14,7 @@ import { useRegistrationFlag } from "@/hooks/api/useRegistrationFlag";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import RegPageContainer from "@/components/formatting/RegPageContainer";
+import { GiGClef } from "react-icons/gi";
 
 export default function Dashboard() {
     const { user, isLoading, error } = useUser();
@@ -35,7 +36,7 @@ export default function Dashboard() {
     return (
         <div>
         <RegPageContainer>
-            {user ?
+            {user ? 
             <>
             {notifications && (
                 <NotificationsManager
@@ -43,25 +44,21 @@ export default function Dashboard() {
                         (notification) => notification.message
                     )}
                 />
-            )}
-            <div className="w-9/12 flex justify-evenly flex-col gap-10 md:gap-16 md:flex-row text-left mx-auto">
-                <div>
-                    {/* user info */}
-                    <div>
-                         <div className="font-bold text-xl my-2">
-                            Welcome, {user.user.first_name} {user.user.last_name}
+            )} {user.registration ? <div className="bg-[rgba(240,240,240,0.3)] py-8 px-12 rounded-xl min-w-9/12 w-fit flex justify-evenly flex-col text-left mx-auto gap-10 md:gap-16">
+                <div className="font-bold text-4xl my-2 flex items-center">
+                            Welcome, {user.user.first_name} {user.user.last_name} <span className="text-5xl"><GiGClef /></span>
                         </div>
-                    </div>
-                    <div className="text-center my-6">
+                <div className="flex justify-between flex-col lg:flex-row">
+                <div className="flex flex-col">
+                
+                        <div className="text-center my-6">
                         <LinkButton
                             text="EDIT PROFILE"
                             url="/my-fact/profile"
                         />
                     </div>
-                    <div className="flex flex-col justify-center items-center px-2 py-4 my-4">
-                        {user?.registration ? (
-                            <>
-                            {user.registration.map((pair) => (
+                    <div className="flex flex-col justify-center items-center px-2 py-4 my-4 gap-2 md:gap-3">
+                        {user.registration.map((pair) => (
                                 <WorkshopCard
                                     key={pair.workshop}
                                     id={pair.workshop}
@@ -79,21 +76,13 @@ export default function Dashboard() {
                                     Workshop changes are not available at this time.
                                 </div>
                             )}
-                            </>
-                        ) : (
-                            <>
-                            <div>Thank you for creating an account! You have not yet registered for FACT 2025.</div>
-                            <LinkButton text="REGISTER NOW" url="/my-fact/register"/>
-                            </>
-                        )}
+                            
+                        
                     </div>
-                    
-                </div>
-                {user.registration && <UserAgenda/>}
-            </div>
-            <br />
-            <br />
-            <div className="mx-auto mb-6 w-fit text-background-primary">
+                    </div>
+                    <UserAgenda/>
+                    </div>
+                    <div className="mx-auto my-6 w-fit text-background-primary">
                 <InteractiveButton
                     text="Log out"
                     onClick={() => {
@@ -101,7 +90,15 @@ export default function Dashboard() {
                         router.push("/");
                     }}
                 />
-            </div> </> : <div className="w-fit mx-auto"><LoadingCircle/></div> }
+            </div>
+            </div> : <div className="bg-[rgba(240,240,240,0.25)] py-8 px-12 rounded-xl w-fit mx-auto flex flex-col justify-around gap-3 lg:gap-5">
+                <div className="font-bold text-xl my-2 flex items-center">
+                            Welcome, {user.user.first_name} {user.user.last_name} <span className="text-2xl"><GiGClef /></span>
+                        </div>
+                <div className="text-center">Thank you for creating an account! You have not yet registered for FACT 2025.</div>
+                            <br/>
+                            <LinkButton text="REGISTER NOW" url="/my-fact/register"/>
+                </div>}</> : <div className="w-fit mx-auto"><LoadingCircle/></div>}
         </RegPageContainer> 
         </div>
     );

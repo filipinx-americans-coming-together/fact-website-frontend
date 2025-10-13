@@ -25,8 +25,9 @@ const TIME_OPTIONS: Intl.DateTimeFormatOptions = {
     timeZone: "America/Chicago",
 };
 
-const SATURDAY = "Saturday, December 7";
-const FRIDAY = "Friday, December 6";
+const SATURDAY = "Saturday, November 15";
+const FRIDAY = "Friday, November 14";
+const SUNDAY = "Sunday, November 16";
 
 /**
  * Agenda for individual user
@@ -97,9 +98,9 @@ function UserAgenda() {
     ) {
         const pdf = new jsPDF("p", "mm", "a4", true);
 
-        const textLines = [`${name}'s FACT 2024 Agenda`, ""];
+        const textLines = [`${name}'s FACT 2025 Agenda`, ""];
 
-        [FRIDAY, SATURDAY].forEach((day) => {
+        [FRIDAY, SATURDAY, SUNDAY].forEach((day) => {
             textLines.push(day);
 
             const events = data.filter((item) => item.day === day);
@@ -176,7 +177,7 @@ function UserAgenda() {
     return (
         <>
             {user ? (
-                <>
+                <div className="flex flex-col">
                     <div className="text-center">
                         <div className="text-3xl font-bold">My Agenda</div>
                         <br />
@@ -194,11 +195,11 @@ function UserAgenda() {
                         </button>
                     </div>
                     <div className="flex flex-col md:flex-row gap-10 text-left">
-                        {[FRIDAY, SATURDAY].map((day) => {
+                        {[FRIDAY, SATURDAY, SUNDAY].map((day) => {
                             return (
                                 <div
                                     key={day}
-                                    className="flex flex-col gap-4 border-highlight-primary md:border-l-2 md:pl-4"
+                                    className="flex flex-col gap-4 border-highlight-2-secondary md:border-l-2 md:pl-4"
                                 >
                                     <div className="font-bold text-xl my-2">
                                         {day}
@@ -270,7 +271,7 @@ function UserAgenda() {
                             );
                         })}
                     </div>
-                </>
+                </div>
             ) : (
                 <LoadingCircle />
             )}

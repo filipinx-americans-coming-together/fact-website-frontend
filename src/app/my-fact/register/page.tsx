@@ -17,6 +17,7 @@ import { useRouter } from "next/navigation";
 import Footer from "@/components/formatting/PageFooter";
 import RegPageContainer from "@/components/formatting/RegPageContainer";
 import Script from "next/script";
+import LinkButton from "@/components/ui/LinkButton";
 
 const EventbriteWidget = ({ onComplete }: { onComplete: Function }) => {
     useEffect(() => {
@@ -111,12 +112,10 @@ export default function Register() {
                 <Link
                     href="/workshops"
                     target="_blank"
-                    className="underline text-highlight-2-primary hover:text-highlight-third"
-                >
-                    Browse Workshops
-                </Link>
+                    className="underline hover:text-highlight-2-primary"
+                >Browse Workshops</Link>
 
-                {/* <WorkshopSelect
+                <WorkshopSelect
                     session={1}
                     id="workshop_1_id"
                     setState={setFormData}
@@ -130,7 +129,7 @@ export default function Register() {
                     session={3}
                     id="workshop_3_id"
                     setState={setFormData}
-                /> */}
+                />
 
                 <div className="w-full">
                     {/* {loadEB && (<EventbriteWidget

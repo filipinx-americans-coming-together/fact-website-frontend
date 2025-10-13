@@ -17,7 +17,7 @@ export default function InteractiveButton({
 }: InteractiveButtonProps) {
     return (
         <button
-            className="bg-highlight-primary px-8 py-2 rounded-xs hover:bg-highlight-third"
+            className="bg-highlight-2-secondary px-8 py-2 rounded-xs hover:bg-highlight-third"
             type={isSubmit ? "submit" : "button"}
             onClick={(event) => {
                 if (!isSubmit) event.preventDefault();

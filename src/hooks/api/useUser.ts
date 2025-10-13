@@ -12,71 +12,65 @@ async function fetchUser(): Promise<{
     delegate: DelegateData;
     registration: RegistrationData[] | null;
 }> {
-    // const response = await fetch(`${API_URL}/registration/delegates/me/`, {
-    //     credentials: "include",
-    // });
+    const response = await fetch(`${API_URL}/registration/delegates/me/`, {
+        credentials: "include",
+    });
 
-    // let json;
+    let json;
 
-    // try {
-    //     json = await response.json();
-    // } catch {
-    //     throw new Error("Server error, please try again later");
-    // }
+    try {
+        json = await response.json();
+    } catch {
+        throw new Error("Server error, please try again later");
+    }
 
-    // if (!response.ok) {
-    //     let message = "Server error, please try again later";
+    if (!response.ok) {
+        let message = "Server error, please try again later";
 
-    //     if (json.message && response.status !== 500) {
-    //         message = json.message;
-    //     }
+        if (json.message && response.status !== 500) {
+            message = json.message;
+        }
 
-    //     throw new Error(message);
-    // }
+        throw new Error(message);
+    }
 
-    // // user data
-    // const userData = json.user[0];
+    // user data
+    const userData = json.user[0];
 
-    // const formattedUser: UserData = {
-    //     id: userData.pk,
-    //     first_name: userData.fields.first_name,
-    //     last_name: userData.fields.last_name,
-    //     email: userData.fields.email,
-    // };
+    const formattedUser: UserData = {
+        id: userData.pk,
+        first_name: userData.fields.first_name,
+        last_name: userData.fields.last_name,
+        email: userData.fields.email,
+    };
 
-    // // delegate data
-    // const delegateData = json.delegate[0];
+    // delegate data
+    const delegateData = json.delegate[0];
 
-    // const formattedDelegate: DelegateData = {
-    //     id: delegateData.pk,
-    //     pronouns: delegateData.fields.pronouns,
-    //     year: delegateData.fields.year,
-    //     school: delegateData.fields.school,
-    // };
+    const formattedDelegate: DelegateData = {
+        id: delegateData.pk,
+        pronouns: delegateData.fields.pronouns,
+        year: delegateData.fields.year,
+        school: delegateData.fields.school,
+    };
 
-    // // registration data
-    // const registrationData = json.registration;
-    // const formattedRegistration: RegistrationData[] = [];
+    // registration data
+    const registrationData = json.registration;
+    const formattedRegistration: RegistrationData[] = [];
 
-    // for (let i = 0; i < registrationData.length; i++) {
-    //     const formatted: RegistrationData = {
-    //         delegate: registrationData[i].fields.delegate,
-    //         workshop: registrationData[i].fields.workshop,
-    //     };
+    for (let i = 0; i < registrationData.length; i++) {
+        const formatted: RegistrationData = {
+            delegate: registrationData[i].fields.delegate,
+            workshop: registrationData[i].fields.workshop,
+        };
 
-    //     formattedRegistration.push(formatted);
-    // }
-
-    const user1: UserData= {id: 1,first_name: 'test',last_name: 'user',email: 'hi@gmail.com'};
-    const delegate: DelegateData={id: 1, pronouns: 'she/her', year: 'Freshman', school: 1};
+        formattedRegistration.push(formatted);
+    }
 
     return {
-        // user: formattedUser,
-        // delegate: formattedDelegate,
-        // registration: formattedRegistration,
-        user: user1,
-        delegate: delegate,
-        registration: null,
+        user: formattedUser,
+        delegate: formattedDelegate,
+        registration: formattedRegistration,
     };
 }
 

@@ -54,7 +54,7 @@ export interface WorkshopData {
     id: number;
     session: number;
     title: string;
-    facilitators: string[];
+    facilitators: string[] | null;
     description: string;
     location: number;
 }

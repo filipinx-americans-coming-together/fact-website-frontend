@@ -87,7 +87,7 @@ function SearchableSelect<T>({
 
             {selected ? (
                 <button
-                    className="px-2 py-1 rounded-sm border border-slate-700 bg-[rgba(255,255,255,0.4)] divide-y border flex justify-between items-center hover:cursor-pointer"
+                    className="px-2 py-1 rounded-sm border border-slate-700 bg-[rgba(250,250,250,0.3)] shadow-lg divide-y border flex justify-between items-center hover:cursor-pointer"
                     onClick={handleInputFocused}
                     onFocus={handleInputFocused}
                     type="button"
@@ -99,7 +99,7 @@ function SearchableSelect<T>({
                 <input
                     placeholder={placeholder}
                     autoComplete="off"
-                    className="py-1 px-2 rounded-sm border w-full min-w-40 border border-slate-700 bg-[rgba(255,255,255,0.4)]"
+                    className="py-1 px-2 rounded-sm border w-full min-w-40 border border-slate-700 bg-[rgba(250,250,250,0.3)]"
                     onChange={(event) => {
                         const value = event.currentTarget.value;
                         setQuery(value);
@@ -112,7 +112,7 @@ function SearchableSelect<T>({
 
             {showOptions && (
                 <div
-                    className="absolute w-full top-14 z-20 max-h-[20vh] overflow-y-scroll border border-slate-700 bg-[rgba(255,255,255,0.4)] divide-y flex flex-col"
+                    className="absolute w-full top-14 z-20 max-h-[20vh] overflow-y-scroll border border-slate-700 bg-[rgba(250,250,250,0.3)] divide-y flex flex-col"
                     id={id}
                 >
                     {options

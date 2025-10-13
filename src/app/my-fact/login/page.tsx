@@ -108,7 +108,7 @@ export default function Login() {
 
                 <Link
                     href="/my-fact/forgot-password"
-                    className="underline text-slate-700 text-xs hover:text-highlight-third"
+                    className="underline text-slate-700 text-xs hover:text-highlight-2-primary"
                 >
                     Forgot Password?
                 </Link>
@@ -120,7 +120,7 @@ export default function Login() {
                             New to FACT?{" "}
                             <a
                                 href="/my-fact/create-account"
-                                className="underline hover:text-highlight-third"
+                                className="underline hover:text-highlight-2-primary"
                             >
                                 Create an account
                             </a>

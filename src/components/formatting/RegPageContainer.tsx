@@ -13,18 +13,19 @@ interface RegPageContainerProps {
  * @param children page content
  * @returns PageContainer
  */
-export default function RegPageContainer({ children, background }: RegPageContainerProps) {
+export default function RegPageContainer({ children, background="bg-gradient mask-(--background-image-blurry-2) mask-size-[1400px] mask-top" }: RegPageContainerProps) {
     return (
-        <div className="min-h-screen w-full flex flex-col justify-between gap-10 lg:gap-15">
+        <div className={`h-fit w-screen relative`}>
+            
+            <div className="flex flex-col min-h-screen justify-between gap-10 lg:gap-15">
             <Navbar />
+            {background && <div className={`-z-10 absolute inset-0 w-full grow ${background}`}></div>}
                 {background && <div className="relative">
-                    <div className={`-z-10 absolute inset-0 w-full ${background}`}></div>
-                    <div className="">
                         {children}
-                    </div>
                 </div>}
                 {!background && <div>{children}</div>}
             <Footer />
+            </div>
         </div>
     );
 }

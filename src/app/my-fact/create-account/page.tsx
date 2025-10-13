@@ -133,7 +133,7 @@ export default function CreateAccount() {
                         <div>Verified Email: <span className="font-bold">{formData.email}</span></div>
                         <a
                             href=""
-                            className="text-xs underline text-slate-700 hover:text-[rgba(255,255,255,0.4)]"
+                            className="text-xs underline text-slate-700 hover:text-highlight-2-primary"
                         >
                             Use a different email
                         </a>
