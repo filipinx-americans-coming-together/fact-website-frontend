@@ -175,14 +175,12 @@ export default function Register() {
 
                 <div className="w-full">
                     {loadEB ? <>
-                        <EventbriteWidgetWks
+                        {/* <EventbriteWidgetWks
                         onComplete={() => {
                             setCheckoutComplete(true);
-                        }}/>
+                        }}/> */}
                         <EventbriteWidgetBnd onComplete={() => {setCheckoutComplete(true)}}
                     /></> : <LoadingCircle/>}
-                    <noscript><a href="https://www.eventbrite.com/e/test-tickets-1672144321679" rel="noopener noreferrer" target="_blank">Buy Tickets on Eventbrite</a></noscript>
-                    <button id="eventbrite-widget-modal-trigger-1672144321679" type="button">Buy Tickets</button>
                     {/* <div id="eventbrite-widget-container-1672144321679"></div>
                     <Script src="https://www.eventbrite.com/static/widgets/eb_widgets.js" strategy="beforeInteractive" />
 
