@@ -86,6 +86,7 @@ export function useRegister() {
         isSuccess,
     } = useMutation({
         mutationFn: (props: registrationProps) => {
+            console.log("props",props)
             return fetchRegister(props);
         },
 

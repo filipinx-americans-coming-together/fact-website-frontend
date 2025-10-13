@@ -32,12 +32,15 @@ export default function Dashboard() {
         if (error) {
             router.push("/my-fact/login");
         }
-    }, [isSuccess, error]);
+        if (!user?.registration || !user.registration.length) {
+            router.push("register");
+        }
+    }, [isSuccess, error, user]);
 
     return (
         <div>
         <RegPageContainer>
-            {user ? 
+            {user ?
             <>
             {notifications && (
                 <NotificationsManager
@@ -45,7 +48,7 @@ export default function Dashboard() {
                         (notification) => notification.message
                     )}
                 />
-            )} {user.registration && user.registration.length ? <div className="bg-[rgba(240,240,240,0.3)] py-8 px-12 rounded-xl min-w-9/12 w-fit flex justify-evenly flex-col text-left mx-auto gap-10 md:gap-16">
+            )} {user.registration && <div className="bg-[rgba(240,240,240,0.3)] py-8 px-12 rounded-xl min-w-9/12 w-fit flex justify-evenly flex-col text-left mx-auto gap-10 md:gap-16">
                 <div className="font-bold text-4xl my-2 flex items-center">
                             Welcome, {user.user.first_name} {user.user.last_name} <span className="text-5xl"><GiGClef /></span>
                         </div>
@@ -91,16 +94,10 @@ export default function Dashboard() {
                         router.push("/");
                     }}
                 />
-            </div>
-            </div> : <div className="bg-[rgba(240,240,240,0.25)] py-8 px-12 rounded-xl w-fit mx-auto flex flex-col justify-around gap-3 lg:gap-5">
-                <div className="font-bold text-2xl my-2 flex items-center">
-                            Welcome, {user.user.first_name} {user.user.last_name} <span className="text-4xl"><GiGClef /></span>
-                        </div>
-                <div className="text-center">Thank you for creating an account! You have not yet registered for FACT 2025.</div>
-                            <br/>
-                            <LinkButton text="REGISTER NOW" url="/my-fact/register"/>
-                </div>}</> : <div className="w-fit mx-auto"><LoadingCircle/></div>}
-        </RegPageContainer> 
+            </div> </div>}</> : <div className="w-fit mx-auto"><LoadingCircle/></div>}
+        
+         </RegPageContainer> 
+        
         </div>
     );
 }

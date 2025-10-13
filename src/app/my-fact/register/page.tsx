@@ -46,14 +46,6 @@ export default function Register() {
     const { register, isSuccess, isPending, error } = useRegister();
     const { user, isLoading, error : userError } = useUser();
 
-    const [formData, setFormData] = useState<{ [key: string]: any }>({
-        workshop_1_id: -1,
-        workshop_2_id: -1,
-        workshop_3_id: -1,
-        discount: "",
-        code: "",
-    });
-
     const [checkoutComplete, setCheckoutComplete] = useState(true);
     const [clientError, setClientError] = useState<string | null>(null);
     const [loadEB, setLoadEB] = useState(false);
@@ -114,25 +106,29 @@ export default function Register() {
     };
 
     const router = useRouter();
+    const [formData, setFormData] = useState<{ [key: string]: any }>({
+        workshop_1_id: -1,
+        workshop_2_id: -1,
+        workshop_3_id: -1,
+        discount: "",
+        code: "",
+    });
 
     useEffect(() => {
-        loadEventbriteScript();
-    }, []);
-
-    // make sure to clear other school data if school_id changes to not be "School not listed"
-    useEffect(() => {
-        if (formData.school_id !== "School not listed") {
-            formData.other_school_name = null;
-        }
-
         if (isSuccess) {
             router.push("/my-fact/dashboard");
         }
+    }, [isSuccess])
+    useEffect(() => {
         if (userError) {
             router.push("/my-fact/login")
         }
-    }, [formData.school_id, isSuccess, user]);
-
+        if (user?.registration?.length) {
+            router.push("/my-fact/dashboard")
+            console.log("user", user)
+        }
+    }, [userError, user])
+    
     return (
         <RegPageContainer>
 
@@ -143,7 +139,10 @@ export default function Register() {
                     setClientError(null);
 
                     if (checkoutComplete) {
-                        register(formData as registrationProps);
+                        // if (!formData.email) {
+                        //     setFormData
+                        // }
+                        register({ f_name : user?.user.first_name, l_name: user?.user.last_name, email: user?.user.email, workshop_1_id: formData.workshop_1_id, workshop_2_id:formData.workshop_2_id, workshop_3_id:formData.workshop_3_id } as registrationProps);
                     } else {
                         setClientError(
                             "Complete EventBrite checkout before continuing"
