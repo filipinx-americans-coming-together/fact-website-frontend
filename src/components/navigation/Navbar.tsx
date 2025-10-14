@@ -21,9 +21,9 @@ const NAV_LINKS = [
     { text: "About", path: "/about" },
 	// { text: "Agenda", path: "/agenda" },
     // { text: "Sessions", path: "/workshops" },
-    { text: "Team", path: "/team" },
+    // { text: "Team", path: "/team" },
     { text: "Gallery", path: "/gallery" },
-    // { text: "FAQ", path: "/faq" },
+    { text: "FAQ", path: "/faq" },
     // { text: "My FACT", path: "/my-fact/login"}
 ];
 
