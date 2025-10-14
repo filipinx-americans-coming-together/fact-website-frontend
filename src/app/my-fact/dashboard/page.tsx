@@ -28,14 +28,19 @@ export default function Dashboard() {
         if (isSuccess) {
             router.push("/");
         }
+    }, [isSuccess]);
 
+    useEffect(() => {
         if (error) {
             router.push("/my-fact/login");
         }
+    }, [error])
+
+    useEffect(() => {
         if (!user?.registration || !user.registration.length) {
             router.push("register");
         }
-    }, [isSuccess, error, user]);
+    }, [user])
 
     return (
         <div>
