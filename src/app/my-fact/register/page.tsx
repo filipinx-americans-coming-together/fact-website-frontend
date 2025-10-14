@@ -53,10 +53,10 @@ export default function Register() {
     // Load the Eventbrite widgets script
     const loadEventbriteScript = () => {
         const script = document.createElement("script");
-        // script.src = "https://www.eventbrite.com/static/widgets/eb_widgets.js";
-        script.src = "/static-data/eb_widgets.js"
+        script.src = "https://www.eventbrite.com/static/widgets/eb_widgets.js";
+        // script.src = "/static-data/eb_widgets.js"
         script.async = true;
-        document.body.appendChild(script);
+        document.head.appendChild(script);
         console.log('eventbrite script loaded')
         setLoadEB(true);
     };
@@ -277,7 +277,7 @@ export default function Register() {
                 </div>
                     <div className="w-full">
                         <div className="font-bold text-center">Checkout</div>
-                    {false ?
+                    {true ?
                     <div className="flex justify-around">
                         <EventbriteWidgetWks
                         onComplete={() => {
@@ -287,8 +287,8 @@ export default function Register() {
                     />
                     </div>
                     : <div className="w-fit mx-auto"><LoadingCircle/></div>}
-                    <div id="eventbrite-widget-container-1672144321679"></div>
-                    <Script src="https://www.eventbrite.com/static/widgets/eb_widgets.js" strategy="beforeInteractive" />
+                    {/* <div id="eventbrite-widget-container-1672144321679"></div>
+                    <Script src="/static-data/eb_widgets.js" strategy="beforeInteractive" />
 
                     <Script id='inline'>
                         {`
@@ -307,7 +307,7 @@ export default function Register() {
                             onOrderComplete: exampleCallback  // Method called when an order has successfully completed
                         });
                         `}
-                    </Script>
+                    </Script> */}
                 </div>
             </FormContainer>
 
