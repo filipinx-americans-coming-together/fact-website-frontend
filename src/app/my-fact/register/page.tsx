@@ -20,6 +20,7 @@ import Script from "next/script";
 import LinkButton from "@/components/ui/LinkButton";
 import LoadingCircle from "@/components/icons/LoadingCircle";
 import { useUser } from "@/hooks/api/useUser";
+import InteractiveButton from "@/components/ui/InteractiveButton";
 
 /* <!-- Noscript content for added SEO -->
 <noscript><a href="https://www.eventbrite.com/e/test-tickets-1672144321679" rel="noopener noreferrer" target="_blank">Buy Tickets on Eventbrite</a></noscript>
@@ -52,12 +53,17 @@ export default function Register() {
     // Load the Eventbrite widgets script
     const loadEventbriteScript = () => {
         const script = document.createElement("script");
-        script.src = "https://www.eventbrite.com/static/widgets/eb_widgets.js";
+        // script.src = "https://www.eventbrite.com/static/widgets/eb_widgets.js";
+        script.src = "/static-data/eb_widgets.js"
         script.async = true;
         document.body.appendChild(script);
         console.log('eventbrite script loaded')
         setLoadEB(true);
     };
+
+    useEffect(() => {
+        loadEventbriteScript();
+    })
     
     const EventbriteWidgetWks = ({ onComplete }: { onComplete: Function }) => {
     useEffect(() => {
@@ -74,7 +80,7 @@ export default function Register() {
         }}, [loadEB]);
 
         return (
-            <button id="eventbrite-widget-modal-trigger-1672144321679" type="button">Workshops Only Checkout</button>
+            <button id="eventbrite-widget-modal-trigger-1817643172659" type="button" className="text-sm text-center text-text-primary w-fit p-4 bg-[rgba(250,250,250,0.3)] shadow-lg rounded-xl hover:scale-105 hover:shadow-xl border-slate-700 border-1">Workshops Only</button>
         );
     };
 
@@ -92,7 +98,7 @@ export default function Register() {
         }, [loadEB]);
 
         return (
-            <button id="eventbrite-widget-modal-trigger-1816702820039" type="button">Workshops + Variety Show Bundle Checkout</button>
+            <button id="eventbrite-widget-modal-trigger-1816702820039" type="button" className="text-sm text-center text-text-primary w-fit p-4 bg-[rgba(250,250,250,0.3)] shadow-lg rounded-xl hover:scale-105 hover:shadow-xl border-slate-700 border-1">Workshops + Variety Show Bundle</button>
         );
     };
 
@@ -270,17 +276,18 @@ export default function Register() {
 
                 </div>
                     <div className="w-full">
-                    {loadEB ?
-                    <>
+                        <div className="font-bold text-center">Checkout</div>
+                    {false ?
+                    <div className="flex justify-around">
                         <EventbriteWidgetWks
                         onComplete={() => {
                             register({ f_name : user?.user.first_name, l_name: user?.user.last_name, email: user?.user.email, workshop_1_id: formData.workshop_1_id, workshop_2_id:formData.workshop_2_id, workshop_3_id:formData.workshop_3_id } as registrationProps);
                         }}/>
                         <EventbriteWidgetBnd onComplete={() => {register({ f_name : user?.user.first_name, l_name: user?.user.last_name, email: user?.user.email, workshop_1_id: formData.workshop_1_id, workshop_2_id:formData.workshop_2_id, workshop_3_id:formData.workshop_3_id } as registrationProps)}}
                     />
-                    </>
+                    </div>
                     : <div className="w-fit mx-auto"><LoadingCircle/></div>}
-                    {/* <div id="eventbrite-widget-container-1672144321679"></div>
+                    <div id="eventbrite-widget-container-1672144321679"></div>
                     <Script src="https://www.eventbrite.com/static/widgets/eb_widgets.js" strategy="beforeInteractive" />
 
                     <Script id='inline'>
@@ -300,7 +307,7 @@ export default function Register() {
                             onOrderComplete: exampleCallback  // Method called when an order has successfully completed
                         });
                         `}
-                    </Script> */}
+                    </Script>
                 </div>
             </FormContainer>
 
