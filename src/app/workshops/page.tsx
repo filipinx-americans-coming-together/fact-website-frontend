@@ -71,7 +71,7 @@ function WorkshopsContent() {
   }, [page]);
 
   return (
-    <PageContainer title="Workshops">
+    <PageContainer title="Workshops" background="bg-gradient mask-(--background-image-blurry-3) mask-size-[1400px] mask-top">
       <div className="flex flex-col items-center px-4">
         {/* Search & Filter */}
         <div className="flex flex-col md:flex-row md:space-y-0 md:space-x-4 mb-8 w-full max-w-4xl">
@@ -87,8 +87,8 @@ function WorkshopsContent() {
               placeholder="Search workshops or panels..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full border-2 border-highlight-primary bg-background-primary p-3 pl-10 rounded-md
-                         focus:outline-hidden hover:border-highlight-2-primary transition duration-500"
+              className="w-full bg-[rgba(250,250,250,0.4)] p-3 pl-10 rounded-md
+                         focus:outline-hidden transition duration-500"
             />
           </div>
 
@@ -96,8 +96,7 @@ function WorkshopsContent() {
           <select
             value={selectedSession}
             onChange={(e) => setSelectedSession(e.target.value)}
-            className="w-full md:w-1/3 border-2 border-highlight-secondary 
-                       bg-background-primary p-3 rounded-md hover:border-highlight-2-primary
+            className="w-full md:w-1/3 bg-[rgba(250,250,250,0.4)] p-3 rounded-md
                        focus:outline-hidden transition duration-500 font-semibold font-sans"
           >
             <option value="">All Sessions</option>
@@ -139,8 +138,8 @@ function WorkshopsContent() {
                     href={`/workshops/${encodeURIComponent(workshopURL)}?${queryParams}`}
                     >
                     <div
-                        className="bg-background-primary border-2 border-highlight-primary rounded-xl shadow-md 
-                                hover:shadow-lg hover:border-highlight-2-primary transition-all duration-300 
+                        className="bg-[rgba(250,250,250,0.4)] rounded-xl shadow-md 
+                                hover:shadow-xl transition-all duration-300 
                                 cursor-pointer p-8 flex flex-col h-full"
                     >
                         {/* Header */}
@@ -158,7 +157,7 @@ function WorkshopsContent() {
                         </div>
 
                         <div className="text-right whitespace-nowrap flex items-center">
-                            <h3 className="text-md font-bold text-highlight-primary">
+                            <h3 className="text-xs font-bold text-slate-700">
                             Session {workshop.session}
                             </h3>
                         </div>
@@ -184,8 +183,8 @@ function WorkshopsContent() {
             disabled={page === 1}
             className="opacity-0 group-hover:opacity-100 absolute -left-[3vw] top-1/2 -translate-y-1/2
                         flex items-center justify-center w-10 h-10 rounded-full
-                        bg-background-primary/90 border-2 border-highlight-primary
-                        text-highlight-primary shadow-lg transition
+                        bg-[rgba(250,250,250,0.4)] 
+                        text-slate-700/50 shadow-lg transition
                         hover:scale-110 hover:border-highlight-2-primary
                         disabled:opacity-30 disabled:cursor-not-allowed"
             aria-label="Previous page"
@@ -203,9 +202,9 @@ function WorkshopsContent() {
             disabled={page >= totalPages}
             className="opacity-0 group-hover:opacity-100 absolute -right-[3vw] top-1/2 -translate-y-1/2
                         flex items-center justify-center w-10 h-10 rounded-full
-                        bg-background-primary/90 border-2 border-highlight-primary
-                        text-highlight-primary shadow-lg transition
-                        hover:scale-110 hover:border-highlight-2-primary
+                        bg-[rgba(250,250,250,0.4)] 
+                        text-slate-700/50 shadow-lg transition
+                        hover:scale-110 
                         disabled:opacity-30 disabled:cursor-not-allowed"
             aria-label="Next page"
             >

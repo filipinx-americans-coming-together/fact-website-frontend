@@ -26,7 +26,7 @@ export default function Register() {
     const { register, isSuccess, isPending, error } = useRegister();
     const { user, isLoading, error : userError } = useUser();
 
-    const [checkoutComplete, setCheckoutComplete] = useState(true);
+    const [checkoutComplete, setCheckoutComplete] = useState(false);
     const [clientError, setClientError] = useState<string | null>(null);
     const [loadEB, setLoadEB] = useState(false);
     // Load the Eventbrite widgets script
