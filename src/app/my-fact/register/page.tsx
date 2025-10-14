@@ -128,7 +128,7 @@ export default function Register() {
             console.log("user", user)
         }
     }, [userError, user])
-    
+
     return (
         <RegPageContainer>
 

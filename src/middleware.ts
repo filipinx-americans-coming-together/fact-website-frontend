@@ -6,6 +6,9 @@ import { ResponseData } from "./util/types";
 // TODO: have conditionals for the different states this file should be in (reg open, reg closed, database off)
 
 export async function middleware(request: NextRequest) {
+    if (request.nextUrl.pathname.startsWith("/refund") || request.nextUrl.pathname.startsWith("/registration-closed")) {
+        return NextResponse.rewrite(new URL('/not-found', request.url));
+    }
     
     // intercept all pages that use accounts
     // return NextResponse.redirect(new URL('/registration-closed', request.url));
@@ -32,17 +35,17 @@ export async function middleware(request: NextRequest) {
     }
 
     // hide registration related pages
-    if (request.nextUrl.pathname == "/my-fact/register"){
+    if (request.nextUrl.pathname == "/my-fact"){
         return NextResponse.redirect(new URL('/', request.url));
     }
 }
 
 export const config = {
     matcher: [
-        // "/agenda", "/refund", "/registration-closed", "/workshops",
-        // "/my-fact/:path*",
-        // "/workshops/:path*",
-        // "/facilitators/:path*",
-        // "/admin/:path*",
+        "/refund", "/registration-closed",
+        "/my-fact/:path*",
+        "/workshops/:path*",
+        "/facilitators/:path*",
+        "/admin/:path*",
     ],
 };
