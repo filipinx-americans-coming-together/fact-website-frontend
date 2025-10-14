@@ -55,7 +55,7 @@ export default function Register() {
                 widgetType: 'checkout',
                 eventId: '1817643172659',
                 iframeContainerId: 'eventbrite-widget-container-1817643172659',
-                iframeContainerHeight: 500,
+                iframeContainerHeight: 800,
                 onOrderComplete: onComplete
             });
         } catch {
@@ -77,7 +77,7 @@ export default function Register() {
             widgetType: 'checkout',
             eventId: '1816702820039',
             iframeContainerId: 'eventbrite-widget-container-1816702820039',
-            iframeContainerHeight: 500,
+            iframeContainerHeight: 800,
             onOrderComplete: onComplete
         })} catch {
             setTimeout(()=>{setLoadEB(true)}, 3000);
@@ -269,7 +269,7 @@ export default function Register() {
                     </div>
                     <br/>
                     {loadEB ?
-                    <div className="mx-auto w-fit">
+                    <div className="mx-auto w-full">
                         {ticketType ? <EventbriteWidgetWks
                         onComplete={() => {
                             setClientError(null);
@@ -289,11 +289,11 @@ export default function Register() {
                                 }
                             }
                             setClientError(
-                            "Your payment has processed but your registration could not be processed. Please fix your registration and submission and then you must click the \"Register\" button at the bottom of the page for your registration to be completed."
+                            "Your payment has processed but your registration could not be processed. Please fix your registration submission and then you must click the \"Register\" button at the bottom of the page for your registration to be completed."
                             );
                         }}/> : 
                         
-                        <EventbriteWidgetBnd onComplete={() => {
+                        <div><div className="text-sm"> For Variety Show, you will not have to sit in your assigned seat (row & number), but you will have to sit in your assigned section (1-4). Please choose the seat for your ticket accordingly. The entire seat map of the Foellinger Auditorium floor is detailed for your visualization</div><br/><EventbriteWidgetBnd onComplete={() => {
                             setClientError(null);
                             setCheckoutComplete(true);
                             const form : HTMLFormElement | null = document.querySelector("registerForm");
@@ -314,7 +314,7 @@ export default function Register() {
                             "Your payment has processed but your registration could not be processed. Please fix your registration and submission and then you must click the \"Register\" button at the bottom of the page for your registration to be completed."
                             );
                         }}
-                    />}
+                    /></div>}
                     </div>
                     : <div className="w-fit mx-auto"><LoadingCircle/></div>}
                 </div>}
