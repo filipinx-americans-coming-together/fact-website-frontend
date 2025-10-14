@@ -22,27 +22,6 @@ import LoadingCircle from "@/components/icons/LoadingCircle";
 import { useUser } from "@/hooks/api/useUser";
 import InteractiveButton from "@/components/ui/InteractiveButton";
 
-/* <!-- Noscript content for added SEO -->
-<noscript><a href="https://www.eventbrite.com/e/test-tickets-1672144321679" rel="noopener noreferrer" target="_blank">Buy Tickets on Eventbrite</a></noscript>
-<!-- You can customize this button any way you like -->
-<button id="eventbrite-widget-modal-trigger-1672144321679" type="button">Buy Tickets</button>
-
-<script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
-
-<script type="text/javascript">
-    var exampleCallback = function() {
-        console.log('Order complete!');
-    };
-
-    window.EBWidgets.createWidget({
-        widgetType: 'checkout',
-        eventId: '1672144321679',
-        modal: true,
-        modalTriggerElementId: 'eventbrite-widget-modal-trigger-1672144321679',
-        onOrderComplete: exampleCallback
-    });
-</script> */
-
 export default function Register() {
     const { register, isSuccess, isPending, error } = useRegister();
     const { user, isLoading, error : userError } = useUser();
@@ -137,13 +116,10 @@ export default function Register() {
                     setClientError(null);
 
                     if (checkoutComplete) {
-                        // if (!formData.email) {
-                        //     setFormData
-                        // }
                         register({ f_name : user?.user.first_name, l_name: user?.user.last_name, email: user?.user.email, workshop_1_id: formData.workshop_1_id, workshop_2_id:formData.workshop_2_id, workshop_3_id:formData.workshop_3_id } as registrationProps);
                     } else {
                         setClientError(
-                            "Complete EventBrite checkout before continuing"
+                            "Your payment has processed but there is something wrong with the registration you submitted. You must click the \"Register\" button at the bottom of the page for your registration to be processed."
                         );
                     }
                 }}
@@ -275,40 +251,35 @@ export default function Register() {
                     </span>
 
                 </div>
-                    <div className="w-full">
-                        <div className="font-bold text-center">Checkout</div>
+                    {!checkoutComplete && <div className="w-full">
+                    <div className="font-bold text-center">Checkout</div>
                     {loadEB ?
-                    <div className="flex justify-around">
+                    <div className="flex justify-center gap-2 lg:gap-4">
                         <EventbriteWidgetWks
                         onComplete={() => {
-                            register({ f_name : user?.user.first_name, l_name: user?.user.last_name, email: user?.user.email, workshop_1_id: formData.workshop_1_id, workshop_2_id:formData.workshop_2_id, workshop_3_id:formData.workshop_3_id } as registrationProps);
+                            setCheckoutComplete(true);
+                            const form : HTMLFormElement | null = document.querySelector("registerForm");
+                            const submitButton : HTMLButtonElement | null = document.querySelector("#main-submit");
+                            if (form){
+                            if (form.requestSubmit) {
+                                if (submitButton) {
+                                    form.requestSubmit(submitButton);
+                                } else {
+                                    form.requestSubmit();
+                                }
+                                } else {
+                                form.submit();
+                                register({ f_name : user?.user.first_name, l_name: user?.user.last_name, email: user?.user.email, workshop_1_id: formData.workshop_1_id, workshop_2_id:formData.workshop_2_id, workshop_3_id:formData.workshop_3_id } as registrationProps);
+                                }
+                            }
                         }}/>
                         <EventbriteWidgetBnd onComplete={() => {register({ f_name : user?.user.first_name, l_name: user?.user.last_name, email: user?.user.email, workshop_1_id: formData.workshop_1_id, workshop_2_id:formData.workshop_2_id, workshop_3_id:formData.workshop_3_id } as registrationProps)}}
                     />
                     </div>
                     : <div className="w-fit mx-auto"><LoadingCircle/></div>}
-                    {/* <div id="eventbrite-widget-container-1672144321679"></div>
-                    <Script src="/static-data/eb_widgets.js" strategy="beforeInteractive" />
-
-                    <Script id='inline'>
-                        {`
-                        var exampleCallback = function() {
-                            console.log('Order complete!');
-                        };
-
-                        window.EBWidgets.createWidget({
-                            // Required
-                            widgetType: 'checkout',
-                            eventId: '1672144321679',
-                            iframeContainerId: 'eventbrite-widget-container-1672144321679',
-
-                            // Optional
-                            iframeContainerHeight: 425,  // Widget height in pixels. Defaults to a minimum of 425px if not provided
-                            onOrderComplete: exampleCallback  // Method called when an order has successfully completed
-                        });
-                        `}
-                    </Script> */}
-                </div>
+                </div>}
+                {checkoutComplete && <InteractiveButton text="Register" onClick={() => {}}
+                                isSubmit={true}/>}
             </FormContainer>
 
         </RegPageContainer>
