@@ -95,17 +95,17 @@ export default function Agenda() {
             <div className="flex justify-around w-full">
                 <div className="flex flex-col justify-around gap-5 w-1/3">
                     <div className="p-10 bg-[rgb(250,250,250,0.4)] rounded-4xl flex flex-col gap-6">
-                    <div className="text-3xl font-bold bg-[rgb(250,250,250,0.3)] border-slate-700 border-1 shadow-xl rounded-xl px-6 py-4 uppercase w-fit self-center">{FRIDAY}</div>
+                    <div className="text-3xl font-bold bg-[rgb(250,250,250,0.3)] shadow-xl rounded-xl px-6 py-4 uppercase w-fit self-center">{FRIDAY}</div>
                     <DisplayDay day={FRIDAY} formattedData={formattedData}/>
                     </div>
                     <div className="p-10 bg-[rgb(250,250,250,0.4)] rounded-4xl flex flex-col gap-6">
-                    <div className="text-3xl font-bold bg-[rgb(250,250,250,0.3)] border-slate-700 border-1 shadow-xl rounded-xl px-6 py-4 uppercase w-fit self-center">{SUNDAY}</div>
+                    <div className="text-3xl font-bold bg-[rgb(250,250,250,0.3)] shadow-xl rounded-xl px-6 py-4 uppercase w-fit self-center">{SUNDAY}</div>
                     <DisplayDay day={SUNDAY} formattedData={formattedData}/>
                     </div>
                     </div>
                 
                 <div className="flex flex-col p-10 bg-[rgb(250,250,250,0.4)] rounded-4xl w-1/2 gap-6">
-                    <div className="text-3xl font-bold bg-[rgb(250,250,250,0.3)] border-slate-700 border-1 shadow-xl rounded-xl px-6 py-4 uppercase w-fit self-center">{SATURDAY}</div>
+                    <div className="text-3xl font-bold bg-[rgb(250,250,250,0.3)] shadow-xl rounded-xl px-6 py-4 uppercase w-fit self-center">{SATURDAY}</div>
                     <DisplayDay day={SATURDAY} formattedData={formattedData}/>
                 </div>
             
