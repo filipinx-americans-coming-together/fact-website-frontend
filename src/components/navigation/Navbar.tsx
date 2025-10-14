@@ -20,7 +20,7 @@ const NAV_LINKS = [
     // { text: "Home", path: "/" },
     { text: "About", path: "/about" },
 	// { text: "Agenda", path: "/agenda" },
-    // { text: "Sessions", path: "/workshops" },
+    // { text: "Workshops", path: "/workshops" },
     // { text: "Team", path: "/team" },
     { text: "Gallery", path: "/gallery" },
     { text: "FAQ", path: "/faq" },

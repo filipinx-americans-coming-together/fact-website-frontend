@@ -22,7 +22,7 @@ export default function PageContainer({ children, title, background="bg-gradient
             
             <div className="relative">
                 <div className={`-z-10 absolute inset-0 w-full ${background}`}></div>
-                <div className="mx-auto max-w-6xl px-6 lg:px-12 py-10">
+                <div className="mx-auto max-w-6xl xl:max-w-[1600px] px-4 lg:px-8 py-10">
                     <div className="text-center pb-10 sm:p-10 border-b-2 mb-6 lg:mb-10">
                         <div className={`font-bold text-5xl lg:text-6xl ${maintainCase ? "" : "uppercase"}`}>
                             {title}

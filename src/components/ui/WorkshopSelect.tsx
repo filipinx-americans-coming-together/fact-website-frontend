@@ -57,11 +57,11 @@ function WorkshopSelect({
                         (workshop: WorkshopData) => workshop.session == session
                     )
                     .map((workshop) => {
-                        const cap = locations?.filter((location: LocationData) => location.id == workshop.location)[0].capacity
+                        const cap = locations?.filter((location: LocationData) => location.id == workshop.location)[0]
                         return {
-                            label: `${workshop.title} (${workshop.registrationCount ? workshop.registrationCount.toString():"--"}/${cap?.toString()})`,
+                            label: `${workshop.title} (${workshop.registrationCount ? workshop.registrationCount.toString():"--"}/${cap ? cap.capacity.toString() : "--"})`,
                             value: workshop.id.toString(),
-                            disabled: workshop.registrationCount == cap
+                            disabled: workshop.registrationCount == cap?.capacity
                         };
                     })}
             />

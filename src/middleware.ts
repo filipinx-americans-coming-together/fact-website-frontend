@@ -13,26 +13,26 @@ export async function middleware(request: NextRequest) {
     // intercept all pages that use accounts
     // return NextResponse.redirect(new URL('/registration-closed', request.url));
 
-    // get flags
-    let flags: ResponseData<{ label: string; value: boolean }>[];
+    // // get flags
+    // let flags: ResponseData<{ label: string; value: boolean }>[];
 
-    try {
-        let response = await fetch(`${API_URL}/fact-admin/flags/`);
-        flags = await response.json();
-    } catch {
-        return NextResponse.error();
-    }
+    // try {
+    //     let response = await fetch(`${API_URL}/fact-admin/flags/`);
+    //     flags = await response.json();
+    // } catch {
+    //     return NextResponse.error();
+    // }
 
-    // workshop changes
-    if (request.nextUrl.pathname.startsWith("/my-fact/workshops")) {
-        const workshopChanges = flags.find(
-            (flag) => flag.fields.label === "workshop-changes"
-        );
+    // // workshop changes
+    // if (request.nextUrl.pathname.startsWith("/my-fact/workshops")) {
+    //     const workshopChanges = flags.find(
+    //         (flag) => flag.fields.label === "workshop-changes"
+    //     );
 
-        if (!workshopChanges || !workshopChanges?.fields.value) {
-            return NextResponse.error();
-        }
-    }
+    //     if (!workshopChanges || !workshopChanges?.fields.value) {
+    //         return NextResponse.error();
+    //     }
+    // }
 
     // hide registration related pages
     if (request.nextUrl.pathname == "/my-fact"){
