@@ -129,9 +129,7 @@ export default function Register() {
                     if (checkoutComplete) {
                         register({ f_name : user?.user.first_name, l_name: user?.user.last_name, email: user?.user.email, workshop_1_id: formData.workshop_1_id, workshop_2_id:formData.workshop_2_id, workshop_3_id:formData.workshop_3_id } as registrationProps);
                     } else {
-                        setClientError(
-                            "Your payment has processed but there is something wrong with the registration you submitted. You must click the \"Register\" button at the bottom of the page for your registration to be processed."
-                        );
+                        
                     }
                 }}
                 isLoading={isPending}
@@ -269,10 +267,12 @@ export default function Register() {
                         <button onClick={() => setTicketType(true)} type="button" className="text-sm text-center text-text-primary w-fit p-4 bg-[rgba(250,250,250,0.3)] shadow-lg rounded-xl hover:scale-105 hover:shadow-xl border-slate-700 border-1">Workshops Only</button>
                         <button onClick={() => setTicketType(false)} type="button" className="text-sm text-center text-text-primary w-fit p-4 bg-[rgba(250,250,250,0.3)] shadow-lg rounded-xl hover:scale-105 hover:shadow-xl border-slate-700 border-1">Workshops + Variety Show Bundle</button>
                     </div>
+                    <br/>
                     {loadEB ?
                     <div className="mx-auto w-fit">
                         {ticketType ? <EventbriteWidgetWks
                         onComplete={() => {
+                            setClientError(null);
                             setCheckoutComplete(true);
                             const form : HTMLFormElement | null = document.querySelector("registerForm");
                             const submitButton : HTMLButtonElement | null = document.querySelector("#main-submit");
@@ -288,9 +288,32 @@ export default function Register() {
                                 register({ f_name : user?.user.first_name, l_name: user?.user.last_name, email: user?.user.email, workshop_1_id: formData.workshop_1_id, workshop_2_id:formData.workshop_2_id, workshop_3_id:formData.workshop_3_id } as registrationProps);
                                 }
                             }
+                            setClientError(
+                            "Your payment has processed but there is something wrong with the registration you submitted. You must click the \"Register\" button at the bottom of the page for your registration to be processed."
+                            );
                         }}/> : 
                         
-                        <EventbriteWidgetBnd onComplete={() => {register({ f_name : user?.user.first_name, l_name: user?.user.last_name, email: user?.user.email, workshop_1_id: formData.workshop_1_id, workshop_2_id:formData.workshop_2_id, workshop_3_id:formData.workshop_3_id } as registrationProps)}}
+                        <EventbriteWidgetBnd onComplete={() => {
+                            setClientError(null);
+                            setCheckoutComplete(true);
+                            const form : HTMLFormElement | null = document.querySelector("registerForm");
+                            const submitButton : HTMLButtonElement | null = document.querySelector("#main-submit");
+                            if (form){
+                            if (form.requestSubmit) {
+                                if (submitButton) {
+                                    form.requestSubmit(submitButton);
+                                } else {
+                                    form.requestSubmit();
+                                }
+                                } else {
+                                form.submit();
+                                register({ f_name : user?.user.first_name, l_name: user?.user.last_name, email: user?.user.email, workshop_1_id: formData.workshop_1_id, workshop_2_id:formData.workshop_2_id, workshop_3_id:formData.workshop_3_id } as registrationProps);
+                                }
+                            }
+                            setClientError(
+                            "Your payment has processed but there is something wrong with the registration you submitted. You must click the \"Register\" button at the bottom of the page for your registration to be processed."
+                            );
+                        }}
                     />}
                     </div>
                     : <div className="w-fit mx-auto"><LoadingCircle/></div>}
