@@ -120,7 +120,6 @@ export default function Register() {
         <RegPageContainer>
 
             <FormContainer
-                register
                 submitText="Register"
                 formName="registerForm"
                 onSubmit={() => {
@@ -129,7 +128,7 @@ export default function Register() {
                     if (checkoutComplete) {
                         register({ f_name : user?.user.first_name, l_name: user?.user.last_name, email: user?.user.email, workshop_1_id: formData.workshop_1_id, workshop_2_id:formData.workshop_2_id, workshop_3_id:formData.workshop_3_id } as registrationProps);
                     } else {
-                        
+                        setClientError("Complete EventBrite checkout before continuing")
                     }
                 }}
                 isLoading={isPending}
@@ -263,6 +262,7 @@ export default function Register() {
                     {!checkoutComplete && <div className="w-full">
                     <div className="font-bold text-center">Checkout</div>
                     <br/>
+                    <div className="text-center">Note: you must complete the checkout window and press the Register button at the bottom of the page for your registration to be processed.</div>
                     <div className="flex justify-center gap-2 lg:gap-4">
                         <button onClick={() => setTicketType(true)} type="button" className="text-sm text-center text-text-primary w-fit p-4 bg-[rgba(250,250,250,0.3)] shadow-lg rounded-xl hover:scale-105 hover:shadow-xl border-slate-700 border-1">Workshops Only</button>
                         <button onClick={() => setTicketType(false)} type="button" className="text-sm text-center text-text-primary w-fit p-4 bg-[rgba(250,250,250,0.3)] shadow-lg rounded-xl hover:scale-105 hover:shadow-xl border-slate-700 border-1">Workshops + Variety Show Bundle</button>
@@ -272,54 +272,14 @@ export default function Register() {
                     <div className="mx-auto w-full">
                         {ticketType ? <EventbriteWidgetWks
                         onComplete={() => {
-                            setClientError(null);
                             setCheckoutComplete(true);
-                            const form : HTMLFormElement | null = document.querySelector("registerForm");
-                            const submitButton : HTMLButtonElement | null = document.querySelector("#main-submit");
-                            if (form){
-                            if (form.requestSubmit) {
-                                if (submitButton) {
-                                    form.requestSubmit(submitButton);
-                                } else {
-                                    form.requestSubmit();
-                                }
-                                } else {
-                                form.submit();
-                                register({ f_name : user?.user.first_name, l_name: user?.user.last_name, email: user?.user.email, workshop_1_id: formData.workshop_1_id, workshop_2_id:formData.workshop_2_id, workshop_3_id:formData.workshop_3_id } as registrationProps);
-                                }
-                            }
-                            setClientError(
-                            "Your payment has processed but your registration could not be processed. Please fix your registration submission and then you must click the \"Register\" button at the bottom of the page for your registration to be completed."
-                            );
                         }}/> : 
                         
                         <div><div className="text-sm"> For Variety Show, you will not have to sit in your assigned seat (row & number), but you will have to sit in your assigned section (1-4). Please choose the seat for your ticket accordingly. The entire seat map of the Foellinger Auditorium floor is detailed for your visualization</div><br/><EventbriteWidgetBnd onComplete={() => {
-                            setClientError(null);
                             setCheckoutComplete(true);
-                            const form : HTMLFormElement | null = document.querySelector("registerForm");
-                            const submitButton : HTMLButtonElement | null = document.querySelector("#main-submit");
-                            if (form){
-                            if (form.requestSubmit) {
-                                if (submitButton) {
-                                    form.requestSubmit(submitButton);
-                                } else {
-                                    form.requestSubmit();
-                                }
-                                } else {
-                                form.submit();
-                                register({ f_name : user?.user.first_name, l_name: user?.user.last_name, email: user?.user.email, workshop_1_id: formData.workshop_1_id, workshop_2_id:formData.workshop_2_id, workshop_3_id:formData.workshop_3_id } as registrationProps);
-                                }
-                            }
-                            setClientError(
-                            "Your payment has processed but your registration could not be processed. Please fix your registration and submission and then you must click the \"Register\" button at the bottom of the page for your registration to be completed."
-                            );
-                        }}
-                    /></div>}
-                    </div>
-                    : <div className="w-fit mx-auto"><LoadingCircle/></div>}
-                </div>}
-                {checkoutComplete && <InteractiveButton text="Register" onClick={() => {}}
-                                isSubmit={true}/>}
+                        }}/></div>} </div>
+                    : <div className="w-fit mx-auto"><LoadingCircle/></div>}</div>
+                }
             </FormContainer>
 
         </RegPageContainer>
