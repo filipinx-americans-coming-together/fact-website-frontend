@@ -277,7 +277,7 @@ export default function Register() {
                 </div>
                     <div className="w-full">
                         <div className="font-bold text-center">Checkout</div>
-                    {true ?
+                    {loadEB ?
                     <div className="flex justify-around">
                         <EventbriteWidgetWks
                         onComplete={() => {
