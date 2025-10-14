@@ -262,7 +262,8 @@ export default function Register() {
                     {!checkoutComplete && <div className="w-full">
                     <div className="font-bold text-center">Checkout</div>
                     <br/>
-                    <div className="text-center">Note: you must complete the checkout window and press the Register button at the bottom of the page for your registration to be processed.</div>
+                    <div className="text-center text-sm">Note: you must complete the checkout window and press the Register button at the bottom of the page for your registration to be processed.</div>
+                    <br/>
                     <div className="flex justify-center gap-2 lg:gap-4">
                         <button onClick={() => setTicketType(true)} type="button" className="text-sm text-center text-text-primary w-fit p-4 bg-[rgba(250,250,250,0.3)] shadow-lg rounded-xl hover:scale-105 hover:shadow-xl border-slate-700 border-1">Workshops Only</button>
                         <button onClick={() => setTicketType(false)} type="button" className="text-sm text-center text-text-primary w-fit p-4 bg-[rgba(250,250,250,0.3)] shadow-lg rounded-xl hover:scale-105 hover:shadow-xl border-slate-700 border-1">Workshops + Variety Show Bundle</button>
