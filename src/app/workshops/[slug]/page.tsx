@@ -185,7 +185,7 @@ function WorkshopDetailContent({
             </div>
 
             <div className="flex justify-center mt-8 px-4">
-                <button
+                {/* <button
                     onClick={() => {
                         router.push(`/workshops?search=${filterParam}&session=${sessionParam}`);
                     }}
@@ -194,7 +194,7 @@ function WorkshopDetailContent({
                                 transition duration-500"
                 >
                     &larr; Back
-                </button>
+                </button> */}
             </div>
 
             {selectedFacilitator && (
