@@ -29,6 +29,7 @@ export default function Register() {
     const [checkoutComplete, setCheckoutComplete] = useState(false);
     const [clientError, setClientError] = useState<string | null>(null);
     const [loadEB, setLoadEB] = useState(false);
+    const [ticketType, setTicketType] = useState(false);
     // Load the Eventbrite widgets script
     const loadEventbriteScript = () => {
         const script = document.createElement("script");
@@ -48,18 +49,23 @@ export default function Register() {
     useEffect(() => {
         if (loadEB) {
             // @ts-ignore
-            window.EBWidgets.createWidget({
+            try {window.EBWidgets.createWidget({
                 // Required
+                
                 widgetType: 'checkout',
                 eventId: '1817643172659',
-                modal: true,
-                modalTriggerElementId: 'eventbrite-widget-modal-trigger-1817643172659',
+                iframeContainerId: 'eventbrite-widget-container-1817643172659',
+                iframeContainerHeight: 500,
                 onOrderComplete: onComplete
             });
+        } catch {
+            setTimeout(()=>{setLoadEB(true)}, 3000);
+        }
         }}, [loadEB]);
 
         return (
-            <button id="eventbrite-widget-modal-trigger-1817643172659" type="button" className="text-sm text-center text-text-primary w-fit p-4 bg-[rgba(250,250,250,0.3)] shadow-lg rounded-xl hover:scale-105 hover:shadow-xl border-slate-700 border-1">Workshops Only</button>
+            // <button id="eventbrite-widget-modal-trigger-1817643172659" type="button" className="text-sm text-center text-text-primary w-fit p-4 bg-[rgba(250,250,250,0.3)] shadow-lg rounded-xl hover:scale-105 hover:shadow-xl border-slate-700 border-1">Workshops Only</button>
+            <div id="eventbrite-widget-container-1817643172659"></div>
         );
     };
 
@@ -67,17 +73,22 @@ export default function Register() {
     useEffect(() => {
         if (loadEB) {
             // @ts-ignore
-            window.EBWidgets.createWidget({
+            try {window.EBWidgets.createWidget({
             widgetType: 'checkout',
             eventId: '1816702820039',
-            modal: true,
-            modalTriggerElementId: 'eventbrite-widget-modal-trigger-1816702820039',
+            iframeContainerId: 'eventbrite-widget-container-1816702820039',
+            iframeContainerHeight: 500,
             onOrderComplete: onComplete
-        })} 
+        })} catch {
+            setTimeout(()=>{setLoadEB(true)}, 3000);
+        }
+        } 
+            
         }, [loadEB]);
 
         return (
-            <button id="eventbrite-widget-modal-trigger-1816702820039" type="button" className="text-sm text-center text-text-primary w-fit p-4 bg-[rgba(250,250,250,0.3)] shadow-lg rounded-xl hover:scale-105 hover:shadow-xl border-slate-700 border-1">Workshops + Variety Show Bundle</button>
+            <div id="eventbrite-widget-container-1817643172659"></div>
+            // <button id="eventbrite-widget-modal-trigger-1816702820039" type="button" className="text-sm text-center text-text-primary w-fit p-4 bg-[rgba(250,250,250,0.3)] shadow-lg rounded-xl hover:scale-105 hover:shadow-xl border-slate-700 border-1">Workshops + Variety Show Bundle</button>
         );
     };
 
@@ -253,9 +264,14 @@ export default function Register() {
                 </div>
                     {!checkoutComplete && <div className="w-full">
                     <div className="font-bold text-center">Checkout</div>
-                    {loadEB ?
+                    <br/>
                     <div className="flex justify-center gap-2 lg:gap-4">
-                        <EventbriteWidgetWks
+                        <button onClick={() => setTicketType(true)} type="button" className="text-sm text-center text-text-primary w-fit p-4 bg-[rgba(250,250,250,0.3)] shadow-lg rounded-xl hover:scale-105 hover:shadow-xl border-slate-700 border-1">Workshops Only</button>
+                        <button onClick={() => setTicketType(false)} type="button" className="text-sm text-center text-text-primary w-fit p-4 bg-[rgba(250,250,250,0.3)] shadow-lg rounded-xl hover:scale-105 hover:shadow-xl border-slate-700 border-1">Workshops + Variety Show Bundle</button>
+                    </div>
+                    {loadEB ?
+                    <div className="mx-auto w-fit">
+                        {ticketType ? <EventbriteWidgetWks
                         onComplete={() => {
                             setCheckoutComplete(true);
                             const form : HTMLFormElement | null = document.querySelector("registerForm");
@@ -272,9 +288,10 @@ export default function Register() {
                                 register({ f_name : user?.user.first_name, l_name: user?.user.last_name, email: user?.user.email, workshop_1_id: formData.workshop_1_id, workshop_2_id:formData.workshop_2_id, workshop_3_id:formData.workshop_3_id } as registrationProps);
                                 }
                             }
-                        }}/>
+                        }}/> : 
+                        
                         <EventbriteWidgetBnd onComplete={() => {register({ f_name : user?.user.first_name, l_name: user?.user.last_name, email: user?.user.email, workshop_1_id: formData.workshop_1_id, workshop_2_id:formData.workshop_2_id, workshop_3_id:formData.workshop_3_id } as registrationProps)}}
-                    />
+                    />}
                     </div>
                     : <div className="w-fit mx-auto"><LoadingCircle/></div>}
                 </div>}
