@@ -74,12 +74,13 @@ export default function FAQ() {
             attending or use a mask to protect the health and safety of others
             who may be prone or sensitive to sickness.
           </FAQSection>
-          <FAQSection question="Is there accessibility for workshops or variety shows?">
+          
+        </div>
+        <div className="flex flex-col w-11/12 lg:w-2/5">
+        <FAQSection question="Is there accessibility for workshops or variety shows?">
             All FACT venue entrances are accessible via ramps on either the
             front or sides of buildings.
           </FAQSection>
-        </div>
-        <div className="flex flex-col w-11/12 lg:w-2/5">
           <FAQSection question="Is there a dress code?">
             As long as apparel is not offensive, there is no specific dress code
             for FACT. Since this is an autumn event, please dress for the
@@ -105,10 +106,6 @@ export default function FAQ() {
           <FAQSection question="What can I bring into Variety Show?">
             Food and drinks are NOT allowed into Foellinger Auditorium.
             Backpacks and large bags are subject for search by Facilities Staff.
-          </FAQSection>
-          <FAQSection question="How do I register?">
-            Registration will tentatively open on October 13th. More information
-            will be released closer to that date.
           </FAQSection>
         </div>
         <div className="flex flex-row justify-evenly gap-x-20 flex-wrap lg:w-11/12 px-8 lg:px-4">
@@ -189,15 +186,23 @@ export default function FAQ() {
             </FAQSection>
           </div>
         </div>
-        {/* <div className="text-3xl sm:text-4xl lg:text-5xl font-bold w-full text-center my-8">Registration</div>
+        <div className="text-3xl sm:text-4xl lg:text-5xl font-bold w-full text-center my-8">Registration</div>
 					<div className="flex flex-col w-11/12 lg:w-2/5">
                     <FAQSection question="How do I register?">
-                        Use the “<FAQLink href="/my-fact/register" text="Register"/>”
+                        Use the “<FAQLink href="/my-fact/create-account" text="My FACT"/>”
                         tab on our website and fill out your information in the
                         boxes. Continue to the next page and you can view the
                         sessions you signed up for and the details for those
                         workshops! Watch <FAQLink href="https://youtu.be/RO5fCSOywBI?si=OLgI6Eq0AD76eFgU" text="this video" newTab={true}/> for a walkthrough of the steps to register.
                     </FAQSection>
+                    <FAQSection question="How much are registration fees?">Early Registration:<br/>
+V-Show - $15, Workshops - $20, Bundle - $30 <br/>
+
+Late Registration: <br/>
+V-Show - $20, Workshops - $25, Bundle - $35 <br/>
+
+Early registration ticket prices will end on October 27, 2025. 
+</FAQSection>
                     <FAQSection question="Where can we find information regarding workshop information?">
                         Workshop and facilitator biographies are available via
                         our Instagram (
@@ -218,7 +223,7 @@ export default function FAQ() {
 					<div className="flex flex-col w-11/12 lg:w-2/5">
                     <FAQSection question="Are there refunds?">
                         Refunds can be requested via{" "}
-                        <FAQLink href="/refund" text="this form"/> up until the end
+                        <FAQLink href="https://forms.gle/VaKhgCyVUFjpuqwKA" text="this form" newTab/> up until the end
                         of the Early Registration dates. Please secure your
                         availability and ensure that you will attend the events
                         paid for prior to providing payment during registration.
@@ -228,22 +233,22 @@ export default function FAQ() {
                         register for FACT online with the Late Registration
                         price until the week prior to the conference. You may
                         additionally register in-person at the conference with
-                        the Late Registration price at the Asian American
-                        Cultural Center (
+                        the Late Registration price at the Siebel Center of Design (
                         <FAQLink
-                            href="https://maps.app.goo.gl/7A1cjxTF4R3pBPHr5"
-							text="1210 W Nevada St, Urbana, IL 61801"
+                            href="https://maps.app.goo.gl/wb8dXRCasWsYRhYC7"
+							text="1208 S 4th St, Champaign, IL 61820"
                             newTab={true}
                         />
-                        ) from 4:00-10:00 PM on Friday, December 6th, or from
-                        8:30-9:30 AM on Saturday, December 7th.
+                        ) from 4:00-7:00 PM on Friday, November 14th, or from
+                        8:30-9:30 AM on Saturday, November 15th. Please note that late registration will be subject to availability.
                     </FAQSection>
                     <FAQSection question="Can I upgrade to the bundle?">
                         After completing your purchases, upgrading to the bundle
                         is not allowed. You may purchase an additional session
                         or Variety Show ticket separately.
                     </FAQSection>
-					</div> */}
+                    <FAQSection question="What is the @factcommitments2025 instagram page? And how can I participate?">This is a new instagram page that we will use to feature delegates’ profiles, similar to a college commitment page! Through this page, we hope that delegates are able to further connect with others and create new friendships. Fill out { }<FAQLink href="https://forms.gle/qA4vprW1M1vcK2En9" newTab text="this form"></FAQLink>{ } to participate.</FAQSection>
+					</div>
       </div>
     </PageContainer>
   );

@@ -181,7 +181,7 @@ function WorkshopsContent() {
             <button
             onClick={() => setPage((p) => Math.max(1, p - 1))}
             disabled={page === 1}
-            className="opacity-0 group-hover:opacity-100 absolute -left-[3vw] top-1/2 -translate-y-1/2
+            className="absolute -left-[3vw] top-1/2 -translate-y-1/2
                         flex items-center justify-center w-10 h-10 rounded-full
                         bg-[rgba(250,250,250,0.4)] 
                         text-slate-700/50 shadow-lg transition
@@ -200,7 +200,7 @@ function WorkshopsContent() {
             <button
             onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
             disabled={page >= totalPages}
-            className="opacity-0 group-hover:opacity-100 absolute -right-[3vw] top-1/2 -translate-y-1/2
+            className="absolute -right-[3vw] top-1/2 -translate-y-1/2
                         flex items-center justify-center w-10 h-10 rounded-full
                         bg-[rgba(250,250,250,0.4)] 
                         text-slate-700/50 shadow-lg transition
