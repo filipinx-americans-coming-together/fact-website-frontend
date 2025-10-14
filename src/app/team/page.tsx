@@ -112,7 +112,7 @@ export default function Team() {
     };
 
     return (
-        <PageContainer title="Team FACT 2025">
+        <PageContainer title="Team FACT 2025" background="bg-gradient mask-(--background-image-blurry-2) mask-size-[1400px] mask-top">
             <div className="text-center">
                 {teamData.map((roleData, index) => (
                     <OfficerRow
