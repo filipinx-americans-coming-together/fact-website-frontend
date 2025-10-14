@@ -1,6 +1,7 @@
 "use client";
 
 import FormContainer from "@/components/formatting/FormContainer";
+import RegPageContainer from "@/components/formatting/RegPageContainer";
 import Navbar from "@/components/navigation/Navbar";
 import TextInput from "@/components/ui/TextInput";
 import { useRequestPasswordReset } from "@/hooks/api/useRequestPasswordReset";
@@ -15,17 +16,15 @@ export default function ForgotPassword() {
     });
 
     return (
-        <>
-            <Navbar />
-            <br />
+        <RegPageContainer>
 
             {isSuccess ? (
-                <div className="w-7/12 min-w-[460px] px-20 py-12 bg-text-primary text-black m-auto flex flex-col items-center gap-3 rounded-lg">
+                <div className="w-7/12 min-w-[460px] px-20 py-12 bg-[rgba(240,240,240,0.3)] m-auto rounded-lg">
                     If an account with the email{" "}
-                    {(formData as { email: string }).email} exists, instructions
+                    <span className="font-bold whitespace-nowrap">{(formData as { email: string }).email}</span> exists, instructions
                     to reset your password have been sent there. If you can not
                     find the email, please check your spam folder or search for
-                    emails from no-reply@psauiuc.org
+                    emails from <span className="font-bold whitespace-nowrap">no-reply@psauiuc.org</span>
                 </div>
             ) : (
                 <FormContainer
@@ -41,7 +40,7 @@ export default function ForgotPassword() {
                     isLoading={isPending}
                     errorMessage={error?.message}
                 >
-                    <h1>Reset Password</h1>
+                    <h1 className="text-center text-3xl uppercase font-bold pb-4 border-b w-full">Reset Password</h1>
                     <TextInput
                         label="Email"
                         id="email"
@@ -50,6 +49,6 @@ export default function ForgotPassword() {
                     />
                 </FormContainer>
             )}
-        </>
+        </RegPageContainer>
     );
 }

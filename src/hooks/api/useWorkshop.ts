@@ -12,33 +12,33 @@ async function fetchWorkshop({ id }: { id: number }): Promise<{
     workshop: WorkshopData;
     location: LocationData;
     facilitators: FacilitatorData[];
-    registrations: number;
+    // registrations: number;
     facilitator_assistants?: { name: string; contact: string }[];
 }> {
-    // const response = await fetch(`${API_URL}/registration/workshops/${id}`, {
-    //     credentials: "include",
-    // });
+    const response = await fetch(`${API_URL}/registration/workshops/${id}`, {
+        credentials: "include",
+    });
 
     let json;
 
-    // try {
-    //     json = await response.json();
-    // } catch {
-    //     throw new Error("Server error, please try again later");
-    // }
+    try {
+        json = await response.json();
+    } catch {
+        throw new Error("Server error, please try again later");
+    }
 
-    // if (!response.ok) {
-    //     let message = "Server error, please try again later";
+    if (!response.ok) {
+        let message = "Server error, please try again later";
 
-    //     if (json.message && response.status !== 500) {
-    //         message = json.message;
-    //     }
+        if (json.message && response.status !== 500) {
+            message = json.message;
+        }
 
-    //     throw new Error(message);
-    // }
+        throw new Error(message);
+    }
 
-    const allWorkshops = await fetch('/static-data/workshops-by-id.json').then(r=>r.json());
-    json = allWorkshops[id.toString()];
+    // const allWorkshops = await fetch('/static-data/workshops-by-id.json').then(r=>r.json());
+    // json = allWorkshops[id.toString()];
 
     const workshopData = json.workshop[0];
 
@@ -47,6 +47,7 @@ async function fetchWorkshop({ id }: { id: number }): Promise<{
         title: workshopData.fields.title,
         description: workshopData.fields.description,
         facilitators: json.facilitators[0].fields.department_name,
+        registrationCount: json.registrations,
         location: workshopData.fields.location,
         session: workshopData.fields.session,
     };
@@ -85,7 +86,7 @@ async function fetchWorkshop({ id }: { id: number }): Promise<{
         workshop: formattedWorkshop,
         location: formattedLocation,
         facilitators: formattedFacilitators,
-        registrations: json.registrations,
+        // registrations: json.registrations,
         facilitator_assistants: formattedAssistants,
     };
 }
@@ -96,7 +97,7 @@ export function useWorkshop({ id }: { id: number }): {
               workshop: WorkshopData;
               location: LocationData;
               facilitators: FacilitatorData[];
-              registrations: number;
+            //   registrations: number;
               facilitator_assistants?: { name: string; contact: string }[];
           }
         | undefined;
@@ -112,6 +113,7 @@ export function useWorkshop({ id }: { id: number }): {
         queryFn: () => fetchWorkshop({ id: id }),
         retry: 0,
     });
+
 
     return { workshop, isLoading, error };
 }

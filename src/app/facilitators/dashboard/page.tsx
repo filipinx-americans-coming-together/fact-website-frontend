@@ -10,6 +10,7 @@ import ForbiddenPage from "@/components/formatting/ForbiddenPage";
 import LoadingCircle from "@/components/icons/LoadingCircle";
 import WorkshopInfo from "../components/WorkshopInfo";
 import { useRouter } from "next/navigation";
+import RegPageContainer from "@/components/formatting/RegPageContainer";
 
 export default function FacilitatorDashboard() {
     const { logout } = useLogout();
@@ -84,15 +85,13 @@ export default function FacilitatorDashboard() {
     }
 
     return (
-        // <div className="bg-linear-to-tl from-background-primary to-emerald-900">
-        <>
-            <Navbar />
-            <div className="w-9/12 mx-auto flex flex-col items-left gap-10">
+        <RegPageContainer>
+            <div className="bg-[rgba(240,240,240,0.3)] py-8 px-12 rounded-xl w-9/12 mx-auto flex flex-col items-left gap-10">
                 <div className="flex flex-col md:flex-row md:justify-between gap-2">
                     <h1 className="text-4xl font-bold">
                         {user.facilitator.department_name}
                     </h1>
-                    <div className="w-fit text-background-primary">
+                    <div className="w-fit">
                         <InteractiveButton
                             text="Log Out"
                             onClick={() => {
@@ -104,7 +103,7 @@ export default function FacilitatorDashboard() {
                 </div>
 
                 <div>
-                    <h1 className="text-xl font-bold w-full border-b-2 pb-2 border-highlight-primary">
+                    <h1 className="text-xl font-bold w-full border-b-2 pb-2 border-highlight-2-secondary">
                         Your Workshops
                     </h1>
                     <br />
@@ -124,6 +123,6 @@ export default function FacilitatorDashboard() {
                     registrations={facilitatorRegistrations}
                 />
             </div>
-        </>
+        </RegPageContainer>
     );
 }

@@ -10,7 +10,7 @@ import { useQuery } from "@tanstack/react-query";
 async function fetchUser(): Promise<{
     user: UserData;
     delegate: DelegateData;
-    registration: RegistrationData[];
+    registration: RegistrationData[] | null;
 }> {
     const response = await fetch(`${API_URL}/registration/delegates/me/`, {
         credentials: "include",
@@ -79,7 +79,7 @@ export function useUser(): {
         | {
               user: UserData;
               delegate: DelegateData;
-              registration: RegistrationData[];
+              registration: RegistrationData[] | null;
           }
         | undefined;
     isLoading: boolean;
@@ -95,5 +95,5 @@ export function useUser(): {
         retry: 0,
     });
 
-    return { user, isLoading, error };
+    return {user, isLoading, error };
 }

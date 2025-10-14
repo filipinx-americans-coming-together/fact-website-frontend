@@ -2,6 +2,7 @@
 
 import FormContainer from "@/components/formatting/FormContainer";
 import Footer from "@/components/formatting/PageFooter";
+import RegPageContainer from "@/components/formatting/RegPageContainer";
 import LoadingCircle from "@/components/icons/LoadingCircle";
 import Navbar from "@/components/navigation/Navbar";
 import WorkshopSelect from "@/components/ui/WorkshopSelect";
@@ -28,14 +29,17 @@ export default function Workshops() {
             router.push("/my-fact/login");
         }
 
+        if (user && !user.registration) {
+            router.push("/my-fact/dashboard");
+        }
+
         if (isSuccess) {
             router.push("/my-fact/dashboard");
         }
-    }, [isSuccess, noUser]);
+    }, [isSuccess, noUser, user]);
 
     return (
-        <>
-            <Navbar />
+        user?.registration && <RegPageContainer>
             <FormContainer
                 submitText="Save Changes"
                 formName="updateWorkshops"
@@ -45,7 +49,7 @@ export default function Workshops() {
                 isLoading={isPending}
                 errorMessage={error?.message}
             >
-                <div className="text-center">Edit Workshops</div>
+                <div className="text-center text-3xl uppercase font-bold pb-4 border-b w-full">Edit Workshops</div>
 
                 {!user && <LoadingCircle />}
                 {user && (
@@ -75,14 +79,12 @@ export default function Workshops() {
                 )}
 
                 <Link
-                    className="text-center text-sm text-highlight-primary hover:underline"
+                    className="text-center text-sm hover:text-highlight-2-primary underline"
                     href="/my-fact/dashboard"
                 >
                     Back to Dashboard
                 </Link>
             </FormContainer>
-            <br />
-            <Footer />
-        </>
+        </RegPageContainer>
     );
 }

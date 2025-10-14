@@ -1,6 +1,7 @@
 "use client";
 
 import FormContainer from "@/components/formatting/FormContainer";
+import RegPageContainer from "@/components/formatting/RegPageContainer";
 import Navbar from "@/components/navigation/Navbar";
 import TextInput from "@/components/ui/TextInput";
 import { useSetUpFacilitatorAccount } from "@/hooks/api/useSetUpFacilitatorAccount";
@@ -37,9 +38,7 @@ export default function FacilitatorAccountSetUp({
     }, [isSuccess]);
 
     return (
-        <>
-            <Navbar />
-            <br />
+        <RegPageContainer>
             <FormContainer
                 submitText="Confirm"
                 formName="setUpFacilitatorAccount"
@@ -62,14 +61,14 @@ export default function FacilitatorAccountSetUp({
                 isLoading={isPending}
                 errorMessage={clientError ? clientError : error?.message}
             >
-                <h1>Set Up Your Account</h1>
+                <h1 className="text-center text-3xl uppercase font-bold pb-4 border-b w-full">Set Up Your Account</h1>
                 <TextInput
                     label="Email"
                     id="email"
                     setState={setFormData}
                     required
                 />
-                <p className="text-xs">
+                <p className="text-xs text-slate-700">
                     This email will be used for account recovery if you forget
                     your password.
                 </p>
@@ -87,7 +86,7 @@ export default function FacilitatorAccountSetUp({
                     showCharacters={false}
                     required
                 />
-                <ul className="text-xs">
+                <ul className="text-xs text-slate-700">
                     <li>
                         Your password can not be too similar to your other
                         personal information
@@ -96,6 +95,6 @@ export default function FacilitatorAccountSetUp({
                     <li>Your password can not be entirely numeric</li>
                 </ul>
             </FormContainer>
-        </>
+        </RegPageContainer>
     );
 }

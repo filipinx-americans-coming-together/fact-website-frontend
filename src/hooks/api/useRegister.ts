@@ -7,10 +7,6 @@ export interface registrationProps {
     f_name: string;
     l_name: string;
     email: string;
-    password: string;
-    pronouns?: string;
-    year: string;
-    school_name: string;
     workshop_1_id: string;
     workshop_2_id: string;
     workshop_3_id: string;
@@ -18,7 +14,6 @@ export interface registrationProps {
 
 async function fetchRegister(props: registrationProps): Promise<{
     user: UserData;
-    delegate: DelegateData;
     registration: RegistrationData[];
 }> {
     // request
@@ -27,6 +22,8 @@ async function fetchRegister(props: registrationProps): Promise<{
         method: "POST",
         body: JSON.stringify(props),
     });
+
+    console.log("props", props)
 
     let json;
 
@@ -59,13 +56,6 @@ async function fetchRegister(props: registrationProps): Promise<{
     // delegate data
     const delegateData = json.delegate[0];
 
-    const formattedDelegate: DelegateData = {
-        id: delegateData.pk,
-        pronouns: delegateData.fields.pronouns,
-        year: delegateData.fields.year,
-        school: delegateData.fields.school,
-    };
-
     // registration data
     const registrationData = json.registration;
     const formattedRegistration: RegistrationData[] = [];
@@ -81,7 +71,6 @@ async function fetchRegister(props: registrationProps): Promise<{
 
     return {
         user: formattedUser,
-        delegate: formattedDelegate,
         registration: formattedRegistration,
     };
 }
@@ -97,6 +86,7 @@ export function useRegister() {
         isSuccess,
     } = useMutation({
         mutationFn: (props: registrationProps) => {
+            console.log("props",props)
             return fetchRegister(props);
         },
 

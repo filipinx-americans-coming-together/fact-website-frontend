@@ -17,7 +17,7 @@ const iconList = [
 ];
 
 const NAV_LINKS = [
-    { text: "Home", path: "/" },
+    // { text: "Home", path: "/" },
     { text: "About", path: "/about" },
 	// { text: "Agenda", path: "/agenda" },
     // { text: "Sessions", path: "/workshops" },
@@ -76,7 +76,7 @@ export default function Navbar() {
 
                     {/* mobile navigation toggle */}
                     <li className="flex flex-col items-center">
-                        <button className="relative text-text-primary rounded-sm md:hidden">
+                        <button className="relative text-text-primary rounded-sm lg:hidden">
                             {showModal ? (
                                 <div>
                                     <FaTimes

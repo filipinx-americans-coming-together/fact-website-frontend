@@ -24,10 +24,9 @@ const OfficerCard = ({ officer, onClick }: OfficerCardProps) => {
     const [src, setSrc] = useState(`/team-fact/${officer.image}`);
 
     return (
-        <div className="m-4 p-2 md:m-8 mx-auto">
+        <div className="m-4 p-2 md:m-8 mx-auto" onClick={() => onClick(officer)}>
             <div
                 className="relative w-80 h-96 cursor-pointer mx-auto"
-                onClick={() => onClick(officer)}
             >
                 <Image
                     src={src}
@@ -43,6 +42,7 @@ const OfficerCard = ({ officer, onClick }: OfficerCardProps) => {
             </div>
 
             <p className="text-center mt-4 text-xl lg:text-2xl">{officer.name}</p>
+            {/* <p className="text-left">officer position</p> */}
         </div>
     );
 };
@@ -81,7 +81,7 @@ type ModalProps = {
 const Modal = ({ children, onClose }: ModalProps) => {
     return (
         <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 md:w-3/4 lg:w-full"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-red-50 bg-opacity-50 md:w-3/4 lg:w-full"
             onClick={onClose}
         >
             <div className="relative bg-white rounded-sm w-full md:w-3/4 lg:w-1/2 max-w-4xl h-[90vh] md:h-auto mx-4">
@@ -112,7 +112,7 @@ export default function Team() {
     };
 
     return (
-        <PageContainer title="Team FACT 2024">
+        <PageContainer title="Team FACT 2025">
             <div className="text-center">
                 {teamData.map((roleData, index) => (
                     <OfficerRow

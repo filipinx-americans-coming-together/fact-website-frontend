@@ -1,6 +1,8 @@
-import { WorkshopData } from "@/util/types";
+import { LocationData, WorkshopData } from "@/util/types";
 import { useWorkshops } from "@/hooks/api/useWorkshops";
 import SearchableSelect from "./SearchableSelect";
+import LoadingCircle from "../icons/LoadingCircle";
+import { useLocations } from "@/hooks/api/useLocations";
 
 interface WorkshopSelectProps {
     id: string;
@@ -9,6 +11,8 @@ interface WorkshopSelectProps {
     defaultValue?: string;
     required?: boolean;
 }
+
+const session_labels = [ "Awareness Workshops", "Personal Growth Workshops", "Professional Skill Workshops" ];
 
 /**
  * Workshop selection menu
@@ -25,25 +29,27 @@ function WorkshopSelect({
     defaultValue,
     required = true,
 }: WorkshopSelectProps) {
-    const { workshops } = useWorkshops();
+    const { workshops, isLoading, error } = useWorkshops();
+    const { locations, isLoading: isLoadingLocs, error: errorLocs } = useLocations();
 
     return (
+        (isLoading || isLoadingLocs) ? (session===2 && <LoadingCircle/>) : 
         workshops &&
         workshops.length > 0 && (
             <SearchableSelect
                 id={id}
-                label={`Session ${session}`}
+                label={`Session ${session}: ${session_labels[session-1]}`}
                 placeholder="Search for workshops..."
                 setState={setState}
                 defaultValue={
                     defaultValue
-                    // ? defaultValue
-                    // : workshops
-                    //       .filter(
-                    //           (workshop: WorkshopData) =>
-                    //               workshop.session == session
-                    //       )[0]
-                    //       .id.toString()
+                    ? defaultValue
+                    : workshops
+                          .filter(
+                              (workshop: WorkshopData) =>
+                                  workshop.session == session
+                          )[0]
+                          .id.toString()
                 }
                 required={required}
                 options={workshops
@@ -51,9 +57,11 @@ function WorkshopSelect({
                         (workshop: WorkshopData) => workshop.session == session
                     )
                     .map((workshop) => {
+                        const cap = locations?.filter((location: LocationData) => location.id == workshop.location)[0].capacity
                         return {
-                            label: workshop.title,
+                            label: `${workshop.title} (${workshop.registrationCount ? workshop.registrationCount.toString():"--"}/${cap?.toString()})`,
                             value: workshop.id.toString(),
+                            disabled: workshop.registrationCount == cap
                         };
                     })}
             />

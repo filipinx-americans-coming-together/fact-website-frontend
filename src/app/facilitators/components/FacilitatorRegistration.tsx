@@ -34,7 +34,7 @@ export default function FacilitatorRegistration({
             <br />
 
             {/* facilitator list */}
-            <div className="rounded p-6 flex flex-col gap-4 bg-text-primary text-background-primary">
+            <div className="rounded p-6 flex flex-col gap-4 bg-[rgba(250,250,250,0.3)] shadow-xl">
                 {facilitators.map((facilitator) => {
                     return (
                         <FacilitatorRow

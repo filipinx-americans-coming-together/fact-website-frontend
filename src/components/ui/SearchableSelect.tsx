@@ -2,7 +2,7 @@ import { ReactNode, useEffect, useRef, useState } from "react";
 import { FaAngleDown } from "react-icons/fa";
 
 interface SearchableSelectProps {
-    options: { label: string; value: string }[];
+    options: { label: string; value: string, disabled?: boolean }[];
     id: string;
     label: string;
     setState: (state: Object) => void;
@@ -87,7 +87,7 @@ function SearchableSelect<T>({
 
             {selected ? (
                 <button
-                    className="px-2 py-1 bg-white rounded-sm text-background-primary divide-y border flex justify-between items-center hover:cursor-pointer"
+                    className="px-2 py-1 rounded-sm border border-slate-700 bg-[rgba(250,250,250,0.3)] shadow-lg divide-y border flex justify-between items-center hover:cursor-pointer"
                     onClick={handleInputFocused}
                     onFocus={handleInputFocused}
                     type="button"
@@ -99,12 +99,12 @@ function SearchableSelect<T>({
                 <input
                     placeholder={placeholder}
                     autoComplete="off"
-                    className="py-1 px-2 rounded-sm border w-full min-w-40 text-background-primary"
+                    className="py-1 px-2 rounded-sm border w-full min-w-40 border border-slate-700 bg-[rgba(250,250,250,0.3)]"
                     onChange={(event) => {
                         const value = event.currentTarget.value;
                         setQuery(value);
                     }}
-                    required={false}
+                    required={required}
                     onClick={handleInputFocused}
                     onFocus={handleInputFocused}
                 />
@@ -112,7 +112,7 @@ function SearchableSelect<T>({
 
             {showOptions && (
                 <div
-                    className="absolute w-full top-14 z-20 max-h-[20vh] overflow-y-scroll bg-white text-background-primary divide-y border flex flex-col"
+                    className="absolute w-full top-14 z-20 max-h-[20vh] overflow-y-scroll border border-slate-700 bg-[rgba(250,250,250,0.3)] divide-y flex flex-col"
                     id={id}
                 >
                     {options
@@ -124,7 +124,7 @@ function SearchableSelect<T>({
                         })
                         .map((option) => (
                             <button
-                                className="px-2 py-1 text-left hover:bg-slate-100 hover:cursor-pointer"
+                                className="px-2 py-1 text-left hover:bg-slate-100 bg-white hover:cursor-pointer"
                                 key={option.value}
                                 onClick={() => {
                                     setShowOptions(false);
@@ -142,6 +142,7 @@ function SearchableSelect<T>({
                                     value={option.value}
                                     id={label + option.value.toString()}
                                     checked={option.label === selected}
+                                    disabled={option.disabled}
                                     hidden
                                     readOnly
                                 />

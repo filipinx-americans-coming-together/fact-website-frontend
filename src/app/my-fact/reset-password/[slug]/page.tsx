@@ -1,6 +1,7 @@
 "use client";
 
 import FormContainer from "@/components/formatting/FormContainer";
+import RegPageContainer from "@/components/formatting/RegPageContainer";
 import Navbar from "@/components/navigation/Navbar";
 import TextInput from "@/components/ui/TextInput";
 import { useResetPassword } from "@/hooks/api/useResetPassword";
@@ -37,9 +38,7 @@ export default function ResetPassword({
     }, [isSuccess]);
 
     return (
-        <>
-            <Navbar />
-            <br />
+        <RegPageContainer>
             <FormContainer
                 submitText="Reset Password"
                 formName="setPassword"
@@ -85,6 +84,6 @@ export default function ResetPassword({
                     <li>Your password can not be entirely numeric</li>
                 </ul>
             </FormContainer>
-        </>
+        </RegPageContainer>
     );
 }
