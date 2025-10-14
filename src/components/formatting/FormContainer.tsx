@@ -9,7 +9,6 @@ interface FormProps {
     submitText: string;
     isLoading: boolean;
     errorMessage: string | undefined | null;
-    register?: boolean;
 }
 
 function FormContainer(props: FormProps) {
@@ -37,7 +36,7 @@ function FormContainer(props: FormProps) {
                         </div>
                     ) : (
                         // submit
-                        <div className={`my-4 lg:my-6 ${props.register ? "hidden" : ""}`}>
+                        <div className={`my-4 lg:my-6`}>
                             <InteractiveButton
                                 text={props.submitText}
                                 onClick={() => {}}
