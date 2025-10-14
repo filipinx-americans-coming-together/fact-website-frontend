@@ -66,20 +66,15 @@ export default function Register() {
             window.EBWidgets.createWidget({
                 // Required
                 widgetType: 'checkout',
-                eventId: '1672144321679',
-                iframeContainerId: 'eventbrite-widget-container-1672144321679',
-
-                // Optional
-                iframeContainerHeight: 500, // Widget height in pixels. Defaults to a minimum of 425px if not provided
-                onOrderComplete: onComplete, // Method called when an order has successfully completed
+                eventId: '1817643172659',
+                modal: true,
+                modalTriggerElementId: 'eventbrite-widget-modal-trigger-1817643172659',
+                onOrderComplete: onComplete
             });
         }}, [loadEB]);
 
         return (
-            <div
-                className="w-full"
-                id="eventbrite-widget-container-1672144321679"
-            ></div>
+            <button id="eventbrite-widget-modal-trigger-1672144321679" type="button">Workshops Only Checkout</button>
         );
     };
 
@@ -89,19 +84,15 @@ export default function Register() {
             // @ts-ignore
             window.EBWidgets.createWidget({
             widgetType: 'checkout',
-            eventId: '1672144321679',
+            eventId: '1816702820039',
             modal: true,
-            modalTriggerElementId: 'eventbrite-widget-modal-trigger-1672144321679',
+            modalTriggerElementId: 'eventbrite-widget-modal-trigger-1816702820039',
             onOrderComplete: onComplete
         })} 
         }, [loadEB]);
 
         return (
-            <>
-            <noscript><a href="https://www.eventbrite.com/e/test-tickets-1672144321679" rel="noopener noreferrer" target="_blank">Buy Tickets on Eventbrite</a></noscript>
-            
-            <button id="eventbrite-widget-modal-trigger-1672144321679" type="button">Buy Tickets</button>
-            </>
+            <button id="eventbrite-widget-modal-trigger-1816702820039" type="button">Workshops + Variety Show Bundle Checkout</button>
         );
     };
 
@@ -133,6 +124,7 @@ export default function Register() {
         <RegPageContainer>
 
             <FormContainer
+                register
                 submitText="Register"
                 formName="registerForm"
                 onSubmit={() => {
@@ -178,39 +170,7 @@ export default function Register() {
                     setState={setFormData}
                 />
 
-                <div className="w-full">
-                    {loadEB ?
-                    <>
-                        <EventbriteWidgetWks
-                        onComplete={() => {
-                            setCheckoutComplete(true);
-                        }}/>
-                        <EventbriteWidgetBnd onComplete={() => {setCheckoutComplete(true)}}
-                    />
-                    </>
-                    : <LoadingCircle/>}
-                    {/* <div id="eventbrite-widget-container-1672144321679"></div>
-                    <Script src="https://www.eventbrite.com/static/widgets/eb_widgets.js" strategy="beforeInteractive" />
-
-                    <Script id='inline'>
-                        {`
-                        var exampleCallback = function() {
-                            console.log('Order complete!');
-                        };
-
-                        window.EBWidgets.createWidget({
-                            // Required
-                            widgetType: 'checkout',
-                            eventId: '1672144321679',
-                            iframeContainerId: 'eventbrite-widget-container-1672144321679',
-
-                            // Optional
-                            iframeContainerHeight: 425,  // Widget height in pixels. Defaults to a minimum of 425px if not provided
-                            onOrderComplete: exampleCallback  // Method called when an order has successfully completed
-                        });
-                        `}
-                    </Script> */}
-                </div>
+                
                 <div className="static flex items-start gap-1">
                     <div>
                     <input
@@ -307,6 +267,40 @@ export default function Register() {
                             </p>
                         </div>
                     </span>
+
+                </div>
+                    <div className="w-full">
+                    {loadEB ?
+                    <>
+                        <EventbriteWidgetWks
+                        onComplete={() => {
+                            register({ f_name : user?.user.first_name, l_name: user?.user.last_name, email: user?.user.email, workshop_1_id: formData.workshop_1_id, workshop_2_id:formData.workshop_2_id, workshop_3_id:formData.workshop_3_id } as registrationProps);
+                        }}/>
+                        <EventbriteWidgetBnd onComplete={() => {register({ f_name : user?.user.first_name, l_name: user?.user.last_name, email: user?.user.email, workshop_1_id: formData.workshop_1_id, workshop_2_id:formData.workshop_2_id, workshop_3_id:formData.workshop_3_id } as registrationProps)}}
+                    />
+                    </>
+                    : <div className="w-fit mx-auto"><LoadingCircle/></div>}
+                    {/* <div id="eventbrite-widget-container-1672144321679"></div>
+                    <Script src="https://www.eventbrite.com/static/widgets/eb_widgets.js" strategy="beforeInteractive" />
+
+                    <Script id='inline'>
+                        {`
+                        var exampleCallback = function() {
+                            console.log('Order complete!');
+                        };
+
+                        window.EBWidgets.createWidget({
+                            // Required
+                            widgetType: 'checkout',
+                            eventId: '1672144321679',
+                            iframeContainerId: 'eventbrite-widget-container-1672144321679',
+
+                            // Optional
+                            iframeContainerHeight: 425,  // Widget height in pixels. Defaults to a minimum of 425px if not provided
+                            onOrderComplete: exampleCallback  // Method called when an order has successfully completed
+                        });
+                        `}
+                    </Script> */}
                 </div>
             </FormContainer>
 
