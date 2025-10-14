@@ -49,8 +49,7 @@ export default function Register() {
     useEffect(() => {
         if (loadEB) {
             // @ts-ignore
-            try {
-            window.EBWidgets.createWidget({
+            try {window.EBWidgets.createWidget({
                 // Required
                 
                 widgetType: 'checkout',
