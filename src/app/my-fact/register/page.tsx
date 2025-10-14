@@ -87,7 +87,7 @@ export default function Register() {
         }, [loadEB]);
 
         return (
-            <div id="eventbrite-widget-container-1817643172659"></div>
+            <div id="eventbrite-widget-container-1816702820039"></div>
             // <button id="eventbrite-widget-modal-trigger-1816702820039" type="button" className="text-sm text-center text-text-primary w-fit p-4 bg-[rgba(250,250,250,0.3)] shadow-lg rounded-xl hover:scale-105 hover:shadow-xl border-slate-700 border-1">Workshops + Variety Show Bundle</button>
         );
     };
@@ -289,7 +289,7 @@ export default function Register() {
                                 }
                             }
                             setClientError(
-                            "Your payment has processed but there is something wrong with the registration you submitted. You must click the \"Register\" button at the bottom of the page for your registration to be processed."
+                            "Your payment has processed but your registration could not be processed. Please fix your registration and submission and then you must click the \"Register\" button at the bottom of the page for your registration to be completed."
                             );
                         }}/> : 
                         
@@ -311,7 +311,7 @@ export default function Register() {
                                 }
                             }
                             setClientError(
-                            "Your payment has processed but there is something wrong with the registration you submitted. You must click the \"Register\" button at the bottom of the page for your registration to be processed."
+                            "Your payment has processed but your registration could not be processed. Please fix your registration and submission and then you must click the \"Register\" button at the bottom of the page for your registration to be completed."
                             );
                         }}
                     />}

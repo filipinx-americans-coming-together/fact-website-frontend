@@ -36,11 +36,11 @@ export default function Dashboard() {
         }
     }, [error])
 
-    useEffect(() => {
-        if (!user?.registration || !user.registration.length) {
-            router.push("register");
-        }
-    }, [user])
+    // useEffect(() => {
+    //     if (!user?.registration || !user.registration.length) {
+    //         router.push("register");
+    //     }
+    // }, [user])
 
     return (
         <div>
