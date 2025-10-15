@@ -87,7 +87,7 @@ function WorkshopsContent() {
               placeholder="Search workshops or panels..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-[rgba(250,250,250,0.4)] p-3 pl-10 rounded-md
+              className="w-full bg-[rgba(250,250,250,0.4)] shadow-md p-3 pl-10 rounded-md
                          focus:outline-hidden transition duration-500"
             />
           </div>
@@ -96,7 +96,7 @@ function WorkshopsContent() {
           <select
             value={selectedSession}
             onChange={(e) => setSelectedSession(e.target.value)}
-            className="w-full md:w-1/3 bg-[rgba(250,250,250,0.4)] p-3 rounded-md
+            className="w-full md:w-1/3 bg-[rgba(250,250,250,0.4)] shadow-md p-3 rounded-md
                        focus:outline-hidden transition duration-500 font-semibold font-sans"
           >
             <option value="">All Sessions</option>
