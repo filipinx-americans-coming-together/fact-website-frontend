@@ -6,6 +6,7 @@ import LoadingCircle from "@/components/icons/LoadingCircle";
 import Image from "next/image";
 import { useWorkshop } from "@/hooks/api/useWorkshop";
 import { Suspense, useState } from "react";
+import Link from "next/link";
 
 function extractWorkshopId(slug: string) {
     const parts = slug.split("-");
@@ -32,7 +33,7 @@ type ModalProps = {
 const Modal = ({ children, onClose }: ModalProps) => {
     return (
         <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 md:w-3/4 lg:w-full"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-red-50 md:w-3/4 lg:w-full"
             onClick={onClose}
         >
             <div
@@ -57,6 +58,9 @@ const FacilitatorDetail = ({ facilitator }: { facilitator: Facilitator }) => {
     const [isImageLoading, setIsImageLoading] = useState(true);
 
     return (
+        <div
+            // className="fixed inset-0 z-50 flex items-center justify-center bg-red-50 bg-opacity-50 md:w-3/4 lg:w-full"
+        >
         <div className="relative w-full flex flex-col md:flex-row items-center text-black p-5">
             <div className="relative flex items-center justify-center w-full md:w-1/2 lg:w-1/2">
                 <div className="w-full h-auto max-w-md max-h-[70vh] mx-auto lg:p-8">
@@ -91,6 +95,7 @@ const FacilitatorDetail = ({ facilitator }: { facilitator: Facilitator }) => {
                 <h2 className="mt-4 text-l font-semibold">{facilitator.attending_networking_session ? "STAYING FOR NETWORKING" : null}</h2>
             </div>
         </div>
+        </div>
     );
 };
 
@@ -108,6 +113,7 @@ function WorkshopDetailContent({
     const { workshop, isLoading, error } = useWorkshop({
         id: workshopId ?? 0,
     });
+    console.log(workshopId, workshop, isLoading, error)
 
     const [selectedFacilitator, setSelectedFacilitator] = useState<Facilitator | null>(
         null
@@ -137,31 +143,33 @@ function WorkshopDetailContent({
         );
     }
 
-    const { title, description, session } = workshop.workshop;
+    const { title, description, session, registrationCount } = workshop.workshop;
     const { building, room_num, capacity } = workshop.location;
     const facilitators = workshop.facilitators;
 
-    const sessionLabel = session === 3 ? "Career Panel" : "Workshop";
+    // const sessionLabel = session === 3 ? "Career Panel" : "Workshop";
+    const sessionLabel = "Workshop";
 
     const facilitatorLabel =
-    session === 3
-        ? facilitators.length === 1
-            ? "Panelist"
-            : "Panelists"
-        : facilitators.length === 1
+    // session === 3
+    //     ? facilitators.length === 1
+    //         ? "Panelist"
+    //         : "Panelists"
+    //     : 
+        facilitators.length === 1
         ? "Facilitator"
         : "Facilitators";
 
     return (
-        <PageContainer title={sessionLabel}>
+        <PageContainer title={sessionLabel} background="bg-gradient mask-(--background-image-blurry-3) mask-size-[1400px] mask-top">
             <div className="flex flex-col items-center w-full mx-auto 
-                            p-4 md:p-8 rounded bg-highlight-secondary">
+                            p-4 md:p-8 rounded-2xl bg-[rgba(240,240,240,0.4)] shadow-xl">
                 <h1 className="text-3xl font-bold text-center p-2 md:p-4">{title}</h1>
                 <h1 className="text-2xl font-semibold text-center">Session {session}</h1>
                 <p className="text-lg text-center px-2 py-12">{description}</p>
-                <div className="w-full flex flex-col md:flex-row md:justify-between md:space-x-6 space-y-4 md:space-y-0 text-center">
+                <div className="w-full flex flex-col md:flex-row md:justify-between md:space-x-10 space-y-4 md:space-y-0 text-center">
                     {/** Facilitator/Panelist Details */}
-                    <div className="flex-1 flex flex-col space-y-2 border-2 rounded-sm p-4">
+                    <div className="flex-1 flex flex-col space-y-2 bg-[rgba(255,255,255,0.3)] shadow-lg rounded-lg p-4">
                         <h2 className="text-xl font-semibold">{facilitatorLabel}:</h2>
                         {facilitators.map((facilitator, index) => (
                             <a
@@ -175,11 +183,11 @@ function WorkshopDetailContent({
                     </div>
 
                     {/** Location Details */}
-                    <div className="flex-1 flex flex-col space-y-2 border-2 rounded-sm p-4">
+                    <div className="flex-1 flex flex-col space-y-2 bg-[rgba(255,255,255,0.3)] shadow-lg rounded-lg p-4">
                         <h2 className="text-xl font-semibold">Location</h2>
                         <p>Building: {building}</p>
                         <p>Room: {room_num}</p>
-                        <p>Capacity: {capacity}</p>
+                        <p>Capacity: {registrationCount || '--'} / {capacity}</p>
                     </div>
                 </div>
             </div>
@@ -195,6 +203,7 @@ function WorkshopDetailContent({
                 >
                     &larr; Back
                 </button> */}
+                <Link href='/workshops' className="px-4 py-2 bg-[rgba(255,255,255,0.5)] shadow-md rounded-md hover:shadow-xl">&larr; Back</Link>
             </div>
 
             {selectedFacilitator && (
