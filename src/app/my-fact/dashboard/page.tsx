@@ -15,6 +15,7 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import RegPageContainer from "@/components/formatting/RegPageContainer";
 import { GiGClef } from "react-icons/gi";
+import Link from "next/link";
 
 export default function Dashboard() {
     const { user, isLoading, error } = useUser();
@@ -54,9 +55,11 @@ export default function Dashboard() {
                     )}
                 />
             )} {user.registration && <div className="bg-[rgba(240,240,240,0.3)] py-8 px-12 rounded-xl min-w-9/12 w-fit flex justify-evenly flex-col text-left mx-auto gap-10 md:gap-16">
+
                 <div className="font-bold text-4xl my-2 flex items-center">
                             Welcome, {user.user.first_name} {user.user.last_name} <span className="text-5xl"><GiGClef /></span>
                         </div>
+                        {user.registration.length ? 
                 <div className="flex justify-between flex-col xl:flex-row">
                 <div className="flex flex-col">
                 
@@ -90,7 +93,8 @@ export default function Dashboard() {
                     </div>
                     </div>
                     <UserAgenda/>
-                    </div>
+                    </div> : <Link href="/my-fact/register" className="py-4 px-6 shadow-lg hover:shadow-xl font-bold bg-[rgba(255,255,255,0.3)] rounded-xl w-fit mx-auto text-xl">Register for FACT 2025</Link>
+                     }
                     <div className="mx-auto my-6 w-fit text-background-primary">
                 <InteractiveButton
                     text="Log out"
@@ -99,6 +103,7 @@ export default function Dashboard() {
                         router.push("/");
                     }}
                 />
+                
             </div> </div>}</> : <div className="w-fit mx-auto"><LoadingCircle/></div>}
         
          </RegPageContainer> 
