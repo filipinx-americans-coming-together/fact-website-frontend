@@ -26,7 +26,7 @@ function FormContainer(props: FormProps) {
                 >
                     {props.children}
                     {props.errorMessage && (
-                        <p className="text-red-600">{props.errorMessage}</p>
+                        <p className="text-red-600 text-center">{props.errorMessage}</p>
                     )}
 
                     {props.isLoading ? (

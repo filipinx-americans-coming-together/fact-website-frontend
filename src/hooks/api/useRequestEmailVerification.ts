@@ -13,15 +13,20 @@ async function fetchRequestEmailVerification(email: string): Promise<void> {
         }),
     });
 
-    console.log("Email", email)
+    console.log("response",response.ok);
 
     let json;
 
     try {
         json = await response.json();
     } catch {
-        console.log("JSON", json);
-        throw new Error("Server error, please try again later");
+        // console.log("JSON", json);
+        if (response.type == "cors") {
+            throw new Error("Please disable \"Prevent Cross-Site Tracking\" on your browser and try again")
+        }
+        else {
+            throw new Error("Server error, please try again later");
+        }
     }
 
     if (!response.ok) {
@@ -51,6 +56,7 @@ export function useRequestEmailVerification() {
     });
 
     console.log("isSuccess", isSuccess);
+    console.log("error",error);
 
     return { data, error, isPending, requestVerification, isSuccess };
 }
