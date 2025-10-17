@@ -16,15 +16,15 @@
       "static/chunks/main-app.js",
       "static/chunks/app/not-found.js"
     ],
-    "/workshops/page": [
+    "/team/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/workshops/page.js"
+      "static/chunks/app/team/page.js"
     ],
-    "/workshops/[slug]/page": [
+    "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/workshops/[slug]/page.js"
+      "static/chunks/app/_not-found/page.js"
     ]
   }
 }
