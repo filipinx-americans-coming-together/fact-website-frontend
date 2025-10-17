@@ -36,6 +36,24 @@
         ]
     },
     {
+        "role": "Activity Coordinators",
+        "image": "variety-show.jpg",
+        "officers": [
+            {
+                "name": "Ava Caselli",
+                "bio": "Ava is a sophomore majoring in psychology with a minor in linguistics on the pre-law track. During her time in PSA, she has been an active member of Harana, the singing sub-group, and Barkada, the dancing sub-group. She is also currently on PSA board serving as the Formal co-coordinator. Outside of PSA, she is a member of the Asian Pre-Law Association and the Flippin' Illini Gymnastics Club. She is so excited for FACT and is looking forward to all the fun events planned for Delegate Day!",
+                "pronouns": "she/her",
+                "image": "ava.jpg"
+            },
+            {
+                "name": "Meryl Resurrecion",
+                "bio": "Meryl is currently a senior majoring in Music with a minor in Speech & Hearing Science. She plans to go to graduate school to pursue a career as a speech language pathologist post-graduation. Within PSA, she is an active member of Barkada and Harana, as well as previously serving as one of Harana's co-coordinators last school year. You can also find her drawing graphics for The Daily Illini and singing in Women's Glee Club. She enjoys reading, watching movies, playing sports, hanging on the quad, and playing instruments like piano, guitar, and harmonica. Meryl aspires to make FACT as memorable for everyone as it has been for her.",
+                "pronouns": "she/her",
+                "image": "Meryl.jpg"
+            }
+        ]
+    },
+    {
         "role": "Delegate",
         "image": "delegate.jpg",
         "officers": [
@@ -188,24 +206,6 @@
                 "bio": "Alex is a senior in Information Systems + Management, he plans on going to the Philippines and then getting a Full time position after Graduation. In previous years he worked on PSA board as FCN Coordinator, FACT 2025 MC, Barkada lead at Battle 2025, and a Harana Vocalist. He's also an exec member of Inline Insomniacs, UIUC's night skating club and is an avid longboard dancer. He's very excited for this years FACT and is looking forward to what's in store for this year's V-Show!!",
                 "pronouns": "he/him",
                 "image": "Alex.jpg"
-            }
-        ]
-    },
-    {
-        "role": "Activity Coordinators",
-        "image": "variety-show.jpg",
-        "officers": [
-            {
-                "name": "Ava Caselli",
-                "bio": "Ava is a sophomore majoring in psychology with a minor in linguistics on the pre-law track. During her time in PSA, she has been an active member of Harana, the singing sub-group, and Barkada, the dancing sub-group. She is also currently on PSA board serving as the Formal co-coordinator. Outside of PSA, she is a member of the Asian Pre-Law Association and the Flippin' Illini Gymnastics Club. She is so excited for FACT and is looking forward to all the fun events planned for Delegate Day!",
-                "pronouns": "she/her",
-                "image": "ava.jpg"
-            },
-            {
-                "name": "Meryl Resurrecion",
-                "bio": "Meryl is currently a senior majoring in Music with a minor in Speech & Hearing Science. She plans to go to graduate school to pursue a career as a speech language pathologist post-graduation. Within PSA, she is an active member of Barkada and Harana, as well as previously serving as one of Harana's co-coordinators last school year. You can also find her drawing graphics for The Daily Illini and singing in Women's Glee Club. She enjoys reading, watching movies, playing sports, hanging on the quad, and playing instruments like piano, guitar, and harmonica. Meryl aspires to make FACT as memorable for everyone as it has been for her.",
-                "pronouns": "she/her",
-                "image": "Meryl.jpg"
             }
         ]
     }
