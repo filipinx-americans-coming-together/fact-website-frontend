@@ -40,7 +40,7 @@ export default function Home() {
                             <div className="italic font-normal text-base my-2 sm:text-md md:text-lg lg:text-xl xl:text-2xl">Filipinx Americans Coming Together</div>
                         </div>
                         <div className="font-bold sm:my-6 text-xl text-xl md:text-3xl lg:text-4xl xl:text-5xl">
-                            IPAHAYANG NANG MALAKAS
+                            IPAHAYAG NANG MALAKAS
                             <div className="italic text-base sm:text-lg md:text-xl lg:text-2xl font-normal">
                                 Proclaim Loudly
                             </div>
