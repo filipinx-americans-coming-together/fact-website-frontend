@@ -65,7 +65,7 @@ export default function Register() {
 
         return (
             // <button id="eventbrite-widget-modal-trigger-1817643172659" type="button" className="text-sm text-center text-text-primary w-fit p-4 bg-[rgba(250,250,250,0.3)] shadow-lg rounded-xl hover:scale-105 hover:shadow-xl border-slate-700 border-1">Workshops Only</button>
-            <div id="eventbrite-widget-container-1817643172659"></div>
+            <div id="eventbrite-widget-container-1817643172659"><div className="w-fit mx-auto"><LoadingCircle/></div></div>
         );
     };
 
@@ -87,7 +87,7 @@ export default function Register() {
         }, [loadEB]);
 
         return (
-            <div id="eventbrite-widget-container-1816702820039"></div>
+            <div id="eventbrite-widget-container-1816702820039"><div className="w-fit mx-auto"><LoadingCircle/></div></div>
             // <button id="eventbrite-widget-modal-trigger-1816702820039" type="button" className="text-sm text-center text-text-primary w-fit p-4 bg-[rgba(250,250,250,0.3)] shadow-lg rounded-xl hover:scale-105 hover:shadow-xl border-slate-700 border-1">Workshops + Variety Show Bundle</button>
         );
     };

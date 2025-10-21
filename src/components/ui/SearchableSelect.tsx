@@ -124,7 +124,7 @@ function SearchableSelect<T>({
                         })
                         .map((option) => (
                             <button
-                                className="px-2 py-1 text-left hover:bg-slate-100 bg-white hover:cursor-pointer"
+                                className={`px-2 py-1 text-left ${option.disabled ? "bg-slate-50 text-slate-300" :"hover:bg-slate-100 bg-white hover:cursor-pointer"}`}
                                 key={option.value}
                                 onClick={() => {
                                     setShowOptions(false);
@@ -134,6 +134,7 @@ function SearchableSelect<T>({
                                     }));
                                     setSelected(option.label);
                                 }}
+                                disabled={option.disabled}
                                 type="button"
                             >
                                 <input
@@ -142,7 +143,6 @@ function SearchableSelect<T>({
                                     value={option.value}
                                     id={label + option.value.toString()}
                                     checked={option.label === selected}
-                                    disabled={option.disabled}
                                     hidden
                                     readOnly
                                 />
