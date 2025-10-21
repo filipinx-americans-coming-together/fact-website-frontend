@@ -38,7 +38,7 @@ export default function VarietyShow() {
                 }, [loadEB]);
         
                 return (
-                    <div id="eventbrite-widget-container-1816702820039">{children}</div>
+                    <div id="eventbrite-widget-container-1816702820039"></div>
                     // <button id="eventbrite-widget-modal-trigger-1816702820039" type="button" className="text-sm text-center text-text-primary w-fit p-4 bg-[rgba(250,250,250,0.3)] shadow-lg rounded-xl hover:scale-105 hover:shadow-xl border-slate-700 border-1">Workshops + Variety Show Bundle</button>
                 );
             };
@@ -46,7 +46,7 @@ export default function VarietyShow() {
         <PageContainer title="Variety Show">
             {/* <div>Purchase Variety Show Tickets!</div>
              */}
-            <EventbriteWidget onComplete={() => {<div>Checkout Completed :)</div>}}><div className="w-fit mx-auto"><LoadingCircle/></div></EventbriteWidget>
+            <EventbriteWidget onComplete={() => {<div>Checkout Completed :)</div>}}>{<div className="w-fit mx-auto"><LoadingCircle/></div>}</EventbriteWidget>
         </PageContainer>
     );
 }
