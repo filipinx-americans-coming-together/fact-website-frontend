@@ -20,6 +20,7 @@ export default function VarietyShow() {
 
         const EventbriteWidget = ({ children, onComplete }: { children: ReactNode, onComplete: Function }) => {
             useEffect(() => {
+                console.log("loadEB",loadEB);
                 if (loadEB) {
                     // @ts-ignore
                     try {window.EBWidgets.createWidget({
@@ -45,7 +46,7 @@ export default function VarietyShow() {
         <PageContainer title="Variety Show">
             {/* <div>Purchase Variety Show Tickets!</div>
              */}
-            { loadEB ? <EventbriteWidget onComplete={() => {<div>Checkout Completed :)</div>}}><div className="w-fit mx-auto"><LoadingCircle/></div></EventbriteWidget> : <div className="w-fit mx-auto"><LoadingCircle/></div>}
+            <EventbriteWidget onComplete={() => {<div>Checkout Completed :)</div>}}><div className="w-fit mx-auto"><LoadingCircle/></div></EventbriteWidget>
         </PageContainer>
     );
 }
