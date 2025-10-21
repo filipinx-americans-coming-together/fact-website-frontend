@@ -28,7 +28,7 @@ export default function VarietyShow() {
                     iframeContainerId: 'eventbrite-widget-container-1816702820039',
                     iframeContainerHeight: 800,
                     onOrderComplete: onComplete,
-                    promoCode: 'VSHOWONLY'
+                    // promoCode: 'VSHOWONLY'
                 })} catch {
                     setTimeout(()=>{setLoadEB(true)}, 3000);
                 }
@@ -45,7 +45,7 @@ export default function VarietyShow() {
         <PageContainer title="Variety Show">
             {/* <div>Purchase Variety Show Tickets!</div>
              */}
-            { loadEB ? <EventbriteWidget onComplete={() => {}}><div className="w-fit mx-auto"><LoadingCircle/></div></EventbriteWidget> : <div className="w-fit mx-auto"><LoadingCircle/></div>}
+            { loadEB ? <EventbriteWidget onComplete={() => {<div>Checkout Completed :)</div>}}><div className="w-fit mx-auto"><LoadingCircle/></div></EventbriteWidget> : <div className="w-fit mx-auto"><LoadingCircle/></div>}
         </PageContainer>
     );
 }
