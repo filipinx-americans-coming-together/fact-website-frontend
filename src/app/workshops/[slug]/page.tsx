@@ -187,7 +187,7 @@ function WorkshopDetailContent({
                         <h2 className="text-xl font-semibold">Location</h2>
                         <p>Building: {building}</p>
                         <p>Room: {room_num}</p>
-                        <p>Capacity: {registrationCount || '--'} / {capacity}</p>
+                        <p className={`${registrationCount < 0.9*capacity ? "hidden" : "font-medium italic"}`}>{(registrationCount < capacity ? "Low Seats": "Full")}</p>
                     </div>
                 </div>
             </div>

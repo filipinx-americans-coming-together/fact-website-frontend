@@ -7,10 +7,13 @@ import { useAdminUser } from "@/hooks/api/useAdminUser";
 import LoadingCircle from "@/components/icons/LoadingCircle";
 import ForbiddenPage from "@/components/formatting/ForbiddenPage";
 import Navbar from "../components/Navbar";
+import { useLocations } from "@/hooks/api/useLocations";
+import { LocationData } from "@/util/types";
 
 export default function Workshops() {
     const { user, isLoading } = useAdminUser();
     const { workshops } = useWorkshops();
+    const { locations, isLoading: isLoadingLocs, error: errorLocs } = useLocations();
     const { uploadWorkshops, error, isPending } = useUploadWorkshops();
 
     if (isLoading) {
@@ -57,16 +60,20 @@ export default function Workshops() {
                                                     workshop.session ==
                                                     sessionNum
                                             )
-                                            .map((workshop) => (
+                                            .map((workshop) => {
+                                                const loc = locations?.filter((location: LocationData) => location.id == workshop.location)[0];
+                                                return (
                                                 <li
                                                     key={
                                                         workshop.title +
                                                         workshop.session
                                                     }
                                                 >
-                                                    {workshop.title}
-                                                </li>
-                                            ))}
+                                                    <div className="font-bold">{workshop.title}</div>
+                                                    {loc &&<div className="pl-4">Location: {loc.building} {loc.room_num}</div>}
+                                                    <div className="pl-4">Capacity: {workshop.registrationCount} / {loc?.capacity}</div>
+                                                </li>);
+                                            })}
                                 </ul>
                                 <br />
                             </div>
