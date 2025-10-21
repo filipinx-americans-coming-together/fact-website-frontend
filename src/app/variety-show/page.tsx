@@ -46,7 +46,7 @@ export default function VarietyShow() {
         <PageContainer title="Variety Show">
             {/* <div>Purchase Variety Show Tickets!</div>
              */}
-            <EventbriteWidget onComplete={() => {<div>Checkout Completed :)</div>}}>{<div className="w-fit mx-auto"><LoadingCircle/></div>}</EventbriteWidget>
+            <EventbriteWidget onComplete={() => {console.log("Checkout Completed :)")}}>{<div className="w-fit mx-auto"><LoadingCircle/></div>}</EventbriteWidget>
         </PageContainer>
     );
 }
