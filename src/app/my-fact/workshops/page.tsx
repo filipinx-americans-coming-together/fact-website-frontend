@@ -57,6 +57,7 @@ export default function Workshops() {
                         <WorkshopSelect
                             session={1}
                             id="workshop_1_id"
+                            userRegistration={user.registration}
                             setState={setFormData}
                             defaultValue={user.registration[0].workshop.toString()}
                             required={false}
@@ -64,6 +65,7 @@ export default function Workshops() {
                         <WorkshopSelect
                             session={2}
                             id="workshop_2_id"
+                            userRegistration={user.registration}
                             setState={setFormData}
                             defaultValue={user.registration[1].workshop.toString()}
                             required={false}
@@ -71,6 +73,7 @@ export default function Workshops() {
                         <WorkshopSelect
                             session={3}
                             id="workshop_3_id"
+                            userRegistration={user.registration}
                             setState={setFormData}
                             defaultValue={user.registration[2].workshop.toString()}
                             required={false}

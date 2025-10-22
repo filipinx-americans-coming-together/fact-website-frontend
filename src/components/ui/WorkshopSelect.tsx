@@ -1,4 +1,4 @@
-import { LocationData, WorkshopData } from "@/util/types";
+import { LocationData, RegistrationData, WorkshopData } from "@/util/types";
 import { useWorkshops } from "@/hooks/api/useWorkshops";
 import SearchableSelect from "./SearchableSelect";
 import LoadingCircle from "../icons/LoadingCircle";
@@ -7,6 +7,7 @@ import { useLocations } from "@/hooks/api/useLocations";
 interface WorkshopSelectProps {
     id: string;
     session: number;
+    userRegistration?: RegistrationData[];
     setState: (state: Object) => void;
     defaultValue?: string;
     required?: boolean;
@@ -25,6 +26,7 @@ const session_labels = [ "Awareness Workshops", "Personal Growth Workshops", "Pr
 function WorkshopSelect({
     id,
     session,
+    userRegistration,
     setState,
     defaultValue,
     required = true,
@@ -58,10 +60,11 @@ function WorkshopSelect({
                     )
                     .map((workshop) => {
                         const loc = locations?.filter((location: LocationData) => location.id == workshop.location)[0]
+                        // console.log(workshop.title, userRegistration?.length && userRegistration[session-1].workshop !== workshop.id )
                         return {
                             label: `${workshop.title} ${loc?.capacity ? (workshop.registrationCount >= 0.9*loc.capacity ? (workshop.registrationCount >= loc.capacity ? "(Full)" : "(Low Seats)"): "") : ""}`,
                             value: workshop.id.toString(),
-                            disabled: loc?.capacity ? (workshop.registrationCount >= loc.capacity) : false
+                            disabled: loc?.capacity ? (workshop.registrationCount >= loc.capacity && (userRegistration?.length ? userRegistration[session-1].workshop !== workshop.id : true)) : false
                         };
                     })}
             />

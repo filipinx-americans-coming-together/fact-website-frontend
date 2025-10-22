@@ -5,7 +5,6 @@ import Navbar from "@/components/navigation/Navbar";
 import SchoolSelect from "@/components/ui/SchoolSelect";
 import Select from "@/components/ui/Select";
 import TextInput from "@/components/ui/TextInput";
-import WorkshopSelect from "@/components/ui/WorkshopSelect";
 
 import { registrationProps, useRegister } from "@/hooks/api/useRegister";
 import { useEffect, useState } from "react";
