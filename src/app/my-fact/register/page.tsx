@@ -102,20 +102,20 @@ export default function Register() {
         code: "",
     });
 
-    useEffect(() => {
-        if (isSuccess) {
-            router.push("/my-fact/dashboard");
-        }
-    }, [isSuccess])
-    useEffect(() => {
-        if (userError) {
-            router.push("/my-fact/login")
-        }
-        if (user?.registration?.length) {
-            router.push("/my-fact/dashboard")
-            console.log("user", user)
-        }
-    }, [userError, user])
+    // useEffect(() => {
+    //     if (isSuccess) {
+    //         router.push("/my-fact/dashboard");
+    //     }
+    // }, [isSuccess])
+    // useEffect(() => {
+    //     if (userError) {
+    //         router.push("/my-fact/login")
+    //     }
+    //     if (user?.registration?.length) {
+    //         router.push("/my-fact/dashboard")
+    //         console.log("user", user)
+    //     }
+    // }, [userError, user])
 
     return (
         <RegPageContainer>
