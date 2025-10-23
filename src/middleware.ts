@@ -9,6 +9,15 @@ export async function middleware(request: NextRequest) {
     if (request.nextUrl.pathname.startsWith("/refund") || request.nextUrl.pathname.startsWith("/registration-closed")) {
         return NextResponse.rewrite(new URL('/not-found', request.url));
     }
+
+    if (
+        request.nextUrl.pathname === "/my-fact/register" ||
+        request.nextUrl.pathname === "/my-fact/login" ||            // add any others you want public
+        request.nextUrl.pathname === "/registration-closed"         // keep this reachable if you link to it
+      ) {
+        return NextResponse.next();
+      }
+
     
     // intercept all pages that use accounts
     // return NextResponse.redirect(new URL('/registration-closed', request.url));
