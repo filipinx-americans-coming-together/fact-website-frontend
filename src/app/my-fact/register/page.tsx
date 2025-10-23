@@ -21,6 +21,7 @@ import LinkButton from "@/components/ui/LinkButton";
 import LoadingCircle from "@/components/icons/LoadingCircle";
 import { useUser } from "@/hooks/api/useUser";
 import InteractiveButton from "@/components/ui/InteractiveButton";
+import { PiArrowElbowRightDownBold } from "react-icons/pi";
 
 export default function Register() {
     const { register, isSuccess, isPending, error } = useRegister();
@@ -78,7 +79,8 @@ export default function Register() {
             eventId: '1816702820039',
             iframeContainerId: 'eventbrite-widget-container-1816702820039',
             iframeContainerHeight: 800,
-            onOrderComplete: onComplete
+            onOrderComplete: onComplete,
+            promoCode: "VSHOWBUNDLE"
         })} catch {
             setTimeout(()=>{setLoadEB(true)}, 3000);
         }
@@ -276,7 +278,7 @@ export default function Register() {
                             setCheckoutComplete(true);
                         }}/> : 
                         
-                        <div><div className="text-sm"> For Variety Show, you will not have to sit in your assigned seat (row & number), but you will have to sit in your assigned section (1-4). Please choose the seat for your ticket accordingly. The entire seat map of the Foellinger Auditorium floor is detailed for your visualization</div><br/><EventbriteWidgetBnd onComplete={() => {
+                        <div><div className="text-sm"> For Variety Show, you will not have to sit in your assigned seat (row & number), but you will have to sit in your assigned section (1-4). Please choose the seat for your ticket accordingly. The entire seat map of the Foellinger Auditorium floor is detailed for your visualization</div><br/><div className="w-fit mx-auto text-sm text-slate-700 flex gap-1 items-center text-center">Have a promo code? You must click remove then add the code <PiArrowElbowRightDownBold /></div><br/><EventbriteWidgetBnd onComplete={() => {
                             setCheckoutComplete(true);
                         }}/></div>} </div>
                     : <div className="w-fit mx-auto"><LoadingCircle/></div>}</div>
