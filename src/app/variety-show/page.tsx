@@ -49,8 +49,8 @@ export default function VarietyShow() {
 
   return (
     <PageContainer title="Variety Show">
-      {initializedRef.current ? <div className="text-center text-sm text-slate-700">Have a different promo code? You must click remove then add the code <PiArrowElbowRightDownBold /></div> : <div className="w-fit mx-auto mb-4"><LoadingCircle /></div>}
-      <div id={containerId}></div>
+      <div className="text-center text-sm text-slate-700">Have a different promo code? You must click remove then add the code <PiArrowElbowRightDownBold /></div>
+      <div id={containerId}><div className="w-fit mx-auto mb-4"><LoadingCircle /></div></div>
       <Script
         src="https://www.eventbrite.com/static/widgets/eb_widgets.js"
         strategy="afterInteractive"
