@@ -29,7 +29,7 @@ export default function VarietyShow() {
         iframeContainerId: containerId,
         iframeContainerHeight: 800,
         onOrderComplete: () => console.log("Checkout Completed :)"),
-        // promoCode: "VSHOWONLY"
+        promoCode: "VSHOWONLY"
       });
       initializedRef.current = true;
       console.log("Eventbrite widget initialized");
