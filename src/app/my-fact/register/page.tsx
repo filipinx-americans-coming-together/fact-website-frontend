@@ -21,6 +21,7 @@ import LinkButton from "@/components/ui/LinkButton";
 import LoadingCircle from "@/components/icons/LoadingCircle";
 import { useUser } from "@/hooks/api/useUser";
 import InteractiveButton from "@/components/ui/InteractiveButton";
+import { PiArrowElbowRightDownBold } from "react-icons/pi";
 
 export default function Register() {
     const { register, isSuccess, isPending, error } = useRegister();
@@ -65,7 +66,7 @@ export default function Register() {
 
         return (
             // <button id="eventbrite-widget-modal-trigger-1817643172659" type="button" className="text-sm text-center text-text-primary w-fit p-4 bg-[rgba(250,250,250,0.3)] shadow-lg rounded-xl hover:scale-105 hover:shadow-xl border-slate-700 border-1">Workshops Only</button>
-            <div id="eventbrite-widget-container-1817643172659"></div>
+            <div id="eventbrite-widget-container-1817643172659"><div className="w-fit mx-auto mb-4"><LoadingCircle /></div></div>
         );
     };
 
@@ -88,7 +89,7 @@ export default function Register() {
         }, [loadEB]);
 
         return (
-            <div id="eventbrite-widget-container-1816702820039"></div>
+            <div id="eventbrite-widget-container-1816702820039"><div className="w-fit mx-auto mb-4"><LoadingCircle /></div></div>
             // <button id="eventbrite-widget-modal-trigger-1816702820039" type="button" className="text-sm text-center text-text-primary w-fit p-4 bg-[rgba(250,250,250,0.3)] shadow-lg rounded-xl hover:scale-105 hover:shadow-xl border-slate-700 border-1">Workshops + Variety Show Bundle</button>
         );
     };
@@ -107,15 +108,15 @@ export default function Register() {
             router.push("/my-fact/dashboard");
         }
     }, [isSuccess])
-    useEffect(() => {
-        if (userError) {
-            router.push("/my-fact/login")
-        }
-        if (user?.registration?.length) {
-            router.push("/my-fact/dashboard")
-            console.log("user", user)
-        }
-    }, [userError, user])
+    // useEffect(() => {
+    //     if (userError) {
+    //         router.push("/my-fact/login")
+    //     }
+    //     if (user?.registration?.length) {
+    //         router.push("/my-fact/dashboard")
+    //         console.log("user", user)
+    //     }
+    // }, [userError, user])
 
     return (
         <RegPageContainer>
@@ -277,7 +278,7 @@ export default function Register() {
                             setCheckoutComplete(true);
                         }}/> : 
                         
-                        <div><div className="text-sm"> For Variety Show, you will not have to sit in your assigned seat (row & number), but you will have to sit in your assigned section (1-4). Please choose the seat for your ticket accordingly. The entire seat map of the Foellinger Auditorium floor is detailed for your visualization</div><br/><EventbriteWidgetBnd onComplete={() => {
+                        <div><div className="text-sm"> For Variety Show, you will not have to sit in your assigned seat (row & number), but you will have to sit in your assigned section (1-4). Please choose the seat for your ticket accordingly. The entire seat map of the Foellinger Auditorium floor is detailed for your visualization</div><br/><div className="w-fit mx-auto text-sm text-slate-700 flex gap-1 items-center">Have a promo code? You must click remove then add the code <PiArrowElbowRightDownBold /></div><br/><EventbriteWidgetBnd onComplete={() => {
                             setCheckoutComplete(true);
                         }}/></div>} </div>
                     : <div className="w-fit mx-auto"><LoadingCircle/></div>}</div>
