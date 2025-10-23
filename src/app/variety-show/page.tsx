@@ -59,6 +59,7 @@ export default function VarietyShow() {
   return (
     <PageContainer title="Variety Show">
       <div className="w-fit mx-auto text-sm flex gap-1 items-center text-center"> For Variety Show, you will not have to sit in your assigned seat (row & number), but you will have to sit in your assigned section (1-4). Please choose the seat for your ticket accordingly. The entire seat map of the Foellinger Auditorium floor is detailed for your visualization</div>
+      <br></br>
       <div className="w-fit mx-auto text-sm text-slate-700 flex gap-1 items-center text-center">
         Have a promo code? You must click remove then add the code{" "}
         <PiArrowElbowRightDownBold />
