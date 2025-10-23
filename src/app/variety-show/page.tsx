@@ -48,7 +48,7 @@ export default function VarietyShow() {
 
   return (
     <PageContainer title="Variety Show">
-      <div>{initializedRef ? <div className="w-fit mx-auto mb-4"><LoadingCircle /></div> : <div className="text-center text-sm text-slate-700">Have a different promo code? You must click remove then add the code</div>}</div>
+      <div>{initializedRef.current ? <div className="text-center text-sm text-slate-700">Have a different promo code? You must click remove then add the code</div> : <div className="w-fit mx-auto mb-4"><LoadingCircle /></div>}</div>
       <div id={containerId}></div>
       <Script
         src="https://www.eventbrite.com/static/widgets/eb_widgets.js"
