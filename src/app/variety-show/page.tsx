@@ -5,6 +5,7 @@ import LoadingCircle from "@/components/icons/LoadingCircle";
 import { init } from "next/dist/compiled/webpack/webpack";
 import Script from "next/script";
 import { useEffect, useRef } from "react";
+import { PiArrowElbowRightDownBold } from "react-icons/pi";
 
 export default function VarietyShow() {
   const containerId = "eventbrite-widget-container-1816702820039";
@@ -48,7 +49,7 @@ export default function VarietyShow() {
 
   return (
     <PageContainer title="Variety Show">
-      <div>{initializedRef.current ? <div className="text-center text-sm text-slate-700">Have a different promo code? You must click remove then add the code</div> : <div className="w-fit mx-auto mb-4"><LoadingCircle /></div>}</div>
+      {initializedRef.current ? <div className="text-center text-sm text-slate-700">Have a different promo code? You must click remove then add the code <PiArrowElbowRightDownBold /></div> : <div className="w-fit mx-auto mb-4"><LoadingCircle /></div>}
       <div id={containerId}></div>
       <Script
         src="https://www.eventbrite.com/static/widgets/eb_widgets.js"
