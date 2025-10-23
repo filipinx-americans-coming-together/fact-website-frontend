@@ -49,7 +49,8 @@ export default function VarietyShow() {
 
   return (
     <PageContainer title="Variety Show">
-      <div className="w-fit mx-auto text-sm text-slate-700 flex gap-1 items-center">Have a promo code? You must click remove then add the code <PiArrowElbowRightDownBold /></div>
+      <div className="w-fit mx-auto text-sm text-slate-700 flex gap-1 items-center text-center">Have a promo code? You must click remove then add the code <PiArrowElbowRightDownBold /></div>
+      <br/>
       <div id={containerId}><div className="w-fit mx-auto mb-4"><LoadingCircle /></div></div>
       <Script
         src="https://www.eventbrite.com/static/widgets/eb_widgets.js"
