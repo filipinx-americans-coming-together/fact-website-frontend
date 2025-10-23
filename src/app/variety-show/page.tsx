@@ -1,52 +1,59 @@
-'use client'
+'use client';
+
 import PageContainer from "@/components/formatting/PageContainer";
 import LoadingCircle from "@/components/icons/LoadingCircle";
-import { ReactNode, useEffect, useState } from "react";
+import Script from "next/script";
+import { useEffect, useRef } from "react";
 
 export default function VarietyShow() {
-    const [loadEB, setLoadEB] = useState(false);
-    const loadEventbriteScript = () => {
-            const script = document.createElement("script");
-            script.src = "https://www.eventbrite.com/static/widgets/eb_widgets.js";
-            script.async = true;
-            document.head.appendChild(script);
-            console.log('eventbrite script loaded')
-            setLoadEB(true);
-        };
-    
-        useEffect(() => {
-            loadEventbriteScript();
-        })
+  const containerId = "eventbrite-widget-container-1816702820039";
+  const initializedRef = useRef(false);
 
-        const EventbriteWidget = ({ children, onComplete }: { children: ReactNode, onComplete: Function }) => {
-            useEffect(() => {
-                console.log("loadEB",loadEB);
-                if (loadEB) {
-                    // @ts-ignore
-                    try {window.EBWidgets.createWidget({
-                    widgetType: 'checkout',
-                    eventId: '1816702820039',
-                    iframeContainerId: 'eventbrite-widget-container-1816702820039',
-                    iframeContainerHeight: 800,
-                    onOrderComplete: onComplete,
-                    // promoCode: 'VSHOWONLY'
-                })} catch {
-                    setTimeout(()=>{setLoadEB(true)}, 3000);
-                }
-                } 
-                    
-                }, [loadEB]);
-        
-                return (
-                    <div id="eventbrite-widget-container-1816702820039"></div>
-                    // <button id="eventbrite-widget-modal-trigger-1816702820039" type="button" className="text-sm text-center text-text-primary w-fit p-4 bg-[rgba(250,250,250,0.3)] shadow-lg rounded-xl hover:scale-105 hover:shadow-xl border-slate-700 border-1">Workshops + Variety Show Bundle</button>
-                );
-            };
-    return(
-        <PageContainer title="Variety Show">
-            {/* <div>Purchase Variety Show Tickets!</div>
-             */}
-            <EventbriteWidget onComplete={() => {console.log("Checkout Completed :)")}}>{<div className="w-fit mx-auto"><LoadingCircle/></div>}</EventbriteWidget>
-        </PageContainer>
-    );
+  const tryCreateWidget = () => {
+    if (initializedRef.current) return;
+    if (typeof window === "undefined") return;
+    // @ts-ignore
+    if (!window.EBWidgets) return;
+
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    // Clear any previous iframes if navigating back-and-forth.
+    container.innerHTML = "";
+
+    try {
+      // @ts-ignore
+      window.EBWidgets.createWidget({
+        widgetType: "checkout",
+        eventId: "1816702820039",
+        iframeContainerId: containerId,
+        iframeContainerHeight: 800,
+        onOrderComplete: () => console.log("Checkout Completed :)"),
+        // promoCode: "VSHOWONLY"
+      });
+      initializedRef.current = true;
+      console.log("Eventbrite widget initialized");
+    } catch (e) {
+      console.warn("EBWidgets available but createWidget failed, retrying…", e);
+    }
+  };
+
+  // As a backup, poll briefly after mount until EBWidgets exists.
+  useEffect(() => {
+    const id = setInterval(tryCreateWidget, 200);
+    setTimeout(() => clearInterval(id), 5000); // stop after 5s
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <PageContainer title="Variety Show">
+      <div className="w-fit mx-auto mb-4"><LoadingCircle /></div>
+      <div id={containerId} />
+      <Script
+        src="https://www.eventbrite.com/static/widgets/eb_widgets.js"
+        strategy="afterInteractive"
+        onLoad={tryCreateWidget}
+      />
+    </PageContainer>
+  );
 }
