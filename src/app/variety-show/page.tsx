@@ -2,6 +2,7 @@
 
 import PageContainer from "@/components/formatting/PageContainer";
 import LoadingCircle from "@/components/icons/LoadingCircle";
+import { init } from "next/dist/compiled/webpack/webpack";
 import Script from "next/script";
 import { useEffect, useRef } from "react";
 
@@ -47,7 +48,8 @@ export default function VarietyShow() {
 
   return (
     <PageContainer title="Variety Show">
-      <div id={containerId}><div className="w-fit mx-auto mb-4"><LoadingCircle /></div></div>
+      <div>{initializedRef ? <div className="w-fit mx-auto mb-4"><LoadingCircle /></div> : <div className="text-center text-sm text-slate-700">Have a different promo code? You must click remove then add the code</div>}</div>
+      <div id={containerId}></div>
       <Script
         src="https://www.eventbrite.com/static/widgets/eb_widgets.js"
         strategy="afterInteractive"
