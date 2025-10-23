@@ -47,6 +47,7 @@ export default function VarietyShow() {
 
   return (
     <PageContainer title="Variety Show">
+      <div className="text-center">Purchase Variety Show Tickets!</div>
       <div className="w-fit mx-auto mb-4"><LoadingCircle /></div>
       <div id={containerId} />
       <Script
