@@ -47,9 +47,7 @@ export default function VarietyShow() {
 
   return (
     <PageContainer title="Variety Show">
-      <div className="text-center">Purchase Variety Show Tickets!</div>
-      <div className="w-fit mx-auto mb-4"><LoadingCircle /></div>
-      <div id={containerId} />
+      <div id={containerId}><div className="w-fit mx-auto mb-4"><LoadingCircle /></div></div>
       <Script
         src="https://www.eventbrite.com/static/widgets/eb_widgets.js"
         strategy="afterInteractive"
