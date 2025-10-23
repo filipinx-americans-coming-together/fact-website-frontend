@@ -78,7 +78,8 @@ export default function Register() {
             eventId: '1816702820039',
             iframeContainerId: 'eventbrite-widget-container-1816702820039',
             iframeContainerHeight: 800,
-            onOrderComplete: onComplete
+            onOrderComplete: onComplete,
+            promoCode: "VSHOWBUNDLE"
         })} catch {
             setTimeout(()=>{setLoadEB(true)}, 3000);
         }

@@ -35,9 +35,9 @@ export async function middleware(request: NextRequest) {
     // }
 
     // hide registration related pages
-    if (request.nextUrl.pathname == "/my-fact"){
-        return NextResponse.redirect(new URL('/', request.url));
-    }
+    // if (request.nextUrl.pathname == "/my-fact"){
+    //     return NextResponse.redirect(new URL('/', request.url));
+    // }
 }
 
 export const config = {
