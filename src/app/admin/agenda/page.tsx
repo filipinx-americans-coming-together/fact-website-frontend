@@ -72,6 +72,8 @@ export default function Agenda() {
                     )}
 
                     <div className="mx-auto rounded-sm bg-gray-300 p-6 w-fit">
+                        {/* TODO: make session not required for adding agenda item */}
+                        <div className="hidden">
                         <FormContainer
                             formName="newAgendaItem"
                             submitText="Add"
@@ -117,11 +119,13 @@ export default function Agenda() {
                                     label="Building"
                                     id="building"
                                     setState={setFormData}
+                                    required={false}
                                 />
                                 <TextInput
                                     label="Room Number"
                                     id="room_num"
                                     setState={setFormData}
+                                    required={false}
                                 />
                                 <DateTimeInput
                                     label="Start Time"
@@ -135,9 +139,10 @@ export default function Agenda() {
                                 />
                             </div>
                         </FormContainer>
+                        </div>
                         <br />
-                        {/* TODO assumes agenda is only friday/saturday rn */}
-                        <h1 className="text-left">Friday, December 6</h1>
+                        {/* TODO hard-coded conference dates rn */}
+                        <h1 className="text-left">Friday, November 14</h1>
                         <br />
                         <AgendaList
                             displayItems={
@@ -152,7 +157,7 @@ export default function Agenda() {
 
                         <br />
                         <br />
-                        <h1 className="text-left">Saturday, December 7</h1>
+                        <h1 className="text-left">Saturday, November 15</h1>
                         <br />
                         <AgendaList
                             displayItems={
@@ -160,6 +165,20 @@ export default function Agenda() {
                                     ? agendaItems.filter((item) => {
                                           const asDate = item.start_time;
                                           return asDate.getDay() === 6;
+                                      })
+                                    : []
+                            }
+                        />
+                        <br />
+                        <br />
+                        <h1 className="text-left">Sunday, November 16</h1>
+                        <br />
+                        <AgendaList
+                            displayItems={
+                                agendaItems
+                                    ? agendaItems.filter((item) => {
+                                          const asDate = item.start_time;
+                                          return asDate.getDay() === 7;
                                       })
                                     : []
                             }

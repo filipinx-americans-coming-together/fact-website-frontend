@@ -13,18 +13,18 @@ export default function DangerZone() {
     const { updateFlag } = useUpdateFlag();
 
     const toggleableFlags = [
-        {
-            title: "Registration",
-            isEnabled: registrationOpen?.value,
-            description:
-                "When registration is enabled, delegates are able to create accounts and register for workshops. When registration is disabled, new delegates can not register for workshops, but already registered delegates can change their workshops.",
-            toggle: () => {
-                updateFlag({
-                    label: "registration",
-                    value: !registrationOpen?.value,
-                });
-            },
-        },
+        // {
+        //     title: "Registration",
+        //     isEnabled: registrationOpen?.value,
+        //     description:
+        //         "When registration is enabled, delegates are able to create accounts and register for workshops. When registration is disabled, new delegates can not register for workshops, but already registered delegates can change their workshops.",
+        //     toggle: () => {
+        //         updateFlag({
+        //             label: "registration",
+        //             value: !registrationOpen?.value,
+        //         });
+        //     },
+        // },
         {
             title: "Workshop Changes",
             isEnabled: workshopsChangeable?.value,
