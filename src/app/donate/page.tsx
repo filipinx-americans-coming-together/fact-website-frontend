@@ -32,8 +32,8 @@ export default function Donate() {
                     <iframe
                         width="560"
                         height="315"
-                        src="https://www.youtube.com/embed/I0ZY8nz8XfI?si=8IJxQXv1HICBv5PX&autoplay=1&mute=1&loop=1&cc_load_policy=1"
-                        title="FACT 2024 Promotional Video"
+                        src="https://www.youtube.com/embed/9sv1-QLe6-c?si=OMRxwCkYMnbhrINC&autoplay=1&mute=1&loop=1&cc_load_policy=1"
+                        title="FACT 2025 Promotional Video"
                         frameBorder="0"
                     />
                     <br />
