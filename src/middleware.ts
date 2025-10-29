@@ -14,27 +14,27 @@ export async function middleware(request: NextRequest) {
     // return NextResponse.redirect(new URL('/registration-closed', request.url));
 
     // // get flags
-    // let flags: ResponseData<{ label: string; value: boolean }>[];
+    let flags: ResponseData<{ label: string; value: boolean }>[];
 
-    // try {
-    //     let response = await fetch(`${API_URL}/fact-admin/flags/`);
-    //     flags = await response.json();
-    // } catch {
-    //     return NextResponse.error();
-    // }
+    try {
+        let response = await fetch(`${API_URL}/fact-admin/flags/`);
+        flags = await response.json();
+    } catch {
+        return NextResponse.error();
+    }
 
-    // // workshop changes
-    // if (request.nextUrl.pathname.startsWith("/my-fact/workshops")) {
-    //     const workshopChanges = flags.find(
-    //         (flag) => flag.fields.label === "workshop-changes"
-    //     );
+    // workshop changes
+    if (request.nextUrl.pathname.startsWith("/my-fact/workshops")) {
+        const workshopChanges = flags.find(
+            (flag) => flag.fields.label === "workshop-changes"
+        );
 
-    //     if (!workshopChanges || !workshopChanges?.fields.value) {
-    //         return NextResponse.error();
-    //     }
-    // }
+        if (!workshopChanges || !workshopChanges?.fields.value) {
+            return NextResponse.error();
+        }
+    }
 
-    // hide registration related pages
+    // // hide registration related pages
     // if (request.nextUrl.pathname == "/my-fact"){
     //     return NextResponse.redirect(new URL('/', request.url));
     // }
@@ -44,8 +44,8 @@ export const config = {
     matcher: [
         "/refund", "/registration-closed",
         "/my-fact/:path*",
-        "/workshops/:path*",
-        "/facilitators/:path*",
-        "/admin/:path*",
+        // "/workshops/:path*",
+        // "/facilitators/:path*",
+        // "/admin/:path*",
     ],
 };

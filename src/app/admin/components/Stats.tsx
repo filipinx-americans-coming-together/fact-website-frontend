@@ -35,7 +35,8 @@ export default function Stats() {
                 </div>
             </div>
             <br />
-            <RegistrationChart dates={summary.registrations} />
+            {/* TODO: display registrations including returning users */}
+            {/* <RegistrationChart dates={summary.registrations} /> */}
         </>
     );
 }

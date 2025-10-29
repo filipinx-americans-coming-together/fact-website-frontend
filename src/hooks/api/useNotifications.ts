@@ -24,7 +24,7 @@ async function fetchNotifications(): Promise<NotificationData[]> {
         throw new Error(message);
     }
 
-    json = await fetch('./static-data/notifications.json').then(r=>r.json());
+    // json = await fetch('./static-data/notifications.json').then(r=>r.json());
 
     const formatted_data = json.map(
         (
