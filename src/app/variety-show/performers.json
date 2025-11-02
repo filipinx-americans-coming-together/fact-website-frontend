@@ -1,9 +1,15 @@
 [
     {
+        "name": "FSA Tropang Pinoy",
+        "description": "SLU FSA’s audition-based dance group from Saint Louis, Missouri, is made up of the best dancers in our organization. Our group, Tropang Pinoy, which means Filipino troupe,  focuses on blending modern dance styles with traditional Filipino heritage. This more concise group works hard to perform complex and engaging choreography. In the past, our organization has experience performing in similar events to FACT such as MFAS 2024.",
+        "performance": "For this performance, we want to proudly show our Filipino roots through dance. We start with the traditional Maglalatik to honor where we come from and the history behind it. Then, we switch things up with a modern version of Maglalatik to show how our culture has grown and changed over time. We also took inspiration from BINI, a popular Filipino P-pop group, to incorporate more modern aspects of Filipino culture; furthermore, we plan to push boundaries by including modern dances that represent the American part of our identities. This performance represents the experiences of Filipino Americans while implementing the cultural traditions of the Philippines.",
+        "img": "Tropang.jpg"
+    },
+    {
         "name": "FIA Modern",
         "description":"FIA Modern is a collegiate dance team and subgroup under Filipinos in Alliance at the University of Illinois Chicago. This team is composed of talented dancers with a passion for improving themselves and their team. FIA Modern's main goal is to achieve growth as dancers and as individuals - and most importantly have fun as a team. We have weekly practices, work with choreographers from all over Chicago, and perform at events all over Illinois.",
         "performance": "We will be performing a four to five minute hip-hop set. We are a collegiate dance group under Filipinos in Alliance and are dedicated to creating a community for all dancers no matter what ethnicity they may be. We want to perform at FACT V-Show to showcase to our fellow Filipino community our hard work beyond UIC",
-        "img": ""
+        "img": "Modern.jpg"
     },
     {
         "name": "FSA IU Performers",
@@ -12,46 +18,40 @@
         "img": ""
     },
     {
-        "name": "FSA Tropang Pinoy",
-        "description": "",
-        "performance": "",
-        "img": ""
-    },
-    {
         "name": "PSA Harana",
         "description": "Harana is PSA’s music performance group at the University of Illinois at Urbana-Champaign, open to all vocalists and instrumentalists passionate about sharing Filipinx music and culture. We arrange and perform songs in Tagalog and English for events across and beyond campus, blending tradition and modern music with creative expression. More than just a performance group, Harana is a welcoming space where members grow musically, find a second family, and make unforgettable memories. Whether you’re a seasoned performer or just discovering your passion as a musician, there’s a place for everyone— in every lyric, and every stage we step on together.",
         "performance": "This medley was built around one central emotion: yearning. Each song captures a different facet of longing for somebody— from the hopeful mentions of new love in “Tibok,” to the painful distance in “Namimiss Ko Na,” and the desire for forever in “Old With You” and “Ikaw Lamang.” This feeling of yearning reflects the essence of Harana, not just in name but in spirit. Traditionally, harana is a form of courtship, where one would serenade their beloved, expressing what words alone could not. That same tenderness and vulnerability are what we hope to depict in this performance. Through heartfelt lyrics, harmonies, and instrumentation, we want to honor the history of harana as a cultural practice, while also highlighting space for our generation to express love, admiration, and connection through music. Through blending old traditions with new, our medley becomes a modern love letter to both heritage and emotion.",
-        "img": ""
+        "img": "Harana.jpg"
     },
     {
         "name": "FIA Liwan",
         "description": "FIA’Liwan is a musical subgroup under UIC’s Filipino organization, Filipinos in Alliance (FIA). The name is derived from the Tagalog word “aliwan”, meaning 'entertainment,' reflecting our goal to uplift and share Filipino culture through OPM while fostering meaningful connections.",
         "performance": "We will be performing a 7-8 to minute medley showcasing the sound of the Philippines, from old to new, and the feelings they can convey. Our performance is not just a showcase of songs, but a journey through the emotions and stories that make up our cultural identity. By bringing these sounds to the stage, we hope to foster appreciation, spark curiosity, and build connections through the universal language of music. It would be an honor to perform again for FACT V-Show!",
-        "img": ""
+        "img": "Liwan.jpg"
     },
     {
         "name": "FASO Kumantayo",
         "description": "Founded in 2023 under FASO, Kumantayo is the first and only Filipinx American music performance group at the University of Wisconsin–Madison. Our mission is to celebrate Filipinx culture by bringing members together through a shared love of music. We celebrate the music of Filipinx artists while creating a space for members to connect, express themselves, and share cultural pride.",
         "performance": "We'll be performing a set of songs by Filipinx artists that showcase both modern and traditional influences in music. Our performance is about celebrating our culture, sharing representation on campus, and building community through music. Performing at FACT V-Show gives us the opportunity to reach a wider audience and share our love for Filipinx music.",
-        "img": ""
+        "img": "Kumantayo.jpg"
     },
     {
         "name": "Kasa Tigre",
-        "description": "",
+        "description": "KASA TIGRE is the University of Missouri’s new Filipino Dance group, started Spring of 2025. In their first semester of being formed, KASA TIGRE’s group of 12 dancers performed in four university events. Now, with a group of 21 dancers, they now are so grateful to be able to perform at large scale events like FACT, and are ready to continue growing and performing as much as they can.",
         "performance": "",
-        "img": ""
+        "img": "Kasa.jpg"
     },
     {
         "name": "PSA Barkada",
         "description": "We are PSA Barkada, a cultural dance sub-group under the Philippine Student Association at University of Illinois Urbana-Champaign. We perform a variety of cultural dances while dressing in cultural attire representing the tribes and people of the Philippines. We also perform traditional music representing the tribes and aim to shed light on the cultural diversity of the indigenous people of the Philippines.",
         "performance": "We will be performing a cultural portrayal of a Filipino legend using indigenous dances, music, and attire. We would like to perform for FACT V-Show to help provide an insightful and entertaining experience that allows people to understand and appreciate the beauty of indigenous tribes and their culture in the Philippines. The meaning behind our performance is to highlight the indigenous people of the Cordilleran tribes and Bicolano people and provide an entertaining performance for everyone, while providing cultural appreciation.",
-        "img": ""
+        "img": "Barkada.jpg"
     },
     {
         "name": "Sierra Sikora & Lackadays",
-        "description": "",
-        "performance": "",
-        "img": ""
+        "description": "Sierra Sikora is an 19-year-old singer, songwriter, and music producer whose style blends pop, singer-songwriter, and folk influences. Her music, characterized by emotional depth, seeks to connect with listeners and provide comfort through heartfelt lyrics. Sierra has played upwards of thirty shows, including at Chicago's iconic Lincoln Hall and Lollapalooza. She also produces all of her music!",
+        "performance": "Lackadays is a 5-piece band currently based in Urbana-Champaign. They have been performing since their high school days, forming a unique blend of indie, midwest emo, pop, and j-rock. Now, at the University of Illinois, Lackadays has continued to create intimate, original music while putting on heavy, energetic shows in basements, backyards, and concert venues alike, making every show count. Their latest album, From Flame to Flight, is a creative show of hands displaying the band’s versatility in composing and performing anything from intimate, emotional ballads, to catchy and high-energy indie rock hits. Their discography also includes their first EP, Drive Safe, Much Love, and will continue to grow as they hone their craft.",
+        "img": "Sierra.jpg"
     }
 
 ]
