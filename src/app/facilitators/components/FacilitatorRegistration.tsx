@@ -21,7 +21,7 @@ export default function FacilitatorRegistration({
           }[];
 }) {
     const [formData, setFormData] = useState<Object>({});
-    const { registerFacilitators, isPending, isSuccess } =
+    const { registerFacilitators, isPending, isSuccess, error } =
         useRegisterFacilitators();
 
     return (
@@ -52,6 +52,9 @@ export default function FacilitatorRegistration({
                 })}
                 <br />
                 <div className="flex justify-center">
+                    {error && (
+                        <p className="text-red-600 text-center">{error.message}</p>
+                    )}
                     {isSuccess && "Changes saved successfully"}
                     {isPending && !isSuccess && <LoadingCircle />}
                     {!isPending && !isSuccess && (

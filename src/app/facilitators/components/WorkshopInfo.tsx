@@ -48,7 +48,7 @@ export default function WorkshopInfo({ workshopID }: { workshopID: number }) {
         <div className="">
             <h2 className="text-lg font-bold flex justify-between gap-4">
                 Session {workshop.workshop.session}
-                <span className="text-highlight-primary">
+                <span className="text-slate-700 font-semibold">
                     {workshopTime
                         ? `${workshopTime?.startTime} - ${workshopTime?.endTime}`
                         : "TBD"}
@@ -61,7 +61,7 @@ export default function WorkshopInfo({ workshopID }: { workshopID: number }) {
             </p>
             <p>Registered Delegates: {workshop.workshop.registrationCount}</p>
             <br />
-            <div>
+            <div className="hidden">
                 <h2>Facilitator Assistant(s)</h2>
                 <ul>
                     {workshop.facilitator_assistants?.map((fa) => (
