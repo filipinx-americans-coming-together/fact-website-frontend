@@ -17,6 +17,11 @@ export default function FacilitatorRow({
     }[];
     setState(state: Object): void;
 }) {
+    if (registrations) {
+        const userRegistration: {facilitator_name: string; registrations: {workshop: number}[]}[] = [];
+        for (facilitator in registrations)
+        registrations.map((ele, idx, reg) => {registrations.filter((registration) => facilitator_)})
+    }
     return (
         <div className="grid grid-cols-1 gap-4 pb-6 lg:pb-2 lg:gap-2 border-b border-black lg:grid-cols-4 items-start">
             <div>{name}</div>
