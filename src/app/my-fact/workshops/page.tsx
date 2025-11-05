@@ -55,7 +55,7 @@ export default function Workshops() {
                 {!user && <LoadingCircle />}
                 {user && (
                     <>
-                        <div className="text-sm text-slate-700 text-center flex flex-col md:flex-row gap-1 items-center">Just made a change but don't see it? Refresh the page <div className="text-lg"><IoMdRefresh /></div></div>
+                        <div className="text-sm text-slate-700 text-center flex flex-col md:flex-row gap-1 items-center">Just made a change but don&#39;t see it? Refresh the page <div className="text-lg"><IoMdRefresh /></div></div>
                         <WorkshopSelect
                             session={1}
                             id="workshop_1_id"
