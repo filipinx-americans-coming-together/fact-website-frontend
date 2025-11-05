@@ -59,12 +59,7 @@ export default function Profile() {
             router.push("/my-fact/login");
         }
 
-        if (user) {
-            router.refresh();
-        }
-
         if (isSuccess) {
-            // router.refresh();
             router.push("/my-fact/dashboard");
         }
     }, [isSuccess, noUser]);
