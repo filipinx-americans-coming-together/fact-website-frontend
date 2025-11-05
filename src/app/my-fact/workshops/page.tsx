@@ -11,6 +11,7 @@ import { useUser } from "@/hooks/api/useUser";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { IoMdRefresh } from "react-icons/io";
 
 export default function Workshops() {
     const { updateUser, isSuccess, isPending, error } = useUpdateUser();
@@ -54,6 +55,7 @@ export default function Workshops() {
                 {!user && <LoadingCircle />}
                 {user && (
                     <>
+                        <div className="text-sm text-slate-700 text-center flex flex-col md:flex-row gap-1 items-center">Just made a change but don't see it? Refresh the page <div className="text-lg"><IoMdRefresh /></div></div>
                         <WorkshopSelect
                             session={1}
                             id="workshop_1_id"

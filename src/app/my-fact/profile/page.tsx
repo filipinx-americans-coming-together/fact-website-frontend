@@ -15,6 +15,7 @@ import { useVerifyEmail } from "@/hooks/api/useVerifyEmail";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { IoMdRefresh } from "react-icons/io";
 
 export default function Profile() {
     const { user, isLoading, error: noUser } = useUser();
@@ -58,7 +59,12 @@ export default function Profile() {
             router.push("/my-fact/login");
         }
 
+        if (user) {
+            router.refresh();
+        }
+
         if (isSuccess) {
+            // router.refresh();
             router.push("/my-fact/dashboard");
         }
     }, [isSuccess, noUser]);
@@ -80,6 +86,7 @@ export default function Profile() {
 
                 {user && (
                     <>
+                        <div className="text-sm text-slate-700 text-center flex flex-col md:flex-row gap-1 items-center">Just made a change but don't see it? Refresh the page <div className="text-lg"><IoMdRefresh /></div></div>
                         <TextInput
                             label="First Name"
                             id="f_name"
