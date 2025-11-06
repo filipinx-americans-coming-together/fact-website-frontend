@@ -2,6 +2,7 @@ interface InteractiveButtonProps {
     text: string;
     onClick: Function;
     isSubmit?: boolean;
+    disabled?: boolean;
 }
 
 /**
@@ -14,10 +15,11 @@ export default function InteractiveButton({
     text,
     onClick,
     isSubmit = false,
+    disabled = false,
 }: InteractiveButtonProps) {
     return (
         <button
-            className="bg-highlight-2-secondary px-8 py-2 rounded-xs hover:bg-highlight-third"
+            className={`bg-highlight-2-secondary px-8 py-2 rounded-xs ${disabled ? "" : "hover:bg-highlight-third"}`}
             type={isSubmit ? "submit" : "button"}
             id={isSubmit ? "main-submit" : ""}
             onClick={(event) => {
@@ -25,6 +27,7 @@ export default function InteractiveButton({
                 onClick();
                 // [#FF6381]
             }}
+            disabled={disabled}
         >
             {text}
         </button>

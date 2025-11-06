@@ -11,6 +11,8 @@ interface WorkshopSelectProps {
     setState: (state: Object) => void;
     defaultValue?: string;
     required?: boolean;
+    labels?: boolean;
+    disabled?: boolean;
 }
 
 const session_labels = [ "Awareness Workshops", "Personal Growth Workshops", "Professional Skill Workshops" ];
@@ -30,6 +32,8 @@ function WorkshopSelect({
     setState,
     defaultValue,
     required = true,
+    labels = true,
+    disabled = false,
 }: WorkshopSelectProps) {
     const { workshops, isLoading, error } = useWorkshops();
     const { locations, isLoading: isLoadingLocs, error: errorLocs } = useLocations();
@@ -40,20 +44,22 @@ function WorkshopSelect({
         workshops.length > 0 && (
             <SearchableSelect
                 id={id}
-                label={`Session ${session}: ${session_labels[session-1]}`}
+                label={`Session ${session}${labels ? ": " + session_labels[session-1] : ""}`}
                 placeholder="Search for workshops..."
                 setState={setState}
                 defaultValue={
                     defaultValue
                     ? defaultValue
-                    : workshops
-                          .filter(
-                              (workshop: WorkshopData) =>
-                                  workshop.session == session
-                          )[0]
-                          .id.toString()
+                    // : workshops
+                    //       .filter(
+                    //           (workshop: WorkshopData) =>
+                    //               workshop.session == session
+                    //       )[0]
+                    //       .id.toString()
+                    : undefined
                 }
                 required={required}
+                disabled={disabled}
                 options={workshops
                     .filter(
                         (workshop: WorkshopData) => workshop.session == session

@@ -8,14 +8,13 @@ export interface RegisterFacilitatorProps {
 }
 
 async function fetchRegisterFacilitator(
-    props: RegisterFacilitatorProps
+    {facilitator_name, workshops}: RegisterFacilitatorProps
 ): Promise<void> {
-    // for each facilitator make request
 
     const response = await fetchWithCredentials({
         url: `${API_URL}/registration/facilitators/register/`,
         method: "PUT",
-        body: JSON.stringify({props})
+        body: JSON.stringify({facilitator_name: facilitator_name, workshops: workshops})
     })
 
     let json;
