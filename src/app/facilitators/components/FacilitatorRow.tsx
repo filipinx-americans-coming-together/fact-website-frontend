@@ -1,4 +1,7 @@
+import FormContainer from "@/app/admin/components/FormContainer";
 import WorkshopSelect from "@/components/ui/WorkshopSelect";
+import { useRegisterFacilitator } from "@/hooks/api/useRegisterFacilitator";
+import { useState } from "react";
 
 const SESSION_NUMBERS = [1, 2, 3];
 
@@ -6,7 +9,6 @@ export default function FacilitatorRow({
     name,
     facilitatedSessions,
     registrations,
-    setState,
 }: {
     name: string;
     facilitatedSessions: { title: string; session: number }[];
@@ -15,14 +17,26 @@ export default function FacilitatorRow({
         workshop: number;
         session: number;
     }[];
-    setState(state: Object): void;
 }) {
-    if (registrations) {
-        const userRegistration: {facilitator_name: string; registrations: {workshop: number}[]}[] = [];
-        for (facilitator in registrations)
-        registrations.map((ele, idx, reg) => {registrations.filter((registration) => facilitator_)})
-    }
+    const { registerFacilitator, isPending, isSuccess, error } =
+            useRegisterFacilitator();
+    // format facilitator registrations like delegates for workshop select
+    // if (registrations) {
+    //     const userRegistration: {facilitator_name: string; registrations: {workshop: number}[]}[] = [];
+    //     for (facilitator in registrations)
+    //     registrations.map((ele, idx, reg) => {registrations.filter((registration) => facilitator_)})
+    // }
+    const [formData, setFormData] = useState<Object>(
+        
+    );
     return (
+        <FormContainer 
+            onSubmit={registerFacilitator(formData)}
+            formName="registerFacilitator"
+            submitText="Register"
+            isLoading={isPending}
+            errorMessage={error?.message}
+        >
         <div className="grid grid-cols-1 gap-4 pb-6 lg:pb-2 lg:gap-2 border-b border-black lg:grid-cols-4 items-start">
             <div>{name}</div>
             {SESSION_NUMBERS.map((sessionNum) => {
@@ -69,5 +83,6 @@ export default function FacilitatorRow({
                 }
             })}
         </div>
+        </FormContainer>
     );
 }

@@ -23,7 +23,7 @@ async function fetchRegister(props: registrationProps): Promise<{
         body: JSON.stringify(props),
     });
 
-    console.log("props", props)
+    // console.log("props", props)
 
     let json;
 

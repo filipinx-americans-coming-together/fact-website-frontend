@@ -3,8 +3,9 @@
 import InteractiveButton from "@/components/ui/InteractiveButton";
 import FacilitatorRow from "./FacilitatorRow";
 import { useState } from "react";
-import { useRegisterFacilitators } from "@/hooks/api/useRegisterFacilitators";
+import { useRegisterFacilitator } from "@/hooks/api/useRegisterFacilitator";
 import LoadingCircle from "@/components/icons/LoadingCircle";
+import FormContainer from "@/app/admin/components/FormContainer";
 
 export default function FacilitatorRegistration({
     facilitators,
@@ -20,9 +21,9 @@ export default function FacilitatorRegistration({
               session: number;
           }[];
 }) {
-    const [formData, setFormData] = useState<Object>({});
-    const { registerFacilitators, isPending, isSuccess, error } =
-        useRegisterFacilitators();
+    // const [formData, setFormData] = useState<Object>({});
+    const { registerFacilitator, isPending, isSuccess, error } =
+        useRegisterFacilitator();
 
     return (
         <div>
@@ -46,18 +47,18 @@ export default function FacilitatorRegistration({
                                     registration.facilitator_name ===
                                     facilitator
                             )}
-                            setState={setFormData}
+                            // setState={setFormData}
                         />
                     );
                 })}
                 <br />
                 <div className="flex justify-center">
-                    {error && (
+                    {/* {error && (
                         <p className="text-red-600 text-center">{error.message}</p>
                     )}
                     {isSuccess && "Changes saved successfully"}
-                    {isPending && !isSuccess && <LoadingCircle />}
-                    {!isPending && !isSuccess && (
+                    {isPending && !isSuccess && <LoadingCircle />} */}
+                    {/* {!isPending && !isSuccess && (
                         <InteractiveButton
                             text="Save Changes"
                             onClick={() => {
@@ -97,12 +98,12 @@ export default function FacilitatorRegistration({
                                     }
                                 }
 
-                                registerFacilitators({
+                                registerFacilitator({
                                     registrations: registrationData,
                                 });
                             }}
                         />
-                    )}
+                    )} */}
                 </div>
             </div>
         </div>
