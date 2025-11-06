@@ -10,6 +10,7 @@ const LINKS: { label: string; url: string }[] = [
     { label: "Locations", url: "/admin/locations" },
     { label: "Schools", url: "/admin/schools" },
     { label: "Agenda", url: "/admin/agenda" },
+    { label: "Facilitator Accounts", url: "/admin/facilitator-accounts"}
 ];
 
 export default function Navbar() {
