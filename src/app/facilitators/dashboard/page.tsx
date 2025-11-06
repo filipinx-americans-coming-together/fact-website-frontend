@@ -23,7 +23,7 @@ export default function FacilitatorDashboard() {
             return [];
         }
 
-        const result: { title: string; session: number }[] = [];
+        const result: { title: string, workshop: number; session: number }[] = [];
 
         user.workshops.forEach((facilitatorWorkshop) => {
             const workshop = workshops.find(
@@ -33,6 +33,7 @@ export default function FacilitatorDashboard() {
             if (workshop) {
                 result.push({
                     title: workshop.title,
+                    workshop: workshop.id,
                     session: workshop.session,
                 });
             }
@@ -108,7 +109,7 @@ export default function FacilitatorDashboard() {
                     </h1>
                     <br />
                     <div className="flex flex-col gap-6">
-                        {user.workshops.map((facilitatorWorkshop) => (
+                        {facilitatedSessions.sort((a,b) => a.session - b.session).map((facilitatorWorkshop) => (
                             <WorkshopInfo
                                 key={facilitatorWorkshop.workshop}
                                 workshopID={facilitatorWorkshop.workshop}

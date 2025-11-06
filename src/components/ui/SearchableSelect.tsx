@@ -9,6 +9,7 @@ interface SearchableSelectProps {
     placeholder: string;
     defaultValue?: string;
     required?: boolean;
+    disabled?: boolean;
 }
 
 /**
@@ -27,6 +28,7 @@ function SearchableSelect<T>({
     setState,
     defaultValue,
     required = true,
+    disabled = false,
     options,
     placeholder,
 }: SearchableSelectProps) {
@@ -107,6 +109,7 @@ function SearchableSelect<T>({
                     required={required}
                     onClick={handleInputFocused}
                     onFocus={handleInputFocused}
+                    disabled={disabled}
                 />
             )}
 
