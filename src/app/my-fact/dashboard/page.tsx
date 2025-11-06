@@ -16,6 +16,7 @@ import { useEffect } from "react";
 import RegPageContainer from "@/components/formatting/RegPageContainer";
 import { GiGClef } from "react-icons/gi";
 import Link from "next/link";
+import { IoMdRefresh } from "react-icons/io";
 
 export default function Dashboard() {
     const { user, isLoading, error } = useUser();
@@ -76,6 +77,7 @@ export default function Dashboard() {
                                     id={pair.workshop}
                                 />
                             ))}
+                            <div className="text-sm text-slate-700 text-center flex flex-col md:flex-row gap-1 items-center">Just made a change but don&#39;t see it? Refresh the page <div className="text-lg"><IoMdRefresh /></div></div>
                             {flag?.value ? (
                                 <div className="text-center my-6">
                                     <LinkButton
@@ -93,7 +95,10 @@ export default function Dashboard() {
                     </div>
                     </div>
                     <UserAgenda/>
-                    </div> : <Link href="/my-fact/register" className="py-4 px-6 shadow-lg hover:shadow-xl font-bold bg-[rgba(255,255,255,0.3)] rounded-xl w-fit mx-auto text-xl">Register for FACT 2025</Link>
+                    </div> : <div className="flex flex-col gap-4 items-center">
+                        <Link href="/my-fact/register" className="py-4 px-6 shadow-lg hover:shadow-xl font-bold bg-[rgba(255,255,255,0.3)] rounded-xl w-fit mx-auto text-xl">Register for FACT 2025</Link>
+                        <div className="text-sm text-slate-700 text-center flex flex-col md:flex-row gap-1 items-center">Just finished registering? Refresh the page to load the dashboard <div className="text-lg"><IoMdRefresh /></div></div>
+                        </div>
                      }
                     <div className="mx-auto my-6 w-fit text-background-primary">
                 <InteractiveButton

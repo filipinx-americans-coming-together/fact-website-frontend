@@ -15,6 +15,7 @@ import { useVerifyEmail } from "@/hooks/api/useVerifyEmail";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { IoMdRefresh } from "react-icons/io";
 
 export default function Profile() {
     const { user, isLoading, error: noUser } = useUser();
@@ -80,6 +81,7 @@ export default function Profile() {
 
                 {user && (
                     <>
+                        <div className="text-sm text-slate-700 text-center flex flex-col md:flex-row gap-1 items-center">Just made a change but don&#39;t see it? Refresh the page <div className="text-lg"><IoMdRefresh /></div></div>
                         <TextInput
                             label="First Name"
                             id="f_name"
@@ -113,8 +115,9 @@ export default function Profile() {
                             <option value="Sophomore">Sophomore</option>
                             <option value="Junior">Junior</option>
                             <option value="Senior">Senior</option>
-                            <option value="Super Senior">Super Senior</option>
+                            <option value="Grad Student">Grad Student</option>
                             <option value="Other">Other</option>
+                            <option value="N/A">N/A</option>
                         </Select>
 
                         <SchoolSelect
