@@ -54,7 +54,7 @@ export default function Home() {
                     </div>
                     <div className="flex flex-col justify-center items-center text-white gap-8 md:w-1/4">
                         <div className="font-bold">
-                            <CountdownTimer date={new Date("2025-11-15T01:00:00Z")}></CountdownTimer>
+                            <CountdownTimer date={new Date("2025-11-14T00:00:00Z")}></CountdownTimer>
                         </div>
                     </div>
                 </div>
