@@ -45,6 +45,10 @@ export default function Home() {
                                 Proclaim Loudly
                             </div>
                         </div> 
+
+                        <div className="font-bold sm:text-lg md:text-xl lg:text-2xl xl:text-3xl">
+                            November 14th&ndash;16th, 2025
+                        </div>
                         
                         
                         <div className="italic font-light text-xs sm:text-base my-2 mt-4">
