@@ -11,7 +11,7 @@ export async function middleware(request: NextRequest) {
     }
     
     // intercept all pages that use accounts
-    return NextResponse.redirect(new URL('/registration-closed', request.url));
+    return NextResponse.rewrite(new URL('/registration-closed', request.url));
 
     // // get flags
     let flags: ResponseData<{ label: string; value: boolean }>[];
