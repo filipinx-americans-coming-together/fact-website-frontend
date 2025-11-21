@@ -6,12 +6,12 @@ import { ResponseData } from "./util/types";
 // TODO: have conditionals for the different states this file should be in (reg open, reg closed, database off)
 
 export async function middleware(request: NextRequest) {
-    if (request.nextUrl.pathname.startsWith("/refund") || request.nextUrl.pathname.startsWith("/registration-closed")) {
+    if (request.nextUrl.pathname.startsWith("/refund")) {
         return NextResponse.rewrite(new URL('/not-found', request.url));
     }
     
     // intercept all pages that use accounts
-    // return NextResponse.redirect(new URL('/registration-closed', request.url));
+    return NextResponse.redirect(new URL('/registration-closed', request.url));
 
     // // get flags
     let flags: ResponseData<{ label: string; value: boolean }>[];
@@ -42,10 +42,10 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
     matcher: [
-        "/refund", "/registration-closed",
+        "/refund",
         "/my-fact/:path*",
         // "/workshops/:path*",
-        // "/facilitators/:path*",
-        // "/admin/:path*",
+        "/facilitators/:path*",
+        "/admin/:path*",
     ],
 };
