@@ -21,7 +21,7 @@ const NAV_LINKS = [
     { text: "About", path: "/about" },
 	{ text: "Agenda", path: "/agenda" },
     { text: "Workshops", path: "/workshops" },
-    { text: "Variety Show", path: "/variety-show"},
+    // { text: "Variety Show", path: "/variety-show"},
     { text: "Team", path: "/team" },
     { text: "Gallery", path: "/gallery" },
     { text: "FAQ", path: "/faq" },
