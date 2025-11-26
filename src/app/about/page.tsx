@@ -15,7 +15,7 @@ const PDF_URL =
   "https://drive.google.com/file/d/1DYkEqr0mfdsLnzYbCdy_xSr2JNiPvgcZ/view";
 
 export default function About() {
-    const nums = ["600", "25", "3", "18", "12", "14", "19"];
+    const nums = ["705", "26", "3", "35", "10", "24", "24"];
     const caps = ["Delegates", "Schools", "Days", "Workshops", "Variety Show Performers", "Palengke Vendors", "FACT Pack Members"];
   return (
     <PageContainer
@@ -117,7 +117,7 @@ export default function About() {
           boldly, unapologetically, and with purpose.
         </div>
       </div>
-      <div className="-mx-6 sm:mx-0 mt-6 lg:mt-10 bg-highlight-primary p-4 sm:p-6 flex flex-col justify-around rounded-4xl text-center gap-4 sm:gap-6">
+      <div className="-mx-6 sm:mx-0 mt-6 lg:mt-10 bg-[rgba(240,240,240,0.4)] shadow-lg p-4 sm:p-6 flex flex-col justify-around rounded-4xl text-center gap-4 sm:gap-6">
         <div className="font-semibold text-4xl justify-around hidden sm:flex">
             {nums.map((num, index)=>(
                 <div key={index} className="flex-1">{num}</div>
