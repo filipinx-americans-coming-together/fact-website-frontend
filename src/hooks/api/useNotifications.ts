@@ -4,27 +4,30 @@ import { useQuery } from "@tanstack/react-query";
 // import notifications from "./notifications.json";
 
 async function fetchNotifications(): Promise<NotificationData[]> {
-    const response = await fetch(`${API_URL}/fact-admin/notifications`);
-
     let json;
 
-    try {
-        json = await response.json();
-    } catch {
-        throw new Error("Server error, please try again later");
+    if (API_URL.length === 0 ) {
+        json = await fetch('./static-data/notifications.json').then(r=>r.json());
     }
-
-    if (!response.ok) {
-        let message = "Server error, please try again later";
-
-        if (json.message && response.status !== 500) {
-            message = json.message;
+    else {
+        const response = await fetch(`${API_URL}/fact-admin/notifications`);
+        
+        try {
+            json = await response.json();
+        } catch {
+            throw new Error("Server error, please try again later");
         }
 
-        throw new Error(message);
-    }
+        if (!response.ok) {
+            let message = "Server error, please try again later";
 
-    // json = await fetch('./static-data/notifications.json').then(r=>r.json());
+            if (json.message && response.status !== 500) {
+                message = json.message;
+            }
+
+            throw new Error(message);
+        }
+    }
 
     const formatted_data = json.map(
         (

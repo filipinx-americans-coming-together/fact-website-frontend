@@ -15,30 +15,33 @@ async function fetchWorkshop({ id }: { id: number }): Promise<{
     // registrations: number;
     facilitator_assistants?: { name: string; contact: string }[];
 }> {
-    const response = await fetch(`${API_URL}/registration/workshops/${id}`, {
-        credentials: "include",
-    });
-
     let json;
 
-    try {
-        json = await response.json();
-    } catch {
-        throw new Error("Server error, please try again later");
+    if (API_URL.length === 0) {
+        const allWorkshops = await fetch('/static-data/workshops-by-id.json').then(r=>r.json());
+        json = allWorkshops[id.toString()]; 
     }
+    else {
+        const response = await fetch(`${API_URL}/registration/workshops/${id}`, {
+            credentials: "include",
+        });
 
-    if (!response.ok) {
-        let message = "Server error, please try again later";
-
-        if (json.message && response.status !== 500) {
-            message = json.message;
+        try {
+            json = await response.json();
+        } catch {
+            throw new Error("Server error, please try again later");
         }
 
-        throw new Error(message);
-    }
+        if (!response.ok) {
+            let message = "Server error, please try again later";
 
-    // const allWorkshops = await fetch('/static-data/workshops-by-id.json').then(r=>r.json());
-    // json = allWorkshops[id.toString()];
+            if (json.message && response.status !== 500) {
+                message = json.message;
+            }
+
+            throw new Error(message);
+        }
+    }
 
     const workshopData = json.workshop[0];
 
